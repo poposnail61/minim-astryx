@@ -350,7 +350,7 @@ export function AvatarStatusDot({
       ref={rootRef}
       {...(label ? {role: 'img', 'aria-label': label} : undefined)}
       {...mergeProps(
-        themeProps('avatar-status-dot', {variant}),
+        themeProps('avatar-status-dot', {variant, sizeTier: tier}),
         stylex.props(
           styles.dot,
           variantStyleMap[variant],

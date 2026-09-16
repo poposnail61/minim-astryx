@@ -36,15 +36,7 @@ import type {ComponentEntry} from '../../generated/componentRegistry';
 import type {BlockEntry} from '../../generated/blockRegistry';
 import {showcaseRegistry} from '../../generated/showcaseRegistry';
 import {exampleRegistry} from '../../generated/exampleRegistry';
-import {
-  shadcnRegistryIsPreview,
-  shadcnRegistryOrigin,
-} from '../../generated/shadcnRegistry';
 import {trackNavigate} from '../../lib/analytics';
-import {
-  shadcnComponentItemPath,
-  shadcnInstallCommand,
-} from '../../lib/shadcnRegistry.mjs';
 
 const styles = stylex.create({
   section: {
@@ -167,37 +159,6 @@ function OverviewContent({
             {(exampleRegistry[comp.name] || []).map((entry, i) => (
               <ExampleBlock key={i} entry={entry} componentName={comp.name} />
             ))}
-          </VStack>
-        </>
-      )}
-
-      {CURRENT_TARGET === 'canary' && pkg && pkgVersion && (
-        <>
-          <Divider />
-          <VStack gap={2}>
-            <Heading level={2} type="display-3">
-              Use with shadcn
-            </Heading>
-            <MarkdownText type="body">
-              Already using the shadcn registry workflow? Install the real
-              Astryx package and a local public re-export. Component
-              implementation source stays in Astryx. [How compatibility
-              works](/docs/shadcn-compatibility).
-            </MarkdownText>
-            {shadcnRegistryIsPreview && (
-              <Text type="supporting" color="secondary">
-                This install URL expires with the draft preview.
-              </Text>
-            )}
-            <CodeExampleBlock
-              code={shadcnInstallCommand(
-                shadcnComponentItemPath(pkg, comp.name, isHook, comp.registry),
-                shadcnRegistryOrigin,
-              )}
-              language="bash"
-              width="100%"
-              hasCopyButton
-            />
           </VStack>
         </>
       )}

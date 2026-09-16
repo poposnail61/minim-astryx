@@ -99,17 +99,12 @@ This draft does not change or extend Kbd's existing accessible-name behavior.
 ```json
 {
   "Shortcut": {"target": "kbd"},
-  "Key badge": {
-    "none": {
-      "reason": "unsettled: No current public target reaches this part"
-    }
-  }
+  "Key badge": {"target": "kbd-key"}
 }
 ```
 
-The `none` disposition records current reachability while target exposure remains
-unsettled. It does not decide that key badges should remain without a public
-target.
+The key badge target styles each rendered key while the root target owns the
+complete shortcut group.
 
 ## Family and system relationships
 

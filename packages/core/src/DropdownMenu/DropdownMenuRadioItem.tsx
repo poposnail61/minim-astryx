@@ -14,11 +14,10 @@
  * state + onChange come from DropdownMenuRadioGroupContext. Keyboard nav +
  * Enter/Space activation come from the parent DropdownMenu.
  *
- * The round radio visual is the shared radio indicator, decorative
- * (aria-hidden) — the row owns the checked state, and menu radios pick up the
- * same `radio` theming (and any theme replacement) as RadioList. This row keeps
- * the marker box: its size is derived from the menu's item size and it swaps to
- * the inline-end of the row on coarse-pointer (touch) devices via CSS `order`.
+ * The round radio visual is decorative (aria-hidden): the row owns the checked
+ * state. Themes may provide a menu-specific indicator; otherwise it falls back
+ * to the shared radio indicator. Its size follows the menu item size and it
+ * swaps to the inline-end on coarse-pointer devices via CSS `order`.
  */
 
 import {useCallback, type PointerEvent, type ReactNode} from 'react';
@@ -143,7 +142,9 @@ export function DropdownMenuRadioItem({
   const menuSize = menuCtx?.menuSize ?? 'md';
   const controlSize = menuSize === 'sm' ? 'sm' : 'md';
   const isChecked = groupCtx.value === value;
-  const RadioControl = useIndicator('radio');
+  const MenuRadioControl = useIndicator('menu-radio');
+  const SharedRadioControl = useIndicator('radio');
+  const RadioControl = MenuRadioControl ?? SharedRadioControl;
 
   const handleClick = useCallback(() => {
     if (isDisabled) {
@@ -193,10 +194,12 @@ export function DropdownMenuRadioItem({
       onClick={handleClick}
       isDisabled={isDisabled}
       xstyle={[styles.root, isDisabled && styles.disabled, xstyle]}
-      {...mergeProps(themeProps('dropdown-menu-item', {size: menuSize}), {
+      {...mergeProps(
+        themeProps('dropdown-menu-item', {size: menuSize}),
+        themeProps('menu-radio-row', {size: menuSize}),
         className,
         style,
-      })}
+      )}
     />
   );
 }

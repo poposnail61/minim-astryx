@@ -110,7 +110,7 @@ jobs:
   deploy-screenshots:
     name: Deploy Screenshots to gh-pages
     needs: screenshot
-    if: ${{ github.event.inputs.deploy_to_gh_pages != 'false' }}
+    if: ${{ github.repository == 'facebook/astryx' && github.event.inputs.deploy_to_gh_pages != 'false' }}
     runs-on: ubuntu-slim
     permissions:
       actions: read

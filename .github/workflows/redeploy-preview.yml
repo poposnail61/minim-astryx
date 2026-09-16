@@ -21,6 +21,7 @@ concurrency:
 
 jobs:
   redeploy-preview:
+    if: github.repository == 'facebook/astryx'
     runs-on: ubuntu-slim
     permissions:
       actions: read

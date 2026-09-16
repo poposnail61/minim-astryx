@@ -173,7 +173,9 @@ export const docs = {
   ],
   theming: {
     targets: [
-      {className: 'astryx-text-input', visualProps: ['size', 'status'], states: ['disabled', 'readonly']},
+      {className: 'astryx-text-input', visualProps: ['size', 'status', 'statusMessage'], states: ['disabled', 'readonly']},
+      {className: 'astryx-text-input-control', visualProps: ['size', 'disabled']},
+      {className: 'astryx-input-start-icon', visualProps: ['size']},
     ],
   },
   usage: {
@@ -352,7 +354,9 @@ export const docsZh = {
   ],
   theming: {
     targets: [
-      {className: 'astryx-text-input', visualProps: ['size', 'status'], states: ['disabled', 'readonly']},
+      {className: 'astryx-text-input', visualProps: ['size', 'status', 'statusMessage'], states: ['disabled', 'readonly']},
+      {className: 'astryx-text-input-control', visualProps: ['size', 'disabled']},
+      {className: 'astryx-input-start-icon', visualProps: ['size']},
     ],
   },
   usage: {

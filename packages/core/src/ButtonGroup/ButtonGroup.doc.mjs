@@ -15,7 +15,7 @@ export const docs = {
   },
   theming: {
     targets: [
-      {className: 'astryx-button-group', visualProps: ['size', 'orientation', 'elevation']},
+      {className: 'astryx-button-group', visualProps: ['size', 'orientation', 'elevation', 'variant']},
     ],
   },
   components: [
@@ -27,7 +27,8 @@ export const docs = {
         {name: 'children', type: 'ReactNode', description: 'Button or IconButton children.', required: true, slotElements: [{__element: 'Button', props: {label: 'Action'}}]},
         {name: 'label', type: 'string', description: 'Accessible label for the group (aria-label).', required: true},
         {name: 'orientation', type: "'horizontal' | 'vertical'", description: 'Layout direction of the button group.', default: "'horizontal'"},
-        {name: 'size', type: "'sm' | 'md' | 'lg'", description: 'Default size for buttons in the group. Individual buttons can override.', default: "'md'"},
+        {name: 'variant', type: "'neutral' | 'outline' | 'subtle'", description: 'Visual surface variant.', default: "'neutral'"},
+        {name: 'size', type: "'sm' | 'md' | 'lg' | 'xl'", description: 'Default size for buttons in the group. Individual buttons can override.', default: "'md'"},
         {name: 'isDisabled', type: 'boolean', description: 'Whether all buttons in the group are disabled.', default: 'false'},
         {name: 'elevation', type: "'none' | 'low' | 'med' | 'high'", description: 'Resting shadow depth for the whole group. The connected buttons share one surface, so the shadow lifts them as a unit. Use for a group that floats above content.', default: "'none'"},
         {name: 'ref', type: 'React.Ref<HTMLDivElement>', description: 'Ref forwarded to the root element.'},

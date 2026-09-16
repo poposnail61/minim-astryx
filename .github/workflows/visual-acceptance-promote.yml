@@ -175,6 +175,7 @@ jobs:
   promote:
     needs: resolve
     if: >-
+      github.repository == 'facebook/astryx' &&
       needs.resolve.outputs.validation_ok == 'true' &&
       needs.resolve.outputs.acceptance_found == 'true'
     runs-on: 2-core-ubuntu-arm
@@ -395,7 +396,7 @@ jobs:
 
   project-status:
     needs: [resolve, promote]
-    if: always() && needs.resolve.outputs.head_sha != ''
+    if: always() && github.repository == 'facebook/astryx' && needs.resolve.outputs.head_sha != ''
     runs-on: ubuntu-slim
     timeout-minutes: 5
     permissions:

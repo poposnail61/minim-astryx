@@ -266,7 +266,12 @@ export function Citation({
         style,
       )}>
       {hasIcon && (
-        <span aria-hidden="true" {...stylex.props(styles.iconWrap)}>
+        <span
+          aria-hidden="true"
+          {...mergeProps(
+            themeProps('citation-icon'),
+            stylex.props(styles.iconWrap),
+          )}>
           {iconNode != null ? (
             renderIconSlot(iconNode, {size: 'sm'})
           ) : (
@@ -274,7 +279,13 @@ export function Citation({
           )}
         </span>
       )}
-      <span {...stylex.props(styles.labelText)}>{title}</span>
+      <span
+        {...mergeProps(
+          themeProps('citation-label'),
+          stylex.props(styles.labelText),
+        )}>
+        {title}
+      </span>
     </Tag>
   );
 }

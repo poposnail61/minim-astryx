@@ -174,6 +174,10 @@ export interface IndicatorMap {
   radio: 'singleSelection';
   /** The box of a checkbox control, including its partial state. */
   checkbox: 'multiSelection';
+  /** Checkbox visual used by dropdown-menu checkbox rows. */
+  'menu-checkbox': 'multiSelection';
+  /** Radio visual used by dropdown-menu radio rows. */
+  'menu-radio': 'singleSelection';
 }
 
 export type IndicatorName = keyof IndicatorMap & string;

@@ -18,7 +18,7 @@ import {createContext, use} from 'react';
 /**
  * Standard element sizes used across interactive components.
  */
-export type ElementSize = 'sm' | 'md' | 'lg';
+export type ElementSize = 'sm' | 'md' | 'lg' | 'xl';
 
 /**
  * Context for cascading a default size from container to children.

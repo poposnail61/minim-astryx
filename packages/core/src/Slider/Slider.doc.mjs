@@ -247,6 +247,7 @@ export const docs = {
         states: ['disabled'],
       },
       {className: 'astryx-slider-track', visualProps: ['orientation']},
+      {className: 'astryx-slider-mark', visualProps: ['orientation']},
       {
         className: 'astryx-slider-thumb',
         visualProps: ['orientation'],
@@ -433,6 +434,7 @@ export const docsZh = {
         states: ['disabled'],
       },
       {className: 'astryx-slider-track', visualProps: ['orientation']},
+      {className: 'astryx-slider-mark', visualProps: ['orientation']},
       {
         className: 'astryx-slider-thumb',
         visualProps: ['orientation'],

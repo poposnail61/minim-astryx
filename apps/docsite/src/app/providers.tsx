@@ -2,68 +2,59 @@
 
 'use client';
 
-import {createContext, useContext, useEffect, useState} from 'react';
+import {createContext, useContext, useState} from 'react';
 import Link from 'next/link';
 import {Theme} from '@astryxdesign/core/theme';
 import {LinkProvider} from '@astryxdesign/core/Link';
-import {astryxTheme} from '../themes/astryx';
+import {minimCompactTheme, minimTheme} from '@astryxdesign/theme-minim/built';
 
 type ThemeMode = 'light' | 'dark';
+export type MinimDensity = 'base' | 'compact';
 
-const ThemeModeContext = createContext<{
-  /** Resolved color mode for UI consumers (toggle icon, ColorSwatch). */
+type SiteThemeContextValue = {
+  /** Resolved color mode retained for existing docsite consumers. */
   mode: ThemeMode;
-  /**
-   * Raw, system-aware mode for theme rendering. Stays 'system' on the first
-   * paint so nested <Theme> scopes keep `color-scheme: light dark` and their
-   * light-dark() tokens follow the OS preference — no flash before the OS mode
-   * resolves (#2713).
-   */
+  /** Raw mode retained for existing theme-preview consumers. */
   themeMode: 'system' | ThemeMode;
+  /** Minim only has a light mode, so this compatibility action is inert. */
   toggleMode: () => void;
-}>({
+  density: MinimDensity;
+  setDensity: (density: MinimDensity) => void;
+};
+
+const noop = () => {};
+
+const ThemeModeContext = createContext<SiteThemeContextValue>({
   mode: 'light',
-  themeMode: 'system',
-  toggleMode: () => {},
+  themeMode: 'light',
+  toggleMode: noop,
+  density: 'base',
+  setDensity: noop,
 });
 
 export function useThemeMode() {
   return useContext(ThemeModeContext);
 }
 
+export function useMinimDensity() {
+  const {density, setDensity} = useContext(ThemeModeContext);
+  return {density, setDensity};
+}
+
 export function Providers({children}: {children: React.ReactNode}) {
-  // Start in 'system' so SSR and the first paint defer to the OS scheme via
-  // reset.css's `color-scheme: light dark` + light-dark() tokens — no flash,
-  // no script (#2713). The effect resolves it to a concrete 'light'/'dark'
-  // (visually identical) and tracks OS changes until the user toggles.
-  // A fully SSR-correct manual toggle would need a server-read cookie; left
-  // out of scope here.
-  const [mode, setMode] = useState<'system' | ThemeMode>('system');
-  const [isManual, setIsManual] = useState(false);
-
-  useEffect(() => {
-    if (isManual) {
-      return;
-    }
-    const mq = window.matchMedia('(prefers-color-scheme: dark)');
-    const sync = () => setMode(mq.matches ? 'dark' : 'light');
-    sync();
-    mq.addEventListener('change', sync);
-    return () => mq.removeEventListener('change', sync);
-  }, [isManual]);
-
-  const toggleMode = () => {
-    setIsManual(true);
-    setMode(m => (m === 'dark' ? 'light' : 'dark'));
-  };
-
-  // Expose a concrete light/dark to consumers (toggle icons, ColorSwatch).
-  // 'system' only survives the first render before the effect resolves it.
-  const resolvedMode: ThemeMode = mode === 'dark' ? 'dark' : 'light';
+  const [density, setDensity] = useState<MinimDensity>('base');
+  const theme = density === 'compact' ? minimCompactTheme : minimTheme;
 
   return (
-    <ThemeModeContext value={{mode: resolvedMode, themeMode: mode, toggleMode}}>
-      <Theme theme={astryxTheme} mode={mode}>
+    <ThemeModeContext
+      value={{
+        mode: 'light',
+        themeMode: 'light',
+        toggleMode: noop,
+        density,
+        setDensity,
+      }}>
+      <Theme theme={theme} mode="light">
         <LinkProvider component={Link}>{children}</LinkProvider>
       </Theme>
     </ThemeModeContext>

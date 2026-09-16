@@ -63,6 +63,13 @@ export const defaultIcons: IconRegistry &
     </svg>
   ),
 
+  /** Token remove action; defaults to the standard close glyph. */
+  'token:remove': (
+    <svg {...svgProps}>
+      <path d="M6 6l12 12M6 18L18 6" />
+    </svg>
+  ),
+
   /** ▾ — downward chevron */
   chevronDown: (
     <svg {...svgProps}>

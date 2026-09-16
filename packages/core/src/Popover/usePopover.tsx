@@ -501,6 +501,7 @@ function usePopoverImplementation(
             role={role === 'dialog' ? 'dialog' : undefined}
             aria-modal={role === 'dialog' && isModal ? true : undefined}
             aria-label={role === 'dialog' ? dialogLabel : undefined}
+            data-mode={props?.['data-mode']}
             tabIndex={role === 'dialog' ? -1 : undefined}
             {...mergeProps(
               {...surfaceProps, className: surfaceClassName},

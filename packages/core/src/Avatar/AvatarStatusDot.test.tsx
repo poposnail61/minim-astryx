@@ -32,6 +32,13 @@ function renderDot(
 }
 
 describe('AvatarStatusDot', () => {
+  it('reflects its resolved source size tier for themes', () => {
+    expect(renderDot({label: 'Online'}, 48)).toHaveAttribute(
+      'data-size-tier',
+      'medium',
+    );
+  });
+
   describe('shape glyphs (WCAG 1.4.1 — colour is not the only signal)', () => {
     it('renders no glyph for success: the plain filled dot is the reference shape', () => {
       const dot = renderDot({variant: 'success'});

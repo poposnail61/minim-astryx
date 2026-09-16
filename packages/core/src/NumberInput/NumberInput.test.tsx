@@ -2262,6 +2262,31 @@ describe('NumberInput stepping', () => {
 });
 
 describe('NumberInput disabled theme state', () => {
+  it('exposes size-aware control and start-icon theme slots', () => {
+    const {container} = render(
+      <NumberInput
+        label="Quantity"
+        value={1}
+        onChange={() => {}}
+        size="lg"
+        startIcon="info"
+        status={{type: 'warning', message: 'Check quantity'}}
+      />,
+    );
+
+    expect(container.querySelector('.astryx-number-input')).toHaveAttribute(
+      'data-status-message',
+      'attached',
+    );
+    expect(
+      container.querySelector('.astryx-number-input-control'),
+    ).toHaveAttribute('data-size', 'lg');
+    expect(container.querySelector('.astryx-input-start-icon')).toHaveAttribute(
+      'data-size',
+      'lg',
+    );
+  });
+
   it('reflects disabled on the root target so themes can gate paint on it', () => {
     const {container} = render(
       <NumberInput
@@ -2273,6 +2298,9 @@ describe('NumberInput disabled theme state', () => {
     );
     const root = container.querySelector('.astryx-number-input');
     expect(root).toHaveAttribute('data-disabled', 'disabled');
+    expect(
+      container.querySelector('.astryx-number-input-control'),
+    ).toHaveAttribute('data-disabled', 'disabled');
   });
 
   it('omits data-disabled when enabled, like status does', () => {

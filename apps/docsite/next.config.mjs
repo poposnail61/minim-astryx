@@ -63,7 +63,7 @@ const nextConfig = {
       config.resolve.alias[`@astryxdesign/theme-${t}/theme.css`] = resolve(
         themesDir,
         t,
-        'dist/theme.css',
+        t === 'minim' ? 'dist/minim-family.css' : 'dist/theme.css',
       );
     }
 

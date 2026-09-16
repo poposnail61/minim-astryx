@@ -1027,6 +1027,31 @@ describe('TextInput statusVariant forwarding', () => {
 });
 
 describe('TextInput disabled theme state', () => {
+  it('exposes size-aware control and start-icon theme slots', () => {
+    const {container} = render(
+      <TextInput
+        label="Search"
+        value=""
+        onChange={() => {}}
+        size="lg"
+        startIcon="search"
+        status={{type: 'success', message: 'Available'}}
+      />,
+    );
+
+    expect(container.querySelector('.astryx-text-input')).toHaveAttribute(
+      'data-status-message',
+      'attached',
+    );
+    expect(
+      container.querySelector('.astryx-text-input-control'),
+    ).toHaveAttribute('data-size', 'lg');
+    expect(container.querySelector('.astryx-input-start-icon')).toHaveAttribute(
+      'data-size',
+      'lg',
+    );
+  });
+
   // Reflecting isDisabled on the root theming target lets a theme gate its own
   // hover/border treatment on disabled (data-disabled + a .disabled variant),
   // mirroring how status is reflected — without structural :has() CSS.
@@ -1036,6 +1061,9 @@ describe('TextInput disabled theme state', () => {
     );
     const root = container.querySelector('.astryx-text-input');
     expect(root).toHaveAttribute('data-disabled', 'disabled');
+    expect(
+      container.querySelector('.astryx-text-input-control'),
+    ).toHaveAttribute('data-disabled', 'disabled');
   });
 
   it('omits data-disabled when enabled, like status does', () => {

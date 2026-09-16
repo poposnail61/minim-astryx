@@ -37,6 +37,7 @@ concurrency:
 jobs:
   # Build Storybook once and audit the full story index
   audit:
+    if: github.repository == 'facebook/astryx'
     runs-on: 2-core-ubuntu-arm
     permissions:
       contents: read
@@ -116,7 +117,7 @@ jobs:
   # a crashed scan should be visible as an issue, not just a red run.
   report-issue:
     needs: [audit]
-    if: ${{ !cancelled() && needs.audit.outputs.status != 'clean' }}
+    if: ${{ github.repository == 'facebook/astryx' && !cancelled() && needs.audit.outputs.status != 'clean' }}
     runs-on: ubuntu-slim
     permissions:
       issues: write

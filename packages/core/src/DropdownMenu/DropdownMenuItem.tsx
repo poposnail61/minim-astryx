@@ -87,6 +87,7 @@ const itemSizeStyles = stylex.create({
     paddingBlock: spacingVars['--spacing-1-5'],
   },
   lg: {},
+  xl: {},
 });
 
 export interface DropdownMenuItemProps extends Pick<

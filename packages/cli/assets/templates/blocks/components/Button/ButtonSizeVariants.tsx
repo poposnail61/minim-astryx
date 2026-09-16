@@ -7,9 +7,9 @@ import {Stack} from '@astryxdesign/core/Layout';
 import {Text} from '@astryxdesign/core/Text';
 
 const SIZES = [
-  {size: 'sm' as const, label: 'Small'},
   {size: 'md' as const, label: 'Medium'},
   {size: 'lg' as const, label: 'Large'},
+  {size: 'xl' as const, label: 'Extra large'},
 ];
 
 export default function ButtonSizeVariants() {
@@ -19,7 +19,7 @@ export default function ButtonSizeVariants() {
         <Text type="supporting" color="secondary">
           Primary
         </Text>
-        <Stack direction="horizontal" gap={3} vAlign="center">
+        <Stack direction="horizontal" gap={3} vAlign="center" wrap="wrap">
           {SIZES.map(({size, label}) => (
             <Button key={size} label={label} variant="primary" size={size} />
           ))}
@@ -27,11 +27,11 @@ export default function ButtonSizeVariants() {
       </Stack>
       <Stack direction="vertical" gap={1}>
         <Text type="supporting" color="secondary">
-          Secondary
+          Neutral
         </Text>
-        <Stack direction="horizontal" gap={3} vAlign="center">
+        <Stack direction="horizontal" gap={3} vAlign="center" wrap="wrap">
           {SIZES.map(({size, label}) => (
-            <Button key={size} label={label} variant="secondary" size={size} />
+            <Button key={size} label={label} variant="neutral" size={size} />
           ))}
         </Stack>
       </Stack>

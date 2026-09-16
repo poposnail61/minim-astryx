@@ -7,7 +7,8 @@ export const docs = {
   subComponentOf: 'Breadcrumbs',
   displayName: 'Breadcrumb Item',
   isHiddenFromOverview: true,
-  description: 'Individual breadcrumb item that renders as a link when href is provided, or as plain text for the current page.',
+  description:
+    'Individual breadcrumb item that renders as a link when href is provided, or as plain text for the current page.',
   usage: {
     description:
       'BreadcrumbItem represents one destination, action, current location, or sibling-menu trigger inside a Breadcrumbs trail.',
@@ -57,14 +58,15 @@ export const docs = {
     },
     {
       name: 'menuSize',
-      type: "'sm' | 'md' | 'lg'",
+      type: "'sm' | 'md' | 'lg' | 'xl'",
       description:
         "Size passed to the menu items. Defaults from the breadcrumb variant ('supporting' → 'sm', otherwise 'md').",
     },
     {
       name: 'as',
       type: 'LinkComponentType',
-      description: 'Custom link component to render instead of <a>. Overrides the provider-level default from LinkProvider. Only applies to non-current items.',
+      description:
+        'Custom link component to render instead of <a>. Overrides the provider-level default from LinkProvider. Only applies to non-current items.',
     },
   ],
 };
@@ -110,14 +112,15 @@ export const docsZh = {
     },
     {
       name: 'menuSize',
-      type: "'sm' | 'md' | 'lg'",
+      type: "'sm' | 'md' | 'lg' | 'xl'",
       description:
         "传递给菜单项的尺寸。默认根据面包屑变体推断（'supporting' → 'sm'，否则 'md'）。",
     },
     {
       name: 'as',
       type: 'LinkComponentType',
-      description: '自定义链接组件，代替 <a> 渲染。覆盖 LinkProvider 设置的默认值。仅适用于非当前项。',
+      description:
+        '自定义链接组件，代替 <a> 渲染。覆盖 LinkProvider 设置的默认值。仅适用于非当前项。',
     },
   ],
 };
@@ -126,7 +129,8 @@ export const docsDense = {
   name: 'BreadcrumbItem',
   isHiddenFromOverview: true,
   displayName: 'Breadcrumb Item',
-  description: 'individual breadcrumb; link w/ href, plain text for current page',
+  description:
+    'individual breadcrumb; link w/ href, plain text for current page',
   propDescriptions: {
     children: 'label content',
     href: 'link URL; omit for non-navigable items',
@@ -135,7 +139,7 @@ export const docsDense = {
       'marks current page w/ aria-current="page"; omitted auto-detects the last item; false opts out',
     startIcon: 'icon before label',
     menu: 'DropdownMenuOption[] | children; opens a menu trigger (aria-haspopup="menu"); reuses the DropdownMenu item API',
-    menuSize: "menu item size; defaults from variant (supporting→sm, else md)",
+    menuSize: 'menu item size; defaults from variant (supporting→sm, else md)',
     as: 'custom link component; overrides LinkProvider default',
   },
 };

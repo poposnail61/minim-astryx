@@ -44,13 +44,13 @@ const styles = stylex.create({
     containerType: 'inline-size',
   },
   content: {
-    padding: spacingVars['--spacing-4'],
+    padding: `var(--power-search-popover-padding, ${spacingVars['--spacing-3']})`,
   },
   chipRow: {
     flexWrap: {default: 'nowrap', [CHIP_ROW_COLLAPSE]: 'wrap'},
   },
   footer: {
-    padding: spacingVars['--spacing-3'],
+    padding: `var(--power-search-popover-padding, ${spacingVars['--spacing-3']})`,
     paddingTop: 0,
   },
   fieldSelector: {

@@ -38,6 +38,7 @@ concurrency:
 
 jobs:
   source:
+    if: github.repository == 'facebook/astryx'
     runs-on: ubuntu-slim
     permissions:
       pages: read
@@ -58,7 +59,7 @@ jobs:
 
   deploy:
     needs: source
-    if: needs.source.outputs.workflow == 'true'
+    if: github.repository == 'facebook/astryx' && needs.source.outputs.workflow == 'true'
     # The published branch is several GiB and contains hundreds of thousands of
     # files. ubuntu-slim has a 15-minute hard job limit, which can interrupt the
     # archive created by upload-pages-artifact before it reaches the upload step.

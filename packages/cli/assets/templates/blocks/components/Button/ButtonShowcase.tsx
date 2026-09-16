@@ -7,11 +7,14 @@ import {Stack} from '@astryxdesign/core/Layout';
 
 export default function ButtonShowcase() {
   return (
-    <Stack direction="horizontal" gap={3} vAlign="center">
+    <Stack direction="horizontal" gap={3} vAlign="center" wrap="wrap">
       <Button label="Primary" variant="primary" />
-      <Button label="Secondary" variant="secondary" />
+      <Button label="Neutral" variant="neutral" />
+      <Button label="Neutral subtle" variant="neutral-subtle" />
+      <Button label="Critical subtle" variant="critical-subtle" />
       <Button label="Ghost" variant="ghost" />
-      <Button label="Destructive" variant="destructive" />
+      <Button label="Outline" variant="outline" />
+      <Button label="Critical" variant="critical" />
     </Stack>
   );
 }

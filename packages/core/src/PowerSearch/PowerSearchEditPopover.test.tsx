@@ -151,6 +151,13 @@ describe('PowerSearch', () => {
 
     // The edit popover should show "Status" as the selected field
     expect(getEditPopoverText(container)).toContain('Status');
+    expect(screen.getByText('Cancel').closest('[popover]')).toHaveClass(
+      'astryx-power-search-popover',
+    );
+    expect(screen.getByText('Cancel').closest('[popover]')).toHaveAttribute(
+      'data-mode',
+      'value-editor',
+    );
 
     // Close the popover
     act(() => {

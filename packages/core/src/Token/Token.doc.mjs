@@ -6,7 +6,17 @@ export const docs = {
   name: 'Token',
   displayName: 'Token',
   category: 'Content',
-  keywords: ["token","chip","tag","pill","label","removable","dismissible","filter chip","closable"],
+  keywords: [
+    'token',
+    'chip',
+    'tag',
+    'pill',
+    'label',
+    'removable',
+    'dismissible',
+    'filter chip',
+    'closable',
+  ],
   props: [
     {
       name: 'label',
@@ -86,28 +96,81 @@ export const docs = {
       description:
         'StyleX styles for layout customization (margins, positioning, sizing). Must be a stylex.create() value, not an inline style object like style={{}}.',
     },
-  ],  theming: {
+  ],
+  theming: {
     targets: [
       {className: 'astryx-token', visualProps: ['color', 'size']},
+      {className: 'astryx-token-icon', visualProps: ['size']},
+      {className: 'astryx-token-label', visualProps: ['size']},
+      {className: 'astryx-token-end-content', visualProps: ['size']},
+      {className: 'astryx-token-remove', visualProps: ['size']},
     ],
   },
   usage: {
     description:
       'Token is a small, inline element for representing discrete pieces of associated data, like tags, categories, or selections. Use it to label content, show active filters, or represent removable items like selected recipients in a compose field.',
     bestPractices: [
-      {guidance: true, description: 'Use color to distinguish categories (for example, green for "Active", red for "Blocked", blue for "In Review") so users can scan status at a glance.'},
-      {guidance: true, description: 'Provide an onRemove callback when tokens represent user selections that can be undone, like filters or multi-select values.'},
-      {guidance: true, description: 'Add a leading icon when it helps identify the token type faster, like a person icon for user tokens or a tag icon for labels.'},
-      {guidance: true, description: 'Keep labels short: one to three words. Tokens truncate with ellipsis when the text overflows.'},
-      {guidance: false, description: 'Don\'t use tokens for primary actions or navigation; use Button or Link instead. Tokens are for displaying metadata, not triggering workflows.'},
-      {guidance: false, description: 'Don\'t hide the label unless the icon alone is universally understood. A color dot without text is ambiguous.'},
-      {guidance: false, description: 'Don\'t mix too many colors in one token group. Stick to two or three meaningful colors so the palette stays scannable.'},
+      {
+        guidance: true,
+        description:
+          'Use color to distinguish categories (for example, green for "Active", red for "Blocked", blue for "In Review") so users can scan status at a glance.',
+      },
+      {
+        guidance: true,
+        description:
+          'Provide an onRemove callback when tokens represent user selections that can be undone, like filters or multi-select values.',
+      },
+      {
+        guidance: true,
+        description:
+          'Add a leading icon when it helps identify the token type faster, like a person icon for user tokens or a tag icon for labels.',
+      },
+      {
+        guidance: true,
+        description:
+          'Keep labels short: one to three words. Tokens truncate with ellipsis when the text overflows.',
+      },
+      {
+        guidance: false,
+        description:
+          "Don't use tokens for primary actions or navigation; use Button or Link instead. Tokens are for displaying metadata, not triggering workflows.",
+      },
+      {
+        guidance: false,
+        description:
+          "Don't hide the label unless the icon alone is universally understood. A color dot without text is ambiguous.",
+      },
+      {
+        guidance: false,
+        description:
+          "Don't mix too many colors in one token group. Stick to two or three meaningful colors so the palette stays scannable.",
+      },
     ],
     anatomy: [
-      {name: 'Icon', required: false, description: 'A leading icon that identifies the token type, like a user avatar or category symbol.'},
-      {name: 'Label', required: true, description: 'The visible text. Also used as the accessible name when isLabelHidden is true.'},
-      {name: 'End content', required: false, description: 'Trailing content after the label, like a count badge or status dot.'},
-      {name: 'Remove button', required: false, description: 'An X button that appears when onRemove is provided, letting users dismiss the token.'},
+      {
+        name: 'Icon',
+        required: false,
+        description:
+          'A leading icon that identifies the token type, like a user avatar or category symbol.',
+      },
+      {
+        name: 'Label',
+        required: true,
+        description:
+          'The visible text. Also used as the accessible name when isLabelHidden is true.',
+      },
+      {
+        name: 'End content',
+        required: false,
+        description:
+          'Trailing content after the label, like a count badge or status dot.',
+      },
+      {
+        name: 'Remove button',
+        required: false,
+        description:
+          'An X button that appears when onRemove is provided, letting users dismiss the token.',
+      },
     ],
   },
 };
@@ -143,8 +206,7 @@ export const docsZh = {
     {
       name: 'isDisabled',
       type: 'boolean',
-      description:
-        '标记是否被禁用；降低透明度并阻止交互。',
+      description: '标记是否被禁用；降低透明度并阻止交互。',
       default: 'false',
     },
     {
@@ -162,20 +224,17 @@ export const docsZh = {
     {
       name: 'href',
       type: 'string',
-      description:
-        '链接 URL。提供时，标记渲染为 <a> 元素。',
+      description: '链接 URL。提供时，标记渲染为 <a> 元素。',
     },
     {
       name: 'description',
       type: 'string',
-      description:
-        '通过 aria-description 应用于根元素的无障碍描述。',
+      description: '通过 aria-description 应用于根元素的无障碍描述。',
     },
     {
       name: 'endContent',
       type: 'ReactNode',
-      description:
-        '在标签之后、移除按钮之前渲染的内容。',
+      description: '在标签之后、移除按钮之前渲染的内容。',
     },
     {
       name: 'isLabelHidden',
@@ -194,43 +253,124 @@ export const docsZh = {
   theming: {
     targets: [
       {className: 'astryx-token', visualProps: ['color', 'size']},
+      {className: 'astryx-token-icon', visualProps: ['size']},
+      {className: 'astryx-token-label', visualProps: ['size']},
+      {className: 'astryx-token-end-content', visualProps: ['size']},
+      {className: 'astryx-token-remove', visualProps: ['size']},
     ],
   },
   usage: {
     description:
       'Token is a small, inline element for representing discrete pieces of associated data, like tags, categories, or selections. Use it to label content, show active filters, or represent removable items like selected recipients in a compose field.',
     bestPractices: [
-      {guidance: true, description: 'Use color to distinguish categories (for example, green for "Active", red for "Blocked", blue for "In Review") so users can scan status at a glance.'},
-      {guidance: true, description: 'Provide an onRemove callback when tokens represent user selections that can be undone, like filters or multi-select values.'},
-      {guidance: true, description: 'Add a leading icon when it helps identify the token type faster, like a person icon for user tokens or a tag icon for labels.'},
-      {guidance: true, description: 'Keep labels short: one to three words. Tokens truncate with ellipsis when the text overflows.'},
-      {guidance: false, description: 'Don\'t use tokens for primary actions or navigation; use Button or Link instead. Tokens are for displaying metadata, not triggering workflows.'},
-      {guidance: false, description: 'Don\'t hide the label unless the icon alone is universally understood. A color dot without text is ambiguous.'},
-      {guidance: false, description: 'Don\'t mix too many colors in one token group. Stick to two or three meaningful colors so the palette stays scannable.'},
+      {
+        guidance: true,
+        description:
+          'Use color to distinguish categories (for example, green for "Active", red for "Blocked", blue for "In Review") so users can scan status at a glance.',
+      },
+      {
+        guidance: true,
+        description:
+          'Provide an onRemove callback when tokens represent user selections that can be undone, like filters or multi-select values.',
+      },
+      {
+        guidance: true,
+        description:
+          'Add a leading icon when it helps identify the token type faster, like a person icon for user tokens or a tag icon for labels.',
+      },
+      {
+        guidance: true,
+        description:
+          'Keep labels short: one to three words. Tokens truncate with ellipsis when the text overflows.',
+      },
+      {
+        guidance: false,
+        description:
+          "Don't use tokens for primary actions or navigation; use Button or Link instead. Tokens are for displaying metadata, not triggering workflows.",
+      },
+      {
+        guidance: false,
+        description:
+          "Don't hide the label unless the icon alone is universally understood. A color dot without text is ambiguous.",
+      },
+      {
+        guidance: false,
+        description:
+          "Don't mix too many colors in one token group. Stick to two or three meaningful colors so the palette stays scannable.",
+      },
     ],
     anatomy: [
-      {name: 'Icon', required: false, description: 'A leading icon that identifies the token type, like a user avatar or category symbol.'},
-      {name: 'Label', required: true, description: 'The visible text. Also used as the accessible name when isLabelHidden is true.'},
-      {name: 'End content', required: false, description: 'Trailing content after the label, like a count badge or status dot.'},
-      {name: 'Remove button', required: false, description: 'An X button that appears when onRemove is provided, letting users dismiss the token.'},
+      {
+        name: 'Icon',
+        required: false,
+        description:
+          'A leading icon that identifies the token type, like a user avatar or category symbol.',
+      },
+      {
+        name: 'Label',
+        required: true,
+        description:
+          'The visible text. Also used as the accessible name when isLabelHidden is true.',
+      },
+      {
+        name: 'End content',
+        required: false,
+        description:
+          'Trailing content after the label, like a count badge or status dot.',
+      },
+      {
+        name: 'Remove button',
+        required: false,
+        description:
+          'An X button that appears when onRemove is provided, letting users dismiss the token.',
+      },
     ],
   },
 };
 
 /** @type {import('@astryxdesign/cli/authoring').ComponentTranslationDoc} */
 export const docsDense = {
-  description: 'compact chip/tag for inline metadata, filters, selections. 11 colors, 3 sizes, removable, clickable, linkable.',
+  description:
+    'compact chip/tag for inline metadata, filters, selections. 11 colors, 3 sizes, removable, clickable, linkable.',
   usage: {
     description:
       'Token is a small, inline element for representing discrete pieces of associated data, like tags, categories, or selections. Use for labeling content, showing active filters, or representing removable items.',
     bestPractices: [
-      {guidance: true, description: 'Color-code categories (green for active, red for blocked, blue for review) for fast scanning.'},
-      {guidance: true, description: 'Provide onRemove when tokens represent dismissible user selections like filters or multi-select values.'},
-      {guidance: true, description: 'Add a leading icon when it helps identify the token type: person icon for users, tag icon for labels.'},
-      {guidance: true, description: 'Keep labels to one to three words. Tokens truncate with ellipsis on overflow.'},
-      {guidance: false, description: 'Don\'t use tokens for actions or navigation; use Button or Link. Tokens display metadata, not trigger workflows.'},
-      {guidance: false, description: 'Don\'t hide the label unless the icon alone is universally clear.'},
-      {guidance: false, description: 'Don\'t mix too many colors in one group. Two or three meaningful colors keeps it scannable.'},
+      {
+        guidance: true,
+        description:
+          'Color-code categories (green for active, red for blocked, blue for review) for fast scanning.',
+      },
+      {
+        guidance: true,
+        description:
+          'Provide onRemove when tokens represent dismissible user selections like filters or multi-select values.',
+      },
+      {
+        guidance: true,
+        description:
+          'Add a leading icon when it helps identify the token type: person icon for users, tag icon for labels.',
+      },
+      {
+        guidance: true,
+        description:
+          'Keep labels to one to three words. Tokens truncate with ellipsis on overflow.',
+      },
+      {
+        guidance: false,
+        description:
+          "Don't use tokens for actions or navigation; use Button or Link. Tokens display metadata, not trigger workflows.",
+      },
+      {
+        guidance: false,
+        description:
+          "Don't hide the label unless the icon alone is universally clear.",
+      },
+      {
+        guidance: false,
+        description:
+          "Don't mix too many colors in one group. Two or three meaningful colors keeps it scannable.",
+      },
     ],
   },
   propDescriptions: {
@@ -240,11 +380,14 @@ export const docsDense = {
     icon: 'Optional icon before label.',
     isDisabled: 'Reduces opacity, blocks interactions.',
     onRemove: 'Fired on remove button click. Renders X button when provided.',
-    onClick: 'Click handler. Renders <span> w/ invisible <button> inside for a11y.',
+    onClick:
+      'Click handler. Renders <span> w/ invisible <button> inside for a11y.',
     href: 'Link URL. Renders as <a> element.',
     description: 'A11y description via aria-description on root.',
     endContent: 'Content after label, before remove button.',
-    isLabelHidden: 'Visually hides label w/ screen-reader-only clip; stays accessible.',
-    xstyle: 'StyleX layout styles (margins, positioning). Must be stylex.create() value.',
+    isLabelHidden:
+      'Visually hides label w/ screen-reader-only clip; stays accessible.',
+    xstyle:
+      'StyleX layout styles (margins, positioning). Must be stylex.create() value.',
   },
 };

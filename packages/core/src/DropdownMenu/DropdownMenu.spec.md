@@ -85,7 +85,7 @@ subcomponents, and presentation policy remain documented in
 | ID  | Candidate invariant                                                                                                                                                                                                                                                                                                                           | Basis                           | Draft review state                                 |
 | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------- |
 | FR1 | Every current render contains a Trigger button. Pointer presentation renders a Pointer menu surface with pointer-owned rows and optional pointer headings, dividers, indicators, and nested flyouts. Touch presentation renders a Touch sheet frame containing a Touch menu surface, Touch heading, Touch action list, and Touch action rows. | Current source, docs, and tests | Verified current behavior; no new behavior decided |
-| FR2 | The six current local targets are `dropdown-menu`, `dropdown-menu-item`, `dropdown-menu-radio`, `dropdown-menu-section-heading`, `dropdown-menu-divider`, and `dropdown-menu-indicator-icon`; every target remains on its current painted element.                                                                                            | Current source, docs, and tests | Verified current inventory; no target change       |
+| FR2 | The seven current local targets are `dropdown-menu`, `dropdown-menu-item`, `menu-radio-row`, `dropdown-menu-radio`, `dropdown-menu-section-heading`, `dropdown-menu-divider`, and `dropdown-menu-indicator-icon`; every target remains on its current painted element.                                                                        | Current source, docs, and tests | Verified current inventory; additive row target    |
 | FR3 | Button owns the Trigger button, BottomSheet owns the Touch sheet frame, List owns the Touch action list and Touch action rows, Indicator owns checkbox chrome, and Icon owns ordinary rendered icons.                                                                                                                                         | Current source and owner docs   | Verified current delegation; no ownership change   |
 | FR4 | The same `dropdown-menu` target reaches the alternative Pointer menu surface and Touch menu surface. Pointer action rows retain `dropdown-menu-item`; touch action rows instead use List's `list-item` target.                                                                                                                                | Current source and tests        | Verified modality split; no target change          |
 
@@ -133,6 +133,7 @@ dismissal behavior.
 | Trigger indicator icon             | Communicates disclosure on labeled triggers when enabled.                     | `component:Icon`               | Supporting        | FR1, FR3           |
 | Pointer menu surface               | Paints the anchored root or nested pointer menu panel.                        | Current source and public docs | Prominent         | FR1, FR2, FR4      |
 | Pointer action row                 | Presents one action, selectable option, or nested-menu entry.                 | Current source and public docs | Prominent         | FR1, FR2, FR4      |
+| Menu radio row                     | Preserves menu-specific radio-row geometry on the painted action row.         | Current source and public docs | Prominent         | FR1, FR2, FR4      |
 | Icon-rendered item icon            | Adds an optional semantic or component icon to an action row through Icon.    | `component:Icon`               | Supporting        | FR1, FR3           |
 | Caller-rendered item start content | Presents arbitrary React content directly in an action-row start slot.        | Caller-supplied content        | Context-dependent | FR1, FR3           |
 | Checkbox indicator                 | Draws the decorative checkbox state for a checkbox action row.                | `component:Indicator`          | Supporting        | FR1, FR3           |
@@ -167,6 +168,7 @@ than adding a DropdownMenu-owned heading target.
   },
   "Pointer menu surface": {"target": "dropdown-menu"},
   "Pointer action row": {"target": "dropdown-menu-item"},
+  "Menu radio row": {"target": "menu-radio-row"},
   "Icon-rendered item icon": {
     "delegatesTo": {"owner": "component:Icon", "target": "icon"}
   },

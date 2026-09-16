@@ -43,6 +43,7 @@ permissions: {}
 
 jobs:
   promote:
+    if: github.repository == 'facebook/astryx'
     runs-on: ubuntu-slim
     timeout-minutes: 90
     permissions:

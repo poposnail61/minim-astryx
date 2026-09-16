@@ -416,4 +416,20 @@ describe('Link', () => {
     expect(link.className).toContain('astryx-link');
     expect(link).toHaveAttribute('data-color', 'secondary');
   });
+
+  it('reflects Minim variants and preserves underline/external flags', () => {
+    render(
+      <Link href="/test" variant="muted" hasUnderline isExternalLink>
+        Themed Link
+      </Link>,
+    );
+    const link = screen.getByRole('link', {name: /Themed Link/});
+    expect(link).toHaveAttribute('data-variant', 'muted');
+    expect(link).toHaveAttribute('data-underline', 'true');
+    expect(link).toHaveAttribute('data-external', 'true');
+    expect(link.querySelector('.astryx-link-label')).toBeInTheDocument();
+    expect(
+      link.querySelector('.astryx-link-external-icon'),
+    ).toBeInTheDocument();
+  });
 });

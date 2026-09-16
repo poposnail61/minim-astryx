@@ -81,6 +81,18 @@ describe('Citation', () => {
     );
   });
 
+  it('exposes label and icon anatomy targets', () => {
+    const {container} = render(
+      <Citation number={1} source={{title: 'Source', src: '/favicon.png'}} />,
+    );
+    expect(container.querySelector('.astryx-citation-label')).toHaveTextContent(
+      'Source',
+    );
+    expect(
+      container.querySelector('.astryx-citation-icon'),
+    ).toBeInTheDocument();
+  });
+
   it('uses the secondary text color in the label variant', () => {
     render(<Citation source={source} number={1} data-testid="citation" />);
     const el = screen.getByTestId('citation');

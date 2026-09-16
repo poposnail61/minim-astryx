@@ -597,6 +597,7 @@ export function NumberInput({
       status,
       statusVariant,
       isInGroup: !!inputGroup,
+      size,
     });
 
   const {ariaLabelledBy, ariaDescribedBy} = getInputARIA(
@@ -871,6 +872,8 @@ export function NumberInput({
         themeProps('number-input', {
           size,
           status: status?.type ?? null,
+          statusMessage:
+            status?.message && statusVariant === 'attached' ? 'attached' : null,
           disabled: isDisabled ? 'disabled' : null,
           readonly: isReadOnly ? 'readonly' : null,
         }),
@@ -889,7 +892,11 @@ export function NumberInput({
         className,
         style,
       )}>
-      {startIcon && renderIconSlot(startIcon, {size: 'sm', color: 'secondary'})}
+      {startIcon && (
+        <span {...themeProps('input-start-icon', {size})}>
+          {renderIconSlot(startIcon, {size: 'sm', color: 'secondary'})}
+        </span>
+      )}
       {inputGroup && <VisuallyHidden id={inputLabelID}>{label}</VisuallyHidden>}
       <input
         {...rest}
@@ -928,10 +935,16 @@ export function NumberInput({
           status?.type === 'error' || !isInputValid ? 'true' : undefined
         }
         aria-labelledby={ariaLabelledBy}
-        {...stylex.props(
-          styles.input,
-          isDisabled && styles.inputDisabled,
-          !isInputValid && styles.inputInvalid,
+        {...mergeProps(
+          themeProps('number-input-control', {
+            size,
+            disabled: isDisabled ? 'disabled' : null,
+          }),
+          stylex.props(
+            styles.input,
+            isDisabled && styles.inputDisabled,
+            !isInputValid && styles.inputInvalid,
+          ),
         )}
       />
       {formatValue && htmlName && !isDisabled && (

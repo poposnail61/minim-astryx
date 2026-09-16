@@ -24,6 +24,22 @@ import {
 // =============================================================================
 
 describe('ToggleButton', () => {
+  it('reflects its public size and variant names for themes', () => {
+    render(
+      <ToggleButton
+        label="Filter"
+        size="sm"
+        variant="ghost"
+        isPressed
+        onPressedChange={() => {}}
+      />,
+    );
+    const button = screen.getByRole('button');
+    expect(button).toHaveAttribute('data-size', 'sm');
+    expect(button).toHaveAttribute('data-variant', 'ghost');
+    expect(button).toHaveAttribute('data-is-pressed', 'true');
+  });
+
   describe('elevation', () => {
     it('reflects the elevation prop as a theme attribute', () => {
       const attrFor = (elevation: 'none' | 'low' | 'med' | 'high') => {

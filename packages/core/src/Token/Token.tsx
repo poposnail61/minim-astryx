@@ -136,6 +136,11 @@ const styles = stylex.create({
     whiteSpace: 'nowrap',
     minWidth: 0,
   },
+  part: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    flexShrink: 0,
+  },
   interactive: {
     cursor: {
       default: 'pointer',
@@ -320,19 +325,51 @@ export function Token({
         onRemove(e);
       }}
       disabled={isDisabled}
-      {...focusOutlineProps.focusVisible(styles.removeButton)}>
-      <Icon icon="close" size="xsm" color="inherit" />
+      {...mergeProps(
+        themeProps('token-remove', {size}),
+        focusOutlineProps.focusVisible(styles.removeButton),
+      )}>
+      <Icon icon="token:remove" size="xsm" color="inherit" />
     </button>
+  );
+
+  const leadingIcon =
+    icon == null ? null : (
+      <span
+        {...mergeProps(
+          themeProps('token-icon', {size}),
+          stylex.props(styles.part),
+        )}>
+        {icon}
+      </span>
+    );
+
+  const trailingContent =
+    endContent == null ? null : (
+      <span
+        {...mergeProps(
+          themeProps('token-end-content', {size}),
+          stylex.props(styles.part),
+        )}>
+        {endContent}
+      </span>
+    );
+
+  const labelContent = (
+    <span
+      {...mergeProps(
+        themeProps('token-label', {size}),
+        stylex.props(styles.label, isLabelHidden && styles.labelHidden),
+      )}>
+      {label}
+    </span>
   );
 
   const content = (
     <>
-      {icon}
-      <span
-        {...stylex.props(styles.label, isLabelHidden && styles.labelHidden)}>
-        {label}
-      </span>
-      {endContent}
+      {leadingIcon}
+      {labelContent}
+      {trailingContent}
       {removeButton}
     </>
   );
@@ -384,19 +421,11 @@ export function Token({
         href={href as string}
         isDisabled={isDisabled}
         LinkComponent={LinkComponent}
-        icon={icon}
-        endContent={endContent}
+        icon={leadingIcon}
+        endContent={trailingContent}
         removeButton={removeButton}
         linkStyleProps={stylex.props(styles.invisibleButton)}
-        labelContent={
-          <span
-            {...stylex.props(
-              styles.label,
-              isLabelHidden && styles.labelHidden,
-            )}>
-            {label}
-          </span>
-        }
+        labelContent={labelContent}
         {...mergeProps(
           themeProps('token', {color, size}),
           focusOutlineProps.focusWithin(
@@ -446,21 +475,15 @@ export function Token({
         )}
         {...rest}
         {...sharedProps}>
-        {icon}
+        {leadingIcon}
         <button
           type="button"
           onClick={effectiveOnClick}
           disabled={isDisabled}
           {...stylex.props(styles.invisibleButton)}>
-          <span
-            {...stylex.props(
-              styles.label,
-              isLabelHidden && styles.labelHidden,
-            )}>
-            {label}
-          </span>
+          {labelContent}
         </button>
-        {endContent}
+        {trailingContent}
         {removeButton}
       </span>
     );

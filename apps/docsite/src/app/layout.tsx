@@ -1,20 +1,13 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 
 import type {Metadata} from 'next';
-import {Analytics} from '@vercel/analytics/next';
-import {SpeedInsights} from '@vercel/speed-insights/next';
 import './globals.css';
 import {Providers} from './providers';
 // Public origin and identity live in lib/siteConfig so the sitemap and
 // metadata stay in sync. metadataBase resolves relative OG/Twitter image
 // paths to absolute URLs — social scrapers (Facebook, X, LinkedIn, Slack,
 // iMessage) require absolute image URLs or the card image is dropped.
-import {
-  SITE_URL,
-  SITE_NAME,
-  SITE_TITLE,
-  SITE_DESCRIPTION,
-} from '../lib/siteConfig';
+import {SITE_URL} from '../lib/siteConfig';
 
 // Note: the Astryx theme (src/themes/astryxTheme.ts) is Figtree-first.
 // We can't use next/font/google here (it requires SWC, but this app pins
@@ -26,14 +19,16 @@ import {
 // Default social card image: the launch banner that the announcement blog post
 // uses for its cover. Reusing the same branded banner keeps the shared-link
 // preview consistent with the launch creative across the site and the post.
-const OG_IMAGE =
-  '/images/Astryx-Banner.png';
+const SITE_NAME = 'Minim Astryx';
+const SITE_TITLE = 'Minim Astryx Design System';
+const SITE_DESCRIPTION =
+  'An unofficial, work-in-progress Minim adaptation of the Astryx design system.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: SITE_TITLE,
-    // Per-page `title` values render as "<page> · Astryx".
+    // Per-page `title` values render as "<page> · Minim Astryx".
     template: `%s · ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -55,20 +50,11 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     url: '/',
-    images: [
-      {
-        url: OG_IMAGE,
-        width: 2400,
-        height: 1260,
-        alt: 'Astryx — an open source design system by Meta',
-      },
-    ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: [OG_IMAGE],
   },
 };
 
@@ -92,8 +78,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         />
       </head>
       <body>
-        <Analytics />
-        <SpeedInsights />
         <Providers>{children}</Providers>
       </body>
     </html>

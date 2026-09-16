@@ -15,7 +15,7 @@
 import {createContext, use} from 'react';
 
 /** Menu size, derived from the trigger button size. */
-export type DropdownMenuSize = 'sm' | 'md' | 'lg';
+export type DropdownMenuSize = 'sm' | 'md' | 'lg' | 'xl';
 
 export interface DropdownMenuContextValue {
   /** Close the menu; keyboard dismissal returns focus to the trigger. */

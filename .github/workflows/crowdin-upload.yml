@@ -23,6 +23,7 @@ concurrency:
 
 jobs:
   upload:
+    if: github.repository == 'facebook/astryx'
     runs-on: 4-core-ubuntu
     permissions:
       contents: read

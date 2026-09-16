@@ -33,8 +33,11 @@ import type {BaseProps} from '../BaseProps';
 import {ButtonGroupContext} from './ButtonGroupContext';
 import type {ButtonGroupOrientation} from './ButtonGroupContext';
 import {themeProps} from '../utils/themeProps';
+import type {ButtonGroupVariantMap} from './index';
 
 import {useMergedRefs} from '../hooks/useMergedRefs';
+
+export type ButtonGroupVariant = keyof ButtonGroupVariantMap;
 // =============================================================================
 // Props
 // =============================================================================
@@ -58,6 +61,9 @@ export interface ButtonGroupProps extends BaseProps<HTMLDivElement> {
    * @default 'horizontal'
    */
   orientation?: ButtonGroupOrientation;
+
+  /** Visual surface variant. @default 'neutral' */
+  variant?: ButtonGroupVariant;
 
   /**
    * Default size for buttons in the group.
@@ -162,6 +168,7 @@ export function ButtonGroup({
   children,
   label,
   orientation = 'horizontal',
+  variant = 'neutral',
   size: sizeProp,
   isDisabled = false,
   elevation = 'none',
@@ -204,7 +211,12 @@ export function ButtonGroup({
           ref={useMergedRefs(ref, listRef)}
           {...props}
           {...mergeProps(
-            themeProps('button-group', {size, orientation, elevation}),
+            themeProps('button-group', {
+              size,
+              orientation,
+              elevation,
+              variant,
+            }),
             stylex.props(
               styles.group,
               orientation === 'vertical' && styles.vertical,

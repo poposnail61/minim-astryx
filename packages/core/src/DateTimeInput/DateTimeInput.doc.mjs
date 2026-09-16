@@ -121,14 +121,14 @@ export const docs = {
       name: 'timeIncrement',
       type: '1 | 5 | 10 | 15 | 30',
       description:
-        'Minute step for arrow keys in Astryx\'s typed time field. A non-default value keeps the Astryx time field in nativePicker modes because iOS treats native step as validation, not picker cadence. Ignored by the Astryx touch sheet, which uses wheels.',
+        "Minute step for arrow keys in Astryx's typed time field. A non-default value keeps the Astryx time field in nativePicker modes because iOS treats native step as validation, not picker cadence. Ignored by the Astryx touch sheet, which uses wheels.",
       default: '1',
     },
     {
       name: 'timeOptionInterval',
       type: '5 | 10 | 15 | 30 | 60',
       description:
-        'Minute cadence for the preset-time combobox on Astryx\'s fine-pointer time field. Setting it keeps that Astryx time field even in nativePicker modes because the OS picker has no equivalent preset list. The Astryx touch sheet uses wheels.',
+        "Minute cadence for the preset-time combobox on Astryx's fine-pointer time field. Setting it keeps that Astryx time field even in nativePicker modes because the OS picker has no equivalent preset list. The Astryx touch sheet uses wheels.",
     },
     {
       name: 'hasClear',
@@ -212,16 +212,16 @@ export const docs = {
     targets: [
       {
         className: 'astryx-date-time-input',
-        visualProps: ['size', 'status'],
+        visualProps: ['size', 'status', 'disabled'],
         states: ['disabled'],
       },
       {
         className: 'astryx-date-time-input-date-segment',
-        visualProps: ['size', 'status'],
+        visualProps: ['size', 'status', 'disabled'],
       },
       {
         className: 'astryx-date-time-input-time-segment',
-        visualProps: ['size', 'status'],
+        visualProps: ['size', 'status', 'disabled'],
       },
       {className: 'astryx-date-time-input-toggle-icon', states: ['state']},
       {className: 'astryx-date-time-input-clock-icon'},
@@ -309,7 +309,7 @@ export const docs = {
         name: 'Time options popover',
         required: false,
         description:
-          'A list of preset times at the timeOptionInterval cadence. Setting the prop retains Astryx\'s text/combobox time field even when nativePicker otherwise selects native controls; the Astryx touch sheet uses wheels instead.',
+          "A list of preset times at the timeOptionInterval cadence. Setting the prop retains Astryx's text/combobox time field even when nativePicker otherwise selects native controls; the Astryx touch sheet uses wheels instead.",
       },
       {
         name: 'Clear button',
@@ -543,16 +543,16 @@ export const docsZh = {
     targets: [
       {
         className: 'astryx-date-time-input',
-        visualProps: ['size', 'status'],
+        visualProps: ['size', 'status', 'disabled'],
         states: ['disabled'],
       },
       {
         className: 'astryx-date-time-input-date-segment',
-        visualProps: ['size', 'status'],
+        visualProps: ['size', 'status', 'disabled'],
       },
       {
         className: 'astryx-date-time-input-time-segment',
-        visualProps: ['size', 'status'],
+        visualProps: ['size', 'status', 'disabled'],
       },
       {className: 'astryx-date-time-input-toggle-icon', states: ['state']},
       {className: 'astryx-date-time-input-clock-icon'},

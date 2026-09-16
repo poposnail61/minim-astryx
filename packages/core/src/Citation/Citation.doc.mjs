@@ -91,6 +91,8 @@ export const docs = {
   theming: {
     targets: [
       {className: 'astryx-citation', visualProps: ['variant']},
+      {className: 'astryx-citation-icon'},
+      {className: 'astryx-citation-label'},
     ],
   },
 };
@@ -124,6 +126,7 @@ export const docsDense = {
     source:
       'citation source object with title, url, optional image src, and optional icon node.',
     number: 'display index for this citation.',
-    variant: 'display style: label chip with source title or compact numbered badge.',
+    variant:
+      'display style: label chip with source title or compact numbered badge.',
   },
 };

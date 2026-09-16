@@ -542,7 +542,11 @@ export function Typeahead<T extends SearchableItem>({
         onClick={handleWrapperClick}
         onBlur={handleBlur}
         {...mergeProps(
-          themeProps('typeahead', {size, status: status?.type}),
+          themeProps('typeahead', {
+            size,
+            status: status?.type,
+            disabled: isDisabled ? 'disabled' : null,
+          }),
           stylex.props(
             inputWrapperStyles.base,
             styles.wrapper,

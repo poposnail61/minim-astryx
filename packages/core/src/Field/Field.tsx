@@ -293,7 +293,15 @@ export function Field({
         )}
         {...props}>
         <div {...stylex.props(styles.horizontalLabelAlign)}>{labelNode}</div>
-        <div {...stylex.props(styles.inputStatusWrapper)}>
+        <div
+          {...mergeProps(
+            themeProps('field-input-status', {
+              status: status?.type ?? null,
+              variant: statusVariant,
+              message: status?.message ? 'visible' : null,
+            }),
+            stylex.props(styles.inputStatusWrapper),
+          )}>
           {description && (
             <Text type="supporting" display="block" id={resolvedDescriptionID}>
               {description}
@@ -324,7 +332,15 @@ export function Field({
       {...props}>
       {labelNode}
       {statusVariant === 'attached' ? (
-        <div {...stylex.props(styles.inputStatusWrapper)}>
+        <div
+          {...mergeProps(
+            themeProps('field-input-status', {
+              status: status?.type ?? null,
+              variant: statusVariant,
+              message: status?.message ? 'visible' : null,
+            }),
+            stylex.props(styles.inputStatusWrapper),
+          )}>
           {children}
           {statusNode}
         </div>

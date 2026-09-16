@@ -10,7 +10,13 @@
  */
 
 export {ButtonGroup} from './ButtonGroup';
-export type {ButtonGroupProps} from './ButtonGroup';
+export type {ButtonGroupProps, ButtonGroupVariant} from './ButtonGroup';
+
+export interface ButtonGroupVariantMap {
+  neutral: true;
+  outline: true;
+  subtle: true;
+}
 
 export {useButtonGroup} from './ButtonGroupContext';
 export type {

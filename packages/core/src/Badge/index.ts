@@ -37,7 +37,14 @@ export interface BadgeVariantMap {
   red: true;
   teal: true;
   yellow: true;
+  primary: true;
+  secondary: true;
+  critical: true;
+  'primary-subtle': true;
+  'secondary-subtle': true;
+  'critical-subtle': true;
+  'neutral-subtle': true;
 }
 
 export {Badge} from './Badge';
-export type {BadgeProps, BadgeVariant} from './Badge';
+export type {BadgeProps, BadgeSize, BadgeVariant} from './Badge';

@@ -173,17 +173,20 @@ export const docs = {
     {
       name: 'menuWidth',
       type: 'number',
-      description: 'Maximum width for the operator/value dropdown menu in pixels.',
+      description:
+        'Maximum width for the operator/value dropdown menu in pixels.',
     },
     {
       name: 'maxOperatorMenuItems',
       type: 'number',
-      description: 'Maximum number of items displayed in the operator dropdown.',
+      description:
+        'Maximum number of items displayed in the operator dropdown.',
     },
     {
       name: 'tokenOverflowBehavior',
       type: "'none' | 'unfocusedInline' | 'unfocusedLayer'",
-      description: 'Controls how tokens overflow when the container is too narrow. Forwarded to Tokenizer.',
+      description:
+        'Controls how tokens overflow when the container is too narrow. Forwarded to Tokenizer.',
       default: "'none'",
     },
     {
@@ -249,6 +252,25 @@ export const docs = {
     },
   },
   usage: {
+    anatomy: [
+      {
+        name: 'Power search root',
+        required: true,
+        description: 'Outer surface that owns the structured-search field.',
+      },
+      {
+        name: 'Search field and tokens',
+        required: true,
+        description:
+          'Interactive field containing the query input and active filter tokens.',
+      },
+      {
+        name: 'Filter-editor popover',
+        required: false,
+        description:
+          'Popover used to select or edit a filter field, operator, and value.',
+      },
+    ],
     description:
       'PowerSearch is a structured filter bar where each token represents a field, operator, and value. Use it for complex multi-dimensional filtering when users need to combine multiple search criteria. For simple single-field search, use a text input instead.',
     bestPractices: [
@@ -275,7 +297,68 @@ export const docs = {
     ],
   },
   theming: {
-    targets: [{className: 'astryx-power-search'}],
+    targets: [
+      {className: 'astryx-power-search'},
+      {className: 'astryx-power-search-trigger'},
+      {
+        className: 'astryx-power-search-popover',
+        visualProps: ['mode'],
+      },
+    ],
+    vars: [
+      {
+        name: '--power-search-trigger-min-height',
+        description: 'Minimum block size of the structured-search trigger.',
+        default: 'var(--_tokenizer-min-height, var(--size-element-md))',
+      },
+      {
+        name: '--power-search-content-gap',
+        description: 'Gap between trigger content slots.',
+        default: 'var(--tokenizer-gap, var(--spacing-1))',
+      },
+      {
+        name: '--power-search-padding-block',
+        description: 'Block padding inside the trigger border.',
+        default: 'var(--tokenizer-padding-block, var(--spacing-1))',
+      },
+      {
+        name: '--power-search-padding-inline',
+        description: 'Inline padding inside the trigger border.',
+        default: 'var(--tokenizer-padding-inline, var(--spacing-2))',
+      },
+      {
+        name: '--power-search-background',
+        description: 'Trigger surface background.',
+        default: 'var(--_input-background, var(--color-background-surface))',
+      },
+      {
+        name: '--power-search-border-color',
+        description: 'Trigger border color at rest.',
+        default: 'var(--_input-border-color, var(--color-border-emphasized))',
+      },
+      {
+        name: '--power-search-focus-border-color',
+        description: 'Trigger border color while focus is within.',
+        default: 'var(--_input-focus-border-color, var(--color-accent))',
+      },
+      {
+        name: '--power-search-focus-ring',
+        description: 'Trigger focus-within box shadow.',
+        default:
+          'var(--_input-focus-ring, inset 0px 0px 0px 2px var(--color-accent-muted))',
+      },
+      {
+        name: '--power-search-radius',
+        description: 'Trigger corner radius.',
+        default: 'var(--_input-radius, var(--radius-element))',
+      },
+      {
+        name: '--power-search-popover-padding',
+        description:
+          'Internal padding for the value-editor popover content and footer.',
+        default: 'var(--spacing-3)',
+      },
+    ],
   },
 };
 

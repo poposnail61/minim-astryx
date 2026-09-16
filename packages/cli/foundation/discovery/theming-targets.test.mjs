@@ -401,6 +401,23 @@ function sourcesIn(dir) {
   return out;
 }
 
+// Public vars can be owned by a composed component while being consumed by
+// the lower-level controls it renders. Keep those readers explicit so the
+// dead-variable guard still fails closed for every other component.
+const COMPOSED_VAR_READERS = {
+  PowerSearch: ['Field', 'Tokenizer'],
+};
+
+function varReaderSources(variable) {
+  const directories = [
+    variable.dir,
+    ...(COMPOSED_VAR_READERS[variable.component] || []).map(name =>
+      path.join(coreSrc, name),
+    ),
+  ];
+  return directories.flatMap(sourcesIn);
+}
+
 /**
  * The text of every inline style a file writes — `style={{…}}` objects and
  * `setProperty` calls. A custom property written from either outranks every
@@ -444,7 +461,7 @@ describe('collectThemingVars', () => {
     /** @type {string[]} */
     const unread = [];
     for (const v of await enumeratedVars) {
-      const read = sourcesIn(v.dir).some(f =>
+      const read = varReaderSources(v).some(f =>
         fs.readFileSync(f, 'utf-8').includes(`var(${v.name}`),
       );
       if (!read) unread.push(`${v.component}: nothing reads var(${v.name})`);

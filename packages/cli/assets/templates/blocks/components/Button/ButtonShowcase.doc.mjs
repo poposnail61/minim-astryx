@@ -7,7 +7,7 @@ export const doc = {
   name: 'Button — Variants',
   displayName: 'Button — Variants',
   description:
-    'All four button variants side by side: primary, secondary, ghost, and destructive. A quick visual reference for choosing the right variant.',
+    'All seven Minim button variants side by side: primary, neutral, neutral subtle, critical subtle, ghost, outline, and critical.',
   isReady: true,
   isShowcase: true,
   aspectRatio: 16 / 9,

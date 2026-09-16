@@ -142,6 +142,7 @@ describe('PowerSearch', () => {
     );
     expect(root).toBeInstanceOf(HTMLDivElement);
     expect(root).toHaveClass('astryx-power-search');
+    expect(root).toHaveClass('astryx-power-search-trigger');
   });
 
   it('exposes typeahead focus through handleRef', () => {

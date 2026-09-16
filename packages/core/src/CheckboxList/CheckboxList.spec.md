@@ -52,8 +52,8 @@ Consumer migration instructions belong in consumer docs and release notes.
 
 **Does not own / non-goals**
 
-- List and option-row presentation — owned by `component:List`; its
-  `list-item` target reaches only the row root.
+- List presentation remains owned by `component:List`; CheckboxListItem owns
+  the additive `checkbox-list-item` target on the same composed row root.
 - Standard option-label and option-description wrappers — rendered as separate,
   untargeted spans by Item rather than Text; rich label content and end content
   remain caller-owned.
@@ -131,12 +131,8 @@ checkbox semantics, focus order, busy state, or description/status association.
       "reason": "unsettled: No current public target reaches the stable Description; future exposure still needs an owner decision"
     }
   },
-  "Options list": {
-    "delegatesTo": {"owner": "component:List", "target": "list"}
-  },
-  "Option row": {
-    "delegatesTo": {"owner": "component:List", "target": "list-item"}
-  },
+  "Options list": {"target": "checkbox-list-content"},
+  "Option row": {"target": "checkbox-list-item"},
   "Checkbox": {
     "delegatesTo": {
       "owner": "component:CheckboxInput",

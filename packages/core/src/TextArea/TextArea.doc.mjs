@@ -275,7 +275,7 @@ export const docs = {
         visualProps: ['size', 'status'],
         states: ['disabled', 'readonly'],
       },
-      {className: 'astryx-text-area-control'},
+      {className: 'astryx-text-area-control', visualProps: ['size', 'disabled']},
       {className: 'astryx-text-area-counter'},
       // Retained beside the canonical names for backwards compatibility.
       // New themes use the canonical targets above.
@@ -531,7 +531,7 @@ export const docsZh = {
         visualProps: ['size', 'status'],
         states: ['disabled', 'readonly'],
       },
-      {className: 'astryx-text-area-control'},
+      {className: 'astryx-text-area-control', visualProps: ['size', 'disabled']},
       {className: 'astryx-text-area-counter'},
       // Retained beside the canonical names for backwards compatibility.
       // New themes use the canonical targets above.

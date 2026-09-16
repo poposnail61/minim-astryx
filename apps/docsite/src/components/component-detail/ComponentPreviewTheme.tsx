@@ -6,20 +6,16 @@
  * ComponentPreviewTheme.
  *
  * @input component preview chrome and preview content from the docsite
- * @output children rendered under the neutral preview theme with the current mode
+ * @output children rendered under the selected Minim density theme
  * @position Component detail previews — wraps the preview container as well as
  * the component so their backgrounds, borders, and content tokens match.
  */
 
 import {type ReactNode} from 'react';
 import {Theme} from '@astryxdesign/core/theme';
-import {neutralTheme} from '@astryxdesign/theme-neutral/built';
-import {useThemeMode} from '../../app/providers';
+import {minimCompactTheme, minimTheme} from '@astryxdesign/theme-minim/built';
+import {useMinimDensity} from '../../app/providers';
 
-// The neutral theme's icons reach the previews through <Theme> alone: it calls
-// registerTheme(theme) as it renders, and every Icon below resolves its
-// semantic name against that theme (useThemeName -> getIcon(name, themeName)).
-//
 // Do NOT add a global icon registration here. That API writes to a process-wide
 // registry, and this module is in the client bundle of the component-detail
 // routes ONLY — while on the server one module registry is shared by every
@@ -29,10 +25,11 @@ import {useThemeMode} from '../../app/providers';
 // failed with React #418 on those routes.
 
 export function ComponentPreviewTheme({children}: {children: ReactNode}) {
-  const {mode} = useThemeMode();
+  const {density} = useMinimDensity();
+  const theme = density === 'compact' ? minimCompactTheme : minimTheme;
 
   return (
-    <Theme theme={neutralTheme} mode={mode}>
+    <Theme theme={theme} mode="light">
       {children}
     </Theme>
   );

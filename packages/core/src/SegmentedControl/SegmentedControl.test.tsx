@@ -146,6 +146,17 @@ describe('SegmentedControl', () => {
     );
 
     expect(screen.getByTestId('icon')).toBeInTheDocument();
+    expect(screen.getByTestId('icon').parentElement).toHaveClass(
+      'astryx-segmented-control-item-icon',
+    );
+    expect(screen.getByText('Grid')).toHaveClass(
+      'astryx-segmented-control-item-label',
+    );
+    expect(screen.getByText('Grid')).toHaveAttribute('data-size', 'md');
+    expect(screen.getByText('Grid')).toHaveAttribute(
+      'data-selected',
+      'selected',
+    );
   });
 
   it('renders icon-only item with aria-label from label prop', () => {

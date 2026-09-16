@@ -168,6 +168,9 @@ const sizeStyles = stylex.create({
   lg: {
     height: sizeVars['--size-element-lg'],
   },
+  xl: {
+    height: sizeVars['--size-element-lg'],
+  },
 });
 
 /**
@@ -179,6 +182,7 @@ const iconSizeStyles = stylex.create({
   sm: {width: 16, height: 16, fontSize: 16},
   md: {width: 16, height: 16, fontSize: 16},
   lg: {width: 20, height: 20, fontSize: 20},
+  xl: {width: 20, height: 20, fontSize: 20},
 });
 
 /**
@@ -218,6 +222,28 @@ const variants = stylex.create({
     // The ring matches the variant it rings: an accent-colored outline on a
     // red button reads as another control's focus. Only the color differs —
     // width, style and offset come from the shared outline.
+    outlineColor: {default: null, ':focus-visible': colorVars['--color-error']},
+  },
+  neutral: {
+    backgroundColor: colorVars['--color-neutral'],
+    color: colorVars['--color-text-primary'],
+  },
+  'neutral-subtle': {
+    backgroundColor: colorVars['--color-neutral'],
+    color: colorVars['--color-text-primary'],
+  },
+  'critical-subtle': {
+    backgroundColor: colorVars['--color-error-muted'],
+    color: colorVars['--color-error'],
+    outlineColor: {default: null, ':focus-visible': colorVars['--color-error']},
+  },
+  outline: {
+    backgroundColor: 'transparent',
+    color: colorVars['--color-text-primary'],
+  },
+  critical: {
+    backgroundColor: colorVars['--color-error'],
+    color: colorVars['--color-on-error'],
     outlineColor: {default: null, ':focus-visible': colorVars['--color-error']},
   },
 });
@@ -677,6 +703,7 @@ export function Button({
       variant,
       size,
       elevation: buttonGroup ? 'none' : elevation,
+      content: isIconOnly ? 'icon-only' : 'default',
     }),
     sharedStylexProps,
     className,
@@ -705,15 +732,31 @@ export function Button({
         )}
         aria-hidden={isLoadingState || undefined}>
         {icon && (
-          <span {...stylex.props(styles.iconWrapper, iconSizeStyles[size])}>
+          <span
+            {...mergeProps(
+              themeProps('button-icon', {size}),
+              stylex.props(styles.iconWrapper, iconSizeStyles[size]),
+            )}>
             {icon}
           </span>
         )}
         {isIconOnly ? null : (
-          <span {...stylex.props(styles.labelText)}>{children ?? label}</span>
+          <span
+            {...mergeProps(
+              themeProps('button-label', {size}),
+              stylex.props(styles.labelText),
+            )}>
+            {children ?? label}
+          </span>
         )}
         {!isIconOnly && endContent && (
-          <span {...stylex.props(styles.endContentWrapper)}>{endContent}</span>
+          <span
+            {...mergeProps(
+              themeProps('button-end-content', {size}),
+              stylex.props(styles.endContentWrapper),
+            )}>
+            {endContent}
+          </span>
         )}
       </span>
       {/* Live region for loading state announcements */}

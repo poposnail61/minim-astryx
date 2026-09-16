@@ -182,7 +182,10 @@ export function Kbd({keys, ref, xstyle, className, style, ...rest}: KbdProps) {
         style,
       )}>
       {parts.map(key => (
-        <kbd key={key} aria-hidden="true" {...stylex.props(styles.kbd)}>
+        <kbd
+          key={key}
+          aria-hidden="true"
+          {...mergeProps(themeProps('kbd-key'), stylex.props(styles.kbd))}>
           {getKeyDisplay(key, isMac)}
         </kbd>
       ))}

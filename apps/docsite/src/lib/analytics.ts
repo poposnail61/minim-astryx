@@ -2,25 +2,18 @@
 
 /**
  * @file analytics.ts
- * @position src/lib — typed analytics helpers wrapping @vercel/analytics.
+ * @position src/lib — typed analytics helpers retained as fork-local no-ops.
  *
  * Convention: small fixed set of event names, context pushed into properties.
  * See https://github.com/facebook/astryx/issues/2607 for the full spec.
  */
-
-import {track} from '@vercel/analytics';
 
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
 type Page =
-  | 'templates'
-  | 'themes'
-  | 'components'
-  | 'playground'
-  | 'docs'
-  | 'landing';
+  'templates' | 'themes' | 'components' | 'playground' | 'docs' | 'landing';
 
 type CopyTarget =
   | 'cli_command'
@@ -30,11 +23,7 @@ type CopyTarget =
   | 'install_command';
 
 type CtaTarget =
-  | 'install'
-  | 'get_started'
-  | 'github'
-  | 'community'
-  | 'customize';
+  'install' | 'get_started' | 'github' | 'community' | 'customize';
 
 type NavigateTarget = 'prev_next' | 'tab' | 'view';
 
@@ -65,21 +54,21 @@ function props(obj: object): Record<string, string | number | boolean> {
 export function trackView(
   p: BaseProps & {package?: string; has_shared_code?: boolean},
 ) {
-  track('view', props(p));
+  void props(p);
 }
 
 /** User copied something to clipboard. */
 export function trackCopy(
   p: BaseProps & {target: CopyTarget; example?: string},
 ) {
-  track('copy', props(p));
+  void props(p);
 }
 
 /** Navigated to playground with code. */
 export function trackOpenPlayground(
   p: BaseProps & {example?: string; source?: string},
 ) {
-  track('open_playground', props(p));
+  void props(p);
 }
 
 /** Moved between items (prev/next, tab switch). */
@@ -91,7 +80,7 @@ export function trackNavigate(
     view?: string;
   },
 ) {
-  track('navigate', props(p));
+  void props(p);
 }
 
 /** Search palette interaction. */
@@ -100,17 +89,17 @@ export function trackSearch(p: {
   item?: string;
   type?: string;
 }) {
-  track('search', props(p));
+  void props(p);
 }
 
 /** CTA button clicked. */
 export function trackClickCta(p: BaseProps & {target: CtaTarget}) {
-  track('click_cta', props(p));
+  void props(p);
 }
 
 /** Mode/setting toggled. */
 export function trackToggle(
   p: BaseProps & {target: ToggleTarget; value: string},
 ) {
-  track('toggle', props(p));
+  void props(p);
 }

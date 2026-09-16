@@ -272,7 +272,10 @@ jobs:
 
   deploy:
     needs: [test, build]
-    if: always() && !cancelled() && needs.test.result == 'success' && needs.build.result == 'success'
+    if: >-
+      always() && !cancelled() &&
+      github.repository == 'facebook/astryx' &&
+      needs.test.result == 'success' && needs.build.result == 'success'
     runs-on: ubuntu-slim
     permissions:
       actions: read

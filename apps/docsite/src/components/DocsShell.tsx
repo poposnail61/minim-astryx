@@ -11,8 +11,6 @@ import {SideNav, SideNavItem, SideNavSection} from '@astryxdesign/core/SideNav';
 import {TextInput} from '@astryxdesign/core/TextInput';
 import {Icon} from '@astryxdesign/core/Icon';
 import {SharedTopNav} from './SharedTopNav';
-import {CanaryBanner} from './CanaryBanner';
-import {CURRENT_TARGET} from '../lib/docsVersions';
 import type {PackageMeta} from '../generated/packageRegistry';
 import type {DocTopic} from '../generated/docsRegistry';
 import {
@@ -159,7 +157,6 @@ export function DocsShell({children, packages, docTopics}: DocsShellProps) {
     <AppShell
       variant="surface"
       height="auto"
-      banner={CURRENT_TARGET === 'canary' ? <CanaryBanner /> : undefined}
       topNav={<SharedTopNav />}
       sideNav={
         <SideNav topContent={isOnComponentsRoute ? componentSearch : undefined}>

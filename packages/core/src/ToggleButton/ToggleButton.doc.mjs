@@ -17,7 +17,7 @@ export const docs = {
   theming: {
     targets: [
       {className: 'astryx-toggle-button-group'},
-      {className: 'astryx-toggle-button', states: ['isPressed'], visualProps: ['elevation']},
+      {className: 'astryx-toggle-button', states: ['isPressed'], visualProps: ['elevation', 'size', 'variant']},
     ],
   },
   description: 'A button that toggles between pressed and unpressed states. Thin wrapper over Button with controlled toggle pattern, icon swap, and font weight emphasis.',
@@ -45,9 +45,15 @@ export const docs = {
     },
     {
       name: 'size',
-      type: "'sm' | 'md' | 'lg'",
+      type: "'sm' | 'md' | 'lg' | 'xl'",
       description: 'Button size. Defaults to group size when inside a group.',
       default: "'md'",
+    },
+    {
+      name: 'variant',
+      type: "'default' | 'ghost'",
+      description: 'Visual surface variant.',
+      default: "'default'",
     },
     {
       name: 'elevation',

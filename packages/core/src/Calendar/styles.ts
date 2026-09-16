@@ -34,6 +34,8 @@ export const calendarStyles = stylex.create({
     display: 'inline-block',
     padding: spacingVars['--spacing-3'],
     minWidth: '220px',
+    '--_calendar-cell-size': `var(--calendar-cell-size, ${sizeVars['--size-element-md']})`,
+    '--_calendar-day-size': sizeVars['--size-element-sm'],
   },
   header: {
     display: 'flex',
@@ -76,9 +78,9 @@ export const monthGridStyles = stylex.create({
     flex: '1 1 0',
   },
   dayName: {
-    width: sizeVars['--size-element-md'],
+    width: 'var(--_calendar-cell-size)',
     // Restores the small gap the standalone header used to have below it.
-    height: `calc(${sizeVars['--size-element-md']} + ${spacingVars['--spacing-1']})`,
+    height: `calc(var(--_calendar-cell-size) + ${spacingVars['--spacing-1']})`,
     paddingBottom: spacingVars['--spacing-1'],
     boxSizing: 'border-box',
     display: 'flex',
@@ -89,7 +91,7 @@ export const monthGridStyles = stylex.create({
     color: colorVars['--color-text-secondary'],
   },
   weekNumberHeader: {
-    width: sizeVars['--size-element-md'],
+    width: 'var(--_calendar-cell-size)',
   },
   daysGrid: {
     display: 'grid',
@@ -99,8 +101,8 @@ export const monthGridStyles = stylex.create({
     gridTemplateColumns: 'auto repeat(7, 1fr)',
   },
   weekNumber: {
-    width: sizeVars['--size-element-md'],
-    height: sizeVars['--size-element-md'],
+    width: 'var(--_calendar-cell-size)',
+    height: 'var(--_calendar-cell-size)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -134,7 +136,7 @@ export const dayCellStyles = stylex.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: sizeVars['--size-element-md'],
+    height: 'var(--_calendar-cell-size)',
     isolation: 'isolate',
   },
 
@@ -194,8 +196,8 @@ export const dayCellStyles = stylex.create({
 
   // Day button - structural
   day: {
-    width: sizeVars['--size-element-sm'],
-    height: sizeVars['--size-element-sm'],
+    width: 'var(--_calendar-day-size)',
+    height: 'var(--_calendar-day-size)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -247,7 +249,7 @@ export const dayCellStyles = stylex.create({
 export const dayCellTheme = stylex.create({
   // Range background color
   rangeBg: {
-    backgroundColor: colorVars['--color-accent-muted'],
+    backgroundColor: `var(--_calendar-range-background, ${colorVars['--color-accent-muted']})`,
   },
 
   // Preview background (muted overlay)

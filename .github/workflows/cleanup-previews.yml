@@ -52,8 +52,9 @@ jobs:
     # deploy-preview.yml); scheduled and manual runs have no workflow_run
     # payload and always proceed.
     if: >-
-      github.event_name != 'workflow_run' ||
-      github.event.workflow_run.event == 'pull_request'
+      github.repository == 'facebook/astryx' &&
+      (github.event_name != 'workflow_run' ||
+      github.event.workflow_run.event == 'pull_request')
     runs-on: ubuntu-slim
     permissions:
       actions: read

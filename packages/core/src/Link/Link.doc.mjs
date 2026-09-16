@@ -15,7 +15,9 @@ export const docs = {
   },
   theming: {
     targets: [
-      {className: 'astryx-link', visualProps: ['color']},
+      {className: 'astryx-link', visualProps: ['color', 'variant', 'underline', 'external']},
+      {className: 'astryx-link-label', visualProps: ['variant']},
+      {className: 'astryx-link-external-icon'},
     ],
   },
   components: [
@@ -45,6 +47,12 @@ export const docs = {
           type: 'boolean',
           description: 'Always show underline',
           default: 'false',
+        },
+        {
+          name: 'variant',
+          type: "'neutral' | 'muted' | 'primary'",
+          description: 'Visual color variant.',
+          default: "'primary'",
         },
         {
           name: 'isDisabled',
@@ -188,7 +196,9 @@ export const docsZh = {
   displayName: 'Link',
   theming: {
     targets: [
-      {className: 'astryx-link', visualProps: ['color']},
+      {className: 'astryx-link', visualProps: ['color', 'variant', 'underline', 'external']},
+      {className: 'astryx-link-label', visualProps: ['variant']},
+      {className: 'astryx-link-external-icon'},
     ],
   },
   components: [

@@ -379,4 +379,19 @@ describe('InputGroup', () => {
     );
     expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
+
+  it('publishes group disabled state and addon size to theme targets', () => {
+    render(
+      <InputGroup label="Price" size="lg" isDisabled data-testid="group">
+        <InputGroupText>$</InputGroupText>
+        <TextInput label="Amount" isLabelHidden value="" onChange={() => {}} />
+      </InputGroup>,
+    );
+
+    expect(screen.getByTestId('group')).toHaveAttribute(
+      'data-disabled',
+      'disabled',
+    );
+    expect(screen.getByText('$')).toHaveAttribute('data-size', 'lg');
+  });
 });

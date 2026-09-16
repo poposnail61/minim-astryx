@@ -415,6 +415,10 @@ describe('CodeBlock theme target names', () => {
     expect(container.querySelector('.astryx-code-block-title')).toHaveClass(
       'astryx-codeblock-title',
     );
+    expect(container.querySelector('.astryx-code-block-code')).toHaveAttribute(
+      'data-size',
+      'md',
+    );
     expect(screen.getByRole('button', {name: 'Copy code'})).toHaveClass(
       'astryx-code-block-copy-button',
     );
@@ -426,10 +430,12 @@ describe('CodeBlock theme target names', () => {
       components: {
         'code-block-header': {base: {paddingBlock: 'var(--spacing-1)'}},
         'code-block-title': {base: {fontSize: 'var(--text-body-size)'}},
+        'code-block-code': {base: {fontFamily: 'monospace'}},
       },
     });
     const css = generateThemeTestCSS(theme);
     expect(css).toContain('.astryx-code-block-header');
     expect(css).toContain('.astryx-code-block-title');
+    expect(css).toContain('.astryx-code-block-code');
   });
 });

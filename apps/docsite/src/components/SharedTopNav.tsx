@@ -15,33 +15,19 @@ import {
 import {useAppShellMobile} from '@astryxdesign/core/AppShell';
 import {MobileNav} from '@astryxdesign/core/MobileNav';
 import {Button} from '@astryxdesign/core/Button';
+import {Icon} from '@astryxdesign/core/Icon';
+import {
+  SegmentedControl,
+  SegmentedControlItem,
+} from '@astryxdesign/core/SegmentedControl';
 import {HStack} from '@astryxdesign/core/Layout';
 import {spacingVars} from '@astryxdesign/core/theme/tokens.stylex';
-import {Search, HeartHandshake, Sun, Moon, Menu} from 'lucide-react';
 import {GITHUB_REPO} from '../constants';
-import {AstryxIcon} from './logos';
 import {useThemeMode} from '../app/providers';
 import {trackSearch, trackClickCta} from '../lib/analytics';
 
 const LazySearchPalette = lazy(() =>
   import('./SearchPalette').then(module => ({default: module.SearchPalette})),
-);
-
-const GitHubIcon = ({
-  width = 20,
-  height = 20,
-}: {
-  width?: number;
-  height?: number;
-}) => (
-  <svg
-    width={width}
-    height={height}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z" />
-  </svg>
 );
 
 // Responsive helpers. The desktop links and the mobile hamburger both live in
@@ -70,37 +56,12 @@ const styles = stylex.create({
     flexDirection: 'column',
     gap: spacingVars['--spacing-0-5'],
   },
-  // Theme-toggle icons. Both Moon and Sun are always in the DOM; while the mode
-  // is still unresolved ('system'), a pure CSS prefers-color-scheme query decides
-  // which one shows so the first paint matches the OS — otherwise the icon starts
-  // as Moon (resolvedMode's 'light' default) and visibly swaps to Sun on a
-  // dark-OS machine after hydration. Once the mode resolves to a concrete value
-  // (OS-detected or a manual toggle) React forces the icon explicitly; for the
-  // OS-following case that matches what the media query already showed, so
-  // nothing visibly changes.
-  moonWhenSystem: {
-    display: {
-      default: 'inline-flex',
-      '@media (prefers-color-scheme: dark)': 'none',
-    },
-  },
-  sunWhenSystem: {
-    display: {
-      default: 'none',
-      '@media (prefers-color-scheme: dark)': 'inline-flex',
-    },
-  },
-  iconShown: {display: 'inline-flex'},
-  iconHidden: {display: 'none'},
 });
 
 // Primary navigation links, shared by the desktop bar and the mobile drawer.
 const NAV_ITEMS = [
   {key: 'docs', label: 'Docs', href: '/docs/getting-started'},
   {key: 'components', label: 'Components', href: '/components'},
-  {key: 'templates', label: 'Templates', href: '/templates'},
-  {key: 'themes', label: 'Themes', href: '/themes'},
-  {key: 'playground', label: 'Playground', href: '/playground'},
 ] as const;
 
 export function SharedTopNav() {
@@ -108,7 +69,7 @@ export function SharedTopNav() {
   const [hasLoadedSearch, setHasLoadedSearch] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const {mode, themeMode, toggleMode} = useThemeMode();
+  const {density = 'base', setDensity} = useThemeMode();
   // When AppShell owns the mobile drawer (docs, which has a sideNav) we defer
   // to its single hamburger; otherwise we render our own.
   const {isMobileNavEnabled, closeMobileNav} = useAppShellMobile();
@@ -174,20 +135,9 @@ export function SharedTopNav() {
   return (
     <>
       <TopNav
-        label="Astryx navigation"
+        label="Minim Astryx navigation"
         heading={
-          <TopNavHeading
-            logo={
-              <AstryxIcon
-                width={24}
-                height={24}
-                role="img"
-                aria-label="Astryx"
-                style={{display: 'block', color: 'var(--color-brand)'}}
-              />
-            }
-            headingHref="/"
-          />
+          <TopNavHeading logo={<span>Minim Astryx</span>} headingHref="/" />
         }
         centerContent={
           renderMode === 'drawer' ? (
@@ -206,78 +156,32 @@ export function SharedTopNav() {
                 tooltip="Search"
                 variant="ghost"
                 isIconOnly
-                icon={<Search size={20} />}
+                icon={<Icon icon="search" size="md" />}
                 onClick={() => {
                   trackSearch({target: 'open'});
                   setHasLoadedSearch(true);
                   setIsSearchOpen(true);
                 }}
               />
-              <Button
-                label={
-                  mode === 'light'
-                    ? 'Switch to dark mode'
-                    : 'Switch to light mode'
-                }
-                tooltip={
-                  mode === 'light'
-                    ? 'Switch to dark mode'
-                    : 'Switch to light mode'
-                }
-                variant="ghost"
-                isIconOnly
-                icon={
-                  <>
-                    <Moon
-                      size={20}
-                      {...stylex.props(
-                        themeMode === 'system'
-                          ? styles.moonWhenSystem
-                          : mode === 'light'
-                            ? styles.iconShown
-                            : styles.iconHidden,
-                      )}
-                    />
-                    <Sun
-                      size={20}
-                      {...stylex.props(
-                        themeMode === 'system'
-                          ? styles.sunWhenSystem
-                          : mode === 'dark'
-                            ? styles.iconShown
-                            : styles.iconHidden,
-                      )}
-                    />
-                  </>
-                }
-                onClick={toggleMode}
-              />
-              <Button
-                label="Community"
-                tooltip="Community"
-                variant="ghost"
-                isIconOnly
-                icon={<HeartHandshake size={20} />}
-                href="/community"
-              />
+              <SegmentedControl
+                value={density}
+                onChange={value => {
+                  if (value === 'base' || value === 'compact') {
+                    setDensity?.(value);
+                  }
+                }}
+                label="Interface density"
+                size="md">
+                <SegmentedControlItem value="base" label="Base" />
+                <SegmentedControlItem value="compact" label="Compact" />
+              </SegmentedControl>
               <Button
                 label="GitHub"
-                tooltip="GitHub"
                 variant="ghost"
-                isIconOnly
-                icon={<GitHubIcon />}
                 href={GITHUB_REPO}
                 onClick={() => trackClickCta({target: 'github'})}
               />
             </HStack>
-            <Button
-              label="Get started"
-              variant="primary"
-              href="/docs/getting-started"
-              onClick={() =>
-                trackClickCta({page: 'landing', target: 'get_started'})
-              }
-            />
             {!isMobileNavEnabled && (
               <div {...stylex.props(styles.mobileToggle)}>
                 <Button
@@ -285,7 +189,7 @@ export function SharedTopNav() {
                   tooltip="Menu"
                   variant="ghost"
                   isIconOnly
-                  icon={<Menu size={20} />}
+                  icon={<Icon icon="menu" size="md" />}
                   onClick={() => setIsMenuOpen(true)}
                 />
               </div>
@@ -306,16 +210,8 @@ export function SharedTopNav() {
           isOpen={isMenuOpen}
           onOpenChange={setIsMenuOpen}
           side="end"
-          label="Astryx navigation"
-          header={
-            <AstryxIcon
-              width={24}
-              height={24}
-              role="img"
-              aria-label="Astryx"
-              style={{display: 'block', color: 'var(--color-brand)'}}
-            />
-          }>
+          label="Minim Astryx navigation"
+          header={<span>Minim Astryx</span>}>
           <TopNavRenderContext value="drawer">
             <div {...stylex.props(styles.drawerItems)}>
               {navLinks(() => setIsMenuOpen(false))}

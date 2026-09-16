@@ -58,6 +58,58 @@ beforeEach(() => {
 });
 
 describe('CheckboxList', () => {
+  it('reflects source size and orientation on the visual list target', () => {
+    render(
+      <CheckboxList
+        label="Preferences"
+        value={[]}
+        onChange={() => {}}
+        size="sm"
+        orientation="horizontal">
+        <CheckboxListItem label="Option A" value="a" />
+        <CheckboxListItem label="Option B" value="b" />
+      </CheckboxList>,
+    );
+
+    const content = screen.getByRole('list');
+    expect(content).toHaveClass('astryx-checkbox-list-content');
+    expect(content).toHaveAttribute('data-size', 'sm');
+    expect(content).toHaveAttribute('data-orientation', 'horizontal');
+    expect(getComputedStyle(content).flexDirection).toBe('row');
+    expect(screen.getAllByRole('listitem')[0]).toHaveAttribute(
+      'data-size',
+      'sm',
+    );
+  });
+
+  it('preserves the legacy density-to-size mapping when size is omitted', () => {
+    render(
+      <CheckboxList
+        label="Preferences"
+        value={[]}
+        onChange={() => {}}
+        density="compact">
+        <CheckboxListItem label="Option A" value="a" />
+      </CheckboxList>,
+    );
+
+    expect(screen.getByRole('list')).toHaveAttribute('data-size', 'sm');
+    expect(screen.getByRole('listitem')).toHaveAttribute('data-size', 'sm');
+  });
+
+  it('exposes row state through the checkbox-list-item theme target', () => {
+    render(
+      <CheckboxList label="Preferences" value={['a']} onChange={() => {}}>
+        <CheckboxListItem label="Option A" value="a" isDisabled />
+      </CheckboxList>,
+    );
+    const row = screen.getByRole('listitem');
+    expect(row).toHaveClass('astryx-checkbox-list-item');
+    expect(row).toHaveAttribute('data-size', 'md');
+    expect(row).toHaveAttribute('data-selected', 'selected');
+    expect(row).toHaveAttribute('data-disabled', 'disabled');
+  });
+
   it('renders with label', () => {
     render(
       <CheckboxList label="Preferences" value={[]} onChange={() => {}}>

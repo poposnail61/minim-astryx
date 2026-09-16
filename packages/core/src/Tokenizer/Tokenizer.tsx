@@ -248,7 +248,7 @@ const styles = stylex.create({
   wrapper: {
     position: 'relative',
     flexWrap: 'wrap',
-    gap: spacingVars['--spacing-1'],
+    gap: `var(--tokenizer-gap, ${spacingVars['--spacing-1']})`,
     cursor: {
       default: 'text',
       ':is(:disabled,[aria-disabled="true"])': 'default',
@@ -322,7 +322,9 @@ const styles = stylex.create({
 
 const sizeStyles = stylex.create({
   sm: {minHeight: sizeVars['--size-element-sm']},
-  md: {minHeight: sizeVars['--size-element-md']},
+  md: {
+    minHeight: `var(--power-search-trigger-min-height, var(--_tokenizer-min-height, ${sizeVars['--size-element-md']}))`,
+  },
   lg: {minHeight: sizeVars['--size-element-lg']},
 });
 

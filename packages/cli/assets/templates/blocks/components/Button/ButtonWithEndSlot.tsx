@@ -13,7 +13,7 @@ export default function ButtonWithEndSlot() {
       <Text type="supporting" color="secondary">
         Trailing badges for counts or status
       </Text>
-      <Stack direction="horizontal" gap={3} vAlign="center">
+      <Stack direction="horizontal" gap={3} vAlign="center" wrap="wrap">
         <Button
           label="Messages"
           variant="primary"

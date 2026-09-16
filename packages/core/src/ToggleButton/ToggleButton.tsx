@@ -29,6 +29,9 @@ import type {Elevation} from '../utils/types';
 import {useToggleButtonGroup} from './ToggleButtonGroup';
 import type {BaseProps} from '../BaseProps';
 import {themeProps} from '../utils/themeProps';
+import type {ToggleButtonVariantMap} from './index';
+
+export type ToggleButtonVariant = keyof ToggleButtonVariantMap;
 
 // =============================================================================
 // Styles
@@ -142,6 +145,9 @@ export interface ToggleButtonProps extends BaseProps<HTMLButtonElement> {
    */
   size?: ButtonSize;
 
+  /** Visual surface variant. @default 'default' */
+  variant?: ToggleButtonVariant;
+
   /**
    * Resting elevation — the shadow depth the button sits at, mirroring
    * Button's `elevation` for floating (FAB-style) toggle buttons.
@@ -242,6 +248,7 @@ export function ToggleButton({
   onPressedChange: onPressedChangeProp,
   pressedChangeAction,
   size: sizeProp,
+  variant = 'default',
   elevation = 'none',
   isDisabled: isDisabledProp = false,
   isLoading = false,
@@ -353,6 +360,8 @@ export function ToggleButton({
       {...themeProps('toggle-button', {
         isPressed: isPressed ? 'true' : 'false',
         elevation,
+        size,
+        variant,
       })}
       xstyle={[isPressed ? pressedStyles.background : undefined, xstyle]}
       style={style}

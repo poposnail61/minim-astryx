@@ -307,7 +307,9 @@ export function FieldLabel({
         // cannot know it, and any encoding it guessed would be wrong for a
         // caller that arranges labels differently (Field's
         // `horizontal-labels`).
-        themeProps('field-label'),
+        themeProps('field-label', {
+          disabled: isDisabled ? 'disabled' : null,
+        }),
         stylex.props(
           styles.label,
           isDisabled && styles.labelDisabled,
@@ -338,10 +340,15 @@ export function FieldLabel({
         ref={forwardsDescriptionClick ? descriptionRef : undefined}
         id={descriptionID}
         {...(forwardsDescriptionClick ? descriptionClickProps : undefined)}
-        {...stylex.props(
-          styles.description,
-          forwardsDescriptionClick && styles.descriptionClickable,
-          isLabelHidden && styles.srOnly,
+        {...mergeProps(
+          themeProps('field-description', {
+            disabled: isDisabled ? 'disabled' : null,
+          }),
+          stylex.props(
+            styles.description,
+            forwardsDescriptionClick && styles.descriptionClickable,
+            isLabelHidden && styles.srOnly,
+          ),
         )}>
         {description}
       </span>

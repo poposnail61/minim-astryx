@@ -13,6 +13,7 @@ permissions: {}
 
 jobs:
   prune:
+    if: github.repository == 'facebook/astryx'
     runs-on: ubuntu-slim
     permissions:
       contents: write

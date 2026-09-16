@@ -15,15 +15,12 @@
  * Enter/Space activation come from the parent DropdownMenu's useListFocus +
  * activation path, which matches menuitemcheckbox alongside plain menuitem rows.
  *
- * The checkbox visual is the shared checkbox indicator, decorative
- * (aria-hidden) — the row owns the role, checked state, and accessible name, so
- * there is no nested native <input> to shim out of the accessibility tree. It
- * picks up the same `checkbox` theming (and any theme replacement) as
- * CheckboxInput. The control size is derived from the menu's item size (a `sm`
- * menu gets the compact control; `md`/`lg` get the standard one) and the marker
- * box swaps to the inline-end of the row on coarse-pointer (touch) devices via
- * CSS `order`, so it lands where selection toggles are conventionally placed on
- * mobile.
+ * The checkbox visual is decorative (aria-hidden): the row owns the role,
+ * checked state, and accessible name. Themes may provide a menu-specific
+ * indicator; otherwise it falls back to the shared checkbox indicator. The
+ * control size is derived from the menu's item size (a `sm` menu gets the
+ * compact control; `md`/`lg` get the standard one) and the marker box swaps to
+ * the inline-end on coarse-pointer devices via CSS `order`.
  */
 
 import {useCallback, type PointerEvent, type ReactNode} from 'react';
@@ -160,7 +157,9 @@ export function DropdownMenuCheckboxItem({
   const ctx = useDropdownMenuContext();
   const menuSize = ctx?.menuSize ?? 'md';
   const controlSize = menuSize === 'sm' ? 'sm' : 'md';
-  const CheckboxControl = useIndicator('checkbox');
+  const MenuCheckboxControl = useIndicator('menu-checkbox');
+  const SharedCheckboxControl = useIndicator('checkbox');
+  const CheckboxControl = MenuCheckboxControl ?? SharedCheckboxControl;
 
   const handleClick = useCallback(() => {
     if (isDisabled) {

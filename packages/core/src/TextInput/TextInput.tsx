@@ -344,6 +344,7 @@ export function TextInput({
       status,
       statusVariant,
       isInGroup: !!inputGroup,
+      size,
     });
 
   const {ariaLabelledBy, ariaDescribedBy} = getInputARIA(
@@ -420,6 +421,8 @@ export function TextInput({
         themeProps('text-input', {
           size,
           status: status?.type ?? null,
+          statusMessage:
+            status?.message && statusVariant === 'attached' ? 'attached' : null,
           disabled: isDisabled ? 'disabled' : null,
           readonly: isReadOnly ? 'readonly' : null,
         }),
@@ -436,7 +439,11 @@ export function TextInput({
         className,
         style,
       )}>
-      {startIcon && renderIconSlot(startIcon, {size: 'sm', color: 'secondary'})}
+      {startIcon && (
+        <span {...themeProps('input-start-icon', {size})}>
+          {renderIconSlot(startIcon, {size: 'sm', color: 'secondary'})}
+        </span>
+      )}
       {inputGroup && <VisuallyHidden id={inputLabelID}>{label}</VisuallyHidden>}
       <input
         {...rest}
@@ -475,7 +482,13 @@ export function TextInput({
         aria-invalid={status?.type === 'error' ? 'true' : undefined}
         aria-busy={isBusy || undefined}
         aria-labelledby={ariaLabelledBy}
-        {...stylex.props(styles.input, isDisabled && styles.inputDisabled)}
+        {...mergeProps(
+          themeProps('text-input-control', {
+            size,
+            disabled: isDisabled ? 'disabled' : null,
+          }),
+          stylex.props(styles.input, isDisabled && styles.inputDisabled),
+        )}
       />
       {hasClear && value !== '' && !isDisabled && !isReadOnly && (
         <InputClearButton

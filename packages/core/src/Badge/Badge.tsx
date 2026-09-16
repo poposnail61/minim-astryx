@@ -3,7 +3,7 @@
 /**
  * @file Badge.tsx
  * @input Uses React, HTMLAttributes
- * @output Exports Badge component, BadgeProps, BadgeVariant types
+ * @output Exports Badge component, BadgeProps, BadgeVariant, BadgeSize types
  * @position Core implementation; consumed by index.ts
  *
  * SYNC: When modified, update these files to stay in sync:
@@ -65,6 +65,27 @@ const styles = stylex.create({
     textOverflow: 'ellipsis',
     minWidth: 0,
   },
+  icon: {
+    display: 'inline-flex',
+    flexShrink: 0,
+  },
+  dot: {
+    width: spacingVars['--spacing-2'],
+    height: spacingVars['--spacing-2'],
+    minWidth: spacingVars['--spacing-2'],
+    padding: 0,
+  },
+  dotLabel: {
+    position: 'absolute',
+    width: '1px',
+    height: '1px',
+    padding: 0,
+    margin: '-1px',
+    overflow: 'hidden',
+    clipPath: 'inset(50%)',
+    whiteSpace: 'nowrap',
+    borderWidth: 0,
+  },
 });
 
 /**
@@ -92,6 +113,34 @@ const variants = stylex.create({
   error: {
     backgroundColor: colorVars['--color-error'],
     color: colorVars['--color-on-error'],
+  },
+  primary: {
+    backgroundColor: colorVars['--color-accent'],
+    color: colorVars['--color-on-accent'],
+  },
+  secondary: {
+    backgroundColor: colorVars['--color-success'],
+    color: colorVars['--color-on-success'],
+  },
+  critical: {
+    backgroundColor: colorVars['--color-error'],
+    color: colorVars['--color-on-error'],
+  },
+  'primary-subtle': {
+    backgroundColor: colorVars['--color-accent-muted'],
+    color: colorVars['--color-text-accent'],
+  },
+  'secondary-subtle': {
+    backgroundColor: colorVars['--color-success-muted'],
+    color: colorVars['--color-success'],
+  },
+  'critical-subtle': {
+    backgroundColor: colorVars['--color-error-muted'],
+    color: colorVars['--color-error'],
+  },
+  'neutral-subtle': {
+    backgroundColor: colorVars['--color-background-body'],
+    color: colorVars['--color-text-primary'],
   },
   // Non-semantic color variants — tinted backgrounds with colored text
   blue: {
@@ -137,6 +186,7 @@ const variants = stylex.create({
  * Extensible via module augmentation of BadgeVariantMap.
  */
 export type BadgeVariant = keyof BadgeVariantMap;
+export type BadgeSize = 'md' | 'lg' | 'dot';
 
 export interface BadgeProps extends BaseProps<HTMLSpanElement> {
   /** Ref forwarded to the root element */
@@ -146,6 +196,11 @@ export interface BadgeProps extends BaseProps<HTMLSpanElement> {
    * @default 'neutral'
    */
   variant?: BadgeVariant;
+  /**
+   * The badge size. Dot renders the label accessibly without visible content.
+   * @default 'md'
+   */
+  size?: BadgeSize;
   /**
    * The badge label text.
    */
@@ -173,6 +228,7 @@ export interface BadgeProps extends BaseProps<HTMLSpanElement> {
  */
 export function Badge({
   variant = 'neutral',
+  size = 'md',
   label,
   icon,
   xstyle,
@@ -207,15 +263,47 @@ export function Badge({
     <span
       ref={ref}
       {...mergeProps(
-        themeProps('badge', {variant}),
-        stylex.props(styles.base, variants[variant], xstyle),
+        themeProps('badge', {variant, size}),
+        stylex.props(
+          styles.base,
+          variants[variant],
+          size === 'dot' && styles.dot,
+          xstyle,
+        ),
         className,
         style,
       )}
       title={labelTitle}
+      aria-label={size === 'dot' ? labelTitle : undefined}
       {...props}>
-      {icon}
-      <span {...stylex.props(styles.label)}>{label}</span>
+      {size === 'dot' ? (
+        <span
+          {...mergeProps(
+            themeProps('badge-label', {size}),
+            stylex.props(styles.dotLabel),
+          )}>
+          {label}
+        </span>
+      ) : (
+        <>
+          {icon == null ? null : (
+            <span
+              {...mergeProps(
+                themeProps('badge-icon', {size}),
+                stylex.props(styles.icon),
+              )}>
+              {icon}
+            </span>
+          )}
+          <span
+            {...mergeProps(
+              themeProps('badge-label', {size}),
+              stylex.props(styles.label),
+            )}>
+            {label}
+          </span>
+        </>
+      )}
     </span>
   );
 }

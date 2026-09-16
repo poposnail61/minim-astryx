@@ -12,7 +12,13 @@
  */
 
 export {Link} from './Link';
-export type {LinkProps} from './Link';
+export type {LinkProps, LinkVariant} from './Link';
+
+export interface LinkVariantMap {
+  neutral: true;
+  muted: true;
+  primary: true;
+}
 
 export {LinkProvider} from './LinkProvider';
 export type {LinkProviderProps} from './LinkProvider';

@@ -1,0 +1,30 @@
+/* Copyright (c) Meta Platforms, Inc. and affiliates. */
+
+@import url('https://cdn.jsdelivr.net/gh/poposnail61/minim-font@main/dist/MinimBaseVF/css/MinimBaseVF.css');
+@import url('https://cdn.jsdelivr.net/gh/poposnail61/minim-font@main/dist/MinimSoftVF/css/MinimSoftVF.css');
+
+@font-face {
+  font-display: block;
+  font-family: 'Minim Symbol';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url('https://minim-symbol.sanjay0227.chatgpt.site/api/catalog/font.woff2')
+    format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono@v2.304/fonts/webfonts/JetBrainsMono-Regular.woff2')
+    format('woff2');
+}
+
+/* Aliases preserve the family names authored in the source Figma file. */
+:root {
+  --minim-font-family-base: 'MinimBaseVF', 'Minim Base VF', sans-serif;
+  --minim-font-family-soft: 'MinimSoftVF', 'Minim Soft VF', sans-serif;
+  --minim-font-family-code: 'JetBrains Mono', ui-monospace, monospace;
+  --minim-font-family-icon: 'Minim Symbol';
+}

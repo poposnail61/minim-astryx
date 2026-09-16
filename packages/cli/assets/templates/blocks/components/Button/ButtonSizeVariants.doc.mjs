@@ -6,7 +6,7 @@ export const doc = {
   exampleFor: 'Button',
   name: 'Button — Sizes',
   displayName: 'Button — Sizes',
-  description: 'Small, medium, and large buttons side by side. Use small in dense UIs like toolbars, medium for most cases, and large for prominent CTAs.',
+  description: 'Medium, large, and extra-large Minim buttons side by side for geometry comparison.',
   isReady: true,
   aspectRatio: 16 / 9,
   componentsUsed: ['Button', 'Layout', 'Text'],

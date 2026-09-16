@@ -229,6 +229,7 @@ const DIR_TO_REGISTRY_KEY: Record<string, string> = {
   Section: 'section',
   SegmentedControl: 'segmented-control',
   TextArea: 'text-area',
+  Tokenizer: 'tokenizer',
 };
 
 /**
@@ -273,6 +274,16 @@ const VARS_WITHOUT_DERIVED_MAPPING = new Set([
   '--button-icon-only-aspect',
   '--_avatar-group-overlap',
   '--_field-status-overlap',
+  // These input-shell values are inherited by composed controls. Mapping the
+  // Field target's own gap or padding would style the outer label/status
+  // layout instead of the bordered input that consumes them.
+  '--_input-content-gap',
+  '--_input-padding-block',
+  '--_input-padding-inline',
+  // Calendar uses these dimensions across several grid descendants; no one
+  // width/height declaration on the root represents either layout contract.
+  '--_calendar-cell-size',
+  '--_calendar-day-size',
   '--_codeblock-gutter-width',
   '--_tab-indicator-bottom',
   // Hit-area outset on a ::after overlay, and whether that overlay is

@@ -370,7 +370,14 @@ export function Timestamp({
       : formatTooltipLines(date, entries, locale);
 
   const timestampProps = mergeProps(
-    themeProps('timestamp', {format: effectiveFormat}),
+    themeProps('timestamp', {
+      format: effectiveFormat,
+      color,
+      type,
+      size,
+      typography:
+        size == null && type === 'supporting' ? 'source-default' : 'consumer',
+    }),
     {className, style},
   );
 

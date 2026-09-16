@@ -1276,6 +1276,7 @@ export function TouchDateTimeField({
             themeProps('date-time-input-date-segment', {
               size,
               status: status?.type ?? null,
+              disabled: isDisabled ? 'disabled' : null,
             }),
             stylex.props(
               inputWrapperStyles.base,
@@ -1357,6 +1358,7 @@ export function TouchDateTimeField({
             themeProps('date-time-input-time-segment', {
               size,
               status: status?.type ?? null,
+              disabled: isDisabled ? 'disabled' : null,
             }),
             stylex.props(
               inputWrapperStyles.base,

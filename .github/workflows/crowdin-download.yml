@@ -28,6 +28,7 @@ concurrency:
 
 jobs:
   download:
+    if: github.repository == 'facebook/astryx'
     runs-on: 4-core-ubuntu
     permissions:
       contents: write

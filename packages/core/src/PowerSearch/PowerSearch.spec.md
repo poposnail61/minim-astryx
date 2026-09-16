@@ -175,14 +175,28 @@ until its implementation and verification complete.
 
 | Anatomy or state        | Design requirement                                                                                                | Representation authority       | Hierarchy role | Component contract      |
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------ | -------------- | ----------------------- |
+| Power search root       | Own the structured-search field without imposing a specimen width.                                                | Current source and public docs | Prominent      | FR8                     |
 | Search field and tokens | Continue presenting the structured query and its current interaction states.                                      | Current source and public docs | Prominent      | FR8                     |
 | Main field/search menu  | Retain its exact `menuWidth` surface and current selection behavior; it does not inherit the editor's 720 px cap. | Current source and public docs | Prominent      | Ownership boundary, FR9 |
 | Filter-editor popover   | Stay within the readable 400–720 px range before viewport clamping.                                               | `component:PowerSearch/DEC-1`  | Prominent      | FR1–FR3, FR7            |
 | Width-capped editor     | Prefer the outer edge nearest the stable opening control, independent of activation modality.                     | `component:PowerSearch/DEC-2`  | Prominent      | FR4–FR8                 |
 | Keyboard-opened editor  | Use the same control-geometry rule and preserve current focus behavior.                                           | Accessibility contract         | Prominent      | FR5, FR8, AR1           |
 
-This proposal changes editor geometry only. It does not introduce a new visual
-state, theme target, or public configuration concept.
+### Theming anatomy
+
+<!-- anatomy-theming:v1 -->
+
+```json
+{
+  "Power search root": {"target": "power-search"},
+  "Search field and tokens": {"target": "power-search-trigger"},
+  "Filter-editor popover": {"target": "power-search-popover"}
+}
+```
+
+The trigger and popover targets are stable styling anatomy only. They introduce
+no visual state or public configuration concept and do not change the editor
+geometry contract above.
 
 ## Family and system relationships
 

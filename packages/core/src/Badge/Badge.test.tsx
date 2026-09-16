@@ -59,6 +59,28 @@ describe('Badge', () => {
     );
     expect(screen.getByTestId('icon')).toBeInTheDocument();
     expect(screen.getByText('With Icon')).toBeInTheDocument();
+    expect(screen.getByTestId('icon').parentElement).toHaveClass(
+      'astryx-badge-icon',
+    );
+  });
+
+  it('reflects size and exposes stable label anatomy', () => {
+    const {container} = render(<Badge size="lg" label="Large" />);
+    expect(container.firstElementChild).toHaveAttribute('data-size', 'lg');
+    expect(screen.getByText('Large')).toHaveClass('astryx-badge-label');
+    expect(screen.getByText('Large')).toHaveAttribute('data-size', 'lg');
+  });
+
+  it('renders an accessible content-free dot', () => {
+    const {container} = render(
+      <Badge size="dot" variant="critical" label="Service unavailable" />,
+    );
+    const root = container.firstElementChild!;
+    expect(root).toHaveAttribute('data-size', 'dot');
+    expect(root).toHaveAttribute('aria-label', 'Service unavailable');
+    expect(screen.getByText('Service unavailable')).toHaveClass(
+      'astryx-badge-label',
+    );
   });
 
   it('forwards ref', () => {

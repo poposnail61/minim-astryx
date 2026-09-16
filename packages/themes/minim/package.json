@@ -1,0 +1,65 @@
+{
+  "name": "@astryxdesign/theme-minim",
+  "version": "0.1.0",
+  "displayName": "Minim Theme",
+  "private": false,
+  "description": "Minim foundation themes for Astryx, with standard and compact density modes.",
+  "license": "MIT",
+  "homepage": "https://github.com/poposnail61/minim-astryx#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poposnail61/minim-astryx.git",
+    "directory": "packages/themes/minim"
+  },
+  "bugs": {
+    "url": "https://github.com/poposnail61/minim-astryx/issues"
+  },
+  "keywords": [
+    "astryx",
+    "theme",
+    "design-system",
+    "minim",
+    "design-tokens"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/source.js",
+  "module": "./dist/source.mjs",
+  "types": "./dist/source.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/source.d.ts",
+      "import": "./dist/source.mjs",
+      "require": "./dist/source.js"
+    },
+    "./built": {
+      "types": "./dist/minim-family.d.ts",
+      "import": "./dist/minim-family.js",
+      "require": "./dist/minim-family.js"
+    },
+    "./theme.css": {
+      "types": "./theme.css.d.ts",
+      "default": "./dist/minim-family.css"
+    },
+    "./fonts.css": "./src/fonts.css",
+    "./assets/icon-catalog.json": "./assets/icon-catalog.json"
+  },
+  "files": [
+    "dist",
+    "src/fonts.css",
+    "assets/icon-catalog.json",
+    "theme.css.d.ts"
+  ],
+  "scripts": {
+    "build": "node ../../../scripts/clean-dist.mjs && tsup && astryx theme build --family src/minim.build.ts src/minimCompact.build.ts --family-key minim-family --icons-specifier ../dist/icons.mjs && node -e \"const fs=require('node:fs');for(const ext of ['css','js','d.ts'])fs.renameSync('src/minim-family.'+ext,'dist/minim-family.'+ext)\" && tsc --project tsconfig.build.json && node ../../../scripts/check-fully-specified.mjs"
+  },
+  "peerDependencies": {
+    "@astryxdesign/core": "0.6.1",
+    "react": ">=19"
+  },
+  "devDependencies": {
+    "@astryxdesign/cli": "0.6.1",
+    "tsup": "^8.3.0"
+  }
+}

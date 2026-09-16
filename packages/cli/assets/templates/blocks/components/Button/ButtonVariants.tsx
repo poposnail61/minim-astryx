@@ -8,9 +8,12 @@ import {Text} from '@astryxdesign/core/Text';
 
 const VARIANTS = [
   {variant: 'primary' as const, label: 'Primary'},
-  {variant: 'secondary' as const, label: 'Secondary'},
+  {variant: 'neutral' as const, label: 'Neutral'},
+  {variant: 'neutral-subtle' as const, label: 'Neutral subtle'},
+  {variant: 'critical-subtle' as const, label: 'Critical subtle'},
   {variant: 'ghost' as const, label: 'Ghost'},
-  {variant: 'destructive' as const, label: 'Destructive'},
+  {variant: 'outline' as const, label: 'Outline'},
+  {variant: 'critical' as const, label: 'Critical'},
 ];
 
 export default function ButtonVariants() {
@@ -20,7 +23,7 @@ export default function ButtonVariants() {
         <Text type="supporting" color="secondary">
           Default
         </Text>
-        <Stack direction="horizontal" gap={3} vAlign="center">
+        <Stack direction="horizontal" gap={3} vAlign="center" wrap="wrap">
           {VARIANTS.map(({variant, label}) => (
             <Button key={variant} label={label} variant={variant} />
           ))}
@@ -30,7 +33,7 @@ export default function ButtonVariants() {
         <Text type="supporting" color="secondary">
           Disabled
         </Text>
-        <Stack direction="horizontal" gap={3} vAlign="center">
+        <Stack direction="horizontal" gap={3} vAlign="center" wrap="wrap">
           {VARIANTS.map(({variant, label}) => (
             <Button key={variant} label={label} variant={variant} isDisabled />
           ))}
@@ -40,7 +43,7 @@ export default function ButtonVariants() {
         <Text type="supporting" color="secondary">
           Loading
         </Text>
-        <Stack direction="horizontal" gap={3} vAlign="center">
+        <Stack direction="horizontal" gap={3} vAlign="center" wrap="wrap">
           {VARIANTS.map(({variant, label}) => (
             <Button key={variant} label={label} variant={variant} isLoading />
           ))}

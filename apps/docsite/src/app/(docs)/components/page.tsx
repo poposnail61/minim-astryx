@@ -18,9 +18,6 @@ import {ClickableCard} from '@astryxdesign/core/ClickableCard';
 import {Icon} from '@astryxdesign/core/Icon';
 import {Divider} from '@astryxdesign/core/Divider';
 import {Button} from '@astryxdesign/core/Button';
-import {Popover} from '@astryxdesign/core/Popover';
-import {Card} from '@astryxdesign/core/Card';
-import {CodeExampleBlock} from '../../../components/CodeExampleBlock';
 import {components as componentRegistry} from '../../../generated/componentRegistry';
 import {packages} from '../../../generated/packageRegistry';
 import {showcaseRegistry} from '../../../generated/showcaseRegistry';
@@ -29,7 +26,7 @@ import {normalizeComponentCategory} from '../../../lib/componentCategories';
 import {layout} from '../../../layout.stylex';
 
 const FIGMA_LIBRARY_URL =
-  'https://www.figma.com/community/file/1659998707120781098/astryx-library-community';
+  'https://www.figma.com/design/mHcauYaYWK3floQNsfolz6?node-id=10633-55324';
 
 /**
  * Category display order for the overview page.
@@ -208,42 +205,12 @@ export default function ComponentsGalleryPage() {
             </Text>
           </VStack>
           <HStack gap={3} vAlign="center">
-            <Popover
-              width={360}
-              content={
-                <VStack gap={3}>
-                  <VStack gap={1}>
-                    <Text type="body" weight="bold">
-                      1. Install the package
-                    </Text>
-                    <Card padding={0}>
-                      <CodeExampleBlock
-                        code="npm install @astryxdesign/core"
-                        language="bash"
-                        hasCopyButton
-                      />
-                    </Card>
-                  </VStack>
-                  <VStack gap={1}>
-                    <Text type="body" weight="bold">
-                      2. Import a component
-                    </Text>
-                    <Card padding={0}>
-                      <CodeExampleBlock
-                        code="import {...} from '@astryxdesign/core/ComponentName';"
-                        language="typescript"
-                        hasCopyButton
-                      />
-                    </Card>
-                  </VStack>
-                </VStack>
-              }>
-              <Button
-                variant="primary"
-                size="lg"
-                label="Install core library"
-              />
-            </Popover>
+            <Button
+              variant="primary"
+              size="lg"
+              label="Local setup guide"
+              href="/docs/getting-started"
+            />
             <Button
               variant="secondary"
               size="lg"

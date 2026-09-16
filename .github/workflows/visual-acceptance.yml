@@ -154,6 +154,7 @@ jobs:
     needs: authorize
     if: >-
       always() &&
+      github.repository == 'facebook/astryx' &&
       needs.authorize.result == 'success' &&
       needs.authorize.outputs.resolved == 'true'
     concurrency:

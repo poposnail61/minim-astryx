@@ -24,6 +24,7 @@ import {
   useTransition,
   type ReactNode,
 } from 'react';
+import * as stylex from '@stylexjs/stylex';
 import type {BaseProps} from '../BaseProps';
 import type {SizeValue} from '../utils/types';
 import {Field} from '../Field/Field';
@@ -39,6 +40,13 @@ import {
 } from './CheckboxListContext';
 
 const EMPTY_ARRAY: string[] = [];
+
+export type CheckboxListSize = 'sm' | 'md';
+
+const contentStyles = stylex.create({
+  horizontal: {flexDirection: 'row'},
+  vertical: {flexDirection: 'column'},
+});
 
 export interface CheckboxListProps extends Omit<
   BaseProps<HTMLDivElement>,
@@ -84,6 +92,10 @@ export interface CheckboxListProps extends Omit<
    * @default 'balanced'
    */
   density?: ListDensity;
+  /** Visual control size. When omitted, the existing density mapping is used. */
+  size?: CheckboxListSize;
+  /** Layout direction for the option list. @default 'vertical' */
+  orientation?: 'vertical' | 'horizontal';
   /**
    * Whether to show dividers between list items.
    * @default false
@@ -152,6 +164,8 @@ export function CheckboxList({
   onChange,
   changeAction,
   density = 'balanced',
+  size,
+  orientation = 'vertical',
   hasDividers = false,
   isDisabled = false,
   disabledMessage,
@@ -165,6 +179,10 @@ export function CheckboxList({
   'data-testid': dataTestId,
   ...rest
 }: CheckboxListProps) {
+  const resolvedSize: CheckboxListSize =
+    size ?? (density === 'compact' ? 'sm' : 'md');
+  const resolvedDensity: ListDensity =
+    size == null ? density : size === 'sm' ? 'compact' : 'balanced';
   const inputID = useId();
   const labelID = useId();
   const descriptionID = useId();
@@ -278,7 +296,18 @@ export function CheckboxList({
               .filter(Boolean)
               .join(' ') || undefined
           }>
-          <List density={density} hasDividers={hasDividers}>
+          <List
+            density={resolvedDensity}
+            hasDividers={hasDividers}
+            xstyle={
+              orientation === 'horizontal'
+                ? contentStyles.horizontal
+                : contentStyles.vertical
+            }
+            {...themeProps('checkbox-list-content', {
+              orientation,
+              size: resolvedSize,
+            })}>
             {children}
           </List>
         </div>

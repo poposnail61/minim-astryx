@@ -7,28 +7,102 @@ export const docs = {
   displayName: 'Breadcrumbs',
   group: 'Breadcrumbs',
   category: 'Navigation',
-  keywords: ["breadcrumbs","breadcrumb","navigation","nav","crumbs","trail","path","hierarchy","wayfinding","steps"],
+  keywords: [
+    'breadcrumbs',
+    'breadcrumb',
+    'navigation',
+    'nav',
+    'crumbs',
+    'trail',
+    'path',
+    'hierarchy',
+    'wayfinding',
+    'steps',
+  ],
   usage: {
     description:
       'Breadcrumbs show a trail of links from the root to the current page. Use them at the top of detail pages, settings panels, or anywhere the user needs to see where they are and navigate back up.',
     bestPractices: [
-      {guidance: true, description: 'Place breadcrumbs above the page heading so the user sees their location before reading the content.'},
-      {guidance: true, description: 'Keep labels short and match the page titles they link to: "Settings" not "Application Settings Page".'},
-      {guidance: true, description: 'Use the supporting variant in dense UIs like admin panels or sidebars where the breadcrumb should be subtle.'},
-      {guidance: true, description: 'Make the last item plain text, not a link; it represents the current page. The component does this automatically when you set isCurrent.'},
-      {guidance: true, description: 'The component implements the WAI-ARIA APG Breadcrumb pattern: a labelled nav landmark wrapping an ordered list, with aria-current="page" on the current item. A crumb with a menu additionally implements the APG Menu Button pattern, opening on Enter, Space or ArrowDown and closing on Escape.'},
-      {guidance: true, description: 'Give each trail its own label when a page renders more than one, so the nav landmarks stay distinguishable in a screen reader landmark list.'},
-      {guidance: false, description: 'Use breadcrumbs as the primary navigation. They supplement a sidebar or top nav, not replace it.'},
-      {guidance: false, description: 'Show breadcrumbs on top-level pages that have no parent; they add clutter without helping the user.'},
-      {guidance: false, description: 'Let the trail grow beyond 5 levels. If you need more, consider simplifying the page hierarchy instead.'},
-      {guidance: true, description: 'The built-in slash separator mirrors automatically in RTL. For a custom separator, leave Unicode-mirrored angle quotes such as › alone; mirror arrows and Icon separators once with rtlStyles.mirror.'},
-      {guidance: false, description: 'Mirror a separator the bidi algorithm already mirrors. An angle-quote glyph such as › is Bidi_Mirrored, so it flips under RTL on its own and rtlStyles.mirror would flip it back. An arrow glyph such as → and any Icon separator are not, so those do need rtlStyles.mirror through xstyle.'},
+      {
+        guidance: true,
+        description:
+          'Place breadcrumbs above the page heading so the user sees their location before reading the content.',
+      },
+      {
+        guidance: true,
+        description:
+          'Keep labels short and match the page titles they link to: "Settings" not "Application Settings Page".',
+      },
+      {
+        guidance: true,
+        description:
+          'Use the supporting variant in dense UIs like admin panels or sidebars where the breadcrumb should be subtle.',
+      },
+      {
+        guidance: true,
+        description:
+          'Make the last item plain text, not a link; it represents the current page. The component does this automatically when you set isCurrent.',
+      },
+      {
+        guidance: true,
+        description:
+          'The component implements the WAI-ARIA APG Breadcrumb pattern: a labelled nav landmark wrapping an ordered list, with aria-current="page" on the current item. A crumb with a menu additionally implements the APG Menu Button pattern, opening on Enter, Space or ArrowDown and closing on Escape.',
+      },
+      {
+        guidance: true,
+        description:
+          'Give each trail its own label when a page renders more than one, so the nav landmarks stay distinguishable in a screen reader landmark list.',
+      },
+      {
+        guidance: false,
+        description:
+          'Use breadcrumbs as the primary navigation. They supplement a sidebar or top nav, not replace it.',
+      },
+      {
+        guidance: false,
+        description:
+          'Show breadcrumbs on top-level pages that have no parent; they add clutter without helping the user.',
+      },
+      {
+        guidance: false,
+        description:
+          'Let the trail grow beyond 5 levels. If you need more, consider simplifying the page hierarchy instead.',
+      },
+      {
+        guidance: true,
+        description:
+          'The built-in slash separator mirrors automatically in RTL. For a custom separator, leave Unicode-mirrored angle quotes such as › alone; mirror arrows and Icon separators once with rtlStyles.mirror.',
+      },
+      {
+        guidance: false,
+        description:
+          'Mirror a separator the bidi algorithm already mirrors. An angle-quote glyph such as › is Bidi_Mirrored, so it flips under RTL on its own and rtlStyles.mirror would flip it back. An arrow glyph such as → and any Icon separator are not, so those do need rtlStyles.mirror through xstyle.',
+      },
     ],
     anatomy: [
-      {name: 'Trail', required: true, description: 'The ordered list of links from root to current page.'},
-      {name: 'Item', required: true, description: 'A single step in the trail. Renders as a link or plain text for the current page.'},
-      {name: 'Separator', required: true, description: 'The character between items. Defaults to "/" but can be customized.'},
-      {name: 'Icon', required: false, description: 'An optional icon before an item label, like a home icon on the first item.'},
+      {
+        name: 'Trail',
+        required: true,
+        description: 'The ordered list of links from root to current page.',
+      },
+      {
+        name: 'Item',
+        required: true,
+        description:
+          'A single step in the trail. Renders as a link or plain text for the current page.',
+      },
+      {
+        name: 'Separator',
+        required: true,
+        description:
+          'The character between items. Defaults to "/" but can be customized.',
+      },
+      {
+        name: 'Icon',
+        required: false,
+        description:
+          'An optional icon before an item label, like a home icon on the first item.',
+      },
     ],
   },
   theming: {
@@ -42,12 +116,14 @@ export const docs = {
       {className: 'astryx-breadcrumbs', visualProps: ['variant']},
     ],
   },
-  description: 'Navigation container that renders a <nav> with an ordered list of breadcrumb items.',
+  description:
+    'Navigation container that renders a <nav> with an ordered list of breadcrumb items.',
   props: [
     {
       name: 'children',
       type: 'ReactNode',
-      description: 'BreadcrumbItem elements to render inside the breadcrumb trail.',
+      description:
+        'BreadcrumbItem elements to render inside the breadcrumb trail.',
       slotElements: [
         {
           __element: 'BreadcrumbItem',
@@ -62,7 +138,8 @@ export const docs = {
     {
       name: 'separator',
       type: 'ReactNode',
-      description: 'Separator rendered between breadcrumb items. The built-in slash mirrors automatically in RTL.',
+      description:
+        'Separator rendered between breadcrumb items. The built-in slash mirrors automatically in RTL.',
       default: "'/'",
       slotElements: [
         {
@@ -77,7 +154,8 @@ export const docs = {
     {
       name: 'variant',
       type: "'default' | 'supporting'",
-      description: 'Visual variant: supporting is smaller with secondary text styling.',
+      description:
+        'Visual variant: supporting is smaller with secondary text styling.',
       default: "'default'",
     },
     {
@@ -89,14 +167,16 @@ export const docs = {
     {
       name: 'xstyle',
       type: 'StyleXStyles',
-      description: 'StyleX styles for layout customization (margins, positioning, sizing). Must be a stylex.create() value: not an inline style object like style={{}}.',
+      description:
+        'StyleX styles for layout customization (margins, positioning, sizing). Must be a stylex.create() value: not an inline style object like style={{}}.',
     },
   ],
   components: [
     {
       name: 'BreadcrumbItem',
       displayName: 'Breadcrumb Item',
-      description: 'Individual breadcrumb item. Renders as a link when href is provided, or as plain text for the current page.',
+      description:
+        'Individual breadcrumb item. Renders as a link when href is provided, or as plain text for the current page.',
       props: [
         {
           name: 'children',
@@ -107,7 +187,8 @@ export const docs = {
         {
           name: 'href',
           type: 'string',
-          description: 'URL the breadcrumb links to; omit for non-navigable items.',
+          description:
+            'URL the breadcrumb links to; omit for non-navigable items.',
         },
         {
           name: 'onClick',
@@ -128,7 +209,8 @@ export const docs = {
         {
           name: 'as',
           type: 'LinkComponentType',
-          description: 'Custom link component to render instead of <a>. Overrides the provider-level default from LinkProvider. Only applies to non-current items.',
+          description:
+            'Custom link component to render instead of <a>. Overrides the provider-level default from LinkProvider. Only applies to non-current items.',
         },
         {
           name: 'menu',
@@ -138,7 +220,7 @@ export const docs = {
         },
         {
           name: 'menuSize',
-          type: "'sm' | 'md' | 'lg'",
+          type: "'sm' | 'md' | 'lg' | 'xl'",
           description:
             "Size passed to the menu items. Defaults from the breadcrumb variant ('supporting' → 'sm', otherwise 'md').",
         },
@@ -153,17 +235,61 @@ export const docsZh = {
     description:
       'Breadcrumbs show a trail of links from the root to the current page. Use them at the top of detail pages, settings panels, or anywhere the user needs to see where they are and navigate back up.',
     bestPractices: [
-      {guidance: true, description: 'Place breadcrumbs above the page heading so the user sees their location before reading the content.'},
-      {guidance: true, description: 'Keep labels short and match the page titles they link to: "Settings" not "Application Settings Page".'},
-      {guidance: true, description: 'Use the supporting variant in dense UIs like admin panels or sidebars where the breadcrumb should be subtle.'},
-      {guidance: true, description: 'Make the last item plain text, not a link; it represents the current page. The component does this automatically when you set isCurrent.'},
-      {guidance: true, description: 'The component implements the WAI-ARIA APG Breadcrumb pattern: a labelled nav landmark wrapping an ordered list, with aria-current="page" on the current item. A crumb with a menu additionally implements the APG Menu Button pattern, opening on Enter, Space or ArrowDown and closing on Escape.'},
-      {guidance: true, description: 'Give each trail its own label when a page renders more than one, so the nav landmarks stay distinguishable in a screen reader landmark list.'},
-      {guidance: false, description: 'Use breadcrumbs as the primary navigation. They supplement a sidebar or top nav, not replace it.'},
-      {guidance: false, description: 'Show breadcrumbs on top-level pages that have no parent; they add clutter without helping the user.'},
-      {guidance: false, description: 'Let the trail grow beyond 5 levels. If you need more, consider simplifying the page hierarchy instead.'},
-      {guidance: true, description: 'The built-in slash separator mirrors automatically in RTL. For a custom separator, leave Unicode-mirrored angle quotes such as › alone; mirror arrows and Icon separators once with rtlStyles.mirror.'},
-      {guidance: false, description: 'Mirror a separator the bidi algorithm already mirrors. An angle-quote glyph such as › is Bidi_Mirrored, so it flips under RTL on its own and rtlStyles.mirror would flip it back. An arrow glyph such as → and any Icon separator are not, so those do need rtlStyles.mirror through xstyle.'},
+      {
+        guidance: true,
+        description:
+          'Place breadcrumbs above the page heading so the user sees their location before reading the content.',
+      },
+      {
+        guidance: true,
+        description:
+          'Keep labels short and match the page titles they link to: "Settings" not "Application Settings Page".',
+      },
+      {
+        guidance: true,
+        description:
+          'Use the supporting variant in dense UIs like admin panels or sidebars where the breadcrumb should be subtle.',
+      },
+      {
+        guidance: true,
+        description:
+          'Make the last item plain text, not a link; it represents the current page. The component does this automatically when you set isCurrent.',
+      },
+      {
+        guidance: true,
+        description:
+          'The component implements the WAI-ARIA APG Breadcrumb pattern: a labelled nav landmark wrapping an ordered list, with aria-current="page" on the current item. A crumb with a menu additionally implements the APG Menu Button pattern, opening on Enter, Space or ArrowDown and closing on Escape.',
+      },
+      {
+        guidance: true,
+        description:
+          'Give each trail its own label when a page renders more than one, so the nav landmarks stay distinguishable in a screen reader landmark list.',
+      },
+      {
+        guidance: false,
+        description:
+          'Use breadcrumbs as the primary navigation. They supplement a sidebar or top nav, not replace it.',
+      },
+      {
+        guidance: false,
+        description:
+          'Show breadcrumbs on top-level pages that have no parent; they add clutter without helping the user.',
+      },
+      {
+        guidance: false,
+        description:
+          'Let the trail grow beyond 5 levels. If you need more, consider simplifying the page hierarchy instead.',
+      },
+      {
+        guidance: true,
+        description:
+          'The built-in slash separator mirrors automatically in RTL. For a custom separator, leave Unicode-mirrored angle quotes such as › alone; mirror arrows and Icon separators once with rtlStyles.mirror.',
+      },
+      {
+        guidance: false,
+        description:
+          'Mirror a separator the bidi algorithm already mirrors. An angle-quote glyph such as › is Bidi_Mirrored, so it flips under RTL on its own and rtlStyles.mirror would flip it back. An arrow glyph such as → and any Icon separator are not, so those do need rtlStyles.mirror through xstyle.',
+      },
     ],
   },
 };
@@ -175,17 +301,57 @@ export const docsDense = {
     description:
       'Breadcrumbs show a trail of links from root to current page. Use at the top of detail pages, settings, or nested content.',
     bestPractices: [
-      {guidance: true, description: 'Place above the page heading so user sees location before reading content.'},
-      {guidance: true, description: 'Keep labels short + matching page titles they link to: "Settings" not "Application Settings Page".'},
-      {guidance: true, description: 'Use supporting variant in dense UIs where the breadcrumb should be subtle.'},
-      {guidance: true, description: 'Last item plain text, not a link; represents current page; done automatically when you set isCurrent.'},
-      {guidance: true, description: 'Implements APG Breadcrumb: labelled nav landmark + ol + aria-current="page". A menu crumb also implements APG Menu Button (Enter/Space/ArrowDown to open, Escape to close).'},
-      {guidance: true, description: 'Give each trail its own label when a page renders more than one.'},
-      {guidance: false, description: 'Use as primary navigation; breadcrumbs supplement, not replace, a main nav.'},
+      {
+        guidance: true,
+        description:
+          'Place above the page heading so user sees location before reading content.',
+      },
+      {
+        guidance: true,
+        description:
+          'Keep labels short + matching page titles they link to: "Settings" not "Application Settings Page".',
+      },
+      {
+        guidance: true,
+        description:
+          'Use supporting variant in dense UIs where the breadcrumb should be subtle.',
+      },
+      {
+        guidance: true,
+        description:
+          'Last item plain text, not a link; represents current page; done automatically when you set isCurrent.',
+      },
+      {
+        guidance: true,
+        description:
+          'Implements APG Breadcrumb: labelled nav landmark + ol + aria-current="page". A menu crumb also implements APG Menu Button (Enter/Space/ArrowDown to open, Escape to close).',
+      },
+      {
+        guidance: true,
+        description:
+          'Give each trail its own label when a page renders more than one.',
+      },
+      {
+        guidance: false,
+        description:
+          'Use as primary navigation; breadcrumbs supplement, not replace, a main nav.',
+      },
       {guidance: false, description: 'Show on top-level pages with no parent.'},
-      {guidance: false, description: 'Let the trail exceed 5 levels; simplify the hierarchy instead.'},
-      {guidance: true, description: 'Built-in / mirrors automatically in RTL. Leave bidi-mirrored › alone; mirror custom arrows and Icons once.'},
-      {guidance: false, description: 'Mirror a separator that already mirrors itself: › is Bidi_Mirrored and flips under RTL on its own. → and Icon separators are not, so those need rtlStyles.mirror via xstyle.'},
+      {
+        guidance: false,
+        description:
+          'Let the trail exceed 5 levels; simplify the hierarchy instead.',
+      },
+      {
+        guidance: true,
+        description:
+          'Built-in / mirrors automatically in RTL. Leave bidi-mirrored › alone; mirror custom arrows and Icons once.',
+      },
+      {
+        guidance: false,
+        description:
+          'Mirror a separator that already mirrors itself: › is Bidi_Mirrored and flips under RTL on its own. → and Icon separators are not, so those need rtlStyles.mirror via xstyle.',
+      },
     ],
   },
 };

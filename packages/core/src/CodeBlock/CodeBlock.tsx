@@ -597,6 +597,7 @@ function SpanCodeContent({
   sizeStyle,
   hasLineNumbers,
   maxDigits,
+  size,
 }: {
   lines: string[];
   tokenLines: TokenLine[];
@@ -605,6 +606,7 @@ function SpanCodeContent({
   sizeStyle: stylex.StyleXStyles;
   hasLineNumbers: boolean;
   maxDigits: number;
+  size: 'sm' | 'md';
 }) {
   useInsertionEffect(() => {
     ensureHighlightStyles();
@@ -626,12 +628,15 @@ function SpanCodeContent({
 
   return (
     <code
-      {...stylex.props(
-        styles.code,
-        sizeStyle,
-        isWrapped && styles.codeWrapped,
-        hasLineNumbers && styles.codeNumbered,
-        hasLineNumbers && dynamicStyles.gutterWidth(maxDigits),
+      {...mergeProps(
+        themeProps('code-block-code', {size}),
+        stylex.props(
+          styles.code,
+          sizeStyle,
+          isWrapped && styles.codeWrapped,
+          hasLineNumbers && styles.codeNumbered,
+          hasLineNumbers && dynamicStyles.gutterWidth(maxDigits),
+        ),
       )}>
       {renderLines(lines, highlightSet, renderLineContent, hasLineNumbers)}
     </code>
@@ -650,6 +655,7 @@ function RangeCodeContent({
   sizeStyle,
   hasLineNumbers,
   maxDigits,
+  size,
 }: {
   lines: string[];
   tokenLines: TokenLine[];
@@ -658,6 +664,7 @@ function RangeCodeContent({
   sizeStyle: stylex.StyleXStyles;
   hasLineNumbers: boolean;
   maxDigits: number;
+  size: 'sm' | 'md';
 }) {
   const codeRef = useRef<HTMLElement>(null);
 
@@ -686,12 +693,15 @@ function RangeCodeContent({
   return (
     <code
       ref={codeRef}
-      {...stylex.props(
-        styles.code,
-        sizeStyle,
-        isWrapped && styles.codeWrapped,
-        hasLineNumbers && styles.codeNumbered,
-        hasLineNumbers && dynamicStyles.gutterWidth(maxDigits),
+      {...mergeProps(
+        themeProps('code-block-code', {size}),
+        stylex.props(
+          styles.code,
+          sizeStyle,
+          isWrapped && styles.codeWrapped,
+          hasLineNumbers && styles.codeNumbered,
+          hasLineNumbers && dynamicStyles.gutterWidth(maxDigits),
+        ),
       )}>
       {renderLines(lines, highlightSet, renderLineContent, hasLineNumbers)}
     </code>
@@ -907,6 +917,7 @@ export function CodeBlock({
             sizeStyle={sizeStyle}
             hasLineNumbers={hasLineNumbers}
             maxDigits={maxLineDigits}
+            size={size}
           />
         ) : (
           <RangeCodeContent
@@ -917,6 +928,7 @@ export function CodeBlock({
             sizeStyle={sizeStyle}
             hasLineNumbers={hasLineNumbers}
             maxDigits={maxLineDigits}
+            size={size}
           />
         )}
       </div>

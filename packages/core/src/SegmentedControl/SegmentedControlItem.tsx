@@ -215,7 +215,17 @@ export function SegmentedControlItem({
   });
 
   const iconElement = icon ? (
-    <span {...stylex.props(styles.icon, iconSizeStyles[size])}>{icon}</span>
+    <span
+      {...mergeProps(
+        themeProps('segmented-control-item-icon', {
+          size,
+          selected: isSelected ? 'selected' : null,
+          disabled: isItemDisabled ? 'disabled' : null,
+        }),
+        stylex.props(styles.icon, iconSizeStyles[size]),
+      )}>
+      {icon}
+    </span>
   ) : null;
 
   return (
@@ -255,7 +265,17 @@ export function SegmentedControlItem({
       )}>
       {iconElement}
       {!isLabelHidden && (
-        <span {...stylex.props(styles.labelText)}>{label}</span>
+        <span
+          {...mergeProps(
+            themeProps('segmented-control-item-label', {
+              size,
+              selected: isSelected ? 'selected' : null,
+              disabled: isItemDisabled ? 'disabled' : null,
+            }),
+            stylex.props(styles.labelText),
+          )}>
+          {label}
+        </span>
       )}
     </button>
   );

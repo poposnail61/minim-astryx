@@ -56,6 +56,7 @@ import {
 import {PowerSearchEditPopover} from './PowerSearchEditPopover';
 import {resolveOperatorLabel} from './resolveOperatorLabel';
 import {themeProps} from '../utils/themeProps';
+import {mergeProps} from '../utils';
 import {truncateCharacters} from '../utils/characters';
 import {useTranslator} from '../i18n';
 import {useLocale} from '../i18n/useLocale';
@@ -1057,7 +1058,10 @@ export function PowerSearch({
           ref,
           popover.triggerRef as React.Ref<HTMLDivElement>,
         )}
-        {...themeProps('power-search')}>
+        {...mergeProps(
+          themeProps('power-search'),
+          themeProps('power-search-trigger'),
+        )}>
         <Tokenizer
           handleRef={tokenizerRef}
           label={label}
@@ -1095,6 +1099,7 @@ export function PowerSearch({
         alignment: 'start',
         offset: spacingVars['--spacing-1'],
         xstyle: [popoverLayerStyles.layer, layerAnimations.below],
+        ...themeProps('power-search-popover', {mode: 'value-editor'}),
       })}
     </>
   );

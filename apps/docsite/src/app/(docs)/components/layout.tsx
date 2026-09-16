@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       'Browse every Astryx component with copy-ready examples for each variant, state, and pattern.',
     path: '/components',
   }),
-  // Brand the per-component page titles (e.g. "Button · Astryx") so browser
+  // Brand per-component page titles (for example, "Button · Minim Astryx") so browser
   // tabs are distinguishable. A plain string title at this layout segment was
   // shadowing the root title template for the dynamic /components/[name] pages,
   // so re-declare the template here; `default` titles the gallery index.

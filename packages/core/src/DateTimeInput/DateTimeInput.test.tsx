@@ -2418,6 +2418,12 @@ describe('DateTimeInput disabled theme state', () => {
     );
     const root = container.querySelector('.astryx-date-time-input');
     expect(root).toHaveAttribute('data-disabled', 'disabled');
+    expect(
+      container.querySelector('.astryx-date-time-input-date-segment'),
+    ).toHaveAttribute('data-disabled', 'disabled');
+    expect(
+      container.querySelector('.astryx-date-time-input-time-segment'),
+    ).toHaveAttribute('data-disabled', 'disabled');
   });
 
   it('omits data-disabled when enabled, like status does', () => {

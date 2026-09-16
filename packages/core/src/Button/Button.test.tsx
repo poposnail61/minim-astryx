@@ -45,6 +45,49 @@ describe('Button', () => {
 
     rerender(<Button label="Destructive" variant="destructive" />);
     expect(screen.getByRole('button')).toBeInTheDocument();
+
+    for (const variant of [
+      'neutral',
+      'neutral-subtle',
+      'critical-subtle',
+      'outline',
+      'critical',
+    ] as const) {
+      rerender(<Button label={variant} variant={variant} />);
+      expect(screen.getByRole('button')).toHaveAttribute(
+        'data-variant',
+        variant,
+      );
+    }
+  });
+
+  it('supports the additive xl size', () => {
+    render(<Button label="Extra large" size="xl" />);
+    expect(screen.getByRole('button')).toHaveAttribute('data-size', 'xl');
+    expect(screen.getByRole('button')).toHaveAttribute(
+      'data-content',
+      'default',
+    );
+  });
+
+  it('publishes stable targets for inner anatomy', () => {
+    render(
+      <Button
+        label="Anatomy"
+        size="xl"
+        icon={<span data-testid="icon-content" />}
+        endContent={<span data-testid="end-content" />}
+      />,
+    );
+
+    expect(screen.getByTestId('icon-content').parentElement).toHaveClass(
+      'astryx-button-icon',
+    );
+    expect(screen.getByText('Anatomy')).toHaveClass('astryx-button-label');
+    expect(screen.getByTestId('end-content').parentElement).toHaveClass(
+      'astryx-button-end-content',
+    );
+    expect(screen.getByText('Anatomy')).toHaveAttribute('data-size', 'xl');
   });
 
   // Retained, narrowed: the shared contract proves an icon-only button HAS an
@@ -58,6 +101,11 @@ describe('Button', () => {
         icon={<span data-testid="icon">⚙</span>}
         isIconOnly
       />,
+    );
+
+    expect(screen.getByRole('button')).toHaveAttribute(
+      'data-content',
+      'icon-only',
     );
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('aria-label', 'Settings');

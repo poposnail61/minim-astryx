@@ -138,6 +138,7 @@ const triggerSizeStyles = stylex.create({
     paddingBlock: spacingVars['--spacing-1-5'],
   },
   lg: {},
+  xl: {},
 });
 
 const flyoutStyles = stylex.create({

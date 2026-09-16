@@ -180,40 +180,43 @@ importers:
   apps/docsite:
     dependencies:
       '@astryxdesign/charts':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/charts
       '@astryxdesign/cli':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/cli
       '@astryxdesign/core':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/core
       '@astryxdesign/lab':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/lab
       '@astryxdesign/richtext':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/richtext
       '@astryxdesign/theme-butter':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/themes/butter
       '@astryxdesign/theme-gothic':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/themes/gothic
       '@astryxdesign/theme-matcha':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/themes/matcha
+      '@astryxdesign/theme-minim':
+        specifier: workspace:*
+        version: link:../../packages/themes/minim
       '@astryxdesign/theme-neutral':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/themes/neutral
       '@astryxdesign/theme-stone':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/themes/stone
       '@astryxdesign/theme-y2k':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/themes/y2k
       '@astryxdesign/vega':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../packages/vega
       '@heroicons/react':
         specifier: ^2.2.0
@@ -1056,6 +1059,22 @@ importers:
       '@astryxdesign/cli':
         specifier: 0.6.1
         version: link:../../cli
+
+  packages/themes/minim:
+    dependencies:
+      '@astryxdesign/core':
+        specifier: 0.6.1
+        version: link:../../core
+      react:
+        specifier: '>=19'
+        version: 19.2.7
+    devDependencies:
+      '@astryxdesign/cli':
+        specifier: 0.6.1
+        version: link:../../cli
+      tsup:
+        specifier: ^8.3.0
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.25)(tsx@4.23.0)(typescript@6.0.3)(yaml@2.9.0)
 
   packages/themes/neutral:
     dependencies:

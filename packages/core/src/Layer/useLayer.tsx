@@ -154,6 +154,8 @@ export interface ContextRenderProps {
    * proper name to assistive technology.
    */
   'aria-label'?: string;
+  /** Visual mode reflected for theme selectors on the rendered layer. */
+  'data-mode'?: string;
   /**
    * StyleX styles for the popover container.
    */
@@ -874,6 +876,7 @@ function useLayerImplementation(
         offset,
         role,
         'aria-label': ariaLabel,
+        'data-mode': dataMode,
         xstyle,
         className: extraClassName,
         style: extraStyle,
@@ -923,6 +926,7 @@ function useLayerImplementation(
           id={id}
           role={role}
           aria-label={ariaLabel}
+          data-mode={dataMode}
           popover={lightDismiss ? 'auto' : 'manual'}
           className={combinedClassName}
           style={{

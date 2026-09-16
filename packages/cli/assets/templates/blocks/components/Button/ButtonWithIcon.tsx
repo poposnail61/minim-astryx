@@ -19,7 +19,7 @@ export default function ButtonWithIcon() {
       <Text type="supporting" color="secondary">
         Icons reinforce the action
       </Text>
-      <Stack direction="horizontal" gap={3} vAlign="center">
+      <Stack direction="horizontal" gap={3} vAlign="center" wrap="wrap">
         <Button
           label="New item"
           variant="primary"

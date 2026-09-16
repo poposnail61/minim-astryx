@@ -89,6 +89,19 @@ export const derivedVarRegistry: Record<string, DerivedVarEntry[]> = {
       replaces: true,
     },
   ],
+  tokenizer: [
+    {property: 'gap', vars: ['--tokenizer-gap'], replaces: true},
+    {
+      property: 'paddingBlock',
+      vars: ['--tokenizer-padding-block'],
+      replaces: true,
+    },
+    {
+      property: 'paddingInline',
+      vars: ['--tokenizer-padding-inline'],
+      replaces: true,
+    },
+  ],
 };
 
 /**

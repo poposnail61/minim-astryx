@@ -2,6 +2,7 @@
 
 @import "@astryxdesign/core/reset.css";
 @import "@astryxdesign/core/astryx.css";
+@import "@astryxdesign/theme-minim/fonts.css";
 /* Package CSS is generated from packages visible to this docs target, so
    canary-only styles never enter the production build. */
 @import "../generated/package-styles.css";
@@ -211,4 +212,3 @@ body[data-hero-dark] [data-home-page] .astryx-pagination-dot:focus-visible {
   background: var(--color-background-body) !important;
   backdrop-filter: none !important;
 }
-

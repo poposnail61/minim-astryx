@@ -48,7 +48,7 @@ Consumer migration instructions belong in consumer docs and release notes.
 
 - The current slider row, background track, filled range, tick marks and labels,
   thumbs, and adjacent text value presentation.
-- The `slider`, `slider-control`, `slider-track`, and `slider-thumb` public
+- The `slider`, `slider-control`, `slider-track`, `slider-mark`, and `slider-thumb` public
   targets.
 
 **Does not own / non-goals**
@@ -68,12 +68,12 @@ documented in `Slider.doc.mjs`.
 
 ## Behavioral and layout contract
 
-| ID  | Candidate invariant                                                                                                                                  | Basis                                   | Review state                                       |
-| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | -------------------------------------------------- |
-| FR1 | The current render places a filled range, one or two thumbs, and optional tick marks over the background track.                                      | Current source, docs, and focused tests | Verified current behavior; no new behavior decided |
-| FR2 | `Slider`, `Interactive control`, `Track`, and `Thumb` carry the `slider`, `slider-control`, `slider-track`, and `slider-thumb` targets respectively. | Current source, public docs, and #6224  | Approved additive target contract                  |
-| FR3 | Filled range, tick marks, mark labels, and adjacent text value display are stable rendered parts without their own current Slider target.            | Current source and public docs          | Verified current asymmetry; not ratified as policy |
-| FR4 | Label and status presentation continue to use Field and FieldStatus; value tooltips continue to use Tooltip.                                         | Current source and focused tests        | Verified composition boundary                      |
+| ID  | Candidate invariant                                                                                                                                                              | Basis                                   | Review state                                       |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | -------------------------------------------------- |
+| FR1 | The current render places a filled range, one or two thumbs, and optional tick marks over the background track.                                                                  | Current source, docs, and focused tests | Verified current behavior; no new behavior decided |
+| FR2 | `Slider`, `Interactive control`, `Track`, `Tick mark`, and `Thumb` carry the `slider`, `slider-control`, `slider-track`, `slider-mark`, and `slider-thumb` targets respectively. | Current source, public docs, and #6224  | Approved additive target contract                  |
+| FR3 | Filled range, tick marks, mark labels, and adjacent text value display are stable rendered parts without their own current Slider target.                                        | Current source and public docs          | Verified current asymmetry; not ratified as policy |
+| FR4 | Label and status presentation continue to use Field and FieldStatus; value tooltips continue to use Tooltip.                                                                     | Current source and focused tests        | Verified composition boundary                      |
 
 ### Observed current target asymmetry
 
@@ -149,11 +149,7 @@ behavior, or value-tooltip behavior.
       "reason": "unsettled: No current public Slider target reaches this part; future target ownership is undecided."
     }
   },
-  "Tick mark": {
-    "none": {
-      "reason": "unsettled: No current public Slider target reaches this part; future target ownership is undecided."
-    }
-  },
+  "Tick mark": {"target": "slider-mark"},
   "Mark label": {
     "none": {
       "reason": "unsettled: No current public Slider target reaches this part; future target ownership is undecided."

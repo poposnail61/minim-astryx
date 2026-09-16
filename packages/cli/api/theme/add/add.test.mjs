@@ -58,6 +58,42 @@ describe('themeAdd (api/theme/add)', () => {
     }
   });
 
+  it('copies the complete self-contained minim theme', async () => {
+    const result = await themeAdd('minim', {cwd: tmpDir});
+    const outputDir = path.join(tmpDir, result.data.outputDir);
+
+    expect(result.data.files).toEqual(
+      expect.arrayContaining([
+        'minimTheme.ts',
+        'minimTokens.generated.ts',
+        'fonts.css',
+        'icons.tsx',
+        'indicators.tsx',
+        'assets/icon-catalog.json',
+        'components/menu-spinner.tsx',
+      ]),
+    );
+    expect(fs.readFileSync(path.join(outputDir, 'icons.tsx'), 'utf-8')).toContain(
+      "from './assets/icon-catalog.json'",
+    );
+
+    const relativeImports = /from\s+['"](\.\.?\/[^'"]+)['"]/g;
+    for (const file of result.data.files) {
+      if (!/\.(?:ts|tsx|mjs)$/.test(file)) continue;
+      const source = fs.readFileSync(path.join(outputDir, file), 'utf-8');
+      for (const [, specifier] of source.matchAll(relativeImports)) {
+        const imported = path.resolve(outputDir, path.dirname(file), specifier);
+        expect(
+          fs.existsSync(imported) ||
+            fs.existsSync(`${imported}.ts`) ||
+            fs.existsSync(`${imported}.tsx`) ||
+            fs.existsSync(`${imported}.mjs`) ||
+            fs.existsSync(`${imported}.json`),
+        ).toBe(true);
+      }
+    }
+  });
+
   it('strips the Meta copyright header from copied files', async () => {
     const result = await themeAdd('neutral', {cwd: tmpDir});
     const first = path.join(

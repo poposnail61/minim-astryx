@@ -5,30 +5,11 @@
 import * as stylex from '@stylexjs/stylex';
 import {Text} from '@astryxdesign/core/Text';
 import {Link} from '@astryxdesign/core/Link';
-import {Button} from '@astryxdesign/core/Button';
 import {HStack, VStack} from '@astryxdesign/core/Layout';
 import {Grid, GridSpan} from '@astryxdesign/core/Grid';
 import {Divider} from '@astryxdesign/core/Divider';
 import {Section} from '@astryxdesign/core/Section';
-import {DocsVersionFooterLink} from './DocsVersionFooterLink';
-import {
-  GITHUB_REPO,
-  DISCORD_URL,
-  FACEBOOK_URL,
-  INSTAGRAM_URL,
-  THREADS_URL,
-  X_URL,
-} from '../constants';
-import {
-  AstryxLogo,
-  GitHubLogo,
-  ThreadsLogo,
-  XLogo,
-  InstagramLogo,
-  FacebookLogo,
-  MetaOpenSourceLogo,
-  DiscordLogo,
-} from './logos';
+import {GITHUB_REPO, UPSTREAM_REPO} from '../constants';
 
 const MOBILE = '@media (max-width: 768px)';
 
@@ -37,23 +18,6 @@ const styles = stylex.create({
     // Match the section rhythm above (responsive); fall back off the home page.
     paddingTop:
       'var(--astryx-marketing-section-gap, calc(var(--spacing-12) * 2))',
-  },
-  astryxLogo: {
-    height: 18,
-    width: 'auto',
-    display: 'block',
-    color: 'var(--color-icon-secondary)',
-  },
-  socialIcon: {
-    width: 16,
-    height: 16,
-    display: 'block',
-  },
-  metaOpenSourceLogo: {
-    height: 14,
-    width: 'auto',
-    display: 'block',
-    color: 'var(--color-icon-secondary)',
   },
   // Keeps the wrapped link list to a readable measure once it stacks; on
   // desktop the links sit in their own grid column and must not be clamped.
@@ -95,10 +59,6 @@ const styles = stylex.create({
     // HStack gap={4}
     gap: {default: 'var(--spacing-4)', [MOBILE]: 'var(--spacing-3)'},
   },
-  copyright: {
-    // Text justify="end"
-    textAlign: {default: 'end', [MOBILE]: 'center'},
-  },
   social: {
     // Must stay `nowrap` on desktop: the social buttons sit in a `1fr` grid
     // track, and a track only grows past its share to fit its MIN-CONTENT — a
@@ -114,30 +74,6 @@ const FOOTER_LINKS: ReadonlyArray<{
 }> = [
   {label: 'Docs', href: '/docs/getting-started'},
   {label: 'Components', href: '/components'},
-  {label: 'Templates', href: '/templates'},
-  {label: 'Themes', href: '/themes'},
-  {label: 'Playground', href: '/playground'},
-  {label: 'Blog', href: '/blog'},
-  {label: 'Community', href: '/community'},
-  {label: 'Changelog', href: '/changelog'},
-];
-
-const SOCIAL_LINKS: ReadonlyArray<{
-  label: string;
-  href: string;
-  Icon: (props: React.SVGProps<SVGSVGElement>) => React.ReactElement;
-}> = [
-  {label: 'GitHub', href: GITHUB_REPO, Icon: GitHubLogo},
-  {label: 'Discord', href: DISCORD_URL, Icon: DiscordLogo},
-  {label: 'Facebook', href: FACEBOOK_URL, Icon: FacebookLogo},
-  {label: 'Instagram', href: INSTAGRAM_URL, Icon: InstagramLogo},
-  {label: 'Threads', href: THREADS_URL, Icon: ThreadsLogo},
-  {label: 'X', href: X_URL, Icon: XLogo},
-];
-
-const LEGAL_LINKS: ReadonlyArray<{label: string; href: string}> = [
-  {label: 'Terms of use', href: 'https://opensource.fb.com/legal/terms'},
-  {label: 'Privacy policy', href: 'https://opensource.fb.com/legal/privacy'},
 ];
 
 function NavLinks() {
@@ -153,72 +89,17 @@ function NavLinks() {
           {item.label}
         </Link>
       ))}
-      <DocsVersionFooterLink />
-    </>
-  );
-}
-
-function SocialButtons() {
-  return (
-    <>
-      {SOCIAL_LINKS.map(social => (
-        <Button
-          key={social.label}
-          label={social.label}
-          tooltip={social.label}
-          variant="secondary"
-          isIconOnly
-          icon={
-            <social.Icon
-              aria-hidden="true"
-              {...stylex.props(styles.socialIcon)}
-            />
-          }
-          href={social.href}
-        />
-      ))}
-    </>
-  );
-}
-
-function LegalLinks() {
-  return (
-    <>
-      {LEGAL_LINKS.map(link => (
-        <Link
-          key={link.label}
-          href={link.href}
-          type="supporting"
-          color="secondary"
-          isStandalone
-          target="_blank">
-          {link.label}
-        </Link>
-      ))}
     </>
   );
 }
 
 export function SiteFooter({year}: {year: number}) {
-  // The regex compliance check requires the year to immediately follow the
-  // copyright mark — `©{year}`, no separating space. See PR description.
-  const copyright = `\u00A9${year} Meta Platforms, Inc.`;
-
-  const astryxLogo = (
-    <Link href="/" label="Astryx">
-      <AstryxLogo aria-hidden="true" {...stylex.props(styles.astryxLogo)} />
-    </Link>
-  );
-
-  const metaOpenSourceLink = (
-    <Link
-      href="https://opensource.fb.com"
-      label="Meta Open Source"
-      target="_blank">
-      <MetaOpenSourceLogo
-        aria-hidden="true"
-        {...stylex.props(styles.metaOpenSourceLogo)}
-      />
+  void year;
+  const minimLogo = (
+    <Link href="/components" label="Minim Astryx">
+      <Text type="body" weight="semibold">
+        Minim Astryx
+      </Text>
     </Link>
   );
 
@@ -226,7 +107,7 @@ export function SiteFooter({year}: {year: number}) {
     <Section role="contentinfo" padding={6} xstyle={styles.siteFooter}>
       <VStack gap={4} xstyle={styles.stack}>
         <Grid columns={5} align="center" xstyle={[styles.row, styles.navRow]}>
-          {astryxLogo}
+          {minimLogo}
           <GridSpan columns={3}>
             <HStack
               gap={4}
@@ -238,32 +119,31 @@ export function SiteFooter({year}: {year: number}) {
             </HStack>
           </GridSpan>
           <HStack gap={2} align="center" justify="end" xstyle={styles.social}>
-            <SocialButtons />
+            <Link href={GITHUB_REPO} type="supporting" color="secondary">
+              GitHub
+            </Link>
           </HStack>
         </Grid>
 
         <Divider />
 
-        <Grid columns={4} align="center" xstyle={[styles.row, styles.legalRow]}>
-          {metaOpenSourceLink}
-          <GridSpan columns={2}>
-            <HStack
-              gap={4}
-              wrap="wrap"
-              align="center"
-              hAlign="center"
-              width="100%">
-              <LegalLinks />
-            </HStack>
-          </GridSpan>
-          <Text
-            type="supporting"
-            color="secondary"
-            justify="end"
-            xstyle={styles.copyright}>
-            {copyright}
+        <HStack gap={1} align="center" hAlign="center" width="100%">
+          <Text type="supporting" color="secondary">
+            Based on
           </Text>
-        </Grid>
+          <Link href={UPSTREAM_REPO} type="supporting" color="secondary">
+            Astryx
+          </Link>
+          <Text type="supporting" color="secondary">
+            under the
+          </Text>
+          <Link
+            href={`${GITHUB_REPO}/blob/main/LICENSE`}
+            type="supporting"
+            color="secondary">
+            MIT License
+          </Link>
+        </HStack>
       </VStack>
     </Section>
   );

@@ -47,6 +47,7 @@ concurrency:
 jobs:
   visual:
     name: Visual regression
+    if: github.repository == 'facebook/astryx'
     # Pinned label, deliberately: a baseline is only comparable against the
     # same platform and browser build. The gate refuses the comparison rather
     # than reporting a runner change as hundreds of regressions.
@@ -177,6 +178,7 @@ jobs:
           if-no-files-found: warn
 
   a11y:
+    if: github.repository == 'facebook/astryx'
     name: Accessibility
     runs-on: 2-core-ubuntu-arm
     # The full-suite audit walks every story in the index and has taken ~57 min.
@@ -244,7 +246,7 @@ jobs:
   publish:
     name: Publish verdict
     needs: [visual, a11y]
-    if: ${{ !cancelled() }}
+    if: ${{ github.repository == 'facebook/astryx' && !cancelled() }}
     runs-on: ubuntu-slim
     permissions:
       actions: read

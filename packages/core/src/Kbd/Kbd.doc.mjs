@@ -11,7 +11,8 @@ const anatomy = [
   {
     name: 'Key badge',
     required: true,
-    description: 'Painted key badge rendered once for each key in the shortcut.',
+    description:
+      'Painted key badge rendered once for each key in the shortcut.',
   },
 ];
 
@@ -21,7 +22,17 @@ export const docs = {
   name: 'Kbd',
   displayName: 'Kbd',
   category: 'Content',
-  keywords: ["kbd","keyboard","shortcut","hotkey","keybinding","keystroke","keycombo","modifier","accelerator"],
+  keywords: [
+    'kbd',
+    'keyboard',
+    'shortcut',
+    'hotkey',
+    'keybinding',
+    'keystroke',
+    'keycombo',
+    'modifier',
+    'accelerator',
+  ],
   props: [
     {
       name: 'keys',
@@ -50,15 +61,28 @@ export const docs = {
     },
   ],
   theming: {
-    targets: [{className: 'astryx-kbd'}],
+    targets: [{className: 'astryx-kbd'}, {className: 'astryx-kbd-key'}],
   },
   usage: {
     anatomy,
-    description: 'Renders a keyboard shortcut as styled key badges. Use Kbd in tooltips, menus, and help text to show key combinations.',
+    description:
+      'Renders a keyboard shortcut as styled key badges. Use Kbd in tooltips, menus, and help text to show key combinations.',
     bestPractices: [
-      { guidance: true, description: 'Place shortcuts near the action they trigger: in a tooltip, menu item, or inline instruction.' },
-      { guidance: true, description: 'Use mod instead of ctrl or cmd; it automatically adapts to the user\'s platform.' },
-      { guidance: false, description: 'Use Kbd as the only way to discover an action; shortcuts should supplement visible controls, not replace them.' },
+      {
+        guidance: true,
+        description:
+          'Place shortcuts near the action they trigger: in a tooltip, menu item, or inline instruction.',
+      },
+      {
+        guidance: true,
+        description:
+          "Use mod instead of ctrl or cmd; it automatically adapts to the user's platform.",
+      },
+      {
+        guidance: false,
+        description:
+          'Use Kbd as the only way to discover an action; shortcuts should supplement visible controls, not replace them.',
+      },
     ],
   },
 };
@@ -95,15 +119,28 @@ export const docsZh = {
     },
   ],
   theming: {
-    targets: [{className: 'astryx-kbd'}],
+    targets: [{className: 'astryx-kbd'}, {className: 'astryx-kbd-key'}],
   },
   usage: {
     anatomy,
-    description: 'Renders a keyboard shortcut as styled key badges. Use Kbd in tooltips, menus, and help text to show key combinations.',
+    description:
+      'Renders a keyboard shortcut as styled key badges. Use Kbd in tooltips, menus, and help text to show key combinations.',
     bestPractices: [
-      { guidance: true, description: 'Place shortcuts near the action they trigger: in a tooltip, menu item, or inline instruction.' },
-      { guidance: true, description: 'Use mod instead of ctrl or cmd; it automatically adapts to the user\'s platform.' },
-      { guidance: false, description: 'Use Kbd as the only way to discover an action; shortcuts should supplement visible controls, not replace them.' },
+      {
+        guidance: true,
+        description:
+          'Place shortcuts near the action they trigger: in a tooltip, menu item, or inline instruction.',
+      },
+      {
+        guidance: true,
+        description:
+          "Use mod instead of ctrl or cmd; it automatically adapts to the user's platform.",
+      },
+      {
+        guidance: false,
+        description:
+          'Use Kbd as the only way to discover an action; shortcuts should supplement visible controls, not replace them.',
+      },
     ],
   },
 };
@@ -114,17 +151,33 @@ export const docsDense = {
     'Renders keyboard shortcut as styled key badges. Use in tooltips, menus + help text to show key combinations.',
   usage: {
     anatomy,
-    description: 'Renders a keyboard shortcut as styled key badges. Use Kbd in tooltips, menus, and help text to show key combinations.',
+    description:
+      'Renders a keyboard shortcut as styled key badges. Use Kbd in tooltips, menus, and help text to show key combinations.',
     bestPractices: [
-      { guidance: true, description: 'Place shortcuts near the action they trigger: in a tooltip, menu item, or inline instruction.' },
-      { guidance: true, description: 'Use mod instead of ctrl or cmd; it automatically adapts to the user\'s platform.' },
-      { guidance: false, description: 'Use Kbd as the only way to discover an action; shortcuts should supplement visible controls, not replace them.' },
+      {
+        guidance: true,
+        description:
+          'Place shortcuts near the action they trigger: in a tooltip, menu item, or inline instruction.',
+      },
+      {
+        guidance: true,
+        description:
+          "Use mod instead of ctrl or cmd; it automatically adapts to the user's platform.",
+      },
+      {
+        guidance: false,
+        description:
+          'Use Kbd as the only way to discover an action; shortcuts should supplement visible controls, not replace them.',
+      },
     ],
   },
   propDescriptions: {
     keys: 'Shortcut string. "+" separates keys. Special: mod (Cmd on Mac), ctrl, alt, shift, enter, backspace, escape, tab, up, down, left, right.',
-    xstyle: 'StyleX styles for layout customization. Must be stylex.create() value.',
-    className: 'CSS class for root element. Prefer xstyle; className for non-StyleX integration.',
-    style: 'Inline styles for root element. Prefer xstyle; inline styles bypass StyleX optimization.',
+    xstyle:
+      'StyleX styles for layout customization. Must be stylex.create() value.',
+    className:
+      'CSS class for root element. Prefer xstyle; className for non-StyleX integration.',
+    style:
+      'Inline styles for root element. Prefer xstyle; inline styles bypass StyleX optimization.',
   },
 };

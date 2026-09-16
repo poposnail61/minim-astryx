@@ -41,13 +41,19 @@ const anatomy = [
     name: 'Checkbox indicator',
     required: false,
     description:
-      'Decorative shared checkbox indicator for a checkbox action row.',
+      'Decorative menu checkbox indicator, with the shared checkbox indicator as its fallback.',
   },
   {
     name: 'Radio indicator',
     required: false,
     description:
-      'Decorative shared radio indicator with an additional menu-owned target.',
+      'Decorative menu radio indicator, with the shared radio indicator as its fallback and a menu-owned row target.',
+  },
+  {
+    name: 'Menu radio row',
+    required: false,
+    description:
+      'Painted radio action row carrying the menu-specific geometry target.',
   },
   {
     name: 'Pointer section heading',
@@ -149,6 +155,10 @@ export const docs = {
         className: 'astryx-dropdown-menu-radio',
         visualProps: ['size'],
         states: ['checked', 'disabled'],
+      },
+      {
+        className: 'astryx-menu-radio-row',
+        visualProps: ['size'],
       },
       {className: 'astryx-dropdown-menu-section-heading'},
       {className: 'astryx-dropdown-menu-divider'},

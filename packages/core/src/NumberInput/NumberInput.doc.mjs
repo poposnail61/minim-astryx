@@ -222,9 +222,11 @@ export const docs = {
     targets: [
       {
         className: 'astryx-number-input',
-        visualProps: ['size', 'status'],
+        visualProps: ['size', 'status', 'statusMessage'],
         states: ['disabled', 'readonly'],
       },
+      {className: 'astryx-number-input-control', visualProps: ['size', 'disabled']},
+      {className: 'astryx-input-start-icon', visualProps: ['size']},
     ],
     derived: [
       // `padding` in any spelling — the shorthand, `paddingBlock`, or a lone
@@ -497,9 +499,11 @@ export const docsZh = {
     targets: [
       {
         className: 'astryx-number-input',
-        visualProps: ['size', 'status'],
+        visualProps: ['size', 'status', 'statusMessage'],
         states: ['disabled', 'readonly'],
       },
+      {className: 'astryx-number-input-control', visualProps: ['size', 'disabled']},
+      {className: 'astryx-input-start-icon', visualProps: ['size']},
     ],
     derived: [
       // 任何写法的 `padding`（简写、`paddingBlock`，或单独的

@@ -15,7 +15,7 @@
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://astryx.atmeta.com';
 
-export const SITE_NAME = 'Astryx';
-export const SITE_TITLE = 'Astryx Design System';
+export const SITE_NAME = 'Minim Astryx';
+export const SITE_TITLE = 'Minim Astryx Design System';
 export const SITE_DESCRIPTION =
-  'An open source design system that is fully customizable and agent ready.';
+  'An unofficial, work-in-progress Minim adaptation of the Astryx design system.';

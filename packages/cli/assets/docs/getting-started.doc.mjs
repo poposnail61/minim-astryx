@@ -21,7 +21,7 @@ export const docs = {
           type: 'code',
           lang: 'text',
           label: 'Set up the design system',
-          code: 'Install @astryxdesign/core, @stylexjs/stylex, @astryxdesign/theme-neutral, and @astryxdesign/cli in this project, then run `npx @astryxdesign/cli init` to set up agent docs. Read the generated files to learn the conventions.',
+          code: 'Use the checked-out minim-astryx workspace. Install its locked dependencies with `pnpm install --frozen-lockfile`, then build the local packages with `pnpm build`. Do not install @astryxdesign/theme-minim from npm; this work-in-progress package is consumed from the workspace.',
         },
         {
           type: 'prose',
@@ -44,13 +44,14 @@ export const docs = {
         },
         {
           type: 'prose',
-          text: 'Add the core package and its `@stylexjs/stylex` peer dependency, plus a theme and the CLI.',
+          text: 'Minim Astryx is currently developed and consumed from this repository workspace. Use the versions pinned by its lockfile.',
         },
         {
           type: 'code',
           lang: 'bash',
           label: 'Terminal',
-          code: `npm install @astryxdesign/core @stylexjs/stylex @astryxdesign/theme-neutral @astryxdesign/cli`,
+          code: `pnpm install --frozen-lockfile
+pnpm build`,
         },
         {
           type: 'prose',
@@ -77,7 +78,8 @@ export const docs = {
           label: 'globals.css',
           code: `@import '@astryxdesign/core/reset.css';
 @import '@astryxdesign/core/astryx.css';
-@import '@astryxdesign/theme-neutral/theme.css';`,
+@import '@astryxdesign/theme-minim/theme.css';
+@import '@astryxdesign/theme-minim/fonts.css';`,
         },
         {
           type: 'prose',
@@ -87,7 +89,7 @@ export const docs = {
           type: 'list',
           style: 'unordered',
           items: [
-            '`@astryxdesign/theme-neutral`: muted and minimal; a good starting point',
+            '`@astryxdesign/theme-minim`: the local Minim base and compact family',
             '`@astryxdesign/theme-butter`: warm, golden tones with blue accents',
             '`@astryxdesign/theme-chocolate`: rich chocolate and caramel tones',
             '`@astryxdesign/theme-gothic`: dark-only theme with ink and noir influences',

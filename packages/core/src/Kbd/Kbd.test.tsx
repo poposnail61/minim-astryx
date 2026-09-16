@@ -112,6 +112,7 @@ describe('Kbd', () => {
     const {container} = render(<Kbd keys="k" />);
     const wrapper = container.firstChild as HTMLElement;
     expect(wrapper.className).toContain('astryx-kbd');
+    expect(wrapper.querySelector('kbd')).toHaveClass('astryx-kbd-key');
   });
 
   it('renders "plus" as a literal + key', () => {

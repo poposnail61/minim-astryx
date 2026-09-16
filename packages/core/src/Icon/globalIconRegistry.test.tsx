@@ -43,6 +43,11 @@ describe('iconRegistry (global, RSC-compatible)', () => {
     expect(icon).not.toBe(defaultIcons.chevronDown);
   });
 
+  it('provides a component-owned Token remove fallback', () => {
+    expect(getIcon('token:remove')).toBe(defaultIcons['token:remove']);
+    expect(getIcon('token:remove')).toBeDefined();
+  });
+
   it('returns default icons when nothing is registered', () => {
     const icon = getIcon('close');
     expect(icon).toBeDefined();

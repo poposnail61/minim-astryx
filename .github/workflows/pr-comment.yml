@@ -116,6 +116,7 @@ jobs:
   invalidate:
     needs: resolve
     if: >-
+      github.repository == 'facebook/astryx' &&
       (github.event.action == 'requested' || github.event.action == 'in_progress') &&
       needs.resolve.outputs.valid == 'true' &&
       needs.resolve.outputs.spec_only != 'true' &&
@@ -153,6 +154,7 @@ jobs:
   spec-only-visual:
     needs: resolve
     if: >-
+      github.repository == 'facebook/astryx' &&
       github.event.action == 'completed' &&
       needs.resolve.outputs.valid == 'true' &&
       (needs.resolve.outputs.spec_only == 'true' ||
@@ -178,6 +180,7 @@ jobs:
   spec-only-reconcile:
     needs: resolve
     if: >-
+      github.repository == 'facebook/astryx' &&
       github.event.action == 'completed' &&
       needs.resolve.outputs.valid == 'true' &&
       (needs.resolve.outputs.spec_only == 'true' ||
@@ -237,6 +240,7 @@ jobs:
   deploy-preview:
     needs: resolve
     if: >-
+      github.repository == 'facebook/astryx' &&
       github.event.action == 'completed' &&
       needs.resolve.outputs.valid == 'true' &&
       needs.resolve.outputs.spec_only != 'true' &&
@@ -264,6 +268,7 @@ jobs:
     # runs this job so stale links are removed rather than retained.
     if: >-
       always() &&
+      github.repository == 'facebook/astryx' &&
       github.event.action == 'completed' &&
       needs.resolve.outputs.valid == 'true' &&
       needs.resolve.outputs.spec_only != 'true' &&

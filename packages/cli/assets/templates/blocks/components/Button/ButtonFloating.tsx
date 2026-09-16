@@ -21,7 +21,7 @@ export default function ButtonFloating() {
       <Text type="supporting" color="secondary">
         Floating action buttons — raised above content with `elevation="med"`
       </Text>
-      <Stack direction="horizontal" gap={3} vAlign="center">
+      <Stack direction="horizontal" gap={3} vAlign="center" wrap="wrap">
         {VARIANTS.map(({variant, label}) => (
           <Button
             key={variant}

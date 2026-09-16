@@ -74,7 +74,13 @@ describe('themeTargets (api/theme/targets)', () => {
   // look like they disagree.
   it('prefers an exact component name over a substring match', async () => {
     const {data} = await themeTargets('Button');
-    expect(data.targets.map(t => t.key)).toEqual(['button']);
+    expect(data.componentCount).toBe(1);
+    expect(data.targets.map(t => t.key)).toEqual([
+      'button',
+      'button-end-content',
+      'button-icon',
+      'button-label',
+    ]);
   }, 60_000);
 
   // This command answers "which theme slot paints the switch thumb?" — a

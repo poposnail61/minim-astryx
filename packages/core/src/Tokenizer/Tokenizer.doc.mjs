@@ -253,6 +253,16 @@ export const docs = {
     targets: [
       {className: 'astryx-tokenizer', visualProps: ['size', 'status'], states: ['disabled']},
     ],
+    vars: [
+      {name: '--tokenizer-gap', description: 'Gap between Tokenizer content slots.', default: 'var(--spacing-1)'},
+      {name: '--tokenizer-padding-block', description: 'Block padding for an empty Tokenizer field. Token rows retain their concentric chip padding.', default: 'var(--spacing-1)'},
+      {name: '--tokenizer-padding-inline', description: 'Inline padding for an empty Tokenizer field.', default: 'var(--spacing-2)'},
+    ],
+    derived: [
+      {property: 'gap', vars: ['--tokenizer-gap'], replaces: true},
+      {property: 'paddingBlock', vars: ['--tokenizer-padding-block'], replaces: true},
+      {property: 'paddingInline', vars: ['--tokenizer-padding-inline'], replaces: true},
+    ],
   },
   usage: {
     description:
@@ -478,6 +488,16 @@ export const docsZh = {
   theming: {
     targets: [
       {className: 'astryx-tokenizer', visualProps: ['size', 'status'], states: ['disabled']},
+    ],
+    vars: [
+      {name: '--tokenizer-gap', description: 'Tokenizer 内容槽之间的间距。', default: 'var(--spacing-1)'},
+      {name: '--tokenizer-padding-block', description: '空 Tokenizer 字段的块方向内边距；令牌行保留同心芯片内边距。', default: 'var(--spacing-1)'},
+      {name: '--tokenizer-padding-inline', description: '空 Tokenizer 字段的行内内边距。', default: 'var(--spacing-2)'},
+    ],
+    derived: [
+      {property: 'gap', vars: ['--tokenizer-gap'], replaces: true},
+      {property: 'paddingBlock', vars: ['--tokenizer-padding-block'], replaces: true},
+      {property: 'paddingInline', vars: ['--tokenizer-padding-inline'], replaces: true},
     ],
   },
   usage: {

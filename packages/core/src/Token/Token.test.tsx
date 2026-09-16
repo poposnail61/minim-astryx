@@ -107,6 +107,8 @@ describe('Token', () => {
     render(<Token label="Removable" onRemove={handleRemove} />);
     const removeButton = screen.getByRole('button', {name: 'Remove Removable'});
     expect(removeButton).toBeInTheDocument();
+    expect(removeButton).toHaveClass('astryx-token-remove');
+    expect(removeButton).toHaveAttribute('data-size', 'md');
     fireEvent.click(removeButton);
     expect(handleRemove).toHaveBeenCalledTimes(1);
   });
@@ -157,11 +159,23 @@ describe('Token', () => {
     );
     expect(screen.getByTestId('end')).toBeInTheDocument();
     expect(screen.getByText('End')).toBeInTheDocument();
+    expect(screen.getByTestId('end').parentElement).toHaveClass(
+      'astryx-token-end-content',
+    );
   });
 
   it('renders icon', () => {
     render(<Token label="Token" icon={<span data-testid="icon">★</span>} />);
     expect(screen.getByTestId('icon')).toBeInTheDocument();
+    expect(screen.getByTestId('icon').parentElement).toHaveClass(
+      'astryx-token-icon',
+    );
+  });
+
+  it('exposes the label as a stable theme target', () => {
+    render(<Token label="Targeted" size="sm" />);
+    expect(screen.getByText('Targeted')).toHaveClass('astryx-token-label');
+    expect(screen.getByText('Targeted')).toHaveAttribute('data-size', 'sm');
   });
 
   it('supports data-testid', () => {

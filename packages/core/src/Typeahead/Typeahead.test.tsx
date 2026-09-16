@@ -532,6 +532,23 @@ describe('BaseTypeahead focus-out', () => {
 });
 
 describe('Typeahead', () => {
+  it('reflects disabled on its existing theme target', () => {
+    const {container} = render(
+      <Typeahead
+        label="Fruit"
+        searchSource={fruitSource}
+        value={null}
+        onChange={() => {}}
+        isDisabled
+      />,
+    );
+
+    expect(container.querySelector('.astryx-typeahead')).toHaveAttribute(
+      'data-disabled',
+      'disabled',
+    );
+  });
+
   describe('out-of-order async results', () => {
     it('discards a stale response that resolves after a newer query', async () => {
       const resolvers = new Map<string, (items: SearchableItem[]) => void>();

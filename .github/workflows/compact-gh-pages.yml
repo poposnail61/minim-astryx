@@ -15,6 +15,7 @@ concurrency:
 
 jobs:
   compact:
+    if: github.repository == 'facebook/astryx'
     runs-on: ubuntu-slim
     permissions:
       actions: read

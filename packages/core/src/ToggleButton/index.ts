@@ -10,7 +10,12 @@
  */
 
 export {ToggleButton} from './ToggleButton';
-export type {ToggleButtonProps} from './ToggleButton';
+export type {ToggleButtonProps, ToggleButtonVariant} from './ToggleButton';
+
+export interface ToggleButtonVariantMap {
+  default: true;
+  ghost: true;
+}
 
 export {ToggleButtonGroup} from './ToggleButtonGroup';
 export type {

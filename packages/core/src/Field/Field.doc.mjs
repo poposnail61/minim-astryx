@@ -28,7 +28,9 @@ export const docs = {
   theming: {
     targets: [
       {className: 'astryx-field', visualProps: ['layout']},
-      {className: 'astryx-field-label'},
+      {className: 'astryx-field-input-status', visualProps: ['status', 'variant', 'message']},
+      {className: 'astryx-field-label', states: ['disabled']},
+      {className: 'astryx-field-description', states: ['disabled']},
       {className: 'astryx-field-status', visualProps: ['type', 'variant']},
       {
         className: 'astryx-input-status-icon',
@@ -40,6 +42,9 @@ export const docs = {
     vars: [
       {name: '--_field-radius', description: 'Border radius of input fields', default: 'var(--radius-element)', private: true},
       {name: '--_field-status-overlap', description: 'Amount an attached FieldStatus extends behind the lower half of the control. Set from the rendered control size.', default: 'calc(var(--size-element-md) / 2)', private: true},
+      {name: '--_input-content-gap', description: 'Gap between content slots inside a bordered input.', default: 'var(--spacing-2)', private: true},
+      {name: '--_input-padding-block', description: 'Block padding inside a bordered input.', default: 'var(--spacing-1)', private: true},
+      {name: '--_input-padding-inline', description: 'Inline padding inside a bordered input.', default: 'var(--spacing-2)', private: true},
       {name: '--_input-clear-hit-inset', description: 'Outset of the clear (\u2715) button\'s invisible hit area, applied to a ::after overlay. 0 on a fine pointer; negative on a coarse one, which grows the 20px button to the 24px touch target without changing what is drawn.', default: '0px', private: true},
       {name: '--_input-clear-hit-content', description: 'Whether the clear (\u2715) button\'s invisible hit overlay exists. `none` on a fine pointer, so no ::after is generated and hover still reaches the glyph; `""` on a coarse one, where the overlay provides the 24px touch target.', default: 'none', private: true},
     ],
@@ -178,6 +183,7 @@ export const docs = {
       {name: 'Label', required: true, description: 'Text identifying the field. Always rendered for accessibility, optionally hidden visually.'},
       {name: 'Description', required: false, description: 'Helper text between the label and input explaining what to enter.'},
       {name: 'Control slot', required: true, description: 'A custom, native, or third-party control that does not already render a field shell.'},
+      {name: 'Input/status group', required: true, description: 'Themeable wrapper that groups the control with an attached status message and reflects status, presentation variant, and message visibility.'},
       {name: 'Status message', required: false, description: 'Inline validation feedback showing error, warning, or success with a message.'},
       {name: 'Optional/Required indicator', required: false, description: 'Badge next to the label showing whether the field is optional or required.'},
       {name: 'Label tooltip', required: false, description: 'Info icon at the end of the label with a tooltip explaining the field.'},

@@ -134,6 +134,19 @@ export const docs = {
       default: "'balanced'",
     },
     {
+      name: 'size',
+      type: "'sm' | 'md'",
+      description:
+        'Visual control size. When omitted, compact density resolves to sm and other densities resolve to md.',
+      default: "'md'",
+    },
+    {
+      name: 'orientation',
+      type: "'vertical' | 'horizontal'",
+      description: 'Layout direction for the option list.',
+      default: "'vertical'",
+    },
+    {
       name: 'hasDividers',
       type: 'boolean',
       description: 'Whether to show dividers between items.',
@@ -208,7 +221,18 @@ export const docs = {
     ],
   },
   theming: {
-    targets: [{className: 'astryx-checkbox-list'}],
+    targets: [
+      {className: 'astryx-checkbox-list'},
+      {
+        className: 'astryx-checkbox-list-content',
+        visualProps: ['orientation', 'size'],
+      },
+      {
+        className: 'astryx-checkbox-list-item',
+        visualProps: ['size'],
+        states: ['selected', 'disabled', 'readOnly', 'loading'],
+      },
+    ],
   },
 };
 

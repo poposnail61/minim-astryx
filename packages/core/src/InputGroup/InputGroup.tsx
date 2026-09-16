@@ -210,6 +210,7 @@ export function InputGroup({
               themeProps('input-group', {
                 size,
                 status: status?.type ?? null,
+                disabled: isDisabled ? 'disabled' : null,
               }),
               stylex.props(
                 styles.group,

@@ -138,10 +138,11 @@ describe('DropdownMenuRadioGroup / RadioItem', () => {
       name: 'Newest',
       hidden: true,
     });
-    // The menu's target and the shared radio target land on the SAME painted
-    // circle, so menu radios and RadioList radios theme together and a theme
-    // never has to reach through a wrapper.
+    // The row carries the menu geometry target while the painted indicator
+    // retains the shared radio target for fallback themes.
     const box = checked.querySelector('.astryx-dropdown-menu-radio');
+    expect(checked).toHaveClass('astryx-menu-radio-row');
+    expect(checked).toHaveAttribute('data-size', 'md');
     expect(box).toHaveClass('astryx-radio');
     expect(box).toHaveAttribute('data-size', 'md');
     expect(box).toHaveAttribute('data-checked', 'checked');

@@ -22,10 +22,8 @@ import React, {lazy, Suspense, useRef, useState, useEffect} from 'react';
 import * as stylex from '@stylexjs/stylex';
 import {Skeleton} from '@astryxdesign/core/Skeleton';
 import {Text} from '@astryxdesign/core/Text';
-import {Theme} from '@astryxdesign/core/theme';
-import {neutralTheme} from '@astryxdesign/theme-neutral/built';
-import {useThemeMode} from '../app/providers';
 import {showcaseRegistry} from '../generated/showcaseRegistry';
+import {ComponentPreviewTheme} from './component-detail/ComponentPreviewTheme';
 
 import {eagerShowcases} from './eagerShowcases';
 
@@ -133,18 +131,11 @@ function ThumbnailFrame({
   children: React.ReactNode;
   containerRef?: React.Ref<HTMLDivElement>;
 }) {
-  // `themeMode`, not `mode`: it stays 'system' until the OS-preference effect
-  // resolves, so a server-rendered tile follows the OS scheme through
-  // light-dark() rather than flashing light for dark-mode visitors — the same
-  // reasoning as the site-level <Theme> in providers.tsx (#2713).
-  const {themeMode} = useThemeMode();
   return (
     <div ref={containerRef} {...stylex.props(styles.container)} inert>
       <div {...stylex.props(styles.scaler)}>
         <ShowcaseErrorBoundary>
-          <Theme theme={neutralTheme} mode={themeMode}>
-            {children}
-          </Theme>
+          <ComponentPreviewTheme>{children}</ComponentPreviewTheme>
         </ShowcaseErrorBoundary>
       </div>
     </div>

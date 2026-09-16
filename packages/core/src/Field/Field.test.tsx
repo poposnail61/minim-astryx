@@ -27,6 +27,32 @@ afterEach(() => {
 });
 
 describe('Field', () => {
+  it('exposes attached input/status anatomy without changing message gating', () => {
+    const {rerender} = render(
+      <Field label="Username" inputID="username" status={{type: 'error'}}>
+        <input id="username" />
+      </Field>,
+    );
+
+    const group = document.querySelector('.astryx-field-input-status');
+    expect(group).toHaveAttribute('data-status', 'error');
+    expect(group).toHaveAttribute('data-variant', 'attached');
+    expect(group).not.toHaveAttribute('data-message');
+    expect(screen.queryByText('Required')).not.toBeInTheDocument();
+
+    rerender(
+      <Field
+        label="Username"
+        inputID="username"
+        status={{type: 'error', message: 'Required'}}>
+        <input id="username" />
+      </Field>,
+    );
+
+    expect(group).toHaveAttribute('data-message', 'visible');
+    expect(screen.getByText('Required')).toHaveClass('astryx-field-status');
+  });
+
   it.each(['sm', 'md', 'lg'] as const)(
     'provides a half-height overlap for an attached %s control',
     size => {
@@ -579,5 +605,29 @@ describe('Field', () => {
       const field = screen.getByTestId('field');
       expect(getComputedStyle(field).isolation).toBe('isolate');
     });
+  });
+
+  it('publishes disabled state on label and description theme targets', () => {
+    render(
+      <Field
+        label="Name"
+        description="Supporting text"
+        inputID="name-input"
+        isDisabled>
+        <input id="name-input" disabled />
+      </Field>,
+    );
+
+    expect(screen.getByText('Name')).toHaveAttribute(
+      'data-disabled',
+      'disabled',
+    );
+    expect(screen.getByText('Supporting text')).toHaveClass(
+      'astryx-field-description',
+    );
+    expect(screen.getByText('Supporting text')).toHaveAttribute(
+      'data-disabled',
+      'disabled',
+    );
   });
 });

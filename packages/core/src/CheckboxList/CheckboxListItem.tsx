@@ -28,6 +28,7 @@ import {ListContext} from '../List/ListContext';
 import {CheckboxListContext} from './CheckboxListContext';
 import {useTranslator} from '../i18n';
 import {ItemDescriptionContext} from '../Item/ItemDescriptionContext';
+import {mergeProps, themeProps} from '../utils';
 
 // =============================================================================
 // Styles
@@ -298,8 +299,16 @@ export function CheckboxListItem({
           xstyle,
         ] as StyleXStyles
       }
-      className={className}
-      style={style}
+      {...mergeProps(
+        themeProps('checkbox-list-item', {
+          size: checkboxSize,
+          selected: resolvedChecked === true ? 'selected' : null,
+          disabled: effectiveDisabled ? 'disabled' : null,
+          readOnly: effectiveReadOnly ? 'read-only' : null,
+          loading: isBusy ? 'loading' : null,
+        }),
+        {className, style},
+      )}
       startContent={
         <DescribedCheckboxInput
           ref={checkboxRef}

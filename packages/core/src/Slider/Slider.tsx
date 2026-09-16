@@ -156,7 +156,6 @@ export type SliderProps = SliderSingleProps | SliderRangeProps;
 // Constants
 // =============================================================================
 
-const TRACK_SIZE = 4;
 const THUMB_SIZE = 20;
 
 // =============================================================================
@@ -221,40 +220,40 @@ const styles = stylex.create({
   },
   track: {
     position: 'absolute',
-    backgroundColor: colorVars['--color-track'],
+    backgroundColor: `var(--_slider-track-color, ${colorVars['--color-track']})`,
     borderRadius: radiusVars['--radius-full'],
   },
   trackHorizontal: {
     insetInlineStart: 0,
     insetInlineEnd: 0,
-    height: TRACK_SIZE,
+    height: 'var(--_slider-track-size, 4px)',
     top: '50%',
     transform: 'translateY(-50%)',
   },
   trackVertical: {
     top: 0,
     bottom: 0,
-    width: TRACK_SIZE,
+    width: 'var(--_slider-track-size, 4px)',
   },
   filledTrack: {
     position: 'absolute',
-    backgroundColor: colorVars['--color-accent'],
+    backgroundColor: `var(--_slider-fill-color, ${colorVars['--color-accent']})`,
     borderRadius: radiusVars['--radius-full'],
   },
   filledTrackHorizontal: {
-    height: TRACK_SIZE,
+    height: 'var(--_slider-track-size, 4px)',
     top: '50%',
     transform: 'translateY(-50%)',
   },
   filledTrackVertical: {
-    width: TRACK_SIZE,
+    width: 'var(--_slider-track-size, 4px)',
   },
   thumb: {
     position: 'absolute',
-    width: THUMB_SIZE,
-    height: THUMB_SIZE,
+    width: 'var(--_slider-thumb-size, 20px)',
+    height: 'var(--_slider-thumb-size, 20px)',
     borderRadius: radiusVars['--radius-full'],
-    backgroundColor: colorVars['--color-accent'],
+    backgroundColor: `var(--_slider-thumb-color, ${colorVars['--color-accent']})`,
     transform: 'translate(-50%, -50%)',
     transitionProperty: 'background-color, box-shadow',
     transitionDuration: {
@@ -314,7 +313,7 @@ const styles = stylex.create({
   },
   mark: {
     position: 'absolute',
-    backgroundColor: colorVars['--color-border-emphasized'],
+    backgroundColor: `var(--_slider-mark-color, ${colorVars['--color-border-emphasized']})`,
     borderRadius: radiusVars['--radius-full'],
   },
   markHorizontal: {
@@ -1091,13 +1090,15 @@ export function Slider({ref, ...props}: SliderProps) {
                       data-testid="slider-mark"
                       data-mark-value={mark.value}
                       {...mergeProps(
+                        themeProps('slider-mark', {orientation}),
                         stylex.props(
                           styles.mark,
                           isHorizontal
                             ? styles.markHorizontal
                             : styles.markVertical,
                         ),
-                        {style: markPos},
+                        undefined,
+                        markPos,
                       )}
                     />
                     {mark.label && (

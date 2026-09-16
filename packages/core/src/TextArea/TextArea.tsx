@@ -623,7 +623,10 @@ export function TextArea({
           }
           aria-busy={isBusy || undefined}
           {...mergeProps(
-            themeProps('text-area-control'),
+            themeProps('text-area-control', {
+              size,
+              disabled: isDisabled ? 'disabled' : null,
+            }),
             stylex.props(
               styles.textarea,
               textareaSizeStyles[size],

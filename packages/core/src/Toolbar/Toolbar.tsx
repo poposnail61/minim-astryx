@@ -118,12 +118,14 @@ const defaultBlockPaddingForSize: Record<ElementSize, SpacingStep> = {
   sm: 2,
   md: 2,
   lg: 2,
+  xl: 2,
 };
 
 const blockPaddingVarForSize: Record<ElementSize, string> = {
   sm: spacingVars['--spacing-2'],
   md: spacingVars['--spacing-2'],
   lg: spacingVars['--spacing-2'],
+  xl: spacingVars['--spacing-2'],
 };
 
 /**
@@ -135,6 +137,7 @@ const edgeCompInsetForSize: Record<ElementSize, string> = {
   sm: `calc(var(--container-padding-inline-start, ${spacingVars['--spacing-4']}) - ${spacingVars['--spacing-2']})`,
   md: `calc(var(--container-padding-inline-start, ${spacingVars['--spacing-4']}) - ${spacingVars['--spacing-2']})`,
   lg: `calc(var(--container-padding-inline-start, ${spacingVars['--spacing-4']}) - ${spacingVars['--spacing-2']})`,
+  xl: `calc(var(--container-padding-inline-start, ${spacingVars['--spacing-4']}) - ${spacingVars['--spacing-2']})`,
 };
 
 export type ToolbarSize = ElementSize;

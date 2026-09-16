@@ -27,6 +27,7 @@ import {
 } from '../theme/tokens.stylex';
 import {mergeProps} from '../utils';
 import {themeProps} from '../utils/themeProps';
+import {useSize} from '../SizeContext/SizeContext';
 
 const styles = stylex.create({
   text: {
@@ -94,12 +95,13 @@ export function InputGroupText({
   style,
   ...rest
 }: InputGroupTextProps) {
+  const size = useSize(undefined, 'md');
   return (
     <div
       ref={ref}
       {...rest}
       {...mergeProps(
-        themeProps('input-group-text'),
+        themeProps('input-group-text', {size}),
         stylex.props(styles.text, xstyle),
         className,
         style,

@@ -123,6 +123,18 @@ describe('ButtonGroup', () => {
     expect(group).toHaveAttribute('data-orientation', 'vertical');
   });
 
+  it('reflects the additive visual variant', () => {
+    render(
+      <ButtonGroup label="Actions" variant="outline">
+        <Button label="Copy" />
+      </ButtonGroup>,
+    );
+    expect(screen.getByRole('group')).toHaveAttribute(
+      'data-variant',
+      'outline',
+    );
+  });
+
   it('renders with vertical orientation', () => {
     render(
       <ButtonGroup label="Actions" orientation="vertical">

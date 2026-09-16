@@ -51,7 +51,8 @@ Consumer migration instructions belong in consumer docs and release notes.
 - The radiogroup control and its current `segmented-control` theming target.
 - SegmentedControlItem's segment button and its current
   `segmented-control-item` theming target.
-- Rendering optional icon content and a visible label inside a segment.
+- Rendering optional icon content and a visible label inside a segment through
+  the `segmented-control-item-icon` and `segmented-control-item-label` targets.
 
 **Does not own / non-goals**
 
@@ -72,7 +73,7 @@ in `SegmentedControl.doc.mjs` and `SegmentedControlItem.doc.mjs`.
 | --- | ------------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------- |
 | FR1 | The radiogroup container carries the current `segmented-control` target and renders its supplied children.    | Current source, docs, and tests | Verified current behavior; no new behavior decided |
 | FR2 | Each SegmentedControlItem renders one radio button carrying the current `segmented-control-item` target.      | Current source, docs, and tests | Verified current behavior; no new behavior decided |
-| FR3 | A visible item label and optional icon render inside the item without separate public targets.                | Current source and tests        | Verified current behavior; no target change        |
+| FR3 | A visible item label and optional icon render inside the item with stable local targets.                      | Current source and tests        | Verified additive theming surface                  |
 | FR4 | Selected and disabled remain reflected states on `segmented-control-item`, not standalone anatomy or targets. | Current source, docs, and tests | Verified current behavior; no target change        |
 
 ### Allowed variation
@@ -117,8 +118,8 @@ Selection is a state of Segment, not a separate anatomy part.
 {
   "Control": {"target": "segmented-control"},
   "Segment": {"target": "segmented-control-item"},
-  "Label": {"inherits": "segmented-control-item"},
-  "Icon": {"inherits": "segmented-control-item"}
+  "Label": {"target": "segmented-control-item-label"},
+  "Icon": {"target": "segmented-control-item-icon"}
 }
 ```
 

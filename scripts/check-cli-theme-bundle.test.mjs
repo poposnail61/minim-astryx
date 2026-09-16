@@ -104,12 +104,40 @@ describe('CLI theme bundle is in sync with source', () => {
           fs.existsSync(bundledIcons),
           `missing bundled icons: ${path.relative(REPO_ROOT, bundledIcons)}`,
         ).toBe(true);
-        expect(fs.readFileSync(bundledIcons, 'utf8')).toBe(
-          fs.readFileSync(srcIcons, 'utf8'),
-        );
+        const source = fs
+          .readFileSync(srcIcons, 'utf8')
+          .replaceAll('../assets/', './assets/');
+        expect(fs.readFileSync(bundledIcons, 'utf8')).toBe(source);
       });
     }
   }
+
+  it('minim includes its complete self-contained theme source', () => {
+    const manifest = readJSON(path.join(CLI_THEMES_OUT, 'manifest.json'));
+    const minim = manifest.themes.find(theme => theme.slug === 'minim');
+    expect(minim?.files).toEqual(
+      expect.arrayContaining([
+        'minimTheme.ts',
+        'minimTokens.generated.ts',
+        'fonts.css',
+        'icons.tsx',
+        'indicators.tsx',
+        'assets/icon-catalog.json',
+        'components/actions.ts',
+        'components/advanced.ts',
+        'components/badge-token.ts',
+        'components/button.ts',
+        'components/content.ts',
+        'components/icon.ts',
+        'components/input.ts',
+        'components/menu-spinner.tsx',
+        'components/selection.ts',
+      ]),
+    );
+    for (const file of minim.files) {
+      expect(fs.existsSync(path.join(CLI_THEMES_OUT, 'minim', file))).toBe(true);
+    }
+  });
 
   // These assets ship inside the CLI tarball, so a private package that
   // happens to live in packages/themes becomes an installable theme unless

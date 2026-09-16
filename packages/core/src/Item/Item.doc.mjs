@@ -22,6 +22,10 @@ export const docs = {
     vars: [
       {name: '--_item-label-color', description: 'Color of the label line. Unset by default (the label uses the primary text token); a parent sets it to recolor the label it renders, as the destructive dropdown/context menu item does.', default: 'var(--color-text-primary)', private: true},
       {name: '--_item-description-color', description: 'Companion to --_item-label-color for the secondary description line.', default: 'var(--color-text-secondary)', private: true},
+      {name: '--_item-content-padding-block', description: 'Optional block inset for the label and description slot.', default: '0px', private: true},
+      {name: '--_item-content-gap', description: 'Optional gap between label and description.', default: '0px', private: true},
+      {name: '--_item-label-font-size', description: 'Optional label font-size override inherited from a composed item owner.', default: 'var(--text-body-size)', private: true},
+      {name: '--_item-label-line-height', description: 'Optional label line-height override inherited from a composed item owner.', default: 'var(--text-body-leading)', private: true},
     ],
   },
   components: [

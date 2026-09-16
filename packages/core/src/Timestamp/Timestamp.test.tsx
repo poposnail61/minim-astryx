@@ -66,6 +66,81 @@ describe('Timestamp', () => {
     expect(el.getAttribute('datetime')).toBe('2026-03-25T10:00:00.000Z');
   });
 
+  it('exposes the complete Figma format and color matrix to theme selectors', () => {
+    const formats = [
+      'relative',
+      'auto',
+      'date',
+      'date_time',
+      'time',
+      'system_date',
+      'system_date_time',
+      'system_time',
+    ] as const;
+    const colors = ['primary', 'secondary', 'disabled', 'accent'] as const;
+
+    for (const format of formats) {
+      for (const color of colors) {
+        const {unmount} = render(
+          <Timestamp
+            value="2026-03-25T10:00:00Z"
+            format={format}
+            color={color}
+            hasTooltip={false}
+            data-testid={`${format}-${color}`}
+          />,
+        );
+        const root = screen.getByTestId(`${format}-${color}`).parentElement;
+        expect(root).toHaveAttribute(
+          'data-format',
+          format === 'auto' ? 'relative' : format,
+        );
+        expect(root).toHaveAttribute('data-color', color);
+        unmount();
+      }
+    }
+  });
+
+  it('limits source-default typography to the default supporting path', () => {
+    const {rerender} = render(
+      <Timestamp
+        value="2026-03-25T10:00:00Z"
+        hasTooltip={false}
+        data-testid="ts"
+      />,
+    );
+    expect(screen.getByTestId('ts').parentElement).toHaveAttribute(
+      'data-typography',
+      'source-default',
+    );
+
+    rerender(
+      <Timestamp
+        value="2026-03-25T10:00:00Z"
+        type="body"
+        hasTooltip={false}
+        data-testid="ts"
+      />,
+    );
+    expect(screen.getByTestId('ts').parentElement).toHaveAttribute(
+      'data-typography',
+      'consumer',
+    );
+
+    rerender(
+      <Timestamp
+        value="2026-03-25T10:00:00Z"
+        size="lg"
+        hasTooltip={false}
+        data-testid="ts"
+      />,
+    );
+    expect(screen.getByTestId('ts').parentElement).toHaveAttribute(
+      'data-typography',
+      'consumer',
+    );
+  });
+
   it('renders relative format for recent times', () => {
     const twoHoursAgo = Date.now() / 1000 - 7200;
     render(<Timestamp value={twoHoursAgo} format="relative" />);

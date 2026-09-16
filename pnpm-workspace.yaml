@@ -19,6 +19,7 @@ packages:
 # Hoisting is deliberately not configured — every package declares what it
 # imports, so the default isolated linker resolves it.
 linkWorkspacePackages: true
+preferWorkspacePackages: true
 
 minimumReleaseAge: 10080
 minimumReleaseAgeExclude:

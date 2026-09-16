@@ -46,6 +46,9 @@ import {useInteractiveRole} from '../hooks/useInteractiveRole';
 import {themeProps} from '../utils/themeProps';
 import {focusOutlineProps} from '../utils/focusOutline.stylex';
 import {useTranslator} from '../i18n';
+import type {LinkVariantMap} from './index';
+
+export type LinkVariant = keyof LinkVariantMap;
 
 /**
  * Base link styles
@@ -169,6 +172,8 @@ export interface LinkProps extends BaseProps<
    * @default false
    */
   hasUnderline?: boolean;
+  /** Visual color variant. @default 'primary' */
+  variant?: LinkVariant;
   /**
    * Whether the link is disabled.
    * A disabled link renders as a plain anchor without an href (and without
@@ -294,6 +299,7 @@ export function Link({
   label,
   href,
   hasUnderline = false,
+  variant = 'primary',
   isDisabled = false,
   isExternalLink = false,
   newTabLabel: newTabLabelFromProps,
@@ -333,6 +339,7 @@ export function Link({
   const sharedContent = (
     <>
       <Text
+        {...themeProps('link-label', {variant})}
         type={type}
         size={size}
         weight={weight}
@@ -343,7 +350,9 @@ export function Link({
       </Text>
       {isExternalLink && !renderAsButton && (
         <>
-          <Icon icon="externalLink" size="xsm" color="inherit" />
+          <span {...themeProps('link-external-icon')}>
+            <Icon icon="externalLink" size="xsm" color="inherit" />
+          </span>{' '}
           <VisuallyHidden>{newTabLabel}</VisuallyHidden>
         </>
       )}
@@ -363,7 +372,12 @@ export function Link({
         tabIndex={isDisabled ? -1 : undefined}
         disabled={isDisabled}
         {...mergeProps(
-          themeProps('link', {color}),
+          themeProps('link', {
+            color,
+            variant,
+            underline: hasUnderline ? 'true' : 'false',
+            external: isExternalLink ? 'true' : 'false',
+          }),
           focusOutlineProps.focusVisible(
             styles.base,
             styles.buttonReset,
@@ -395,7 +409,12 @@ export function Link({
         aria-disabled={true}
         tabIndex={-1}
         {...mergeProps(
-          themeProps('link', {color}),
+          themeProps('link', {
+            color,
+            variant,
+            underline: hasUnderline ? 'true' : 'false',
+            external: isExternalLink ? 'true' : 'false',
+          }),
           focusOutlineProps.focusVisible(
             styles.base,
             linkColorStyles[color],
@@ -423,7 +442,12 @@ export function Link({
         aria-disabled={isDisabled || undefined}
         tabIndex={isDisabled ? -1 : undefined}
         {...mergeProps(
-          themeProps('link', {color}),
+          themeProps('link', {
+            color,
+            variant,
+            underline: hasUnderline ? 'true' : 'false',
+            external: isExternalLink ? 'true' : 'false',
+          }),
           focusOutlineProps.focusVisible(
             styles.base,
             linkColorStyles[color],

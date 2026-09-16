@@ -1,0 +1,1127 @@
+{
+  "schemaVersion": 1,
+  "source": "https://minim-symbol.sanjay0227.chatgpt.site/api/catalog",
+  "revision": 33,
+  "retainedIconCount": 188,
+  "activeIconCount": 186,
+  "updatedAt": "2026-09-15T10:59:26.038Z",
+  "fontSha256": "de05df29ae6bc0af4006d429e406b031880f3576074cd209189b7e2c7a29ec91",
+  "icons": [
+    {
+      "name": "close-circle-solid",
+      "ligature": ":close-circle-solid:",
+      "codepoint": 57344,
+      "tags": ["창·메뉴", "채움"]
+    },
+    {
+      "name": "close",
+      "ligature": ":close:",
+      "codepoint": 57345,
+      "tags": ["창·메뉴", "기본형"]
+    },
+    {
+      "name": "more-vert",
+      "ligature": ":more-vert:",
+      "codepoint": 57346,
+      "tags": ["탐색", "창·메뉴", "기본형"]
+    },
+    {
+      "name": "menu",
+      "ligature": ":menu:",
+      "codepoint": 57347,
+      "tags": ["탐색", "창·메뉴", "기본형"]
+    },
+    {
+      "name": "play",
+      "ligature": ":play:",
+      "codepoint": 57348,
+      "tags": ["미디어", "재생", "기본형"]
+    },
+    {
+      "name": "drag-vert",
+      "ligature": ":drag-vert:",
+      "codepoint": 57349,
+      "tags": ["정렬·배치", "기본형"]
+    },
+    {
+      "name": "play-solid",
+      "ligature": ":play-solid:",
+      "codepoint": 57350,
+      "tags": ["미디어", "재생", "채움"]
+    },
+    {
+      "name": "checkbox",
+      "ligature": ":checkbox:",
+      "codepoint": 57351,
+      "tags": ["선택·입력", "기본형"]
+    },
+    {
+      "name": "close-mini",
+      "ligature": ":close-mini:",
+      "codepoint": 57352,
+      "tags": ["창·메뉴", "기본형"]
+    },
+    {
+      "name": "more-horiz",
+      "ligature": ":more-horiz:",
+      "codepoint": 57353,
+      "tags": ["탐색", "창·메뉴", "기본형"]
+    },
+    {
+      "name": "stop",
+      "ligature": ":stop:",
+      "codepoint": 57354,
+      "tags": ["미디어", "재생", "기본형"]
+    },
+    {
+      "name": "stop-solid",
+      "ligature": ":stop-solid:",
+      "codepoint": 57355,
+      "tags": ["미디어", "재생", "채움"]
+    },
+    {
+      "name": "checkbox-checked",
+      "ligature": ":checkbox-checked:",
+      "codepoint": 57356,
+      "tags": ["선택·입력", "상태·안내", "기본형"]
+    },
+    {
+      "name": "close-circle",
+      "ligature": ":close-circle:",
+      "codepoint": 57357,
+      "tags": ["창·메뉴", "기본형"]
+    },
+    {
+      "name": "pause",
+      "ligature": ":pause:",
+      "codepoint": 57358,
+      "tags": ["미디어", "재생", "기본형"]
+    },
+    {
+      "name": "checkbox-checked-solid",
+      "ligature": ":checkbox-checked-solid:",
+      "codepoint": 57359,
+      "tags": ["선택·입력", "상태·안내", "채움"]
+    },
+    {
+      "name": "pause-solid",
+      "ligature": ":pause-solid:",
+      "codepoint": 57360,
+      "tags": ["미디어", "재생", "채움"]
+    },
+    {
+      "name": "plus",
+      "ligature": ":plus:",
+      "codepoint": 57361,
+      "tags": ["선택·입력", "편집", "기본형"]
+    },
+    {
+      "name": "checkbox-mixed",
+      "ligature": ":checkbox-mixed:",
+      "codepoint": 57362,
+      "tags": ["선택·입력", "상태·안내", "기본형"]
+    },
+    {
+      "name": "skip-next",
+      "ligature": ":skip-next:",
+      "codepoint": 57363,
+      "tags": ["미디어", "재생", "기본형"]
+    },
+    {
+      "name": "checkbox-mixed-solid",
+      "ligature": ":checkbox-mixed-solid:",
+      "codepoint": 57364,
+      "tags": ["선택·입력", "상태·안내", "채움"]
+    },
+    {
+      "name": "skip-next-solid",
+      "ligature": ":skip-next-solid:",
+      "codepoint": 57365,
+      "tags": ["미디어", "재생", "채움"]
+    },
+    {
+      "name": "radio",
+      "ligature": ":radio:",
+      "codepoint": 57366,
+      "tags": ["선택·입력", "기본형"]
+    },
+    {
+      "name": "minus",
+      "ligature": ":minus:",
+      "codepoint": 57367,
+      "tags": ["선택·입력", "편집", "기본형"]
+    },
+    {
+      "name": "skip-prev",
+      "ligature": ":skip-prev:",
+      "codepoint": 57368,
+      "tags": ["미디어", "재생", "기본형"]
+    },
+    {
+      "name": "skip-prev-solid",
+      "ligature": ":skip-prev-solid:",
+      "codepoint": 57369,
+      "tags": ["미디어", "재생", "채움"]
+    },
+    {
+      "name": "question-circle",
+      "ligature": ":question-circle:",
+      "codepoint": 57370,
+      "tags": ["상태·안내", "기본형"]
+    },
+    {
+      "name": "question-circle-solid",
+      "ligature": ":question-circle-solid:",
+      "codepoint": 57371,
+      "tags": ["상태·안내", "채움"]
+    },
+    {
+      "name": "radio-checked",
+      "ligature": ":radio-checked:",
+      "codepoint": 57372,
+      "tags": ["선택·입력", "상태·안내", "기본형"]
+    },
+    {
+      "name": "fast-forward",
+      "ligature": ":fast-forward:",
+      "codepoint": 57373,
+      "tags": ["미디어", "재생", "기본형"]
+    },
+    {
+      "name": "heart",
+      "ligature": ":heart:",
+      "codepoint": 57374,
+      "tags": ["즐겨찾기", "기본형"]
+    },
+    {
+      "name": "heart-solid",
+      "ligature": ":heart-solid:",
+      "codepoint": 57375,
+      "tags": ["즐겨찾기", "채움"]
+    },
+    {
+      "name": "fast-forward-solid",
+      "ligature": ":fast-forward-solid:",
+      "codepoint": 57376,
+      "tags": ["미디어", "재생", "채움"]
+    },
+    {
+      "name": "star",
+      "ligature": ":star:",
+      "codepoint": 57377,
+      "tags": ["즐겨찾기", "기본형"]
+    },
+    {
+      "name": "star-solid",
+      "ligature": ":star-solid:",
+      "codepoint": 57378,
+      "tags": ["즐겨찾기", "채움"]
+    },
+    {
+      "name": "fast-rewind-solid",
+      "ligature": ":fast-rewind-solid:",
+      "codepoint": 57379,
+      "tags": ["미디어", "재생", "채움"]
+    },
+    {
+      "name": "fast-rewind",
+      "ligature": ":fast-rewind:",
+      "codepoint": 57380,
+      "tags": ["미디어", "재생", "기본형"]
+    },
+    {
+      "name": "check-circle",
+      "ligature": ":check-circle:",
+      "codepoint": 57381,
+      "tags": ["선택·입력", "상태·안내", "기본형"]
+    },
+    {
+      "name": "check-circle-solid",
+      "ligature": ":check-circle-solid:",
+      "codepoint": 57382,
+      "tags": ["선택·입력", "상태·안내", "채움"]
+    },
+    {
+      "name": "warning-triangle",
+      "ligature": ":warning-triangle:",
+      "codepoint": 57383,
+      "tags": ["상태·안내", "기본형"]
+    },
+    {
+      "name": "warning-triangle-solid",
+      "ligature": ":warning-triangle-solid:",
+      "codepoint": 57384,
+      "tags": ["상태·안내", "채움"]
+    },
+    {
+      "name": "setting",
+      "ligature": ":setting:",
+      "codepoint": 57385,
+      "tags": ["설정", "기본형"]
+    },
+    {
+      "name": "multy-person",
+      "ligature": ":multy-person:",
+      "codepoint": 57386,
+      "tags": ["계정·보안", "기본형"]
+    },
+    {
+      "name": "multy-person-solid",
+      "ligature": ":multy-person-solid:",
+      "codepoint": 57387,
+      "tags": ["계정·보안", "채움"]
+    },
+    {
+      "name": "calendar",
+      "ligature": ":calendar:",
+      "codepoint": 57388,
+      "tags": ["일정·시간", "기본형"]
+    },
+    {
+      "name": "time",
+      "ligature": ":time:",
+      "codepoint": 57389,
+      "tags": ["일정·시간", "기본형"]
+    },
+    {
+      "name": "link",
+      "ligature": ":link:",
+      "codepoint": 57390,
+      "tags": ["방향·이동", "탐색", "기본형"]
+    },
+    {
+      "name": "image",
+      "ligature": ":image:",
+      "codepoint": 57391,
+      "tags": ["미디어", "기본형"]
+    },
+    {
+      "name": "camera",
+      "ligature": ":camera:",
+      "codepoint": 57392,
+      "tags": ["미디어", "기본형"]
+    },
+    {
+      "name": "person",
+      "ligature": ":person:",
+      "codepoint": 57393,
+      "tags": ["계정·보안", "기본형"]
+    },
+    {
+      "name": "calendar-solid",
+      "ligature": ":calendar-solid:",
+      "codepoint": 57394,
+      "tags": ["일정·시간", "채움"]
+    },
+    {
+      "name": "time-solid",
+      "ligature": ":time-solid:",
+      "codepoint": 57395,
+      "tags": ["일정·시간", "채움"]
+    },
+    {
+      "name": "camera-solid",
+      "ligature": ":camera-solid:",
+      "codepoint": 57396,
+      "tags": ["미디어", "채움"]
+    },
+    {
+      "name": "image-solid",
+      "ligature": ":image-solid:",
+      "codepoint": 57397,
+      "tags": ["미디어", "채움"]
+    },
+    {
+      "name": "person-solid",
+      "ligature": ":person-solid:",
+      "codepoint": 57398,
+      "tags": ["계정·보안", "채움"]
+    },
+    {
+      "name": "setting-solid",
+      "ligature": ":setting-solid:",
+      "codepoint": 57399,
+      "tags": ["설정", "채움"]
+    },
+    {
+      "name": "search",
+      "ligature": ":search:",
+      "codepoint": 57400,
+      "tags": ["탐색", "기본형"]
+    },
+    {
+      "name": "edit",
+      "ligature": ":edit:",
+      "codepoint": 57401,
+      "tags": ["편집", "파일·문서", "기본형"]
+    },
+    {
+      "name": "video",
+      "ligature": ":video:",
+      "codepoint": 57402,
+      "tags": ["미디어", "재생", "기본형"]
+    },
+    {
+      "name": "refresh",
+      "ligature": ":refresh:",
+      "codepoint": 57403,
+      "tags": ["편집", "상태·안내", "기본형"]
+    },
+    {
+      "name": "delete",
+      "ligature": ":delete:",
+      "codepoint": 57404,
+      "tags": ["편집", "기본형"]
+    },
+    {
+      "name": "file-note",
+      "ligature": ":file-note:",
+      "codepoint": 57405,
+      "tags": ["파일·문서", "기본형"]
+    },
+    {
+      "name": "copy",
+      "ligature": ":copy:",
+      "codepoint": 57406,
+      "tags": ["편집", "파일·문서", "기본형"]
+    },
+    {
+      "name": "bookmark",
+      "ligature": ":bookmark:",
+      "codepoint": 57407,
+      "tags": ["즐겨찾기", "기본형"]
+    },
+    {
+      "name": "mail",
+      "ligature": ":mail:",
+      "codepoint": 57408,
+      "tags": ["대화·알림", "기본형"]
+    },
+    {
+      "name": "edit-solid",
+      "ligature": ":edit-solid:",
+      "codepoint": 57409,
+      "tags": ["편집", "파일·문서", "채움"]
+    },
+    {
+      "name": "copy-solid",
+      "ligature": ":copy-solid:",
+      "codepoint": 57410,
+      "tags": ["편집", "파일·문서", "채움"]
+    },
+    {
+      "name": "bookmark-solid",
+      "ligature": ":bookmark-solid:",
+      "codepoint": 57411,
+      "tags": ["즐겨찾기", "채움"]
+    },
+    {
+      "name": "mail-solid",
+      "ligature": ":mail-solid:",
+      "codepoint": 57412,
+      "tags": ["대화·알림", "채움"]
+    },
+    {
+      "name": "video-solid",
+      "ligature": ":video-solid:",
+      "codepoint": 57413,
+      "tags": ["미디어", "재생", "채움"]
+    },
+    {
+      "name": "delete-solid",
+      "ligature": ":delete-solid:",
+      "codepoint": 57414,
+      "tags": ["편집", "채움"]
+    },
+    {
+      "name": "file-note-solid",
+      "ligature": ":file-note-solid:",
+      "codepoint": 57415,
+      "tags": ["파일·문서", "채움"]
+    },
+    {
+      "name": "notification-solid",
+      "ligature": ":notification-solid:",
+      "codepoint": 57416,
+      "tags": ["대화·알림", "상태·안내", "채움"]
+    },
+    {
+      "name": "notification",
+      "ligature": ":notification:",
+      "codepoint": 57417,
+      "tags": ["대화·알림", "상태·안내", "기본형"]
+    },
+    {
+      "name": "tiket",
+      "ligature": ":tiket:",
+      "codepoint": 57418,
+      "tags": ["쇼핑·결제", "기본형"]
+    },
+    {
+      "name": "map",
+      "ligature": ":map:",
+      "codepoint": 57419,
+      "tags": ["방향·이동", "장소·지도", "기본형"]
+    },
+    {
+      "name": "shopping-bag",
+      "ligature": ":shopping-bag:",
+      "codepoint": 57420,
+      "tags": ["쇼핑·결제", "기본형"]
+    },
+    {
+      "name": "home",
+      "ligature": ":home:",
+      "codepoint": 57421,
+      "tags": ["탐색", "장소·지도", "기본형"]
+    },
+    {
+      "name": "shipping-local",
+      "ligature": ":shipping-local:",
+      "codepoint": 57422,
+      "tags": ["방향·이동", "장소·지도", "쇼핑·결제", "기본형"]
+    },
+    {
+      "name": "open-window",
+      "ligature": ":open-window:",
+      "codepoint": 57423,
+      "tags": ["탐색", "창·메뉴", "기본형"]
+    },
+    {
+      "name": "chat",
+      "ligature": ":chat:",
+      "codepoint": 57424,
+      "tags": ["대화·알림", "기본형"]
+    },
+    {
+      "name": "chat-note",
+      "ligature": ":chat-note:",
+      "codepoint": 57425,
+      "tags": ["대화·알림", "기본형"]
+    },
+    {
+      "name": "currency-won-circle",
+      "ligature": ":currency-won-circle:",
+      "codepoint": 57426,
+      "tags": ["쇼핑·결제", "기본형"]
+    },
+    {
+      "name": "category",
+      "ligature": ":category:",
+      "codepoint": 57427,
+      "tags": ["탐색", "기본형"]
+    },
+    {
+      "name": "building",
+      "ligature": ":building:",
+      "codepoint": 57428,
+      "tags": ["장소·지도", "기본형"]
+    },
+    {
+      "name": "store",
+      "ligature": ":store:",
+      "codepoint": 57429,
+      "tags": ["장소·지도", "쇼핑·결제", "기본형"]
+    },
+    {
+      "name": "share-arrow",
+      "ligature": ":share-arrow:",
+      "codepoint": 57430,
+      "tags": ["방향·이동", "대화·알림", "기본형"]
+    },
+    {
+      "name": "location",
+      "ligature": ":location:",
+      "codepoint": 57431,
+      "tags": ["방향·이동", "장소·지도", "기본형"]
+    },
+    {
+      "name": "lock",
+      "ligature": ":lock:",
+      "codepoint": 57432,
+      "tags": ["계정·보안", "기본형"]
+    },
+    {
+      "name": "print",
+      "ligature": ":print:",
+      "codepoint": 57433,
+      "tags": ["파일·문서", "기본형"]
+    },
+    {
+      "name": "shopping-bag-solid",
+      "ligature": ":shopping-bag-solid:",
+      "codepoint": 57434,
+      "tags": ["쇼핑·결제", "채움"]
+    },
+    {
+      "name": "tiket-solid",
+      "ligature": ":tiket-solid:",
+      "codepoint": 57435,
+      "tags": ["쇼핑·결제", "채움"]
+    },
+    {
+      "name": "shipping-local-solid",
+      "ligature": ":shipping-local-solid:",
+      "codepoint": 57436,
+      "tags": ["방향·이동", "장소·지도", "쇼핑·결제", "채움"]
+    },
+    {
+      "name": "location-solid",
+      "ligature": ":location-solid:",
+      "codepoint": 57437,
+      "tags": ["방향·이동", "장소·지도", "채움"]
+    },
+    {
+      "name": "chat-solid",
+      "ligature": ":chat-solid:",
+      "codepoint": 57438,
+      "tags": ["대화·알림", "채움"]
+    },
+    {
+      "name": "chat-note-solid",
+      "ligature": ":chat-note-solid:",
+      "codepoint": 57439,
+      "tags": ["대화·알림", "채움"]
+    },
+    {
+      "name": "currency-won-circle-solid",
+      "ligature": ":currency-won-circle-solid:",
+      "codepoint": 57440,
+      "tags": ["쇼핑·결제", "채움"]
+    },
+    {
+      "name": "category-solid",
+      "ligature": ":category-solid:",
+      "codepoint": 57441,
+      "tags": ["탐색", "채움"]
+    },
+    {
+      "name": "lock-solid",
+      "ligature": ":lock-solid:",
+      "codepoint": 57442,
+      "tags": ["계정·보안", "채움"]
+    },
+    {
+      "name": "home-solid",
+      "ligature": ":home-solid:",
+      "codepoint": 57443,
+      "tags": ["탐색", "장소·지도", "채움"]
+    },
+    {
+      "name": "chat-more",
+      "ligature": ":chat-more:",
+      "codepoint": 57444,
+      "tags": ["대화·알림", "기본형"]
+    },
+    {
+      "name": "cart",
+      "ligature": ":cart:",
+      "codepoint": 57445,
+      "tags": ["쇼핑·결제", "기본형"]
+    },
+    {
+      "name": "map-solid",
+      "ligature": ":map-solid:",
+      "codepoint": 57446,
+      "tags": ["방향·이동", "장소·지도", "채움"]
+    },
+    {
+      "name": "cart-solid",
+      "ligature": ":cart-solid:",
+      "codepoint": 57447,
+      "tags": ["쇼핑·결제", "채움"]
+    },
+    {
+      "name": "chat-more-solid",
+      "ligature": ":chat-more-solid:",
+      "codepoint": 57448,
+      "tags": ["대화·알림", "채움"]
+    },
+    {
+      "name": "building-solid",
+      "ligature": ":building-solid:",
+      "codepoint": 57449,
+      "tags": ["장소·지도", "채움"]
+    },
+    {
+      "name": "store-solid",
+      "ligature": ":store-solid:",
+      "codepoint": 57450,
+      "tags": ["장소·지도", "쇼핑·결제", "채움"]
+    },
+    {
+      "name": "chevron-up",
+      "ligature": ":chevron-up:",
+      "codepoint": 57451,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "chevron-down",
+      "ligature": ":chevron-down:",
+      "codepoint": 57452,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "chevron-left",
+      "ligature": ":chevron-left:",
+      "codepoint": 57453,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "chevron-right",
+      "ligature": ":chevron-right:",
+      "codepoint": 57454,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-in-up",
+      "ligature": ":arrow-in-up:",
+      "codepoint": 57455,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-in-left",
+      "ligature": ":arrow-in-left:",
+      "codepoint": 57456,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-in-down",
+      "ligature": ":arrow-in-down:",
+      "codepoint": 57457,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-in-right",
+      "ligature": ":arrow-in-right:",
+      "codepoint": 57458,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-end-up",
+      "ligature": ":arrow-end-up:",
+      "codepoint": 57459,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-end-right",
+      "ligature": ":arrow-end-right:",
+      "codepoint": 57460,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "align-up",
+      "ligature": ":align-up:",
+      "codepoint": 57461,
+      "tags": ["정렬·배치", "기본형"]
+    },
+    {
+      "name": "align-right",
+      "ligature": ":align-right:",
+      "codepoint": 57462,
+      "tags": ["정렬·배치", "기본형"]
+    },
+    {
+      "name": "arrow-end-down",
+      "ligature": ":arrow-end-down:",
+      "codepoint": 57463,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-end-left",
+      "ligature": ":arrow-end-left:",
+      "codepoint": 57464,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "align-down",
+      "ligature": ":align-down:",
+      "codepoint": 57465,
+      "tags": ["정렬·배치", "기본형"]
+    },
+    {
+      "name": "align-left",
+      "ligature": ":align-left:",
+      "codepoint": 57466,
+      "tags": ["정렬·배치", "기본형"]
+    },
+    {
+      "name": "swap-vert",
+      "ligature": ":swap-vert:",
+      "codepoint": 57467,
+      "tags": ["방향·이동", "정렬·배치", "기본형"]
+    },
+    {
+      "name": "swap-horiz",
+      "ligature": ":swap-horiz:",
+      "codepoint": 57468,
+      "tags": ["방향·이동", "정렬·배치", "기본형"]
+    },
+    {
+      "name": "arrow-out-up",
+      "ligature": ":arrow-out-up:",
+      "codepoint": 57469,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-out-left",
+      "ligature": ":arrow-out-left:",
+      "codepoint": 57470,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-out-down",
+      "ligature": ":arrow-out-down:",
+      "codepoint": 57471,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-out-right",
+      "ligature": ":arrow-out-right:",
+      "codepoint": 57472,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-start-up",
+      "ligature": ":arrow-start-up:",
+      "codepoint": 57473,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-start-left",
+      "ligature": ":arrow-start-left:",
+      "codepoint": 57474,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-start-down",
+      "ligature": ":arrow-start-down:",
+      "codepoint": 57475,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-start-right",
+      "ligature": ":arrow-start-right:",
+      "codepoint": 57476,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "unfold-open",
+      "ligature": ":unfold-open:",
+      "codepoint": 57477,
+      "tags": ["방향·이동", "정렬·배치", "기본형"]
+    },
+    {
+      "name": "unfold-close",
+      "ligature": ":unfold-close:",
+      "codepoint": 57478,
+      "tags": ["방향·이동", "정렬·배치", "기본형"]
+    },
+    {
+      "name": "align-center-vert",
+      "ligature": ":align-center-vert:",
+      "codepoint": 57479,
+      "tags": ["정렬·배치", "기본형"]
+    },
+    {
+      "name": "align-center-horiz",
+      "ligature": ":align-center-horiz:",
+      "codepoint": 57480,
+      "tags": ["정렬·배치", "기본형"]
+    },
+    {
+      "name": "arrow-left",
+      "ligature": ":arrow-left:",
+      "codepoint": 57481,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-right",
+      "ligature": ":arrow-right:",
+      "codepoint": 57482,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-up",
+      "ligature": ":arrow-up:",
+      "codepoint": 57483,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-down",
+      "ligature": ":arrow-down:",
+      "codepoint": 57484,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-up-right",
+      "ligature": ":arrow-up-right:",
+      "codepoint": 57485,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-down-right",
+      "ligature": ":arrow-down-right:",
+      "codepoint": 57486,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-up-left",
+      "ligature": ":arrow-up-left:",
+      "codepoint": 57487,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "arrow-down-left",
+      "ligature": ":arrow-down-left:",
+      "codepoint": 57488,
+      "tags": ["방향·이동", "기본형"]
+    },
+    {
+      "name": "undo",
+      "ligature": ":undo:",
+      "codepoint": 57489,
+      "tags": ["방향·이동", "편집", "기본형"]
+    },
+    {
+      "name": "redo",
+      "ligature": ":redo:",
+      "codepoint": 57490,
+      "tags": ["방향·이동", "편집", "기본형"]
+    },
+    {
+      "name": "logo-youtube",
+      "ligature": ":logo-youtube:",
+      "codepoint": 57491,
+      "tags": ["미디어", "브랜드", "기본형"]
+    },
+    {
+      "name": "logo-tiktok",
+      "ligature": ":logo-tiktok:",
+      "codepoint": 57492,
+      "tags": ["미디어", "브랜드", "기본형"]
+    },
+    {
+      "name": "logo-instagram",
+      "ligature": ":logo-instagram:",
+      "codepoint": 57493,
+      "tags": ["미디어", "브랜드", "기본형"]
+    },
+    {
+      "name": "logo-kakao",
+      "ligature": ":logo-kakao:",
+      "codepoint": 57494,
+      "tags": ["대화·알림", "브랜드", "기본형"]
+    },
+    {
+      "name": "logo-naver",
+      "ligature": ":logo-naver:",
+      "codepoint": 57495,
+      "tags": ["탐색", "브랜드", "기본형"]
+    },
+    {
+      "name": "logo-google",
+      "ligature": ":logo-google:",
+      "codepoint": 57496,
+      "tags": ["탐색", "브랜드", "기본형"]
+    },
+    {
+      "name": "format-align-left",
+      "ligature": ":format-align-left:",
+      "codepoint": 57497,
+      "tags": ["정렬·배치", "편집", "텍스트·서식", "기본형"]
+    },
+    {
+      "name": "format-align-justify",
+      "ligature": ":format-align-justify:",
+      "codepoint": 57498,
+      "tags": ["정렬·배치", "편집", "텍스트·서식", "기본형"]
+    },
+    {
+      "name": "format-align-center",
+      "ligature": ":format-align-center:",
+      "codepoint": 57499,
+      "tags": ["정렬·배치", "편집", "텍스트·서식", "기본형"]
+    },
+    {
+      "name": "format-align-right",
+      "ligature": ":format-align-right:",
+      "codepoint": 57500,
+      "tags": ["정렬·배치", "편집", "텍스트·서식", "기본형"]
+    },
+    {
+      "name": "format-title",
+      "ligature": ":format-title:",
+      "codepoint": 57501,
+      "tags": ["편집", "텍스트·서식", "기본형"]
+    },
+    {
+      "name": "format-size",
+      "ligature": ":format-size:",
+      "codepoint": 57502,
+      "tags": ["편집", "텍스트·서식", "기본형"]
+    },
+    {
+      "name": "format-bold",
+      "ligature": ":format-bold:",
+      "codepoint": 57503,
+      "tags": ["편집", "텍스트·서식", "기본형"]
+    },
+    {
+      "name": "format-italic",
+      "ligature": ":format-italic:",
+      "codepoint": 57504,
+      "tags": ["편집", "텍스트·서식", "기본형"]
+    },
+    {
+      "name": "format-underlined",
+      "ligature": ":format-underlined:",
+      "codepoint": 57505,
+      "tags": ["편집", "텍스트·서식", "기본형"]
+    },
+    {
+      "name": "view-list",
+      "ligature": ":view-list:",
+      "codepoint": 57506,
+      "tags": ["정렬·배치", "탐색", "기본형"]
+    },
+    {
+      "name": "view-table",
+      "ligature": ":view-table:",
+      "codepoint": 57507,
+      "tags": ["정렬·배치", "탐색", "기본형"]
+    },
+    {
+      "name": "face-happy",
+      "ligature": ":face-happy:",
+      "codepoint": 57508,
+      "tags": ["대화·알림", "감정", "기본형"]
+    },
+    {
+      "name": "meal",
+      "ligature": ":meal:",
+      "codepoint": 57509,
+      "tags": ["음식", "기본형"]
+    },
+    {
+      "name": "bolt",
+      "ligature": ":bolt:",
+      "codepoint": 57510,
+      "tags": ["상태·안내", "전원·에너지", "기본형"]
+    },
+    {
+      "name": "music-note",
+      "ligature": ":music-note:",
+      "codepoint": 57511,
+      "tags": ["미디어", "음악·오디오", "기본형"]
+    },
+    {
+      "name": "headphone",
+      "ligature": ":headphone:",
+      "codepoint": 57512,
+      "tags": ["미디어", "음악·오디오", "기본형"]
+    },
+    {
+      "name": "shield",
+      "ligature": ":shield:",
+      "codepoint": 57513,
+      "tags": ["상태·안내", "계정·보안", "기본형"]
+    },
+    {
+      "name": "shield-plus",
+      "ligature": ":shield-plus:",
+      "codepoint": 57514,
+      "tags": ["상태·안내", "계정·보안", "기본형"]
+    },
+    {
+      "name": "gift",
+      "ligature": ":gift:",
+      "codepoint": 57515,
+      "tags": ["쇼핑·결제", "선물·보상", "기본형"]
+    },
+    {
+      "name": "trophy",
+      "ligature": ":trophy:",
+      "codepoint": 57516,
+      "tags": ["상태·안내", "선물·보상", "기본형"]
+    },
+    {
+      "name": "bolt-solid",
+      "ligature": ":bolt-solid:",
+      "codepoint": 57517,
+      "tags": ["상태·안내", "전원·에너지", "채움"]
+    },
+    {
+      "name": "gift-solid",
+      "ligature": ":gift-solid:",
+      "codepoint": 57518,
+      "tags": ["쇼핑·결제", "선물·보상", "채움"]
+    },
+    {
+      "name": "meal-solid",
+      "ligature": ":meal-solid:",
+      "codepoint": 57519,
+      "tags": ["음식", "채움"]
+    },
+    {
+      "name": "face-happy-solid",
+      "ligature": ":face-happy-solid:",
+      "codepoint": 57520,
+      "tags": ["대화·알림", "감정", "채움"]
+    },
+    {
+      "name": "shield-solid",
+      "ligature": ":shield-solid:",
+      "codepoint": 57521,
+      "tags": ["상태·안내", "계정·보안", "채움"]
+    },
+    {
+      "name": "shield-plus-solid",
+      "ligature": ":shield-plus-solid:",
+      "codepoint": 57522,
+      "tags": ["상태·안내", "계정·보안", "채움"]
+    },
+    {
+      "name": "trophy-solid",
+      "ligature": ":trophy-solid:",
+      "codepoint": 57523,
+      "tags": ["상태·안내", "선물·보상", "채움"]
+    },
+    {
+      "name": "format-strikethrough",
+      "ligature": ":format-strikethrough:",
+      "codepoint": 57524,
+      "tags": ["편집", "텍스트·서식", "기본형"]
+    },
+    {
+      "name": "dot",
+      "ligature": ":dot:",
+      "codepoint": 57527,
+      "tags": ["기본형", "기타"]
+    },
+    {
+      "name": "info-circle",
+      "ligature": ":info-circle:",
+      "codepoint": 57528,
+      "tags": ["기본형", "기타"]
+    },
+    {
+      "name": "info-circle-solid",
+      "ligature": ":info-circle-solid:",
+      "codepoint": 57529,
+      "tags": ["채움", "기타"]
+    },
+    {
+      "name": "check",
+      "ligature": ":check:",
+      "codepoint": 57530,
+      "tags": ["선택·입력", "기본형"]
+    },
+    {
+      "name": "logo-apple",
+      "ligature": ":logo-apple:",
+      "codepoint": 57531,
+      "tags": ["브랜드", "기본형"]
+    }
+  ]
+}
