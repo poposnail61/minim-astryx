@@ -223,6 +223,8 @@ export function TopNavItem({
         tabIndex={isDisabled ? -1 : undefined}
         {...mergeProps(
           themeProps('top-nav-item', {
+            size,
+            isIconOnly: String(isIconOnly),
             mode: 'drawer',
             selected: isSelected ? 'selected' : null,
           }),
@@ -261,6 +263,8 @@ export function TopNavItem({
       tabIndex={isDisabled ? -1 : undefined}
       {...mergeProps(
         themeProps('top-nav-item', {
+          size,
+          isIconOnly: String(isIconOnly),
           selected: isSelected ? 'selected' : null,
         }),
         focusOutlineProps.focusVisible(

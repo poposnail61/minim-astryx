@@ -183,7 +183,7 @@ export const docs = {
   theming: {
     targets: [
       {className: 'astryx-overlay'},
-      {className: 'astryx-overlay-scrim', visualProps: ['position']},
+      {className: 'astryx-overlay-scrim', visualProps: ['position', 'scrim']},
     ],
   },
 };

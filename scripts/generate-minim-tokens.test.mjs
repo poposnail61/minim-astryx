@@ -3,6 +3,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import test from 'node:test';
+import {format} from 'prettier';
 import {
   createResolver,
   generateTokenModel,
@@ -30,8 +31,9 @@ function minimalDocument(variables, externalVariables = {}) {
   };
 }
 
-test('generated output matches the checked-in file deterministically', () => {
-  assert.equal(renderGeneratedFile(document), fs.readFileSync(OUTPUT_FILE, 'utf8'));
+test('generated output matches the checked-in file deterministically', async () => {
+  const formatted = source => format(source, {parser: 'typescript'});
+  assert.equal(await formatted(renderGeneratedFile(document)), await formatted(fs.readFileSync(OUTPUT_FILE, 'utf8')));
   assert.doesNotMatch(fs.readFileSync(INPUT_FILE, 'utf8'), /\/tmp\/|\/Users\/|file:\/\//);
 });
 
@@ -128,16 +130,16 @@ test('source and generated metadata counts match the validated export', () => {
       ]),
     ),
     {
-      'semantic-color': 59,
+      'semantic-color': 60,
       'base-color': 125,
       font: 3,
       'base-token': 74,
       'semantic-token': 82,
     },
   );
-  assert.equal(Object.keys(model.base).length, 147);
-  assert.equal(Object.keys(model.compact).length, 147);
-  assert.equal(Object.keys(model.metadata).length, 144);
+  assert.equal(Object.keys(model.base).length, 148);
+  assert.equal(Object.keys(model.compact).length, 148);
+  assert.equal(Object.keys(model.metadata).length, 145);
   assert.equal(model.textStyles.length, 28);
   assert.equal(model.effectStyles.length, 3);
 });

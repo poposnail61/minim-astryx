@@ -296,7 +296,11 @@ export function Tab({
   );
 
   const iconElement = displayIcon ? (
-    <span {...stylex.props(styles.icon, iconSizeStyles[size])}>
+    <span
+      {...mergeProps(
+        themeProps('tab-icon', {size}),
+        stylex.props(styles.icon, iconSizeStyles[size]),
+      )}>
       {displayIcon}
     </span>
   ) : null;
@@ -332,6 +336,7 @@ export function Tab({
     tabIndex: isSelected ? 0 : -1,
     ...mergeProps(
       themeProps('tab', {
+        size,
         selected: isSelected ? 'selected' : null,
       }),
       focusOutlineProps.focusVisible(
@@ -350,7 +355,10 @@ export function Tab({
   const hoverBgElement = (
     <span
       aria-hidden="true"
-      {...stylex.props(styles.hoverBg, hoverSizeStyles[size])}
+      {...mergeProps(
+        themeProps('tab-hover', {size}),
+        stylex.props(styles.hoverBg, hoverSizeStyles[size]),
+      )}
     />
   );
 

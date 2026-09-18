@@ -11,7 +11,7 @@ export const docs = {
   theming: {
     targets: [
       {className: 'astryx-list', visualProps: ['density', 'listStyle']},
-      {className: 'astryx-list-item'},
+      {className: 'astryx-list-item', visualProps: ['density']},
     ],
   },
   description: 'List container with density, dividers, and header support.',

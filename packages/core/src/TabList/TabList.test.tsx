@@ -63,6 +63,34 @@ afterAll(() => {
 });
 
 describe('TabList', () => {
+  it.each(['sm', 'md', 'lg'] as const)(
+    'exposes %s on tab anatomy without exposing a hidden label',
+    size => {
+      const {container} = render(
+        <TabList size={size} value="home" onChange={() => {}}>
+          <Tab
+            value="home"
+            label="Home"
+            isLabelHidden
+            icon={<span aria-hidden="true">icon</span>}
+          />
+        </TabList>,
+      );
+      expect(screen.getByRole('button', {name: 'Home'})).toHaveAttribute(
+        'data-size',
+        size,
+      );
+      expect(screen.queryByText('Home')).not.toBeInTheDocument();
+      expect(container.querySelector('.astryx-tab-icon')).toHaveAttribute(
+        'data-size',
+        size,
+      );
+      expect(container.querySelector('.astryx-tab-hover')).toHaveAttribute(
+        'data-size',
+        size,
+      );
+    },
+  );
   it('renders a nav element with tab buttons', () => {
     render(
       <TabList value="home" onChange={() => {}}>

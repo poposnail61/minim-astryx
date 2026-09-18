@@ -558,6 +558,7 @@ export function SideNavItem({
     const collapsedItemStyles = mergeProps(
       themeProps('side-nav-item', {
         size,
+        collapsed: 'true',
         selected: isSelected ? 'selected' : null,
         disabled: isDisabled ? 'disabled' : null,
       }),
@@ -668,6 +669,7 @@ export function SideNavItem({
 
   const itemThemeProps = themeProps('side-nav-item', {
     size,
+    collapsed: 'false',
     selected: isSelected ? 'selected' : null,
     disabled: isDisabled ? 'disabled' : null,
   });

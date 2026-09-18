@@ -20,6 +20,7 @@ export const minimBaseTokens = {
   '--minim-bg-layer-base':
     'rgb(95.686274766922% 95.686274766922% 96.07843160629272% / 100%)',
   '--minim-bg-layer-overlay': 'rgb(0% 0% 0% / 40%)',
+  '--minim-bg-layer-overlay-light': 'rgb(100% 100% 100% / 60.00000238418579%)',
   '--minim-bg-muted-solid':
     'rgb(44.31372582912445% 44.31372582912445% 47.843137383461% / 100%)',
   '--minim-bg-neutral': 'rgb(0% 0% 0% / 5%)',
@@ -212,6 +213,7 @@ export const minimCompactTokens = {
   '--minim-bg-layer-base':
     'rgb(95.686274766922% 95.686274766922% 96.07843160629272% / 100%)',
   '--minim-bg-layer-overlay': 'rgb(0% 0% 0% / 40%)',
+  '--minim-bg-layer-overlay-light': 'rgb(100% 100% 100% / 60.00000238418579%)',
   '--minim-bg-muted-solid':
     'rgb(44.31372582912445% 44.31372582912445% 47.843137383461% / 100%)',
   '--minim-bg-neutral': 'rgb(0% 0% 0% / 5%)',
@@ -479,6 +481,14 @@ export const minimTokenMetadata = {
     collection: 'semantic-color',
     resolvedModes: {
       'light theme': 'rgb(0% 0% 0% / 40%)',
+    },
+  },
+  '--minim-bg-layer-overlay-light': {
+    id: 'VariableID:10704:37296',
+    name: 'bg/layer-overlay-light',
+    collection: 'semantic-color',
+    resolvedModes: {
+      'light theme': 'rgb(100% 100% 100% / 60.00000238418579%)',
     },
   },
   '--minim-bg-muted-solid': {

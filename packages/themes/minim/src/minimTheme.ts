@@ -10,6 +10,9 @@ import {minimIconComponents} from './components/icon';
 import {minimInputComponents} from './components/input';
 import {minimMenuSpinnerComponents} from './components/menu-spinner';
 import {minimSelectionComponents} from './components/selection';
+import {minimSurfaceComponents} from './components/surfaces';
+import {minimNavigationComponents} from './components/navigation';
+import {minimCollectionComponents} from './components/collections';
 import {minimIconRegistry} from './icons';
 import {minimMenuIndicators} from './indicators';
 import {minimBaseTokens, minimCompactTokens} from './minimTokens.generated';
@@ -94,6 +97,9 @@ export const minimComponents = {
   ...minimIconComponents,
   ...minimSelectionComponents,
   ...minimMenuSpinnerComponents,
+  ...minimSurfaceComponents,
+  ...minimNavigationComponents,
+  ...minimCollectionComponents,
 };
 
 /** Explicit Astryx-to-Minim role mappings, exported for contract QA. */

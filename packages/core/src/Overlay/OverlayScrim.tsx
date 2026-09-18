@@ -276,7 +276,7 @@ export function OverlayScrim({
   return (
     <div
       {...mergeProps(
-        themeProps('overlay-scrim', {position}),
+        themeProps('overlay-scrim', {position, scrim: String(scrim)}),
         stylex.props(
           styles.base,
           positionMap[position],

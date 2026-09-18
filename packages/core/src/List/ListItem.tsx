@@ -264,7 +264,7 @@ export function ListItem({
         hasDividers && embeddedStyles.noRadius,
         xstyle,
       ]}
-      {...mergeProps(themeProps('list-item'), {className, style})}
+      {...mergeProps(themeProps('list-item', {density}), {className, style})}
       {...restProps}
     />
   );

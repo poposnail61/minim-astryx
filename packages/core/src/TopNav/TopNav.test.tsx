@@ -33,6 +33,23 @@ function CustomLink({
 }
 
 describe('TopNav', () => {
+  it.each(['sm', 'md', 'lg'] as const)(
+    'exposes %s and icon-only styling without changing accessible labels',
+    size => {
+      render(
+        <TopNavItem
+          label="Home"
+          href="/home"
+          size={size}
+          isIconOnly
+          icon={<span aria-hidden="true">icon</span>}
+        />,
+      );
+      const item = screen.getByRole('link', {name: 'Home'});
+      expect(item).toHaveAttribute('data-size', size);
+      expect(item).toHaveAttribute('data-is-icon-only', 'true');
+    },
+  );
   it('renders with navigation role', () => {
     render(<TopNav label="Main navigation" />);
     expect(screen.getByRole('navigation')).toBeInTheDocument();
