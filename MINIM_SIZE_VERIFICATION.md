@@ -16,11 +16,11 @@
 
 ## Findings requiring follow-up
 
-1. Figma icon-only loading Button variants retain fixed, unbound heights.
-   Compact lg remains 44 rather than 36; md remains 36 rather than 28.
-   Examples: 8400:10292 and 8400:10285. Regular buttons resolve correctly.
-2. Figma menu-item md retains an unbound minHeight=36, preventing the Compact
-   28px height. All four md variants are affected (set 8406:27695).
+1. Fixed 2026-09-25: all 21 icon-only loading Button variants bind both dimensions
+   to the existing button size/minimum-width token. Compact measurements confirmed
+   md=28, lg=36, xl=44; Base remains md=36, lg=44, xl=52.
+2. Fixed 2026-09-25: removed the unbound minHeight=36 from all four menu-item md
+   variants (set 8406:27695). HUG layout now measures 28px in Compact and 36px in Base.
 3. Figma ButtonGroup outer geometry does not contract with Compact children:
    horizontal lg/md remain 44/36; vertical layouts remain 134/110.
    Set 8400:13980 needs container/child sizing review, not typography changes.

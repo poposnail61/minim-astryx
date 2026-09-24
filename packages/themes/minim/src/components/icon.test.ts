@@ -1,6 +1,7 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 
 import {describe, expect, it} from 'vitest';
+import {JSDOM} from 'jsdom';
 import {defineTheme, generateThemeCSS} from '@astryxdesign/core/theme';
 import {minimIconComponents} from './icon';
 
@@ -33,9 +34,48 @@ describe('Minim Icon overrides', () => {
       components: minimIconComponents,
     });
     const {component} = generateThemeCSS(theme);
-
     expect(component).toContain('.astryx-icon[data-size="xsm"]');
     expect(component).toContain('.astryx-icon[data-size="lg"]');
     expect(component).toContain('--minim-icon-box-size');
+  });
+});
+
+describe('Minim input icon paint', () => {
+  it('only neutralizes secondary affordances, not semantic status colors', () => {
+    const selectors = Object.entries(minimIconComponents.icon.base)
+      .filter(([, rule]) => typeof rule === 'object' && 'color' in rule)
+      .map(([selector]) => selector);
+    const dom = new JSDOM();
+    try {
+      const {document} = dom.window;
+      for (const hostClass of [
+        'astryx-selector',
+        'astryx-typeahead',
+        'astryx-multi-selector',
+        'astryx-tokenizer',
+      ]) {
+        const host = document.createElement('div');
+        host.className = hostClass;
+        document.body.append(host);
+        const icon = document.createElement('span');
+        icon.className = 'astryx-icon';
+        host.append(icon);
+        for (const color of [
+          'secondary',
+          'error',
+          'warning',
+          'success',
+          'disabled',
+        ]) {
+          icon.dataset.color = color;
+          expect(
+            selectors.some(selector => icon.matches(selector)),
+            `${hostClass}: ${color}`,
+          ).toBe(color === 'secondary');
+        }
+      }
+    } finally {
+      dom.window.close();
+    }
   });
 });

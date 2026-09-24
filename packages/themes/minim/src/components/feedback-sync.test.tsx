@@ -25,9 +25,9 @@ describe('Feedback Figma synchronization', () => {
     expect(spinner).toContain('role="status"');
   });
 
-  it('keeps badge slots adjacent and skeleton paint unchanged', () => {
-    expect(chips.badge.base.gap).toBe('0');
-    expect(chips.badge['size:lg'].gap).toBe('0');
+  it('uses the badge gap token and keeps skeleton paint unchanged', () => {
+    expect(chips.badge.base.gap).toBe('var(--minim-spacing-100)');
+    expect(chips.badge['size:lg'].gap).toBe('var(--minim-spacing-100)');
     expect(surfaces.skeleton.base.backgroundColor).toBe(
       'var(--minim-bg-neutral)',
     );

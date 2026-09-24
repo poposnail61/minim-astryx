@@ -137,15 +137,8 @@ export const minimMenuSpinnerComponents = {
     },
   },
   'menu-radio-row': {
+    // Radio rows also carry dropdown-menu-item and inherit its size recipe.
     base: {paddingInline: minim('spacing-300')},
-    // Preserve vertical geometry while sharing the menu inline inset.
-    'size:md': {
-      minHeight: '2.5rem',
-      gap: '0.5rem',
-      padding: '0.5rem',
-      paddingInline: minim('spacing-300'),
-      borderRadius: '0.625rem',
-    },
   },
   'dropdown-menu-divider': {
     base: {

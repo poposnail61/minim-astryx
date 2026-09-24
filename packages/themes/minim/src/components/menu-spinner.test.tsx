@@ -57,13 +57,9 @@ describe('Minim menu and Spinner overrides', () => {
     );
   });
 
-  it('preserves radio-row vertical sizing with shared menu inline spacing', () => {
-    expect(minimMenuSpinnerComponents['menu-radio-row']['size:md']).toEqual({
-      minHeight: '2.5rem',
-      gap: '0.5rem',
-      padding: '0.5rem',
-      paddingInline: 'var(--minim-spacing-300)',
-      borderRadius: '0.625rem',
+  it('inherits radio-row sizing from the shared menu item recipe', () => {
+    expect(minimMenuSpinnerComponents['menu-radio-row']).toEqual({
+      base: {paddingInline: 'var(--minim-spacing-300)'},
     });
   });
 
@@ -97,7 +93,7 @@ describe('Minim menu and Spinner overrides', () => {
 
   it('emits the menu-radio-row and Spinner selectors', () => {
     const {component} = generateThemeCSS(minimTheme);
-    expect(component).toContain('.astryx-menu-radio-row[data-size="md"]');
+    expect(component).toContain('.astryx-menu-radio-row');
     expect(component).toContain('.astryx-spinner[data-shade="onMedia"]');
     expect(component).toContain(
       '--spinner-track-color: var(--minim-stroke-neutral)',
