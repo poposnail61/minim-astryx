@@ -5,7 +5,7 @@ import type {ComponentStyleMap} from '@astryxdesign/core/theme';
 const token = (name: string) => `var(--minim-${name})`;
 const control = (size: 'medium' | 'large' | 'xlarge', type: 'md' | 'lg') => ({
   '--minim-icon-box-size': token(`typography-line-height-${type}`),
-  height: 'auto',
+  height: `calc(${token(`content-${size === 'medium' ? 'medium' : 'large'}-box-size`)} + 2 * ${token(`control-${size}-padding-block`)})`,
   paddingBlock: token(`control-${size}-padding-block`),
   paddingInline: token(`control-${size}-padding-inline`),
   fontSize: token(`typography-font-size-${type}`),
@@ -15,16 +15,18 @@ const row = (size: 'medium' | 'large') => ({
   '--minim-icon-box-size': token(
     `typography-line-height-${size === 'medium' ? 'md' : 'lg'}`,
   ),
-  height: `calc(${token(`typography-line-height-${size === 'medium' ? 'md' : 'lg'}`)} + 2 * ${token(`row-${size}-padding-block`)})`,
+  height: `calc(${token(`content-${size}-box-size`)} + 2 * ${token(`row-${size}-padding-block`)})`,
   fontSize: token(`typography-font-size-${size === 'medium' ? 'md' : 'lg'}`),
   lineHeight: token(
     `typography-line-height-${size === 'medium' ? 'md' : 'lg'}`,
   ),
   gap: token(`row-${size}-gap`),
-  paddingInline: token(`row-${size}-padding-inline`),
+  paddingInline: token('spacing-300'),
 });
 
 export const minimNavigationComponents = {
+  'top-nav-menu': {base: {paddingInline: token('spacing-300')}},
+  'top-nav-mega-menu-item': {base: {paddingInline: token('spacing-300')}},
   'breadcrumb-item': {
     base: {paddingBlock: token('spacing-50'), gap: token('spacing-100')},
   },
@@ -38,13 +40,15 @@ export const minimNavigationComponents = {
     'size:md+collapsed:true': {width: row('medium').height, paddingInline: '0'},
     'size:lg+collapsed:true': {width: row('large').height, paddingInline: '0'},
   },
-  'side-nav-heading': {base: {gap: token('spacing-200')}},
+  'side-nav-heading': {
+    base: {gap: token('spacing-200'), paddingInline: token('spacing-300')},
+  },
   'tab-strip': {base: {gap: token('spacing-50')}},
   tab: {
     base: {gap: token('spacing-100')},
     'size:sm': control('medium', 'md'),
-    'size:md': control('large', 'lg'),
-    'size:lg': control('xlarge', 'lg'),
+    'size:md': control('medium', 'md'),
+    'size:lg': control('large', 'lg'),
   },
   'tab-hover': {base: {height: '100%'}},
   'tab-icon': {
@@ -53,8 +57,8 @@ export const minimNavigationComponents = {
       height: token('typography-line-height-md'),
     },
     'size:md': {
-      width: token('typography-line-height-lg'),
-      height: token('typography-line-height-lg'),
+      width: token('typography-line-height-md'),
+      height: token('typography-line-height-md'),
     },
     'size:lg': {
       width: token('typography-line-height-lg'),
@@ -62,17 +66,26 @@ export const minimNavigationComponents = {
     },
   },
   'top-nav-item': {
-    'size:sm': control('medium', 'md'),
-    'size:md': control('large', 'lg'),
-    'size:lg': control('xlarge', 'lg'),
+    'size:sm': {
+      ...control('medium', 'md'),
+      paddingInline: token('spacing-300'),
+    },
+    'size:md': {
+      ...control('medium', 'md'),
+      paddingInline: token('spacing-300'),
+    },
+    'size:lg': {...control('large', 'lg'), paddingInline: token('spacing-300')},
     'size:sm+isIconOnly:true': {
+      width: control('medium', 'md').height,
       paddingInline: token('control-medium-padding-block'),
     },
     'size:md+isIconOnly:true': {
-      paddingInline: token('control-large-padding-block'),
+      width: control('medium', 'md').height,
+      paddingInline: token('control-medium-padding-block'),
     },
     'size:lg+isIconOnly:true': {
-      paddingInline: token('control-xlarge-padding-block'),
+      width: control('large', 'lg').height,
+      paddingInline: token('control-large-padding-block'),
     },
   },
 } as const satisfies ComponentStyleMap;

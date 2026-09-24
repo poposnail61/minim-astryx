@@ -52,7 +52,7 @@ export interface AvatarGroupProps extends BaseProps<HTMLDivElement> {
    * Size applied to all avatars via context. This wins over each child
    * Avatar's own `size` prop, including when it is left at the default, so
    * set the size here rather than on the children.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: AvatarSize;
   /**
@@ -95,7 +95,7 @@ const styles = stylex.create({
  */
 export function AvatarGroup({
   children,
-  size = 'md',
+  size = 'lg',
   shape = 'circle',
   'data-testid': testId,
   'aria-label': ariaLabelFromProps,

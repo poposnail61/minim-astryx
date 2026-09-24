@@ -119,6 +119,10 @@ const wrapperSizeStyles = stylex.create({
     width: 24,
     height: 24,
   },
+  lg: {
+    width: 28,
+    height: 28,
+  },
 });
 
 export type CheckboxInputSize = keyof typeof wrapperSizeStyles;
@@ -218,7 +222,7 @@ export interface CheckboxInputProps extends Omit<BaseProps, 'onChange'> {
    * The size of the checkbox.
    * - 'sm': Compact size (28px row height)
    * - 'md': Default size (36px row height)
-   * @default 'md'
+   * @default 'lg'
    */
   size?: CheckboxInputSize;
   /**
@@ -277,7 +281,7 @@ export function CheckboxInput({
   isReadOnly = false,
   isOptional = false,
   isRequired = false,
-  size = 'md',
+  size = 'lg',
   onFocus,
   onBlur,
   labelIcon,
@@ -376,7 +380,10 @@ export function CheckboxInput({
   return (
     <div
       {...mergeProps(
-        themeProps('checkbox-input', {size}),
+        themeProps('checkbox-input', {
+          size,
+          label: isLabelHidden ? 'hidden' : 'visible',
+        }),
         stylex.props(width != null && dynamicWidthStyles.width(width), xstyle),
         className,
         style,
@@ -399,7 +406,10 @@ export function CheckboxInput({
           !isDisabled && indicatorScope,
         )}>
         <div
-          {...stylex.props(styles.checkboxWrapper, wrapperSizeStyles[size])}
+          {...mergeProps(
+            themeProps('checkbox-control-slot', {size}),
+            stylex.props(styles.checkboxWrapper, wrapperSizeStyles[size]),
+          )}
           {...focusProps}>
           <input
             {...rest}
@@ -477,7 +487,7 @@ export function CheckboxInput({
             // field's label above its input. Naming the label rather than the
             // arrangement means a theme asks for the thing it wants, and the
             // component that actually knows what this is says so.
-            {...themeProps('checkbox-label')}
+            {...themeProps('checkbox-label', {size})}
             label={label}
             inputID={id}
             isLabelHidden={isLabelHidden}

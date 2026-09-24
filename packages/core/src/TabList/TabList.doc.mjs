@@ -48,7 +48,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'Size variant applied to all child tabs.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'layout',

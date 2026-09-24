@@ -90,7 +90,7 @@ export const minimSurfaceComponents = {
   'command-palette-item': {
     base: {
       paddingBlock: token('row-medium-padding-block'),
-      paddingInline: token('row-medium-padding-inline'),
+      paddingInline: token('spacing-300'),
       gap: token('row-medium-gap'),
       borderRadius: token('radius-element'),
       '--minim-icon-box-size': token('typography-line-height-md'),
@@ -139,12 +139,41 @@ export const minimSurfaceComponents = {
     base: {'--minim-icon-box-size': token('typography-line-height-sm')},
     'status:info': {color: token('fg-neutral')},
   },
+  'banner-title': {
+    base: {
+      fontSize: token('typography-font-size-sm'),
+      lineHeight: token('typography-line-height-sm'),
+      fontWeight: token('typography-font-weight-medium'),
+      color: 'inherit',
+    },
+  },
+  'banner-description': {
+    base: {
+      fontSize: token('typography-font-size-xs'),
+      lineHeight: token('typography-line-height-xs'),
+      color: 'inherit',
+    },
+  },
   'banner-content': {
     base: {
       paddingBlock: token('spacing-300'),
       paddingInline: token('spacing-400'),
       backgroundColor: token('bg-layer'),
       borderColor: token('stroke-neutral'),
+    },
+    'container:card': {
+      borderEndStartRadius: token('radius-container'),
+      borderEndEndRadius: token('radius-container'),
+    },
+    'status:success': {borderColor: token('stroke-primary')},
+    'status:warning': {borderColor: token('stroke-warning')},
+    'status:error': {borderColor: token('stroke-critical')},
+  },
+  'progress-bar': {
+    base: {
+      '--text-body-size': token('typography-font-size-sm'),
+      '--text-body-leading': token('typography-line-height-sm'),
+      gap: token('spacing-100'),
     },
   },
   'progress-bar-track': {base: {backgroundColor: token('bg-neutral')}},
@@ -155,5 +184,17 @@ export const minimSurfaceComponents = {
     'variant:error': {backgroundColor: token('bg-critical-solid')},
     'variant:neutral': {backgroundColor: token('bg-neutral-solid')},
   },
-  skeleton: {base: {backgroundColor: token('bg-neutral')}},
+  skeleton: {
+    base: {backgroundColor: token('bg-neutral')},
+    'radius:none': {borderRadius: '0'},
+    'radius:0': {borderRadius: token('radius-inner')},
+    'radius:1': {borderRadius: token('radius-element-item')},
+    'radius:2': {borderRadius: token('radius-element')},
+    'radius:3': {borderRadius: token('radius-container')},
+    'radius:4': {borderRadius: token('radius-overlay')},
+    'radius:rounded': {borderRadius: token('radius-full')},
+  },
+  'status-dot': {
+    'variant:neutral': {backgroundColor: token('fg-neutral')},
+  },
 } as const satisfies ComponentStyleMap;

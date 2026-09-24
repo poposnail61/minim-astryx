@@ -23,14 +23,14 @@ const neutralForeground = {
 /**
  * Minim's Button-only theme overrides.
  *
- * The 4px label inset is intentionally spacing/100 for every size. Figma's
- * large content token resolves to 5px, but the actual Button instances bind
- * and render 4px; this keeps the implementation aligned to the component.
+ * Horizontal spacing follows Astryx: the control owns its padding and gap,
+ * while label/icon slots have no additional horizontal inset.
  */
 export const minimButtonComponents = {
   button: {
     base: {
-      gap: '0',
+      gap: minim('spacing-200'),
+      paddingInline: minim('spacing-300'),
       borderRadius: `var(--_button-radius, ${minim('radius-element')})`,
       borderInlineStartColor: minim('stroke-neutral'),
       borderBlockStartColor: minim('stroke-neutral'),
@@ -39,19 +39,19 @@ export const minimButtonComponents = {
     'size:md': {
       height:
         'calc(var(--minim-content-medium-box-size) + 2 * var(--minim-control-medium-padding-block))',
-      paddingInline: minim('control-medium-padding-inline'),
+      paddingInline: minim('spacing-300'),
       paddingBlock: minim('control-medium-padding-block'),
     },
     'size:lg': {
       height:
         'calc(var(--minim-content-large-box-size) + 2 * var(--minim-control-large-padding-block))',
-      paddingInline: minim('control-large-padding-inline'),
+      paddingInline: minim('spacing-400'),
       paddingBlock: minim('control-large-padding-block'),
     },
     'size:xl': {
       height:
         'calc(var(--minim-content-large-box-size) + 2 * var(--minim-control-xlarge-padding-block))',
-      paddingInline: minim('control-xlarge-padding-inline'),
+      paddingInline: minim('spacing-400'),
       paddingBlock: minim('control-xlarge-padding-block'),
     },
     'content:icon-only': {
@@ -113,7 +113,7 @@ export const minimButtonComponents = {
       '--minim-icon-box-size':
         'var(--minim-button-icon-size, var(--minim-typography-line-height-md))',
       width:
-        'var(--minim-button-icon-slot-width, var(--minim-content-medium-icon-box-width))',
+        'var(--minim-button-icon-size, var(--minim-typography-line-height-md))',
       height:
         'var(--minim-button-icon-slot-height, calc(var(--minim-typography-line-height-md) + 2 * var(--minim-content-medium-text-inset-block)))',
       fontSize:
@@ -125,7 +125,7 @@ export const minimButtonComponents = {
       '--minim-icon-box-size':
         'var(--minim-button-icon-size, var(--minim-typography-line-height-md))',
       width:
-        'var(--minim-button-icon-slot-width, var(--minim-content-medium-icon-box-width))',
+        'var(--minim-button-icon-size, var(--minim-typography-line-height-md))',
       height:
         'var(--minim-button-icon-slot-height, calc(var(--minim-typography-line-height-md) + 2 * var(--minim-content-medium-text-inset-block)))',
       fontSize:
@@ -135,7 +135,7 @@ export const minimButtonComponents = {
     },
     'size:lg': {
       '--minim-icon-box-size': minim('typography-line-height-lg'),
-      width: minim('content-large-icon-box-width'),
+      width: minim('typography-line-height-lg'),
       height:
         'calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-content-large-text-inset-block))',
       fontSize: minim('typography-line-height-lg'),
@@ -143,7 +143,7 @@ export const minimButtonComponents = {
     },
     'size:xl': {
       '--minim-icon-box-size': minim('typography-line-height-lg'),
-      width: minim('content-large-icon-box-width'),
+      width: minim('typography-line-height-lg'),
       height:
         'calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-content-large-text-inset-block))',
       fontSize: minim('typography-line-height-lg'),
@@ -152,8 +152,7 @@ export const minimButtonComponents = {
   },
   'button-label': {
     base: {
-      paddingInline:
-        'var(--minim-button-label-inset-inline, var(--minim-spacing-100))',
+      paddingInline: '0',
     },
     'size:sm': {
       paddingBlock:

@@ -7,6 +7,40 @@ import {minimMenuIndicators} from '../indicators';
 import {minimTheme} from '../minimTheme';
 
 describe('Minim menu and Spinner overrides', () => {
+  it('shares a single-inset surface across suggestion and calendar popups', () => {
+    for (const key of [
+      'selector-popup',
+      'multi-selector-popup',
+      'typeahead-popup',
+      'date-input-popup',
+      'date-range-input-popup',
+      'date-time-input-popup',
+      'date-time-input-time-popup',
+    ] as const) {
+      expect(minimMenuSpinnerComponents[key].base).toMatchObject({
+        padding: '0',
+        borderRadius: 'var(--minim-radius-container)',
+        boxShadow: 'var(--minim-elevation-low)',
+      });
+    }
+    expect(minimMenuSpinnerComponents['dropdown-menu'].base.gap).toBe(
+      'var(--minim-spacing-50)',
+    );
+  });
+  it('gives Selector one list inset and large Minim option typography', () => {
+    expect(minimMenuSpinnerComponents['selector-popup'].base).toMatchObject({
+      padding: '0',
+      '--selector-list-padding': 'var(--minim-spacing-200)',
+      '--selector-list-gap': 'var(--minim-spacing-50)',
+    });
+    expect(
+      minimMenuSpinnerComponents['selector-option-row'].base,
+    ).toMatchObject({
+      paddingBlock: 'var(--minim-row-large-padding-block)',
+      paddingInline: 'var(--minim-spacing-300)',
+      '--text-body-size': 'var(--minim-typography-font-size-lg)',
+    });
+  });
   it('keeps menu surfaces caller-sized, borderless, and token-driven', () => {
     const surface = minimMenuSpinnerComponents['context-menu'].base;
     expect(surface).not.toHaveProperty('width');
@@ -23,20 +57,22 @@ describe('Minim menu and Spinner overrides', () => {
     );
   });
 
-  it('preserves the unbound radio-row exception without compact scaling', () => {
+  it('preserves radio-row vertical sizing with shared menu inline spacing', () => {
     expect(minimMenuSpinnerComponents['menu-radio-row']['size:md']).toEqual({
       minHeight: '2.5rem',
       gap: '0.5rem',
       padding: '0.5rem',
+      paddingInline: 'var(--minim-spacing-300)',
       borderRadius: '0.625rem',
     });
   });
 
   it('maps Spinner through public variables and semantic paint tokens', () => {
     expect(minimMenuSpinnerComponents.spinner['size:xl']).toEqual({
-      '--spinner-diameter': '28px',
+      '--spinner-diameter': '32px',
       '--spinner-stroke-width': '4px',
-      '--spinner-arc-fraction': '0.375',
+      '--spinner-box-size': '36px',
+      '--spinner-arc-fraction': '0.75',
     });
     expect(minimMenuSpinnerComponents.spinner['shade:default']).toEqual({
       '--spinner-color': 'var(--minim-fg-neutral)',
@@ -44,7 +80,7 @@ describe('Minim menu and Spinner overrides', () => {
     });
     expect(minimMenuSpinnerComponents.spinner['shade:onMedia']).toEqual({
       '--spinner-color': 'var(--minim-fg-on-surface)',
-      '--spinner-track-color': 'var(--minim-fg-on-surface)',
+      '--spinner-track-color': 'var(--minim-fg-on-surface-subtle)',
     });
   });
 

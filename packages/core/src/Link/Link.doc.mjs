@@ -52,7 +52,7 @@ export const docs = {
           name: 'variant',
           type: "'neutral' | 'muted' | 'primary'",
           description: 'Visual color variant.',
-          default: "'primary'",
+          default: "'neutral'",
         },
         {
           name: 'isDisabled',

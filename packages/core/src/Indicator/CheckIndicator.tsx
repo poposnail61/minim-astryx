@@ -40,6 +40,7 @@ import type {IndicatorProps} from './types';
 const iconSizeForIndicator = {
   sm: 'sm',
   md: 'sm',
+  lg: 'md',
 } as const;
 
 const styles = stylex.create({

@@ -47,7 +47,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg' | 'xl'",
       description: 'Button size. Defaults to group size when inside a group.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'variant',

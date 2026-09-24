@@ -20,8 +20,9 @@ describe('blue-outline component theme contracts', () => {
     const references = [
       ...JSON.stringify(components).matchAll(/var\((--minim-[a-z0-9-]+)/g),
     ].map(match => match[1]);
-    for (const reference of references)
-      {expect(tokens, reference).toHaveProperty(reference);}
+    for (const reference of references) {
+      expect(tokens, reference).toHaveProperty(reference);
+    }
   });
 
   it('keeps Card elevation and selection ring composition in core', () => {
@@ -64,6 +65,12 @@ describe('blue-outline component theme contracts', () => {
     expect(
       components['top-nav-item']['size:md+isIconOnly:true'].paddingInline,
     ).toBe(components['top-nav-item']['size:md'].paddingBlock);
+    expect(components['top-nav-item']['size:md+isIconOnly:true'].width).toBe(
+      components['top-nav-item']['size:md'].height,
+    );
+    expect(components['top-nav-item']['size:lg+isIconOnly:true'].width).toBe(
+      components['top-nav-item']['size:lg'].height,
+    );
     expect(components['tab-icon']['size:md'].width).toBe(
       components['tab-icon']['size:md'].height,
     );

@@ -578,7 +578,7 @@ export function TouchDateField({
   const isEffectivelyRequired = useResolvedRequired({isRequired, isOptional});
   const placeholder =
     placeholderFromProps ?? t('@astryx.dateInput.placeholder');
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const weekStartsOn = normalizeDayOfWeek(weekStartsOnProp);
 
   const id = useId();
@@ -612,6 +612,7 @@ export function TouchDateField({
     useInputStatusIcon({
       status,
       statusVariant,
+      size,
       isInGroup: !!inputGroup,
     });
 

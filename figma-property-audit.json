@@ -1,0 +1,5051 @@
+{
+  "schemaVersion": 2,
+  "fileKey": "mHcauYaYWK3floQNsfolz6",
+  "pages": [
+    {
+      "name": "action",
+      "id": "10854:25087",
+      "rows": [
+        {
+          "id": "10790:29417",
+          "name": "toolbar",
+          "source": "packages/core/src/Toolbar/Toolbar.tsx",
+          "props": {
+            "start-content#2348:30": {
+              "type": "SLOT"
+            },
+            "end-content#2348:31": {
+              "type": "SLOT"
+            },
+            "center-content#2348:32": {
+              "type": "SLOT"
+            },
+            "has-bottom-divider#2348:39": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "layout": {
+              "type": "VARIANT",
+              "defaultValue": "start-end",
+              "values": [
+                "start-end",
+                "start-center-end"
+              ]
+            },
+            "density": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "values": [
+                "default",
+                "compact"
+              ]
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "transparent",
+              "values": [
+                "transparent",
+                "section",
+                "muted"
+              ]
+            }
+          },
+          "defaultVariant": "layout=start-end, density=default, variant=transparent",
+          "variants": 12
+        },
+        {
+          "id": "8400:13980",
+          "name": "action/button-group",
+          "source": "packages/core/src/ButtonGroup/ButtonGroup.tsx",
+          "props": {
+            "children#2509:6": {
+              "type": "SLOT"
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "neutral",
+              "values": [
+                "neutral",
+                "outline",
+                "subtle"
+              ]
+            },
+            "orientation": {
+              "type": "VARIANT",
+              "defaultValue": "horizontal",
+              "values": [
+                "horizontal",
+                "vertical"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            }
+          },
+          "defaultVariant": "variant=neutral, orientation=horizontal, size=lg",
+          "variants": 12
+        },
+        {
+          "id": "8406:27972",
+          "name": "context-menu",
+          "source": "packages/core/src/ContextMenu/ContextMenu.tsx",
+          "props": {
+            "children#8463:4": {
+              "type": "SLOT"
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg",
+          "variants": 2
+        },
+        {
+          "id": "8406:27695",
+          "name": "menu-item",
+          "source": "packages/core/src/DropdownMenu/DropdownMenuItem.tsx",
+          "props": {
+            "end-content#8406:0": {
+              "type": "SLOT"
+            },
+            "has-icon#10926:0": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-label#10926:9": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-end-content#10926:18": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "values": [
+                "default",
+                "destructive"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, variant=default, is-disabled=false, state=rest",
+          "variants": 8
+        },
+        {
+          "id": "8464:29488",
+          "name": "menu-checkbox-item",
+          "source": "packages/core/src/DropdownMenu/DropdownMenuCheckboxItem.tsx",
+          "props": {
+            "value": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "value=false",
+          "variants": 2
+        },
+        {
+          "id": "8464:29496",
+          "name": "menu-radio-item",
+          "source": "packages/core/src/DropdownMenu/DropdownMenuRadioItem.tsx",
+          "props": {
+            "is-selected": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "is-selected=false",
+          "variants": 2
+        },
+        {
+          "id": "10301:18822",
+          "name": "menu-divider",
+          "source": "packages/core/src/DropdownMenu/DropdownMenuDivider.tsx",
+          "props": {
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg",
+          "variants": 2
+        },
+        {
+          "id": "10794:30460",
+          "name": "dropdown-menu",
+          "source": "packages/core/src/DropdownMenu/DropdownMenu.tsx",
+          "props": {
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "sm",
+                "md",
+                "lg"
+              ]
+            },
+            "trigger": {
+              "type": "VARIANT",
+              "defaultValue": "label",
+              "values": [
+                "label",
+                "icon-only"
+              ]
+            },
+            "is-menu-open": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, trigger=label, is-menu-open=false",
+          "variants": 12
+        },
+        {
+          "id": "10794:30555",
+          "name": "dropdown-menu/dropdown-menu-radio-group",
+          "source": "packages/core/src/DropdownMenu/DropdownMenuRadioGroup.tsx",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "8406:23379",
+          "name": "button/toggle-button",
+          "source": "packages/core/src/ToggleButton/ToggleButton.tsx",
+          "props": {
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "values": [
+                "default",
+                "ghost"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "is-pressed": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "variant=default, size=lg, is-pressed=false",
+          "variants": 8
+        },
+        {
+          "id": "8464:32640",
+          "name": "segmented-control",
+          "source": "packages/core/src/SegmentedControl/SegmentedControl.tsx",
+          "props": {
+            "children#8490:6": {
+              "type": "SLOT"
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, state=rest, is-disabled=false",
+          "variants": 4
+        },
+        {
+          "id": "8464:32785",
+          "name": "segmented-control/segmented-control-item",
+          "source": "packages/core/src/SegmentedControl/SegmentedControlItem.tsx",
+          "props": {
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "hover",
+                "selected",
+                "rest"
+              ]
+            },
+            "is-label-hidden": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, state=rest, is-label-hidden=false, is-disabled=false",
+          "variants": 12
+        },
+        {
+          "id": "8406:24297",
+          "name": "link",
+          "source": "packages/core/src/Link/Link.tsx",
+          "props": {
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "neutral",
+              "values": [
+                "neutral",
+                "muted",
+                "primary"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused"
+              ]
+            },
+            "has-underline": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-external-link": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "variant=neutral, state=rest, has-underline=false, is-external-link=false, is-disabled=false",
+          "variants": 36
+        },
+        {
+          "id": "8400:9742",
+          "name": "button",
+          "source": "packages/core/src/Button/Button.tsx",
+          "props": {
+            "has-icon#3:0": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-end-content#2125:0": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "end-content#2129:0": {
+              "type": "SLOT"
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "neutral",
+              "values": [
+                "neutral",
+                "neutral-subtle",
+                "primary",
+                "critical",
+                "critical-subtle",
+                "ghost",
+                "outline"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg",
+                "xl"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "hover",
+                "pressed",
+                "focused"
+              ]
+            },
+            "is-icon-only": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "variant=neutral, size=lg, state=rest, is-icon-only=false, is-disabled=false, is-loading=false",
+          "variants": 252
+        },
+        {
+          "id": "10737:38548",
+          "name": "more-menu",
+          "source": "packages/core/src/MoreMenu/MoreMenu.tsx",
+          "props": {
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "ghost",
+              "values": [
+                "ghost",
+                "secondary"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "sm",
+                "md",
+                "lg"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-open": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "true",
+                "false"
+              ]
+            }
+          },
+          "defaultVariant": "variant=ghost, size=lg, state=rest, is-disabled=false, is-open=false",
+          "variants": 24
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "id": "10854:26894",
+      "rows": [
+        {
+          "id": "10322:37482",
+          "name": "input-group",
+          "source": "packages/core/src/InputGroup/InputGroup.tsx",
+          "props": {
+            "description#23:172": {
+              "type": "TEXT",
+              "defaultValue": "Description text"
+            },
+            "status-message#23:174": {
+              "type": "TEXT",
+              "defaultValue": "Error message goes here"
+            },
+            "has-description#23:175": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-start-icon#23:176": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-label#43:82": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "prefix#2577:90": {
+              "type": "SLOT"
+            },
+            "suffix#2577:330": {
+              "type": "SLOT"
+            },
+            "has-prefix#2582:0": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-suffix#2582:16": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused",
+                "hover"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, size=lg, is-disabled=false, status=none",
+          "variants": 10
+        },
+        {
+          "id": "10322:24204",
+          "name": "input-group-text",
+          "source": "packages/core/src/InputGroup/InputGroupText.tsx",
+          "props": {
+            "text#2573:0": {
+              "type": "TEXT",
+              "defaultValue": "https://"
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10322:37116",
+          "name": "date-time-input",
+          "source": "packages/core/src/DateTimeInput/DateTimeInput.tsx",
+          "props": {
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused",
+                "hover"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error",
+                "warning",
+                "success"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, size=lg, is-disabled=false, is-loading=false, status=none",
+          "variants": 16
+        },
+        {
+          "id": "10322:36857",
+          "name": "date-range-input",
+          "source": "packages/core/src/DateRangeInput/DateRangeInput.tsx",
+          "props": {
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused",
+                "hover"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error",
+                "warning",
+                "success"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, size=lg, is-disabled=false, is-loading=false, status=none",
+          "variants": 16
+        },
+        {
+          "id": "10542:38446",
+          "name": "slider",
+          "source": "packages/core/src/Slider/Slider.tsx",
+          "props": {
+            "has-description#2577:0": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-marks#2577:15": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-value#2577:30": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "description#2577:45": {
+              "type": "TEXT",
+              "defaultValue": "Adjust the output volume"
+            },
+            "value#2577:60": {
+              "type": "TEXT",
+              "defaultValue": "50"
+            },
+            "status-message#2577:75": {
+              "type": "TEXT",
+              "defaultValue": "Status message goes here"
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "hover",
+                "focused"
+              ]
+            },
+            "type": {
+              "type": "VARIANT",
+              "defaultValue": "single",
+              "values": [
+                "single",
+                "range"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error",
+                "warning",
+                "success"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, type=single, is-disabled=false, status=none",
+          "variants": 14
+        },
+        {
+          "id": "10388:57120",
+          "name": "checkbox/checkbox-list",
+          "source": "packages/core/src/CheckboxList/CheckboxList.tsx",
+          "props": {
+            "orientation": {
+              "type": "VARIANT",
+              "defaultValue": "vertical",
+              "values": [
+                "vertical",
+                "horizontal"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            }
+          },
+          "defaultVariant": "orientation=vertical, size=lg",
+          "variants": 4
+        },
+        {
+          "id": "10388:57149",
+          "name": "checkbox/checkbox-list-item",
+          "source": "packages/core/src/CheckboxList/CheckboxListItem.tsx",
+          "props": {
+            "start-content#2599:0": {
+              "type": "SLOT"
+            },
+            "end-content#2599:25": {
+              "type": "SLOT"
+            },
+            "has-start-content#2599:50": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-end-content#2599:75": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            "is-checked": {
+              "type": "VARIANT",
+              "defaultValue": "true",
+              "values": [
+                "true",
+                "false"
+              ]
+            },
+            "has-description": {
+              "type": "VARIANT",
+              "defaultValue": "true",
+              "values": [
+                "true",
+                "false"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, size=lg, is-checked=true, has-description=true, is-disabled=false, is-loading=false",
+          "variants": 24
+        },
+        {
+          "id": "10542:38235",
+          "name": "file-input",
+          "source": "packages/core/src/FileInput/FileInput.tsx",
+          "props": {
+            "mode": {
+              "type": "VARIANT",
+              "defaultValue": "input",
+              "values": [
+                "input",
+                "dropzone"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "hover",
+                "focused"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error",
+                "warning",
+                "success"
+              ]
+            }
+          },
+          "defaultVariant": "mode=input, state=rest, is-disabled=false, is-loading=false, status=none",
+          "variants": 16
+        },
+        {
+          "id": "10322:36567",
+          "name": "typeahead",
+          "source": "packages/core/src/Typeahead/Typeahead.tsx",
+          "props": {
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused",
+                "hover",
+                "loading"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error",
+                "warning",
+                "success"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, size=lg, is-disabled=false, status=none",
+          "variants": 16
+        },
+        {
+          "id": "10322:36219",
+          "name": "tokenizer",
+          "source": "packages/core/src/Tokenizer/Tokenizer.tsx",
+          "props": {
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused",
+                "hover",
+                "loading"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error",
+                "warning",
+                "success"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, size=lg, is-disabled=false, status=none",
+          "variants": 16
+        },
+        {
+          "id": "10322:35877",
+          "name": "time-input",
+          "source": "packages/core/src/TimeInput/TimeInput.tsx",
+          "props": {
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused",
+                "hover"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error",
+                "warning",
+                "success"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, size=lg, is-disabled=false, is-loading=false, status=none",
+          "variants": 16
+        },
+        {
+          "id": "10322:35557",
+          "name": "text-input",
+          "source": "packages/core/src/TextInput/TextInput.tsx",
+          "props": {
+            "description#23:172": {
+              "type": "TEXT",
+              "defaultValue": "Description text"
+            },
+            "status-message#23:174": {
+              "type": "TEXT",
+              "defaultValue": "Error message goes here"
+            },
+            "has-description#23:175": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-start-icon#23:176": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-status-message#23:178": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-label#43:82": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused",
+                "hover"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error",
+                "warning",
+                "success"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, size=lg, is-disabled=false, is-loading=false, status=none",
+          "variants": 16
+        },
+        {
+          "id": "10322:35184",
+          "name": "text-area",
+          "source": "packages/core/src/TextArea/TextArea.tsx",
+          "props": {
+            "has-counter#10336:0": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "counter-value#10336:25": {
+              "type": "TEXT",
+              "defaultValue": "0/280"
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused",
+                "hover"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error",
+                "warning",
+                "success"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, size=lg, is-disabled=false, is-loading=false, status=none",
+          "variants": 16
+        },
+        {
+          "id": "10542:38124",
+          "name": "switch",
+          "source": "packages/core/src/Switch/Switch.tsx",
+          "props": {
+            "has-description#39:299": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "description#39:314": {
+              "type": "TEXT",
+              "defaultValue": "Description text"
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "hover",
+                "focused"
+              ]
+            },
+            "label-position": {
+              "type": "VARIANT",
+              "defaultValue": "end",
+              "values": [
+                "end",
+                "start"
+              ]
+            },
+            "value": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, label-position=end, value=false, is-disabled=false",
+          "variants": 16
+        },
+        {
+          "id": "10823:40057",
+          "name": "switch-control",
+          "source": "packages/core/src/Switch/Switch.tsx",
+          "props": {
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "value": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, value=false",
+          "variants": 4
+        },
+        {
+          "id": "10322:34900",
+          "name": "selector",
+          "source": "packages/core/src/Selector/Selector.tsx",
+          "props": {
+            "has-search#3367:23": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "search-placeholder#3367:48": {
+              "type": "TEXT",
+              "defaultValue": "Search..."
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused",
+                "hover"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error",
+                "warning",
+                "success"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, size=lg, is-disabled=false, is-loading=false, status=none",
+          "variants": 16
+        },
+        {
+          "id": "10388:56854",
+          "name": "radio/radio-list-item",
+          "source": "packages/core/src/RadioList/RadioListItem.tsx",
+          "props": {
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            "is-selected": {
+              "type": "VARIANT",
+              "defaultValue": "true",
+              "values": [
+                "true",
+                "false"
+              ]
+            },
+            "has-description": {
+              "type": "VARIANT",
+              "defaultValue": "true",
+              "values": [
+                "true",
+                "false"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, size=lg, is-selected=true, has-description=true, is-disabled=false",
+          "variants": 24
+        },
+        {
+          "id": "10388:57047",
+          "name": "radio/radio-list",
+          "source": "packages/core/src/RadioList/RadioList.tsx",
+          "props": {
+            "orientation": {
+              "type": "VARIANT",
+              "defaultValue": "vertical",
+              "values": [
+                "vertical",
+                "horizontal"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            }
+          },
+          "defaultVariant": "orientation=vertical, size=lg",
+          "variants": 4
+        },
+        {
+          "id": "10542:37993",
+          "name": "power-search/trigger",
+          "props": {
+            "filters#2380:0": {
+              "type": "SLOT"
+            },
+            "placeholder#2380:1": {
+              "type": "TEXT",
+              "defaultValue": "Add filter..."
+            },
+            "query#2380:2": {
+              "type": "TEXT",
+              "defaultValue": "flagged"
+            },
+            "has-clear#2380:3": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-result-count#3315:0": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused",
+                "disabled"
+              ]
+            },
+            "content": {
+              "type": "VARIANT",
+              "defaultValue": "placeholder",
+              "values": [
+                "placeholder",
+                "with-filters"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, content=placeholder",
+          "variants": 6
+        },
+        {
+          "id": "10542:38054",
+          "name": "power-search/popover",
+          "source": "packages/core/src/Popover/Popover.tsx",
+          "props": {
+            "content#2381:1": {
+              "type": "SLOT"
+            },
+            "mode": {
+              "type": "VARIANT",
+              "defaultValue": "fields",
+              "values": [
+                "fields",
+                "value-editor",
+                "results",
+                "empty"
+              ]
+            }
+          },
+          "defaultVariant": "mode=fields",
+          "variants": 4
+        },
+        {
+          "id": "10322:34531",
+          "name": "number-input",
+          "props": {
+            "has-labels#3305:0": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused",
+                "hover",
+                "error",
+                "warning",
+                "success",
+                "loading",
+                "disabled"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, size=lg",
+          "variants": 16
+        },
+        {
+          "id": "10322:32283",
+          "name": "selector/multi-selector",
+          "source": "packages/core/src/MultiSelector/MultiSelector.tsx",
+          "props": {
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused",
+                "hover"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error",
+                "warning",
+                "success"
+              ]
+            },
+            "trigger-display": {
+              "type": "VARIANT",
+              "defaultValue": "count",
+              "values": [
+                "count",
+                "labels",
+                "badges"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false"
+              ]
+            },
+            "has-value": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, state=rest, status=none, trigger-display=count, is-disabled=false, is-loading=false, has-value=false",
+          "variants": 128
+        },
+        {
+          "id": "10322:31820",
+          "name": "date-input",
+          "source": "packages/core/src/DateInput/DateInput.tsx",
+          "props": {
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "focused",
+                "hover"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error",
+                "warning",
+                "success"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, size=lg, is-disabled=false, is-loading=false, status=none",
+          "variants": 16
+        },
+        {
+          "id": "10322:32097",
+          "name": "field",
+          "source": "packages/core/src/Field/Field.tsx",
+          "props": {
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "error",
+                "warning",
+                "success"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            }
+          },
+          "defaultVariant": "status=none, size=lg",
+          "variants": 8
+        },
+        {
+          "id": "10322:32134",
+          "name": "field/field-label",
+          "source": "packages/core/src/Field/FieldLabel.tsx",
+          "props": {
+            "has-icon#75:13": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-tooltip#75:17": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "indicator": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "values": [
+                "default",
+                "optional",
+                "required"
+              ]
+            }
+          },
+          "defaultVariant": "indicator=default",
+          "variants": 3
+        },
+        {
+          "id": "10542:37522",
+          "name": "calendar",
+          "source": "packages/core/src/Calendar/Calendar.tsx",
+          "props": {
+            "mode": {
+              "type": "VARIANT",
+              "defaultValue": "single",
+              "values": [
+                "single",
+                "range"
+              ]
+            },
+            "number-of-months": {
+              "type": "VARIANT",
+              "defaultValue": "1",
+              "values": [
+                "1",
+                "2"
+              ]
+            }
+          },
+          "defaultVariant": "mode=single, number-of-months=1",
+          "variants": 4
+        },
+        {
+          "id": "10542:37927",
+          "name": "calendar/calendar-day",
+          "props": {
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "today",
+                "selected",
+                "in-range",
+                "range-start",
+                "range-end",
+                "outside",
+                "disabled"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest",
+          "variants": 8
+        },
+        {
+          "id": "10737:37768",
+          "name": "checkbox/checkbox-input",
+          "source": "packages/core/src/CheckboxInput/CheckboxInput.tsx",
+          "props": {
+            "has-description#72:0": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-label#72:62": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "value": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "indeterminate",
+                "false",
+                "true"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "hover",
+                "focused",
+                "rest"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none"
+              ]
+            }
+          },
+          "defaultVariant": "value=false, size=lg, state=rest, is-disabled=false, is-loading=false, status=none",
+          "variants": 24
+        }
+      ]
+    },
+    {
+      "name": "content",
+      "id": "10854:26893",
+      "rows": [
+        {
+          "id": "10481:31028",
+          "name": "blockquote",
+          "source": "packages/core/src/Blockquote/Blockquote.tsx",
+          "props": {
+            "has-cite#2631:9": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "cite#2631:10": {
+              "type": "TEXT",
+              "defaultValue": "Steve Jobs"
+            },
+            "content#2631:11": {
+              "type": "SLOT"
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10481:30669",
+          "name": "token",
+          "source": "packages/core/src/Token/Token.tsx",
+          "props": {
+            "has-icon#90:1488": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-remove-button#90:1533": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "end-content#2169:0": {
+              "type": "SLOT"
+            },
+            "has-end-content#2169:90": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "color": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "values": [
+                "default",
+                "red",
+                "orange",
+                "yellow",
+                "green",
+                "teal",
+                "cyan",
+                "blue",
+                "purple",
+                "pink",
+                "gray",
+                "amber"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "color=default, size=lg, state=rest, is-disabled=false",
+          "variants": 48
+        },
+        {
+          "id": "10481:30498",
+          "name": "timestamp",
+          "source": "packages/core/src/Timestamp/Timestamp.tsx",
+          "props": {
+            "format": {
+              "type": "VARIANT",
+              "defaultValue": "relative",
+              "values": [
+                "relative",
+                "auto",
+                "date",
+                "date-time",
+                "time",
+                "system-date",
+                "system-date-time",
+                "system-time"
+              ]
+            },
+            "color": {
+              "type": "VARIANT",
+              "defaultValue": "primary",
+              "values": [
+                "primary",
+                "secondary",
+                "disabled",
+                "accent"
+              ]
+            }
+          },
+          "defaultVariant": "format=relative, color=primary",
+          "variants": 32
+        },
+        {
+          "id": "10481:30392",
+          "name": "thumbnail",
+          "source": "packages/core/src/Thumbnail/Thumbnail.tsx",
+          "props": {
+            "has-remove-button#2227:0": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "image",
+              "values": [
+                "image",
+                "placeholder",
+                "rest",
+                "uploading"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "state=image, is-disabled=false, is-loading=false",
+          "variants": 4
+        },
+        {
+          "id": "10481:30317",
+          "name": "text",
+          "source": "packages/core/src/Text/Text.tsx",
+          "props": {
+            "content#43:710": {
+              "type": "TEXT",
+              "defaultValue": "Text content"
+            },
+            "truncation": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "single-line"
+              ]
+            }
+          },
+          "defaultVariant": "truncation=none",
+          "variants": 2
+        },
+        {
+          "id": "10481:30054",
+          "name": "markdown",
+          "source": "packages/core/src/Markdown/Markdown.tsx",
+          "props": {
+            "density": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "values": [
+                "default",
+                "compact"
+              ]
+            }
+          },
+          "defaultVariant": "density=default",
+          "variants": 2
+        },
+        {
+          "id": "8397:9731",
+          "name": "kbd",
+          "source": "packages/core/src/Kbd/Kbd.tsx",
+          "props": {
+            "key-label#39:22": {
+              "type": "TEXT",
+              "defaultValue": "K"
+            },
+            "key-1-label#39:26": {
+              "type": "TEXT",
+              "defaultValue": "⌘"
+            },
+            "key-2-label#39:30": {
+              "type": "TEXT",
+              "defaultValue": "K"
+            },
+            "key-1-label2#39:34": {
+              "type": "TEXT",
+              "defaultValue": "⌘"
+            },
+            "key-2-label2#39:38": {
+              "type": "TEXT",
+              "defaultValue": "⇧"
+            },
+            "key-3-label#39:42": {
+              "type": "TEXT",
+              "defaultValue": "P"
+            },
+            "key-1-label3#39:52": {
+              "type": "TEXT",
+              "defaultValue": "⌃"
+            },
+            "key-2-label3#39:57": {
+              "type": "TEXT",
+              "defaultValue": "⌥"
+            },
+            "key-3-label2#39:62": {
+              "type": "TEXT",
+              "defaultValue": "⇧"
+            },
+            "key-4-label#39:67": {
+              "type": "TEXT",
+              "defaultValue": "K"
+            },
+            "keys": {
+              "type": "VARIANT",
+              "defaultValue": "single",
+              "values": [
+                "single",
+                "double",
+                "triple",
+                "quad"
+              ]
+            }
+          },
+          "defaultVariant": "keys=single",
+          "variants": 4
+        },
+        {
+          "id": "10481:29875",
+          "name": "heading",
+          "source": "packages/core/src/Heading/Heading.tsx",
+          "props": {
+            "content#43:832": {
+              "type": "TEXT",
+              "defaultValue": "Heading text"
+            },
+            "level": {
+              "type": "VARIANT",
+              "defaultValue": "1",
+              "values": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ]
+            }
+          },
+          "defaultVariant": "level=1",
+          "variants": 4
+        },
+        {
+          "id": "10481:29816",
+          "name": "empty-state",
+          "source": "packages/core/src/EmptyState/EmptyState.tsx",
+          "props": {
+            "title#2282:19": {
+              "type": "TEXT",
+              "defaultValue": "No results found"
+            },
+            "description#2282:22": {
+              "type": "TEXT",
+              "defaultValue": "Try adjusting your search or filters."
+            },
+            "has-description#2282:25": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-icon#2282:28": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-actions#2282:31": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "icon#2282:34": {
+              "type": "SLOT"
+            },
+            "actions#2282:40": {
+              "type": "SLOT"
+            },
+            "is-compact": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "is-compact=false",
+          "variants": 2
+        },
+        {
+          "id": "10481:29684",
+          "name": "code-block",
+          "source": "packages/core/src/CodeBlock/CodeBlock.tsx",
+          "props": {
+            "has-header#110:561": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-line-numbers#110:564": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-copy-button#110:567": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "title#110:570": {
+              "type": "TEXT",
+              "defaultValue": "typescript — useUser.ts"
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "md",
+              "values": [
+                "md",
+                "sm"
+              ]
+            }
+          },
+          "defaultVariant": "size=md",
+          "variants": 2
+        },
+        {
+          "id": "10481:29620",
+          "name": "code",
+          "source": "packages/core/src/Code/Code.tsx",
+          "props": {
+            "code#2296:0": {
+              "type": "TEXT",
+              "defaultValue": "const x = 42"
+            },
+            "color": {
+              "type": "VARIANT",
+              "defaultValue": "primary",
+              "values": [
+                "primary",
+                "secondary",
+                "inherit"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "inherit",
+              "values": [
+                "inherit"
+              ]
+            }
+          },
+          "defaultVariant": "color=primary, size=inherit",
+          "variants": 3
+        },
+        {
+          "id": "10481:29534",
+          "name": "citation",
+          "source": "packages/core/src/Citation/Citation.tsx",
+          "props": {
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "label",
+              "values": [
+                "number",
+                "label"
+              ]
+            },
+            "has-icon": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "variant=label, has-icon=false",
+          "variants": 3
+        },
+        {
+          "id": "10481:29146",
+          "name": "avatar",
+          "source": "packages/core/src/Avatar/Avatar.tsx",
+          "props": {
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "xl",
+              "values": [
+                "xl",
+                "xsm",
+                "sm",
+                "md",
+                "lg"
+              ]
+            },
+            "content": {
+              "type": "VARIANT",
+              "defaultValue": "image",
+              "values": [
+                "image",
+                "initials",
+                "icon"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "positive",
+                "neutral",
+                "negative"
+              ]
+            }
+          },
+          "defaultVariant": "size=xl, content=image, status=none",
+          "variants": 60
+        },
+        {
+          "id": "10481:29422",
+          "name": "avatar/avatar-status-dot",
+          "source": "packages/core/src/Avatar/AvatarStatusDot.tsx",
+          "props": {
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "neutral",
+              "values": [
+                "neutral",
+                "success",
+                "error"
+              ]
+            },
+            "size-tier": {
+              "type": "VARIANT",
+              "defaultValue": "small",
+              "values": [
+                "small",
+                "medium",
+                "large"
+              ]
+            }
+          },
+          "defaultVariant": "variant=neutral, size-tier=small",
+          "variants": 9
+        },
+        {
+          "id": "10481:29438",
+          "name": "avatar",
+          "source": "packages/core/src/Avatar/Avatar.tsx",
+          "props": {
+            "has-status#39:252": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "initials#39:268": {
+              "type": "TEXT",
+              "defaultValue": "JD"
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md",
+                "sm",
+                "xl",
+                "xsm"
+              ]
+            },
+            "content": {
+              "type": "VARIANT",
+              "defaultValue": "image",
+              "values": [
+                "image",
+                "initials",
+                "icon"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, content=image",
+          "variants": 15
+        }
+      ]
+    },
+    {
+      "name": "chat",
+      "id": "10854:26891",
+      "rows": [
+        {
+          "id": "10794:31473",
+          "name": "chat/chat-message-bubble",
+          "source": "packages/core/src/Chat/ChatMessageBubble.tsx",
+          "props": {
+            "sender": {
+              "type": "VARIANT",
+              "defaultValue": "assistant",
+              "values": [
+                "assistant",
+                "user"
+              ]
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "filled",
+              "values": [
+                "filled",
+                "ghost"
+              ]
+            }
+          },
+          "defaultVariant": "sender=assistant, variant=filled",
+          "variants": 4
+        },
+        {
+          "id": "10794:31482",
+          "name": "chat/chat-message-metadata",
+          "source": "packages/core/src/Chat/ChatMessageMetadata.tsx",
+          "props": {
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "sending",
+                "sent",
+                "delivered",
+                "read",
+                "error"
+              ]
+            }
+          },
+          "defaultVariant": "status=none",
+          "variants": 6
+        },
+        {
+          "id": "10794:31510",
+          "name": "chat/chat-composer",
+          "source": "packages/core/src/Chat/ChatComposer.tsx",
+          "props": {
+            "footer-actions#3321:0": {
+              "type": "SLOT"
+            },
+            "header-context#3321:4": {
+              "type": "SLOT"
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "empty",
+              "values": [
+                "empty",
+                "typing",
+                "streaming"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false"
+              ]
+            }
+          },
+          "defaultVariant": "state=empty, is-disabled=false",
+          "variants": 3
+        },
+        {
+          "id": "10794:31635",
+          "name": "chat/chat-system-message",
+          "source": "packages/core/src/Chat/ChatSystemMessage.tsx",
+          "props": {
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "values": [
+                "default",
+                "divider"
+              ]
+            }
+          },
+          "defaultVariant": "variant=default",
+          "variants": 2
+        },
+        {
+          "id": "10794:31642",
+          "name": "chat/chat-message",
+          "source": "packages/core/src/Chat/ChatMessage.tsx",
+          "props": {
+            "sender": {
+              "type": "VARIANT",
+              "defaultValue": "assistant",
+              "values": [
+                "assistant",
+                "user"
+              ]
+            }
+          },
+          "defaultVariant": "sender=assistant",
+          "variants": 2
+        },
+        {
+          "id": "10794:31654",
+          "name": "chat/chat-message-list",
+          "source": "packages/core/src/Chat/ChatMessageList.tsx",
+          "props": {
+            "children#2262:0": {
+              "type": "SLOT"
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10794:31659",
+          "name": "chat/chat-send-button",
+          "source": "packages/core/src/Chat/ChatSendButton.tsx",
+          "props": {
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "send",
+              "values": [
+                "send",
+                "stop",
+                "rest"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "state=send, size=lg, is-disabled=false",
+          "variants": 6
+        },
+        {
+          "id": "10794:31672",
+          "name": "chat/chat-dictation-button",
+          "source": "packages/core/src/Chat/ChatDictationButton.tsx",
+          "props": {
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "idle",
+              "values": [
+                "idle",
+                "listening"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg"
+              ]
+            }
+          },
+          "defaultVariant": "state=idle, size=lg",
+          "variants": 4
+        },
+        {
+          "id": "10794:31702",
+          "name": "chat/chat-tool-calls",
+          "source": "packages/core/src/Chat/ChatToolCalls.tsx",
+          "props": {
+            "tool-name#2264:0": {
+              "type": "TEXT",
+              "defaultValue": "run_tests"
+            },
+            "target#2264:9": {
+              "type": "TEXT",
+              "defaultValue": "yarn test"
+            },
+            "has-target#2264:18": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-duration#2264:27": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "details#2264:36": {
+              "type": "SLOT"
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "pending",
+              "values": [
+                "pending",
+                "running",
+                "success",
+                "error"
+              ]
+            },
+            "is-expanded": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "status=pending, is-expanded=false",
+          "variants": 8
+        },
+        {
+          "id": "10794:31883",
+          "name": "chat/chat-composer-token-element",
+          "props": {
+            "type": {
+              "type": "VARIANT",
+              "defaultValue": "mention",
+              "values": [
+                "mention",
+                "command",
+                "attachment",
+                "text"
+              ]
+            }
+          },
+          "defaultVariant": "type=mention",
+          "variants": 4
+        },
+        {
+          "id": "10794:31892",
+          "name": "chat/chat-layout-scroll-button",
+          "source": "packages/core/src/Chat/ChatLayoutScrollButton.tsx",
+          "props": {
+            "is-collapsed": {
+              "type": "VARIANT",
+              "defaultValue": "true",
+              "values": [
+                "true",
+                "false"
+              ]
+            }
+          },
+          "defaultVariant": "is-collapsed=true",
+          "variants": 2
+        },
+        {
+          "id": "10794:31897",
+          "name": "chat/chat-composer-input",
+          "source": "packages/core/src/Chat/ChatComposerInput.tsx",
+          "props": {
+            "content#2262:5": {
+              "type": "SLOT"
+            },
+            "placeholder#2262:6": {
+              "type": "TEXT",
+              "defaultValue": "Type a message…"
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "empty",
+              "values": [
+                "empty",
+                "filled",
+                "focused",
+                "rest"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "state=empty, is-disabled=false",
+          "variants": 4
+        },
+        {
+          "id": "10794:31913",
+          "name": "chat/chat-composer-drawer",
+          "source": "packages/core/src/Chat/ChatComposerDrawer.tsx",
+          "props": {
+            "children#2262:12": {
+              "type": "SLOT"
+            },
+            "label#2262:13": {
+              "type": "TEXT",
+              "defaultValue": "Attachments"
+            },
+            "collapsible#2262:16": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "is-collapsed": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "is-collapsed=false",
+          "variants": 2
+        },
+        {
+          "id": "10800:45902",
+          "name": "chat/chat-layout",
+          "source": "packages/core/src/Chat/ChatLayout.tsx",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10800:45951",
+          "name": "chat/chat-tokenized-text",
+          "source": "packages/core/src/Chat/ChatTokenizedText.tsx",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        }
+      ]
+    },
+    {
+      "name": "container",
+      "id": "10854:26892",
+      "rows": [
+        {
+          "id": "10653:22349",
+          "name": "selectable-card",
+          "source": "packages/core/src/SelectableCard/SelectableCard.tsx",
+          "props": {
+            "children#2611:8": {
+              "type": "SLOT"
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            },
+            "elevation": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "low",
+                "med",
+                "high"
+              ]
+            },
+            "is-selected": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, elevation=none, is-selected=false, is-disabled=false",
+          "variants": 24
+        },
+        {
+          "id": "10653:22204",
+          "name": "clickable-card",
+          "source": "packages/core/src/ClickableCard/ClickableCard.tsx",
+          "props": {
+            "children#2611:9": {
+              "type": "SLOT"
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "hover",
+                "pressed",
+                "focused"
+              ]
+            },
+            "elevation": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "low",
+                "med",
+                "high"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, elevation=none, is-disabled=false",
+          "variants": 20
+        },
+        {
+          "id": "10734:37542",
+          "name": "carousel",
+          "source": "packages/core/src/Carousel/Carousel.tsx",
+          "props": {
+            "children#2611:1": {
+              "type": "SLOT"
+            },
+            "has-edge-fade#2611:10": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-buttons#2611:11": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10653:22049",
+          "name": "collapsible",
+          "source": "packages/core/src/Collapsible/Collapsible.tsx",
+          "props": {
+            "trigger-label#73:93": {
+              "type": "TEXT",
+              "defaultValue": "Collapsible Section"
+            },
+            "children#2287:0": {
+              "type": "SLOT"
+            },
+            "children#10849:4": {
+              "type": "SLOT"
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-open": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "is-disabled=false, is-open=false",
+          "variants": 4
+        },
+        {
+          "id": "10653:21889",
+          "name": "card",
+          "source": "packages/core/src/Card/Card.tsx",
+          "props": {
+            "children#66:0": {
+              "type": "SLOT"
+            },
+            "padding": {
+              "type": "VARIANT",
+              "defaultValue": "0",
+              "values": [
+                "0",
+                "1",
+                "3",
+                "5"
+              ]
+            },
+            "elevation": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "low",
+                "med",
+                "high"
+              ]
+            }
+          },
+          "defaultVariant": "padding=0, elevation=none",
+          "variants": 16
+        }
+      ]
+    },
+    {
+      "name": "feedback",
+      "id": "10854:26895",
+      "rows": [
+        {
+          "id": "10653:17760",
+          "name": "status-dot",
+          "source": "packages/core/src/StatusDot/StatusDot.tsx",
+          "props": {
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "neutral",
+              "values": [
+                "success",
+                "warning",
+                "error",
+                "neutral"
+              ]
+            },
+            "is-pulsing": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "variant=neutral, is-pulsing=false",
+          "variants": 8
+        },
+        {
+          "id": "8406:14972",
+          "name": "spinner",
+          "source": "packages/core/src/Spinner/Spinner.tsx",
+          "props": {
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg",
+                "xl"
+              ]
+            },
+            "shade": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "values": [
+                "default",
+                "on-media"
+              ]
+            },
+            "has-label": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, shade=default, has-label=false",
+          "variants": 12
+        },
+        {
+          "id": "10653:17592",
+          "name": "skeleton",
+          "source": "packages/core/src/Skeleton/Skeleton.tsx",
+          "props": {
+            "radius": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "rounded"
+              ]
+            }
+          },
+          "defaultVariant": "radius=none",
+          "variants": 7
+        },
+        {
+          "id": "10653:17470",
+          "name": "progress-bar",
+          "source": "packages/core/src/ProgressBar/ProgressBar.tsx",
+          "props": {
+            "has-label#39:72": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-value-label#39:81": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "label#39:90": {
+              "type": "TEXT",
+              "defaultValue": "Progress"
+            },
+            "value-text#39:99": {
+              "type": "TEXT",
+              "defaultValue": "75%"
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "neutral",
+              "values": [
+                "warning",
+                "error",
+                "success",
+                "neutral"
+              ]
+            },
+            "is-indeterminate": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "variant=neutral, is-indeterminate=false",
+          "variants": 8
+        },
+        {
+          "id": "10653:17320",
+          "name": "banner",
+          "source": "packages/core/src/Banner/Banner.tsx",
+          "props": {
+            "title#86:238": {
+              "type": "TEXT",
+              "defaultValue": "Banner Title"
+            },
+            "description#86:247": {
+              "type": "TEXT",
+              "defaultValue": "Description text goes here."
+            },
+            "has-description#86:256": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "is-dismissable#86:265": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-content-area#86:283": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "children#86:306": {
+              "type": "SLOT"
+            },
+            "end-content#86:378": {
+              "type": "SLOT"
+            },
+            "collapsible#202:0": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "info",
+              "values": [
+                "info",
+                "success",
+                "warning",
+                "error"
+              ]
+            },
+            "container": {
+              "type": "VARIANT",
+              "defaultValue": "card",
+              "values": [
+                "card",
+                "section"
+              ]
+            }
+          },
+          "defaultVariant": "status=info, container=card",
+          "variants": 8
+        },
+        {
+          "id": "8406:25250",
+          "name": "badge",
+          "source": "packages/core/src/Badge/Badge.tsx",
+          "props": {
+            "has-icon#8:0": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "neutral",
+              "values": [
+                "primary",
+                "secondary",
+                "critical",
+                "primary-subtle",
+                "secondary-subtle",
+                "critical-subtle",
+                "neutral-subtle",
+                "neutral"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md",
+                "dot"
+              ]
+            }
+          },
+          "defaultVariant": "variant=neutral, size=lg",
+          "variants": 24
+        }
+      ]
+    },
+    {
+      "name": "layout",
+      "id": "10854:26896",
+      "rows": [
+        {
+          "id": "10653:25347",
+          "name": "resize-handle",
+          "source": "packages/core/src/Table/plugins/columnResize/useTableColumnResize.tsx",
+          "props": {
+            "has-divider#2718:0": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "is-always-visible#2718:5": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "direction": {
+              "type": "VARIANT",
+              "defaultValue": "horizontal",
+              "values": [
+                "horizontal",
+                "vertical"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "active"
+              ]
+            },
+            "pill-placement": {
+              "type": "VARIANT",
+              "defaultValue": "center",
+              "values": [
+                "center",
+                "start",
+                "end"
+              ]
+            }
+          },
+          "defaultVariant": "direction=horizontal, state=rest, pill-placement=center",
+          "variants": 12
+        },
+        {
+          "id": "10653:25306",
+          "name": "layout/section",
+          "source": "packages/core/src/Section/Section.tsx",
+          "props": {
+            "children#2286:0": {
+              "type": "SLOT"
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "section",
+              "values": [
+                "section",
+                "transparent",
+                "muted"
+              ]
+            }
+          },
+          "defaultVariant": "variant=section",
+          "variants": 3
+        },
+        {
+          "id": "10653:25212",
+          "name": "layout/form-layout",
+          "source": "packages/core/src/FormLayout/FormLayout.tsx",
+          "props": {
+            "direction": {
+              "type": "VARIANT",
+              "defaultValue": "horizontal",
+              "values": [
+                "horizontal",
+                "horizontal-labels",
+                "vertical"
+              ]
+            }
+          },
+          "defaultVariant": "direction=horizontal",
+          "variants": 3
+        },
+        {
+          "id": "10653:25124",
+          "name": "divider",
+          "source": "packages/core/src/Divider/Divider.tsx",
+          "props": {
+            "orientation": {
+              "type": "VARIANT",
+              "defaultValue": "horizontal",
+              "values": [
+                "horizontal",
+                "vertical"
+              ]
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "subtle",
+              "values": [
+                "subtle",
+                "strong"
+              ]
+            },
+            "has-label": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "orientation=horizontal, variant=subtle, has-label=false",
+          "variants": 8
+        },
+        {
+          "id": "10653:25044",
+          "name": "aspect-ratio",
+          "source": "packages/core/src/AspectRatio/AspectRatio.tsx",
+          "props": {
+            "ratio": {
+              "type": "VARIANT",
+              "defaultValue": "1-1",
+              "values": [
+                "1-1",
+                "16-9",
+                "4-3"
+              ]
+            }
+          },
+          "defaultVariant": "ratio=1-1",
+          "variants": 3
+        },
+        {
+          "id": "10653:24881",
+          "name": "app-shell",
+          "source": "packages/core/src/AppShell/AppShell.tsx",
+          "props": {
+            "has-banner#56:0": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "elevated",
+              "values": [
+                "elevated",
+                "wash",
+                "surface",
+                "section"
+              ]
+            },
+            "nav-layout": {
+              "type": "VARIANT",
+              "defaultValue": "top-nav-side-nav",
+              "values": [
+                "top-nav-side-nav",
+                "side-nav-only",
+                "top-nav-only",
+                "content-only"
+              ]
+            }
+          },
+          "defaultVariant": "variant=elevated, nav-layout=top-nav-side-nav",
+          "variants": 16
+        }
+      ]
+    },
+    {
+      "name": "navigation",
+      "id": "10854:26897",
+      "rows": [
+        {
+          "id": "10734:37786",
+          "name": "navigation/top-nav",
+          "source": "packages/core/src/TopNav/TopNav.tsx",
+          "props": {
+            "heading#2423:0": {
+              "type": "SLOT"
+            },
+            "start-content#2423:1": {
+              "type": "SLOT"
+            },
+            "center-content#2423:2": {
+              "type": "SLOT"
+            },
+            "end-content#2423:3": {
+              "type": "SLOT"
+            },
+            "has-center-content#2423:4": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10653:32002",
+          "name": "navigation/top-nav-mega-menu",
+          "source": "packages/core/src/TopNav/TopNavMegaMenu.tsx",
+          "props": {
+            "items#2393:31": {
+              "type": "SLOT"
+            },
+            "is-open": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "is-open=false",
+          "variants": 2
+        },
+        {
+          "id": "10653:32027",
+          "name": "navigation/top-nav-menu",
+          "source": "packages/core/src/TopNav/TopNavMenu.tsx",
+          "props": {
+            "items#2393:50": {
+              "type": "SLOT"
+            },
+            "label#2393:52": {
+              "type": "TEXT",
+              "defaultValue": "Products"
+            },
+            "is-open": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "is-open=false",
+          "variants": 2
+        },
+        {
+          "id": "10653:32074",
+          "name": "navigation/top-nav-mega-menu-featured-card",
+          "source": "packages/core/src/TopNav/TopNavMegaMenuFeaturedCard.tsx",
+          "props": {
+            "children#2393:30": {
+              "type": "SLOT"
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10653:32083",
+          "name": "navigation/top-nav-heading",
+          "source": "packages/core/src/TopNav/TopNavHeading.tsx",
+          "props": {
+            "heading#2393:55": {
+              "type": "TEXT",
+              "defaultValue": "Product Name"
+            },
+            "superheading#2393:56": {
+              "type": "TEXT",
+              "defaultValue": "Suite Name"
+            },
+            "subheading#2393:57": {
+              "type": "TEXT",
+              "defaultValue": "Account context"
+            },
+            "has-superheading#2393:58": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-subheading#2393:59": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-menu#2393:60": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10653:31706",
+          "name": "tabs/tab-list",
+          "source": "packages/core/src/TabList/TabList.tsx",
+          "props": {
+            "children#222:222": {
+              "type": "SLOT"
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "sm",
+                "md",
+                "lg"
+              ]
+            },
+            "has-divider": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, has-divider=false",
+          "variants": 6
+        },
+        {
+          "id": "10653:31737",
+          "name": "tabs/tab",
+          "source": "packages/core/src/TabList/Tab.tsx",
+          "props": {
+            "label#222:208": {
+              "type": "TEXT",
+              "defaultValue": "Tab"
+            },
+            "has-icon#222:215": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-end-content#2313:3": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "end-content#2313:10": {
+              "type": "SLOT"
+            },
+            "has-label#3367:16": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "sm",
+                "md",
+                "lg"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "selected"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, state=rest",
+          "variants": 6
+        },
+        {
+          "id": "10653:31427",
+          "name": "navigation/side-nav",
+          "source": "packages/core/src/SideNav/SideNav.tsx",
+          "props": {
+            "top-content#2401:3": {
+              "type": "SLOT"
+            },
+            "children#2401:4": {
+              "type": "SLOT"
+            },
+            "footer#2401:5": {
+              "type": "SLOT"
+            },
+            "is-collapsed": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "is-collapsed=false",
+          "variants": 2
+        },
+        {
+          "id": "10653:31584",
+          "name": "navigation/side-nav-section",
+          "source": "packages/core/src/SideNav/SideNavSection.tsx",
+          "props": {
+            "title#2393:24": {
+              "type": "TEXT",
+              "defaultValue": "Navigation"
+            },
+            "subtitle#2393:25": {
+              "type": "TEXT",
+              "defaultValue": "Optional description"
+            },
+            "has-subtitle#2393:26": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-end-content#2393:27": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-header#2393:28": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10653:31595",
+          "name": "navigation/side-nav-heading",
+          "source": "packages/core/src/SideNav/SideNavHeading.tsx",
+          "props": {
+            "heading#2393:18": {
+              "type": "TEXT",
+              "defaultValue": "My App"
+            },
+            "superheading#2393:19": {
+              "type": "TEXT",
+              "defaultValue": "Suite Name"
+            },
+            "has-superheading#2393:20": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "subheading#2393:21": {
+              "type": "TEXT",
+              "defaultValue": "Business Account"
+            },
+            "has-subheading#2393:22": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-menu#2393:23": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "is-open": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "true",
+                "false"
+              ]
+            }
+          },
+          "defaultVariant": "is-open=false",
+          "variants": 2
+        },
+        {
+          "id": "10653:31620",
+          "name": "navigation/side-nav-collapse-button",
+          "source": "packages/core/src/SideNav/SideNavCollapseButton.tsx",
+          "props": {
+            "is-collapsed": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "is-collapsed=false",
+          "variants": 2
+        },
+        {
+          "id": "10653:31278",
+          "name": "pagination",
+          "source": "packages/core/src/Pagination/Pagination.tsx",
+          "props": {
+            "pages#2347:38": {
+              "type": "SLOT"
+            },
+            "has-prev#2347:39": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-next#2347:40": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-page-size-selector#2347:41": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "pages",
+              "values": [
+                "pages",
+                "count",
+                "compact",
+                "dots",
+                "none"
+              ]
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg"
+              ]
+            }
+          },
+          "defaultVariant": "variant=pages, size=lg",
+          "variants": 10
+        },
+        {
+          "id": "10734:37690",
+          "name": "outline",
+          "source": "packages/core/src/Outline/Outline.tsx",
+          "props": {
+            "children#2437:17": {
+              "type": "SLOT"
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10653:31120",
+          "name": "outline-item",
+          "props": {
+            "label#2437:0": {
+              "type": "TEXT",
+              "defaultValue": "Section"
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "active"
+              ]
+            },
+            "density": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "values": [
+                "default",
+                "compact"
+              ]
+            },
+            "level": {
+              "type": "VARIANT",
+              "defaultValue": "1",
+              "values": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest, density=default, level=1",
+          "variants": 16
+        },
+        {
+          "id": "10653:30913",
+          "name": "navigation/mobile-nav",
+          "source": "packages/core/src/MobileNav/MobileNav.tsx",
+          "props": {
+            "children#2409:32": {
+              "type": "SLOT"
+            },
+            "header-content#2409:33": {
+              "type": "SLOT"
+            },
+            "header#2409:34": {
+              "type": "TEXT",
+              "defaultValue": "Navigation"
+            },
+            "side": {
+              "type": "VARIANT",
+              "defaultValue": "start",
+              "values": [
+                "start",
+                "end"
+              ]
+            },
+            "has-header": {
+              "type": "VARIANT",
+              "defaultValue": "true",
+              "values": [
+                "true",
+                "false"
+              ]
+            }
+          },
+          "defaultVariant": "side=start, has-header=true",
+          "variants": 4
+        },
+        {
+          "id": "10653:30964",
+          "name": "navigation/mobile-nav-toggle",
+          "source": "packages/core/src/MobileNav/MobileNavToggle.tsx",
+          "props": {
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest",
+          "variants": 2
+        },
+        {
+          "id": "10653:30746",
+          "name": "breadcrumbs/breadcrumb-item",
+          "source": "packages/core/src/Breadcrumbs/BreadcrumbItem.tsx",
+          "props": {
+            "has-separator#2347:0": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-icon#2393:34": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-menu#3362:0": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "values": [
+                "default",
+                "supporting"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            },
+            "separator": {
+              "type": "VARIANT",
+              "defaultValue": "chevron",
+              "values": [
+                "chevron",
+                "slash"
+              ]
+            },
+            "is-current": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "variant=default, state=rest, separator=chevron, is-current=false",
+          "variants": 12
+        },
+        {
+          "id": "10653:30813",
+          "name": "breadcrumbs",
+          "source": "packages/core/src/Breadcrumbs/Breadcrumbs.tsx",
+          "props": {
+            "children#2347:13": {
+              "type": "SLOT"
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "values": [
+                "default",
+                "supporting"
+              ]
+            },
+            "has-icons": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "variant=default, has-icons=false",
+          "variants": 4
+        }
+      ]
+    },
+    {
+      "name": "overlay",
+      "id": "10854:26898",
+      "rows": [
+        {
+          "id": "10653:38121",
+          "name": "overlay",
+          "source": "packages/core/src/Overlay/Overlay.tsx",
+          "props": {
+            "children#2632:1": {
+              "type": "SLOT"
+            },
+            "content#2632:2": {
+              "type": "SLOT"
+            },
+            "scrim": {
+              "type": "VARIANT",
+              "defaultValue": "dark",
+              "values": [
+                "dark",
+                "light",
+                "false"
+              ]
+            },
+            "align": {
+              "type": "VARIANT",
+              "defaultValue": "end",
+              "values": [
+                "end",
+                "start",
+                "center"
+              ]
+            }
+          },
+          "defaultVariant": "scrim=dark, align=end",
+          "variants": 9
+        },
+        {
+          "id": "10653:38062",
+          "name": "lightbox",
+          "source": "packages/core/src/Lightbox/Lightbox.tsx",
+          "props": {
+            "media#2633:0": {
+              "type": "SLOT"
+            },
+            "has-navigation#2634:0": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-caption#2634:1": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-zoom#2634:2": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-thumbnails#2634:3": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10734:37917",
+          "name": "command-palette",
+          "source": "packages/core/src/CommandPalette/CommandPalette.tsx",
+          "props": {
+            "input#2631:12": {
+              "type": "SLOT"
+            },
+            "list#2631:14": {
+              "type": "SLOT"
+            },
+            "footer#2631:16": {
+              "type": "SLOT"
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10653:38025",
+          "name": "command-palette-empty",
+          "source": "packages/core/src/CommandPalette/CommandPaletteEmpty.tsx",
+          "props": {
+            "children#2632:0": {
+              "type": "TEXT",
+              "defaultValue": "No results"
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10653:37878",
+          "name": "tooltip",
+          "source": "packages/core/src/Tooltip/Tooltip.tsx",
+          "props": {
+            "content#97:1728": {
+              "type": "TEXT",
+              "defaultValue": "Tooltip text"
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10653:37821",
+          "name": "toast",
+          "source": "packages/core/src/Toast/Toast.tsx",
+          "props": {
+            "has-action#10703:0": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "type": {
+              "type": "VARIANT",
+              "defaultValue": "info",
+              "values": [
+                "info",
+                "error"
+              ]
+            }
+          },
+          "defaultVariant": "type=info",
+          "variants": 2
+        },
+        {
+          "id": "10653:37748",
+          "name": "popover",
+          "source": "packages/core/src/Popover/Popover.tsx",
+          "props": {
+            "has-close-button#44:102": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "title#44:115": {
+              "type": "TEXT",
+              "defaultValue": "Popover Title"
+            },
+            "content#2246:2": {
+              "type": "SLOT"
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10653:37669",
+          "name": "hover-card",
+          "source": "packages/core/src/HoverCard/HoverCard.tsx",
+          "props": {
+            "content#2246:4": {
+              "type": "SLOT"
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10653:37570",
+          "name": "dialog",
+          "source": "packages/core/src/Dialog/Dialog.tsx",
+          "props": {
+            "title#2266:0": {
+              "type": "TEXT",
+              "defaultValue": "Dialog Title"
+            },
+            "has-subtitle#2266:3": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "subtitle#2266:6": {
+              "type": "TEXT",
+              "defaultValue": "Optional subtitle"
+            },
+            "has-close-button#2266:9": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-header-divider#2266:12": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-footer#2266:15": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "children#2266:18": {
+              "type": "SLOT"
+            },
+            "footer#2266:21": {
+              "type": "SLOT"
+            },
+            "start-content#2266:24": {
+              "type": "SLOT"
+            },
+            "end-content#2266:27": {
+              "type": "SLOT"
+            },
+            "has-footer-divider#2278:0": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "standard",
+              "values": [
+                "standard",
+                "fullscreen"
+              ]
+            }
+          },
+          "defaultVariant": "variant=standard",
+          "variants": 2
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "id": "10854:26899",
+      "rows": [
+        {
+          "id": "10653:43381",
+          "name": "item",
+          "source": "packages/core/src/Item/Item.tsx",
+          "props": {
+            "label#2639:9": {
+              "type": "TEXT",
+              "defaultValue": "Item label"
+            },
+            "description#2639:10": {
+              "type": "TEXT",
+              "defaultValue": "Supporting description"
+            },
+            "has-description#2639:11": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "marker#2639:12": {
+              "type": "SLOT"
+            },
+            "start-content#2639:13": {
+              "type": "SLOT"
+            },
+            "end-content#2639:14": {
+              "type": "SLOT"
+            },
+            "has-marker#2639:15": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-start-content#2639:16": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-end-content#2639:17": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "density": {
+              "type": "VARIANT",
+              "defaultValue": "compact",
+              "values": [
+                "compact",
+                "balanced",
+                "spacious"
+              ]
+            },
+            "align": {
+              "type": "VARIANT",
+              "defaultValue": "center",
+              "values": [
+                "center",
+                "start"
+              ]
+            }
+          },
+          "defaultVariant": "density=compact, align=center",
+          "variants": 6
+        },
+        {
+          "id": "10653:43126",
+          "name": "tree-list/tree-list-item",
+          "source": "packages/core/src/TreeList/TreeListItem.tsx",
+          "props": {
+            "start-content#2321:18": {
+              "type": "SLOT"
+            },
+            "end-content#2321:19": {
+              "type": "SLOT"
+            },
+            "label#2321:33": {
+              "type": "TEXT",
+              "defaultValue": "Label"
+            },
+            "description#2321:43": {
+              "type": "TEXT",
+              "defaultValue": "Description"
+            },
+            "has-description#2321:53": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-start-content#2321:63": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-end-content#2321:73": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "rails#2638:0": {
+              "type": "SLOT"
+            },
+            "node": {
+              "type": "VARIANT",
+              "defaultValue": "expanded",
+              "values": [
+                "expanded",
+                "collapsed",
+                "leaf"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-selected": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "node=expanded, state=rest, is-disabled=false, is-selected=false",
+          "variants": 9
+        },
+        {
+          "id": "10653:43217",
+          "name": "tree-rail",
+          "props": {
+            "has-line#2451:0": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10653:43219",
+          "name": "tree-list",
+          "source": "packages/core/src/TreeList/TreeList.tsx",
+          "props": {
+            "children#3368:2008": {
+              "type": "SLOT"
+            },
+            "header#3368:2009": {
+              "type": "TEXT",
+              "defaultValue": "Files"
+            },
+            "has-header#3368:2010": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "line-guides",
+              "values": [
+                "line-guides",
+                "no-guides"
+              ]
+            }
+          },
+          "defaultVariant": "variant=line-guides",
+          "variants": 2
+        },
+        {
+          "id": "10653:42874",
+          "name": "table-header-cell",
+          "source": "packages/core/src/Table/TableHeaderCell.tsx",
+          "props": {
+            "children#2389:0": {
+              "type": "SLOT"
+            },
+            "label#2389:90": {
+              "type": "TEXT",
+              "defaultValue": "Column"
+            },
+            "is-sortable#2389:100": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "is-right-aligned#2389:110": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-checkbox#2389:120": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-filter#2389:130": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "is-resizable#2389:140": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "density": {
+              "type": "VARIANT",
+              "defaultValue": "compact",
+              "values": [
+                "compact",
+                "balanced",
+                "spacious"
+              ]
+            },
+            "sort": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none",
+                "ascending",
+                "descending"
+              ]
+            }
+          },
+          "defaultVariant": "density=compact, sort=none",
+          "variants": 9
+        },
+        {
+          "id": "10653:42947",
+          "name": "table-cell",
+          "source": "packages/core/src/Table/TableCell.tsx",
+          "props": {
+            "children#2387:0": {
+              "type": "SLOT"
+            },
+            "is-right-aligned#2387:90": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-checkbox#2387:100": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-expand-button#2387:110": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-bottom-divider#2387:120": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-right-divider#2387:130": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "density": {
+              "type": "VARIANT",
+              "defaultValue": "compact",
+              "values": [
+                "compact",
+                "balanced",
+                "spacious"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "selected",
+                "rest",
+                "hover"
+              ]
+            }
+          },
+          "defaultVariant": "density=compact, state=rest",
+          "variants": 9
+        },
+        {
+          "id": "10653:41599",
+          "name": "overflow-list",
+          "source": "packages/core/src/OverflowList/OverflowList.tsx",
+          "props": {
+            "overflow-label#44:21": {
+              "type": "TEXT",
+              "defaultValue": "+3 more"
+            },
+            "item1-label#44:26": {
+              "type": "TEXT",
+              "defaultValue": "React"
+            },
+            "item2-label#44:31": {
+              "type": "TEXT",
+              "defaultValue": "TypeScript"
+            },
+            "item3-label#44:36": {
+              "type": "TEXT",
+              "defaultValue": "Node.js"
+            },
+            "item4-label#44:41": {
+              "type": "TEXT",
+              "defaultValue": "GraphQL"
+            },
+            "item5-label#44:46": {
+              "type": "TEXT",
+              "defaultValue": "Vitest"
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "all-visible",
+              "values": [
+                "all-visible",
+                "overflowed"
+              ]
+            },
+            "collapse-from": {
+              "type": "VARIANT",
+              "defaultValue": "end",
+              "values": [
+                "end",
+                "start"
+              ]
+            }
+          },
+          "defaultVariant": "state=all-visible, collapse-from=end",
+          "variants": 4
+        },
+        {
+          "id": "10653:41481",
+          "name": "metadata-list",
+          "source": "packages/core/src/MetadataList/MetadataList.tsx",
+          "props": {
+            "has-title#86:220": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-show-more#86:229": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "orientation": {
+              "type": "VARIANT",
+              "defaultValue": "vertical",
+              "values": [
+                "vertical",
+                "horizontal"
+              ]
+            },
+            "label-position": {
+              "type": "VARIANT",
+              "defaultValue": "start",
+              "values": [
+                "start",
+                "top"
+              ]
+            },
+            "columns": {
+              "type": "VARIANT",
+              "defaultValue": "single",
+              "values": [
+                "single",
+                "multi"
+              ]
+            }
+          },
+          "defaultVariant": "orientation=vertical, label-position=start, columns=single",
+          "variants": 8
+        },
+        {
+          "id": "10653:41542",
+          "name": "metadata-list/metadata-list-item",
+          "source": "packages/core/src/MetadataList/MetadataListItem.tsx",
+          "props": {
+            "has-icon#86:211": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "label#86:214": {
+              "type": "TEXT",
+              "defaultValue": "Label"
+            },
+            "children#2309:0": {
+              "type": "SLOT"
+            },
+            "layout": {
+              "type": "VARIANT",
+              "defaultValue": "inline",
+              "values": [
+                "inline",
+                "stacked"
+              ]
+            }
+          },
+          "defaultVariant": "layout=inline",
+          "variants": 2
+        },
+        {
+          "id": "10653:41266",
+          "name": "list/list-item",
+          "source": "packages/core/src/List/ListItem.tsx",
+          "props": {
+            "has-description#86:131": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-start-content#86:144": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "has-end-content#86:157": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "label#86:170": {
+              "type": "TEXT",
+              "defaultValue": "Label"
+            },
+            "description#86:183": {
+              "type": "TEXT",
+              "defaultValue": "Description text"
+            },
+            "has-divider#86:196": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "start-content#2320:4": {
+              "type": "SLOT"
+            },
+            "end-content#2321:20": {
+              "type": "SLOT"
+            },
+            "density": {
+              "type": "VARIANT",
+              "defaultValue": "compact",
+              "values": [
+                "compact",
+                "balanced",
+                "spacious"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-selected": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "density=compact, state=rest, is-disabled=false, is-selected=false",
+          "variants": 12
+        },
+        {
+          "id": "10737:38308",
+          "name": "list",
+          "source": "packages/core/src/List/List.tsx",
+          "props": {
+            "has-header#86:209": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "header#86:210": {
+              "type": "TEXT",
+              "defaultValue": "List Header"
+            },
+            "children#2322:0": {
+              "type": "SLOT"
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        }
+      ]
+    },
+    {
+      "name": "shared",
+      "id": "10633:55324",
+      "rows": [
+        {
+          "id": "7959:17331",
+          "name": "image-content",
+          "props": {
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "sm",
+                "xsm",
+                "md",
+                "xl",
+                "xxl"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg",
+          "variants": 6
+        },
+        {
+          "id": "7959:17383",
+          "name": "person-content",
+          "props": {
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "sm",
+                "xsm",
+                "md",
+                "xl",
+                "xxl"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg",
+          "variants": 6
+        },
+        {
+          "id": "7959:17408",
+          "name": "multi-person-content",
+          "props": {
+            "slot#7247:0": {
+              "type": "SLOT"
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "h32",
+              "values": [
+                "h32"
+              ]
+            }
+          },
+          "defaultVariant": "size=h32",
+          "variants": 1
+        },
+        {
+          "id": "7959:17426",
+          "name": "slot-label-content",
+          "props": {
+            "label#7292:4": {
+              "type": "TEXT",
+              "defaultValue": "label"
+            },
+            "addon#7292:5": {
+              "type": "TEXT",
+              "defaultValue": "addon"
+            },
+            "has-addon#7399:0": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "values": [
+                "default",
+                "button",
+                "badge"
+              ]
+            },
+            "orientation": {
+              "type": "VARIANT",
+              "defaultValue": "horizontal",
+              "values": [
+                "horizontal",
+                "vertical"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, variant=default, orientation=horizontal",
+          "variants": 12
+        },
+        {
+          "id": "7962:28640",
+          "name": "slot-icon-content",
+          "props": {
+            "icon#8099:0": {
+              "type": "INSTANCE_SWAP",
+              "defaultValue": "6342:21586"
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "body",
+              "values": [
+                "body",
+                "caption"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, variant=body",
+          "variants": 4
+        },
+        {
+          "id": "7959:17464",
+          "name": "slot-checkbox-content",
+          "source": "packages/core/src/CheckboxInput/CheckboxInput.tsx",
+          "props": {
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest"
+              ]
+            },
+            "value": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-loading": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false"
+              ]
+            },
+            "status": {
+              "type": "VARIANT",
+              "defaultValue": "none",
+              "values": [
+                "none"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, state=rest, value=false, is-disabled=false, is-loading=false, status=none",
+          "variants": 8
+        },
+        {
+          "id": "10318:15594",
+          "name": "slot-radio-content",
+          "source": "packages/core/src/RadioList/RadioListItem.tsx",
+          "props": {
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest"
+              ]
+            },
+            "is-selected": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            "is-disabled": {
+              "type": "VARIANT",
+              "defaultValue": "false",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, state=rest, is-selected=false, is-disabled=false",
+          "variants": 8
+        },
+        {
+          "id": "10388:60625",
+          "name": "icon-content",
+          "props": {
+            "icon#8099:0": {
+              "type": "INSTANCE_SWAP",
+              "defaultValue": "6342:21586"
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "body",
+              "values": [
+                "body",
+                "caption"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg, variant=body",
+          "variants": 4
+        },
+        {
+          "id": "7959:17459",
+          "name": "slot-image-content",
+          "props": {
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "lg",
+                "md"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg",
+          "variants": 2
+        },
+        {
+          "id": "7959:17481",
+          "name": "slot-button-group",
+          "props": {
+            "orientation": {
+              "type": "VARIANT",
+              "defaultValue": "vertical",
+              "values": [
+                "vertical",
+                "horizontal"
+              ]
+            }
+          },
+          "defaultVariant": "orientation=vertical",
+          "variants": 2
+        },
+        {
+          "id": "7959:17492",
+          "name": "description-content",
+          "props": {
+            "max-count#7249:5": {
+              "type": "TEXT",
+              "defaultValue": "0"
+            },
+            "count#7249:7": {
+              "type": "TEXT",
+              "defaultValue": "0"
+            },
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "md",
+              "values": [
+                "md"
+              ]
+            }
+          },
+          "defaultVariant": "size=md",
+          "variants": 1
+        },
+        {
+          "id": "10737:38177",
+          "name": "navigation/top-nav-deprecated-pre-slot",
+          "props": {
+            "heading#105:10": {
+              "type": "TEXT",
+              "defaultValue": "Product"
+            },
+            "has-logo#105:13": {
+              "type": "BOOLEAN",
+              "defaultValue": true
+            },
+            "layout": {
+              "type": "VARIANT",
+              "defaultValue": "start",
+              "values": [
+                "start",
+                "center"
+              ]
+            }
+          },
+          "defaultVariant": "layout=start",
+          "variants": 2
+        },
+        {
+          "id": "10737:38801",
+          "name": "xds-nav-icon",
+          "props": {
+            "icon#87:836": {
+              "type": "INSTANCE_SWAP",
+              "defaultValue": "10388:60632"
+            }
+          },
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10737:38806",
+          "name": "icon",
+          "source": "packages/core/src/Icon/Icon.tsx",
+          "props": {
+            "size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "values": [
+                "sm",
+                "xsm",
+                "md",
+                "lg"
+              ]
+            }
+          },
+          "defaultVariant": "size=lg",
+          "variants": 4
+        },
+        {
+          "id": "10737:38829",
+          "name": "xds-field-label",
+          "props": {
+            "has-icon#29:323": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "has-tooltip#29:328": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "state": {
+              "type": "VARIANT",
+              "defaultValue": "rest",
+              "values": [
+                "rest",
+                "optional",
+                "required",
+                "disabled"
+              ]
+            }
+          },
+          "defaultVariant": "state=rest",
+          "variants": 4
+        },
+        {
+          "id": "10737:54690",
+          "name": "icon/circle-dashed",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10737:54692",
+          "name": "icon/folder-open",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10737:54694",
+          "name": "icon/folder",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10737:54696",
+          "name": "icon/funnel",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10737:54698",
+          "name": "icon/columns-3",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10737:54700",
+          "name": "icon/box",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10737:54702",
+          "name": "icon/chart-bar",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10737:54704",
+          "name": "icon/chart-column",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10737:54706",
+          "name": "icon/shield-check",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10737:54708",
+          "name": "icon/code",
+          "source": "packages/core/src/Code/Code.tsx",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10737:54710",
+          "name": "icon/sparkles",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10818:40103",
+          "name": "icon/mic",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10818:40105",
+          "name": "icon/wrench",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10821:25052",
+          "name": "icon/at-sign",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10821:25054",
+          "name": "icon/terminal",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10821:25056",
+          "name": "icon/paperclip",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10824:25079",
+          "name": "icon/archive",
+          "props": {},
+          "defaultVariant": null,
+          "variants": 0
+        },
+        {
+          "id": "10918:221",
+          "name": "card-surface",
+          "source": null,
+          "props": {
+            "variant": {
+              "type": "VARIANT",
+              "defaultValue": "subtle",
+              "values": [
+                "subtle",
+                "neutral",
+                "hover",
+                "pressed",
+                "selected"
+              ]
+            }
+          },
+          "defaultVariant": "variant=subtle",
+          "variants": 5
+        }
+      ]
+    }
+  ]
+}

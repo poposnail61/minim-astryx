@@ -12,6 +12,7 @@
 import {createContext} from 'react';
 
 export interface CheckboxListContextValue {
+  size?: 'sm' | 'md' | 'lg';
   value?: string[];
   /**
    * Collection-mode change handler. `toggledValue` is the value of the item

@@ -146,7 +146,7 @@ export const docs = {
           name: 'size',
           type: "'sm' | 'md' | 'lg'",
           description: 'Exact trigger height: sm 28px, md 32px, or lg 36px.',
-          default: "'md'",
+          default: "'lg'",
         },
         {
           name: 'variant',

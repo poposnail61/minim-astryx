@@ -75,6 +75,10 @@ const wrapperSizeStyles = stylex.create({
     width: 24,
     height: 24,
   },
+  lg: {
+    width: 28,
+    height: 28,
+  },
 });
 
 const rowStyles = stylex.create({
@@ -222,7 +226,10 @@ export function RadioListItem({
 
   const radioCircle = (
     <div
-      {...stylex.props(styles.radioWrapper, wrapperSizeStyles[size])}
+      {...mergeProps(
+        themeProps('radio-control-slot', {size}),
+        stylex.props(styles.radioWrapper, wrapperSizeStyles[size]),
+      )}
       {...focusProps}>
       <input
         ref={radioRef}

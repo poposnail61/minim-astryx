@@ -68,7 +68,7 @@ export interface ButtonGroupProps extends BaseProps<HTMLDivElement> {
   /**
    * Default size for buttons in the group.
    * Individual buttons can override this with their own `size` prop.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: ButtonSize;
 
@@ -181,7 +181,7 @@ export function ButtonGroup({
   onFocus,
   ...props
 }: ButtonGroupProps): ReactNode {
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
 
   const {listRef, handleKeyDown, handleFocus} = useListFocus<HTMLDivElement>({
     // Roving rewrites `tabindex` on every item, so the selector cannot key off

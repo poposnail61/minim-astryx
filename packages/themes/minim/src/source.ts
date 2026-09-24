@@ -1,6 +1,7 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 
 export {minimIconRegistry} from './icons';
+export type {MinimTokenColor} from './token-colors';
 export {minimAdvancedComponents} from './components/advanced';
 export {minimActionComponents} from './components/actions';
 export {minimBadgeTokenComponents} from './components/badge-token';

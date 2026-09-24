@@ -203,7 +203,7 @@ export interface TextInputProps extends Omit<
    * The size of the input.
    * - 'sm': Compact size (18px height)
    * - 'md': Default size (26px height)
-   * @default 'md'
+   * @default 'lg'
    */
   size?: TextInputSize;
   /**
@@ -311,7 +311,7 @@ export function TextInput({
 }: TextInputProps) {
   const t = useTranslator();
   const isEffectivelyRequired = useResolvedRequired({isRequired, isOptional});
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
 
   const id = useId();
   const inputLabelID = useId();

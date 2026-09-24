@@ -157,7 +157,7 @@ export interface TypeaheadProps<T extends SearchableItem> extends Omit<
   hasClear?: boolean;
   /** Auto-focus on mount. @default false */
   hasAutoFocus?: boolean;
-  /** Input size. @default 'md' */
+  /** Input size. @default 'lg' */
   size?: TypeaheadSize;
   /**
    * Debounce delay in ms before triggering search after typing.
@@ -371,7 +371,7 @@ export function Typeahead<T extends SearchableItem>({
   'data-testid': testId,
 }: TypeaheadProps<T>) {
   const t = useTranslator();
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const inputId = useId();
   const inputLabelId = useId();
   const descriptionId = useId();

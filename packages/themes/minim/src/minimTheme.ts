@@ -96,8 +96,8 @@ export const minimComponents = {
   ...minimInputComponents,
   ...minimIconComponents,
   ...minimSelectionComponents,
-  ...minimMenuSpinnerComponents,
   ...minimSurfaceComponents,
+  ...minimMenuSpinnerComponents,
   ...minimNavigationComponents,
   ...minimCollectionComponents,
 };

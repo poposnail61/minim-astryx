@@ -205,6 +205,22 @@ function discoverComponents(): ComponentInfo[] {
       docDerived,
     });
   }
+  // Item subcomponents own their typography forwarding contract separately
+  // from their parent list containers.
+  for (const [folder, name] of [
+    ['CheckboxList', 'CheckboxListItem'],
+    ['RadioList', 'RadioListItem'],
+  ]) {
+    const mod = require(
+      join(SRC_DIR, folder, `${name}.doc.mjs`),
+    ) as ComponentDocModule;
+    results.push({
+      dir: name,
+      sourceVars: [],
+      docVars: (mod.docs?.theming?.vars || []).map(v => v.name),
+      docDerived: mod.docs?.theming?.derived || [],
+    });
+  }
   return results;
 }
 
@@ -216,6 +232,8 @@ const DIR_TO_REGISTRY_KEY: Record<string, string> = {
   Avatar: 'avatar',
   Banner: 'banner',
   Button: 'button',
+  CheckboxListItem: 'checkbox-list-item',
+  RadioListItem: 'radio-list-item',
   Card: 'card',
   Chat: 'chat',
   ContextMenu: 'context-menu',
@@ -283,6 +301,7 @@ const VARS_WITHOUT_DERIVED_MAPPING = new Set([
   // Calendar uses these dimensions across several grid descendants; no one
   // width/height declaration on the root represents either layout contract.
   '--_calendar-cell-size',
+  '--calendar-cell-size',
   '--_calendar-day-size',
   '--_codeblock-gutter-width',
   '--_tab-indicator-bottom',
@@ -332,6 +351,12 @@ const VARS_WITHOUT_DERIVED_MAPPING = new Set([
   '--spinner-color',
   '--spinner-track-color',
   '--spinner-arc-fraction',
+  // These target the inner ring wrapper/SVG, not the themed root (which can
+  // also contain a label). Root width/padding/strokeLinecap are not equivalent.
+  '--spinner-box-size',
+  '--spinner-padding-inline',
+  '--spinner-padding-block',
+  '--spinner-linecap',
 ]);
 
 // ---------------------------------------------------------------------------

@@ -96,7 +96,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'Size of menu items: controls padding density.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'label',

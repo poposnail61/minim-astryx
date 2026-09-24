@@ -39,9 +39,9 @@ export const docs = {
     },
     {
       name: 'size',
-      type: "'sm' | 'md'",
+      type: "'sm' | 'md' | 'lg'",
       description: 'Button size. Matches ChatComposer density.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'isHiddenWhenUnsupported',

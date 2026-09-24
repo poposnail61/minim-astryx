@@ -397,7 +397,7 @@ export interface DateRangeInputProps extends Omit<
 
   /**
    * The size of the trigger.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: DateRangeInputSize;
 
@@ -494,7 +494,7 @@ export function DateRangeInput({
   const isEffectivelyRequired = useResolvedRequired({isRequired, isOptional});
   const placeholder =
     placeholderFromProps ?? t('@astryx.dateRangeInput.placeholder');
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const id = useId();
   const descriptionID = useId();
   const statusMessageID = useId();
@@ -523,6 +523,7 @@ export function DateRangeInput({
     useInputStatusIcon({
       status,
       statusVariant,
+      size,
     });
 
   const ariaDescribedBy =
@@ -543,6 +544,7 @@ export function DateRangeInput({
   );
 
   const popover = usePopover({
+    surfaceTarget: 'date-range-input-popup',
     dialogLabel: t('@astryx.dateRangeInput.dialogLabel'),
     closeButtonLabel: t('@astryx.dateInput.closeCalendar'),
   });

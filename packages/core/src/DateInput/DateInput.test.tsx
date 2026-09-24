@@ -32,6 +32,10 @@ function generateThemeTestCSS(theme: Parameters<typeof generateThemeCSS>[0]) {
   return [prose, component].filter(Boolean).join('\n\n');
 }
 describe('DateInput', () => {
+  it('does not forward picker policy to the DOM', () => {
+    const {container} = render(<DateInput label="Date" nativePicker="never" />);
+    expect(container.querySelector('[nativepicker]')).toBeNull();
+  });
   it('renders with label', () => {
     render(<DateInput label="Date" onChange={() => {}} />);
     expect(screen.getByLabelText('Date')).toBeInTheDocument();

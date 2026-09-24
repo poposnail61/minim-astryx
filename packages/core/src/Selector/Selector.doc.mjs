@@ -245,7 +245,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'Size variant for the selector.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'variant',

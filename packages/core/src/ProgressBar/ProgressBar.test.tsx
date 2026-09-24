@@ -393,6 +393,7 @@ describe('ProgressBar', () => {
     it('marks the ticks inside the filled area as placed on the fill', () => {
       const {container} = render(
         <ProgressBar
+          variant="accent"
           value={60}
           label="Progress"
           marks={[

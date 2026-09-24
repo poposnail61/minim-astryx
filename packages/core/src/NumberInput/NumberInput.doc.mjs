@@ -42,7 +42,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'Size variant.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'isLabelHidden',
@@ -340,7 +340,7 @@ export const docsZh = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: '尺寸变体。',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'isLabelHidden',

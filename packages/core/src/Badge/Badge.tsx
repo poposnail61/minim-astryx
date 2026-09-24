@@ -198,7 +198,7 @@ export interface BadgeProps extends BaseProps<HTMLSpanElement> {
   variant?: BadgeVariant;
   /**
    * The badge size. Dot renders the label accessibly without visible content.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: BadgeSize;
   /**
@@ -228,7 +228,7 @@ export interface BadgeProps extends BaseProps<HTMLSpanElement> {
  */
 export function Badge({
   variant = 'neutral',
-  size = 'md',
+  size = 'lg',
   label,
   icon,
   xstyle,

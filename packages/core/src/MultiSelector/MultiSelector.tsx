@@ -252,10 +252,13 @@ const styles = stylex.create({
 
   // Dropdown container
   dropdown: {
+    display: 'grid',
+    gridAutoRows: 'max-content',
+    gap: 'var(--selector-list-gap, 0px)',
     boxSizing: 'border-box',
     maxHeight: '300px',
     overflowY: 'auto',
-    padding: spacingVars['--spacing-1'],
+    padding: `var(--selector-list-padding, ${spacingVars['--spacing-1']})`,
   },
   listbox: {
     outline: 'none',
@@ -555,7 +558,7 @@ export interface MultiSelectorProps<
 
   /**
    * The size of the selector.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: MultiSelectorSize;
 
@@ -806,7 +809,7 @@ export function MultiSelector<T extends MultiSelectorOptionType>({
   const emptyText = emptyTextFromProps ?? t('@astryx.multiSelector.empty');
   const emptySearchText =
     emptySearchTextFromProps ?? t('@astryx.multiSelector.emptySearchResults');
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const effectiveStatusVariant =
     variant === 'ghost' && statusVariant === 'attached'
       ? 'detached'

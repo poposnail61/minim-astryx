@@ -20,7 +20,10 @@ export function ShowcasePreview({name}: ShowcasePreviewProps) {
   const isSmall = useMediaQuery('(max-width: 768px)');
 
   useEffect(() => {
-    const loader = showcaseRegistry[name];
+    const loader =
+      name === 'Token'
+        ? () => import('./MinimTokenShowcase')
+        : showcaseRegistry[name];
     if (!loader) {
       setError(true);
       return;

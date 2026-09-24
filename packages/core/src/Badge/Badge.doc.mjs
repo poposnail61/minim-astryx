@@ -32,7 +32,7 @@ export const docs = {
       type: "'md' | 'lg' | 'dot'",
       description:
         'Badge size. Dot renders an 8px status marker and uses label as its accessible name.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'label',
@@ -215,7 +215,7 @@ export const docsZh = {
       name: 'size',
       type: "'md' | 'lg' | 'dot'",
       description: '徽章尺寸。dot 使用 label 作为无障碍名称。',
-      default: "'md'",
+      default: "'lg'",
     },
     {name: 'label', type: 'ReactNode', description: '徽章文本内容。'},
     {name: 'icon', type: 'ReactNode', description: '可选的前置图标。'},

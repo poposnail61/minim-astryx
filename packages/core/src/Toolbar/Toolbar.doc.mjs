@@ -224,7 +224,7 @@ export const docs = {
           type: "'sm' | 'md' | 'lg' | 'xl'",
           description:
             'Size of the toolbar. Controls minimum height and coordinates with Button, TextInput, TabList, and Selector; children inherit this size as their default via SizeContext.',
-          default: "'md'",
+          default: "'lg'",
         },
         {
           name: 'gap',

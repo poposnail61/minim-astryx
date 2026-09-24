@@ -64,6 +64,15 @@ beforeEach(() => {
 });
 
 describe('Switch', () => {
+  it('exposes large geometry to the field, track and thumb theme targets', () => {
+    const {container} = render(<Switch label="Large" size="lg" value={true} />);
+    for (const target of ['switch-field', 'switch', 'switch-thumb']) {
+      expect(container.querySelector(`.astryx-${target}`)).toHaveAttribute(
+        'data-size',
+        'lg',
+      );
+    }
+  });
   it('renders with custom size prop (sm / md)', () => {
     const {rerender} = render(
       <Switch
@@ -727,11 +736,11 @@ describe('Switch', () => {
       render(<Switch label="Toggle" value={true} onChange={() => {}} />);
       const css = injectedCss();
       // LTR on-travel moves the thumb toward the physical right (positive px).
-      expect(css).toMatch(/transform:\s*translateX\(1[24]px\)/);
+      expect(css).toContain('translateX(var(--switch-travel,');
       // RTL mirrors it: the on-thumb lands on the inline-end (physical left)
       // side, so the travel flips sign, scoped to `[dir="rtl"]`.
       expect(css).toMatch(
-        /:is\(\[dir="rtl"\][^)]*\)[^{]*\{\s*transform:\s*translateX\(-1[24]px\)/,
+        /:is\(\[dir="rtl"\][^)]*\)[^{]*\{\s*transform:\s*translateX\(calc\(-1\s*\*\s*var\(--switch-travel,/,
       );
     });
   });

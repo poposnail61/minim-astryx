@@ -148,10 +148,10 @@ describe('Toolbar', () => {
     expect(toolbar).toHaveAttribute('data-size', 'sm');
   });
 
-  it('defaults to md size', () => {
+  it('defaults to lg size', () => {
     render(<Toolbar label="Actions" />);
     const toolbar = screen.getByRole('toolbar');
-    expect(toolbar).toHaveAttribute('data-size', 'md');
+    expect(toolbar).toHaveAttribute('data-size', 'lg');
   });
 
   it('reflects lg size', () => {

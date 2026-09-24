@@ -163,13 +163,13 @@ export const docs = {
       name: 'variant',
       type: "'primary' | 'secondary' | 'ghost' | 'destructive' | 'neutral' | 'neutral-subtle' | 'critical-subtle' | 'outline' | 'critical'",
       description: 'Visual style variant.',
-      default: "'secondary'",
+      default: "'neutral'",
     },
     {
       name: 'size',
       type: "'sm' | 'md' | 'lg' | 'xl'",
       description: 'Size variant.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'elevation',
@@ -417,13 +417,13 @@ export const docsZh = {
       name: 'variant',
       type: "'primary' | 'secondary' | 'ghost' | 'destructive' | 'neutral' | 'neutral-subtle' | 'critical-subtle' | 'outline' | 'critical'",
       description: '视觉样式变体。',
-      default: "'secondary'",
+      default: "'neutral'",
     },
     {
       name: 'size',
       type: "'sm' | 'md' | 'lg' | 'xl'",
       description: '尺寸变体。',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'elevation',

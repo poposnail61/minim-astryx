@@ -41,7 +41,7 @@ import {
 
 const EMPTY_ARRAY: string[] = [];
 
-export type CheckboxListSize = 'sm' | 'md';
+export type CheckboxListSize = 'sm' | 'md' | 'lg';
 
 const contentStyles = stylex.create({
   horizontal: {flexDirection: 'row'},
@@ -180,9 +180,9 @@ export function CheckboxList({
   ...rest
 }: CheckboxListProps) {
   const resolvedSize: CheckboxListSize =
-    size ?? (density === 'compact' ? 'sm' : 'md');
+    size ?? (density === 'compact' ? 'md' : 'lg');
   const resolvedDensity: ListDensity =
-    size == null ? density : size === 'sm' ? 'compact' : 'balanced';
+    size == null ? density : size === 'lg' ? 'balanced' : 'compact';
   const inputID = useId();
   const labelID = useId();
   const descriptionID = useId();
@@ -233,6 +233,7 @@ export function CheckboxList({
 
   const contextValue = useMemo<CheckboxListContextValue>(
     () => ({
+      size: resolvedSize,
       value: isCollectionMode ? optimisticValue : undefined,
       onChange: isCollectionMode ? handleChange : undefined,
       isDisabled,
@@ -241,6 +242,7 @@ export function CheckboxList({
       loadingValue,
     }),
     [
+      resolvedSize,
       isCollectionMode,
       optimisticValue,
       handleChange,

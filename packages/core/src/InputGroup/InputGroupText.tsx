@@ -95,7 +95,7 @@ export function InputGroupText({
   style,
   ...rest
 }: InputGroupTextProps) {
-  const size = useSize(undefined, 'md');
+  const size = useSize(undefined, 'lg');
   return (
     <div
       ref={ref}

@@ -19,20 +19,27 @@ describe('Minim Button overrides', () => {
       paddingInline: '0',
       paddingBlock: '0',
     });
-    expect(minimButtonComponents['button-label'].base.paddingInline).toContain(
-      '--minim-button-label-inset-inline',
+    expect(minimButtonComponents['button-label'].base.paddingInline).toBe('0');
+    expect(minimButtonComponents.button.base.gap).toBe(
+      'var(--minim-spacing-200)',
+    );
+    expect(minimButtonComponents.button['size:lg'].paddingInline).toBe(
+      'var(--minim-spacing-400)',
+    );
+    expect(minimButtonComponents.button['size:md'].paddingBlock).toBe(
+      'var(--minim-control-medium-padding-block)',
     );
     expect(minimButtonComponents['button-icon']['size:md']).toMatchObject({
       '--minim-icon-box-size': expect.stringContaining(
         '--minim-button-icon-size',
       ),
-      width: expect.stringContaining('--minim-button-icon-slot-width'),
+      width: expect.stringContaining('--minim-button-icon-size'),
       fontSize: expect.stringContaining('--minim-button-icon-size'),
       lineHeight: expect.stringContaining('--minim-button-icon-size'),
     });
     expect(minimButtonComponents['button-icon']['size:lg']).toMatchObject({
       '--minim-icon-box-size': 'var(--minim-typography-line-height-lg)',
-      width: 'var(--minim-content-large-icon-box-width)',
+      width: 'var(--minim-typography-line-height-lg)',
       fontSize: 'var(--minim-typography-line-height-lg)',
       lineHeight: 'var(--minim-typography-line-height-lg)',
     });

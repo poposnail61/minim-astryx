@@ -29,9 +29,7 @@ describe('Minim family build output', () => {
     expect(css).toContain(
       'padding-block: var(--minim-control-medium-padding-block)',
     );
-    expect(css).toContain(
-      'padding-inline: var(--minim-button-label-inset-inline, var(--minim-spacing-100))',
-    );
+    expect(css).toContain('padding-inline: var(--minim-spacing-300)');
     expect(css).toContain(
       'padding-block: var(--minim-button-label-inset-block, var(--minim-content-medium-text-inset-block))',
     );

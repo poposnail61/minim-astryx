@@ -187,12 +187,9 @@ normalize targets.
     }
   },
   "Dropdown": {"target": "typeahead-dropdown"},
+  "Popup surface": {"target": "typeahead-popup"},
   "Empty state": {"target": "typeahead-empty-state"},
-  "Result row": {
-    "none": {
-      "reason": "reachability-gap: The stable outer option row owns interaction and state but has no current Typeahead target."
-    }
-  },
+  "Result row": {"target": "typeahead-option-row"},
   "Default item content": {"target": "typeahead-item"},
   "Caller-rendered item content": {
     "none": {

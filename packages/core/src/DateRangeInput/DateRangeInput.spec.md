@@ -145,6 +145,7 @@ No new performance or resource constraint is introduced.
     }
   },
   "Calendar icon": {"target": "date-range-input-toggle-icon"},
+  "Calendar popup surface": {"target": "date-range-input-popup"},
   "Calendar popover": {
     "delegatesTo": {"owner": "component:Popover", "target": "popover"}
   },

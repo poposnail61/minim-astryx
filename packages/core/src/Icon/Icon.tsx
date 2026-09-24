@@ -215,7 +215,7 @@ export interface IconProps extends Omit<
    * - 'sm': 1rem (16px at a 16px root)
    * - 'md': 1.25rem (20px at a 16px root)
    * - 'lg': 1.5rem (24px at a 16px root)
-   * @default 'md'
+   * @default 'lg'
    */
   size?: IconSize;
   /**
@@ -297,7 +297,7 @@ function getIconA11yProps(
 export function Icon({
   icon,
   color = 'inherit',
-  size = 'md',
+  size = 'lg',
   label,
   ref,
   className,

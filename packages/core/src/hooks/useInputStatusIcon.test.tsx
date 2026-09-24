@@ -207,7 +207,7 @@ describe('useInputStatusIcon — input-status-icon theme target', () => {
       const icon = getStatusIcon(container);
       expect(icon).toHaveClass('astryx-input-status-icon');
       expect(icon).toHaveClass('astryx-icon');
-      expect(icon).toHaveAttribute('data-size', 'md');
+      expect(icon).toHaveAttribute('data-size', 'lg');
       expect(icon).toHaveAttribute('data-status', 'warning');
     });
   }

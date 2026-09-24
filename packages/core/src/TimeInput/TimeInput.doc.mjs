@@ -228,7 +228,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'Controls the height of the input element.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'status',
@@ -395,7 +395,7 @@ export const docsZh = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: '控制输入框元素的高度。',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'status',

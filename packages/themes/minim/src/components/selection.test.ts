@@ -21,6 +21,18 @@ function segmentedHeight(
 }
 
 describe('Minim selection component styles', () => {
+  it('uses the Figma switch dimensions and shared geometry in both densities', () => {
+    const field = minimSelectionComponents['switch-field'];
+    expect(field.base['--switch-width']).toBe('3.375rem');
+    expect(field['size:lg']['--switch-width']).toBe('4rem');
+    expect(px(minimBaseTokens['--minim-content-medium-box-size'])).toBe(24);
+    expect(px(minimCompactTokens['--minim-content-medium-box-size'])).toBe(20);
+    expect(px(minimBaseTokens['--minim-content-large-box-size'])).toBe(28);
+    expect(px(minimCompactTokens['--minim-content-large-box-size'])).toBe(24);
+    expect(minimSelectionComponents['switch-thumb'].base.height).toBe(
+      'calc(var(--switch-height) - 2 * var(--switch-padding))',
+    );
+  });
   it('keeps list rows transparent and maps selection indicators to tokens', () => {
     expect(minimSelectionComponents['checkbox-list-content'].base.gap).toBe(
       'var(--minim-spacing-200)',
@@ -34,7 +46,7 @@ describe('Minim selection component styles', () => {
       paddingInline: '0',
       backgroundColor: 'transparent',
     });
-    expect(minimSelectionComponents['checkbox-indicator']['size:md']).toEqual({
+    expect(minimSelectionComponents['checkbox-indicator']['size:lg']).toEqual({
       width: 'var(--minim-typography-line-height-lg)',
       height: 'var(--minim-typography-line-height-lg)',
     });
@@ -73,19 +85,43 @@ describe('Minim selection component styles', () => {
     ).toEqual({
       height: 'auto',
       paddingBlock: 'var(--minim-control-item-medium-padding-block)',
-      paddingInline: 'var(--minim-control-item-medium-padding-inline)',
+      paddingInline: 'var(--minim-spacing-300)',
     });
     expect(
       minimSelectionComponents['segmented-control-item']['size:lg'],
     ).toEqual({
       height: 'auto',
       paddingBlock: 'var(--minim-control-item-large-padding-block)',
-      paddingInline: 'var(--minim-control-item-large-padding-inline)',
+      paddingInline: 'var(--minim-spacing-400)',
     });
     expect(segmentedHeight(minimBaseTokens, 'medium')).toBe(36);
     expect(segmentedHeight(minimBaseTokens, 'large')).toBe(44);
     expect(segmentedHeight(minimCompactTokens, 'medium')).toBe(28);
     expect(segmentedHeight(minimCompactTokens, 'large')).toBe(36);
+  });
+
+  it('matches button horizontal spacing without adding label insets', () => {
+    expect(minimSelectionComponents['segmented-control-item'].base.gap).toBe(
+      'var(--minim-spacing-200)',
+    );
+    expect(
+      minimSelectionComponents['segmented-control-item-label']['size:md']
+        .paddingInline,
+    ).toBe('0');
+    expect(
+      minimSelectionComponents['segmented-control-item-label']['size:lg']
+        .paddingInline,
+    ).toBe('0');
+    expect([
+      px(minimBaseTokens['--minim-spacing-400']),
+      px(minimBaseTokens['--minim-spacing-300']),
+      px(minimBaseTokens['--minim-spacing-200']),
+    ]).toEqual([16, 12, 8]);
+    expect([
+      px(minimCompactTokens['--minim-spacing-400']),
+      px(minimCompactTokens['--minim-spacing-300']),
+      px(minimCompactTokens['--minim-spacing-200']),
+    ]).toEqual([12, 10, 6]);
   });
 
   it('passes md and lg line-height context to the actual Icon target', () => {
@@ -118,7 +154,7 @@ describe('Minim selection component styles', () => {
     expect(component).toContain('.astryx-checkbox-list-content');
     expect(component).toContain('.astryx-radio-list');
     expect(component).toContain('.astryx-radio-list-item');
-    expect(component).toContain('.astryx-switch[data-size="md"]');
+    expect(component).toContain('.astryx-switch-field[data-size="lg"]');
     expect(component).toContain('.astryx-segmented-control-item-icon');
     expect(component).toContain('.astryx-segmented-control-item-label');
   });

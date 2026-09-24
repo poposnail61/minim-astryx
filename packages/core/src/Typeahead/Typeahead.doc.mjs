@@ -3,6 +3,11 @@
 /** @type {import('@astryxdesign/cli/authoring').ComponentAnatomyElement[]} */
 const anatomy = [
   {
+    name: 'Popup surface',
+    required: false,
+    description: 'Positioned popover surface wrapping the result dropdown.',
+  },
+  {
     name: 'Field',
     required: false,
     description:
@@ -239,7 +244,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'Input and token size.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'debounceMs',
@@ -281,6 +286,8 @@ export const docs = {
     targets: [
       {className: 'astryx-typeahead', visualProps: ['status', 'size', 'disabled']},
       {className: 'astryx-typeahead-dropdown'},
+      {className: 'astryx-typeahead-popup'},
+      {className: 'astryx-typeahead-option-row', visualProps: ['size']},
       {className: 'astryx-typeahead-empty-state'},
       {className: 'astryx-typeahead-item'},
     ],

@@ -43,7 +43,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'Size variant of the input.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'isLabelHidden',
@@ -242,7 +242,7 @@ export const docsZh = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: '输入框的尺寸变体。',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'isLabelHidden',

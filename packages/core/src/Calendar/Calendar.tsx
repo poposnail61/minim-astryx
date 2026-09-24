@@ -527,6 +527,7 @@ export function Calendar({ref, ...props}: CalendarProps) {
           })}
           label={t('@astryx.calendar.previousMonth')}
           variant="ghost"
+          size="lg"
           icon={
             // Wrapper span (not Icon props): Icon's string mode clobbers
             // caller classNames, so the RTL mirror must live on its own
@@ -551,6 +552,7 @@ export function Calendar({ref, ...props}: CalendarProps) {
           })}
           label={t('@astryx.calendar.nextMonth')}
           variant="ghost"
+          size="lg"
           icon={
             <span {...stylex.props(calendarStyles.navIcon, rtlStyles.mirror)}>
               <Icon icon="chevronRight" size="sm" color="inherit" />

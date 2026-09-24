@@ -37,8 +37,8 @@ export interface ChatDictationButtonProps extends BaseProps<HTMLSpanElement> {
   ref?: React.Ref<HTMLSpanElement>;
   /** The return value from useChatDictation or useSpeechRecognition. */
   dictation: UseSpeechRecognitionReturn;
-  /** Button size. @default "md" */
-  size?: 'sm' | 'md';
+  /** Button size. @default "lg" */
+  size?: 'sm' | 'md' | 'lg';
   /** Hide the button when SpeechRecognition is not supported. @default true */
   isHiddenWhenUnsupported?: boolean;
   /** Accessible label override. */
@@ -86,6 +86,7 @@ const BAR_MIN_SCALE = 0.08;
 const SIZE_CONFIG = {
   sm: {barWidth: 2, barGap: 1.5, barMaxHeight: 14},
   md: {barWidth: 2.5, barGap: 2, barMaxHeight: 18},
+  lg: {barWidth: 2.5, barGap: 2, barMaxHeight: 18},
 };
 
 // =============================================================================
@@ -104,7 +105,7 @@ const SIZE_CONFIG = {
 export function ChatDictationButton({
   ref,
   dictation,
-  size = 'md',
+  size = 'lg',
   isHiddenWhenUnsupported = true,
   label,
   xstyle,

@@ -291,7 +291,7 @@ export interface DateInputProps extends Omit<
    * The size of the input.
    * - 'sm': Compact size (18px height)
    * - 'md': Default size (26px height)
-   * @default 'md'
+   * @default 'lg'
    */
   size?: DateInputSize;
 
@@ -468,7 +468,7 @@ function PointerDateField({
   const isEffectivelyRequired = useResolvedRequired({isRequired, isOptional});
   const placeholder =
     placeholderFromProps ?? t('@astryx.dateInput.placeholder');
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const id = useId();
   const inputLabelID = useId();
   const descriptionID = useId();
@@ -506,6 +506,7 @@ function PointerDateField({
     useInputStatusIcon({
       status,
       statusVariant,
+      size,
       isInGroup: !!inputGroup,
     });
 
@@ -567,6 +568,7 @@ function PointerDateField({
       : parseDateInput(pendingInput, locale) !== null;
 
   const popover = usePopover({
+    surfaceTarget: 'date-input-popup',
     dialogLabel: t('@astryx.dateInput.dialogLabel'),
     closeButtonLabel: t('@astryx.dateInput.closeCalendar'),
     // Return focus to the input when the calendar closes — but only when the
@@ -941,9 +943,8 @@ PointerDateField.displayName = 'PointerDateField';
  * />
  * ```
  */
-export function DateInput(props: DateInputProps) {
+export function DateInput({nativePicker = 'touch', ...props}: DateInputProps) {
   const isTouch = useMediaQuery(TOUCH_POINTER_QUERY);
-  const nativePicker = props.nativePicker ?? 'touch';
 
   // The platform's picker, where the consumer asked for it — see the
   // `nativePicker` prop for what that trades away.

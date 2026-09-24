@@ -33,8 +33,14 @@ function minimalDocument(variables, externalVariables = {}) {
 
 test('generated output matches the checked-in file deterministically', async () => {
   const formatted = source => format(source, {parser: 'typescript'});
-  assert.equal(await formatted(renderGeneratedFile(document)), await formatted(fs.readFileSync(OUTPUT_FILE, 'utf8')));
-  assert.doesNotMatch(fs.readFileSync(INPUT_FILE, 'utf8'), /\/tmp\/|\/Users\/|file:\/\//);
+  assert.equal(
+    await formatted(renderGeneratedFile(document)),
+    await formatted(fs.readFileSync(OUTPUT_FILE, 'utf8')),
+  );
+  assert.doesNotMatch(
+    fs.readFileSync(INPUT_FILE, 'utf8'),
+    /\/tmp\/|\/Users\/|file:\/\//,
+  );
 });
 
 test('resolver rejects cycles and unresolved aliases', () => {
@@ -46,11 +52,17 @@ test('resolver rejects cycles and unresolved aliases', () => {
     valuesByMode: {base: {type: 'VARIABLE_ALIAS', id: target}},
   });
   assert.throws(
-    () => createResolver(minimalDocument([variable('a', 'b'), variable('b', 'a')])).resolveVariable('a', 'base'),
+    () =>
+      createResolver(
+        minimalDocument([variable('a', 'b'), variable('b', 'a')]),
+      ).resolveVariable('a', 'base'),
     /alias cycle/,
   );
   assert.throws(
-    () => createResolver(minimalDocument([variable('a', 'missing')])).resolveVariable('a', 'base'),
+    () =>
+      createResolver(
+        minimalDocument([variable('a', 'missing')]),
+      ).resolveVariable('a', 'base'),
     /Unresolved variable alias missing/,
   );
 });
@@ -66,10 +78,7 @@ test('cross-collection aliases select the target collection mode independently',
 
 test('five-percent opacity wrappers preserve alpha', () => {
   const model = generateTokenModel(document);
-  assert.equal(
-    model.base['--minim-bg-disabled'],
-    'rgb(0% 0% 0% / 5%)',
-  );
+  assert.equal(model.base['--minim-bg-disabled'], 'rgb(0% 0% 0% / 5%)');
 });
 
 test('accepts finite scientific-notation color channels and alpha', () => {
@@ -99,10 +108,7 @@ test('accepts finite scientific-notation color channels and alpha', () => {
     textStyles: [],
     effectStyles: [],
   });
-  assert.equal(
-    model.base['--minim-scientific-color'],
-    'rgb(10% 25% 50% / 5%)',
-  );
+  assert.equal(model.base['--minim-scientific-color'], 'rgb(10% 25% 50% / 5%)');
 });
 
 test('font weights are unitless and numeric dimensions are exact rem values', () => {
@@ -130,11 +136,11 @@ test('source and generated metadata counts match the validated export', () => {
       ]),
     ),
     {
-      'semantic-color': 60,
-      'base-color': 125,
+      'semantic-color': 61,
+      'base-color': 127,
       font: 3,
       'base-token': 74,
-      'semantic-token': 82,
+      'semantic-token': 81,
     },
   );
   assert.equal(Object.keys(model.base).length, 148);
@@ -144,6 +150,38 @@ test('source and generated metadata counts match the validated export', () => {
   assert.equal(model.effectStyles.length, 3);
 });
 
+test('retired aliases stay absent and button minimum widths follow density', () => {
+  const model = generateTokenModel(document);
+  const names = Object.values(document.collections)
+    .flat()
+    .map(v => v.name);
+  for (const name of [
+    'bg/neutral-tint',
+    'bg/field-subtle',
+    'alpha/black/100',
+    'content/large/text-inset-inline',
+    'content/medium/text-inset-inline',
+    'content/supporting-large/text-inset-inline',
+    'content/supporting-medium/text-inset-inline',
+  ])
+    assert.ok(!names.includes(name), name);
+  assert.equal(model.base['--minim-shadow-neutral'], 'rgb(0% 0% 0% / 10%)');
+  for (const [size, base, compact] of [
+    ['md', 36, 28],
+    ['lg', 44, 36],
+    ['xl', 52, 44],
+  ]) {
+    assert.equal(
+      model.base[`--minim-button-min-width-${size}`],
+      `${base / 16}rem`,
+    );
+    assert.equal(
+      model.compact[`--minim-button-min-width-${size}`],
+      `${compact / 16}rem`,
+    );
+  }
+});
+
 test('publishes the expected named schema with resolved elevation values', () => {
   const model = generateTokenModel(document);
   const source = renderGeneratedFile(document);
@@ -151,7 +189,9 @@ test('publishes the expected named schema with resolved elevation values', () =>
   assert.match(source, /export const minimCompactTokens =/);
   assert.match(source, /export type MinimTokenName =/);
   assert.deepEqual(
-    Object.keys(model.base).filter(name => name.startsWith('--minim-elevation-')),
+    Object.keys(model.base).filter(name =>
+      name.startsWith('--minim-elevation-'),
+    ),
     [
       '--minim-elevation-high',
       '--minim-elevation-low',

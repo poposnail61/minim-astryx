@@ -111,7 +111,7 @@ function FruitComplexSelector({
 }
 
 describe('ComplexSelector', () => {
-  it('defaults to md and reflects explicit trigger sizes', () => {
+  it('defaults to lg and reflects explicit trigger sizes', () => {
     const {container, rerender} = render(
       <ComplexSelector label="Fruit blend" value="Apple">
         {() => <div>Options</div>}
@@ -121,7 +121,7 @@ describe('ComplexSelector', () => {
     const getSelector = () =>
       container.querySelector('.astryx-complex-selector');
 
-    expect(getSelector()).toHaveAttribute('data-size', 'md');
+    expect(getSelector()).toHaveAttribute('data-size', 'lg');
 
     rerender(
       <ComplexSelector label="Fruit blend" value="Apple" size="sm">

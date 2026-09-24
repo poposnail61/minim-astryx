@@ -50,7 +50,7 @@ export const docs = {
       name: 'size',
       type: "'xsm' | 'sm' | 'md' | 'lg'",
       description: 'Icon size.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'label',
@@ -154,7 +154,7 @@ export const docsZh = {
       name: 'size',
       type: "'xsm' | 'sm' | 'md' | 'lg'",
       description: '图标尺寸。',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'label',

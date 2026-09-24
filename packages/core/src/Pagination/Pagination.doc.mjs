@@ -169,9 +169,9 @@ export const docs = {
     },
     {
       name: 'size',
-      type: "'sm' | 'md'",
+      type: "'sm' | 'md' | 'lg'",
       description: 'Size of the pagination controls.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'isDisabled',
@@ -320,9 +320,9 @@ export const docsZh = {
     },
     {
       name: 'size',
-      type: "'sm' | 'md'",
+      type: "'sm' | 'md' | 'lg'",
       description: '分页控件的尺寸。',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'isDisabled',

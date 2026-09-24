@@ -110,10 +110,10 @@ export const docs = {
     },
     {
       name: 'size',
-      type: "'sm' | 'md'",
+      type: "'sm' | 'md' | 'lg'",
       description:
-        'Size variant controlling track and thumb dimensions. sm (32x20px) matches sm checkbox/radio vertical rhythm; md (40x24px, default) matches md checkbox/radio vertical rhythm.',
-      default: "'md'",
+        'Track and thumb size. Default theme: sm 32x20, md 40x24, lg falls back to md. Minim: md (and legacy sm) is medium, 54x24 base / 54x20 compact; lg is 64x28 base / 64x24 compact. Track, click area and thumb travel share --switch-width, --switch-height, --switch-padding and --switch-travel.',
+      default: "'lg'",
     },
     {
       name: 'htmlName',
@@ -204,7 +204,7 @@ export const docs = {
       },
       {
         className: 'astryx-switch-field',
-        visualProps: ['labelPosition', 'labelSpacing'],
+        visualProps: ['size', 'labelPosition', 'labelSpacing'],
       },
       {className: 'astryx-switch-label'},
     ],
@@ -377,7 +377,7 @@ export const docsZh = {
       },
       {
         className: 'astryx-switch-field',
-        visualProps: ['labelPosition', 'labelSpacing'],
+        visualProps: ['size', 'labelPosition', 'labelSpacing'],
       },
       {className: 'astryx-switch-label'},
     ],

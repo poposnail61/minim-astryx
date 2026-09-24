@@ -12,7 +12,7 @@
  * page paint — statically rendered elements on page load are not animated.
  */
 
-import {useState} from 'react';
+import {useState, useSyncExternalStore} from 'react';
 import * as stylex from '@stylexjs/stylex';
 import type {StyleXStyles} from '@stylexjs/stylex';
 import {durationVars, easeVars, spacingVars} from '../theme/tokens.stylex';
@@ -21,17 +21,18 @@ import {durationVars, easeVars, spacingVars} from '../theme/tokens.stylex';
 // Elements rendered on page load should not animate;
 // only dynamically inserted ones should.
 //
-// NOTE: This module is marked 'use client' so it never runs on the server.
-// If the directive is removed, this flag will always be false during SSR,
-// and useState(() => initialPaintComplete) will capture false — meaning
-// animations won't run after hydration. Keep 'use client' or add an
-// effect-based fallback if SSR support is needed.
+// Client components can still be server-rendered. Hydration must capture the
+// server snapshot even if the browser's first paint has already completed.
 let initialPaintComplete = false;
 if (typeof window !== 'undefined') {
   requestAnimationFrame(() => {
     initialPaintComplete = true;
   });
 }
+
+const subscribe = () => () => {};
+const getSnapshot = () => initialPaintComplete;
+const getServerSnapshot = () => false;
 
 const slideDown = stylex.keyframes({
   from: {
@@ -99,10 +100,7 @@ const styles = stylex.create({
 });
 
 export type EntryAnimationPreset =
-  | 'slideDown'
-  | 'slideUp'
-  | 'fadeIn'
-  | 'scaleIn';
+  'slideDown' | 'slideUp' | 'fadeIn' | 'scaleIn';
 
 /**
  * Returns a StyleX style for animating an element on mount.
@@ -119,6 +117,12 @@ export type EntryAnimationPreset =
 export function useEntryAnimation(
   preset: EntryAnimationPreset = 'slideDown',
 ): StyleXStyles | null {
-  const [animate] = useState(() => initialPaintComplete);
+  const painted = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
+  // Capture once: hydration must not turn into an entrance animation later.
+  const [animate] = useState(painted);
   return animate ? styles[preset] : null;
 }

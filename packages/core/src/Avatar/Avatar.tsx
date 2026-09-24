@@ -310,7 +310,7 @@ export interface AvatarProps extends BaseProps<HTMLDivElement> {
    *
    * Inside an `AvatarGroup` the group's `size` wins: a group sizes its members
    * uniformly, so this prop is ignored there.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: AvatarSize;
   /**
@@ -523,7 +523,7 @@ export function Avatar({
   'data-testid': testId,
   fallbackSrc,
   name,
-  size = 'md',
+  size = 'lg',
   shape = 'circle',
   src,
   status,

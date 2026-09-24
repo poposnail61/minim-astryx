@@ -275,19 +275,22 @@ const styles = stylex.create({
 
   // Dropdown container
   dropdown: {
+    display: 'grid',
+    gridAutoRows: 'max-content',
+    gap: 'var(--selector-list-gap, 0px)',
     boxSizing: 'border-box',
     maxHeight: '300px',
     overflowY: 'auto',
     outline: 'none',
-    paddingBlock: spacingVars['--spacing-1'],
-    paddingInline: spacingVars['--spacing-1'],
+    paddingBlock: `var(--selector-list-padding, ${spacingVars['--spacing-1']})`,
+    paddingInline: `var(--selector-list-padding, ${spacingVars['--spacing-1']})`,
     opacity: 1,
     transition: `opacity ${durationVars['--duration-fast']}`,
   },
   dropdownInput: {
     // The input trigger's text inset includes its border. Mirror that extra
     // pixel in the menu; the borderless ghost variant needs no correction.
-    paddingInline: `calc(${spacingVars['--spacing-1']} + ${borderVars['--border-width']})`,
+    paddingInline: `var(--selector-list-padding, calc(${spacingVars['--spacing-1']} + ${borderVars['--border-width']}))`,
   },
   // Same correction for the search row's gutter, so the search field and the
   // option rows share one left edge.
@@ -573,7 +576,7 @@ interface SelectorPropsBase<
    * The size of the selector.
    * - 'sm': Compact size
    * - 'md': Default size
-   * @default 'md'
+   * @default 'lg'
    */
   size?: SelectorSize;
 
@@ -868,7 +871,7 @@ export function Selector<T extends SelectorOptionType>(
   const emptySearchText =
     emptySearchTextFromProps ?? t('@astryx.selector.emptySearchResults');
   const hasClear = hasClearProp === true;
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const effectiveStatusVariant =
     variant === 'ghost' && statusVariant === 'attached'
       ? 'detached'

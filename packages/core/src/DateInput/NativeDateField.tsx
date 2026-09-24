@@ -256,7 +256,7 @@ export function NativeDateField({
   const isEffectivelyRequired = useResolvedRequired({isRequired, isOptional});
   const placeholder =
     placeholderFromProps ?? t('@astryx.dateInput.placeholder');
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   // Only breaks a tie the engine probe cannot: see ./nativeDateSegments.
   const isTouchPointer = useMediaQuery('(pointer: coarse)');
 
@@ -286,6 +286,7 @@ export function NativeDateField({
     useInputStatusIcon({
       status,
       statusVariant,
+      size,
       isInGroup: !!inputGroup,
     });
 

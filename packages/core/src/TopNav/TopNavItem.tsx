@@ -134,7 +134,7 @@ export interface TopNavItemProps extends BaseProps<HTMLAnchorElement> {
   /**
    * Size variant for the nav item. Has no effect in horizontal mode;
    * controls height/padding in drawer mode.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: NavItemSize;
 }
@@ -178,7 +178,7 @@ export function TopNavItem({
   isIconOnly = false,
   icon,
   children,
-  size = 'md',
+  size = 'lg',
   xstyle,
   className,
   style,

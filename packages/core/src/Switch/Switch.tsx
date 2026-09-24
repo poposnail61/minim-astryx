@@ -52,36 +52,36 @@ import {useResolvedRequired} from '../hooks/useResolvedRequired';
 import {useMergedRefs} from '../hooks/useMergedRefs';
 const wrapperSizeStyles = stylex.create({
   sm: {
-    width: 32,
-    height: 20,
+    width: 'var(--switch-width, 32px)',
+    height: 'var(--switch-height, 20px)',
   },
   md: {
-    width: 40,
-    height: 24,
+    width: 'var(--switch-width, 40px)',
+    height: 'var(--switch-height, 24px)',
   },
 });
 
 const inputSizeStyles = stylex.create({
   sm: {
-    width: 32,
-    height: 20,
+    width: 'var(--switch-width, 32px)',
+    height: 'var(--switch-height, 20px)',
   },
   md: {
-    width: 40,
-    height: 24,
+    width: 'var(--switch-width, 40px)',
+    height: 'var(--switch-height, 24px)',
   },
 });
 
 const trackSizeStyles = stylex.create({
   sm: {
-    width: 32,
-    height: 20,
-    padding: 2,
+    width: 'var(--switch-width, 32px)',
+    height: 'var(--switch-height, 20px)',
+    padding: 'var(--switch-padding, 2px)',
   },
   md: {
-    width: 40,
-    height: 24,
-    padding: 4,
+    width: 'var(--switch-width, 40px)',
+    height: 'var(--switch-height, 24px)',
+    padding: 'var(--switch-padding, 4px)',
   },
 });
 
@@ -108,16 +108,16 @@ const thumbOnSizeStyles = stylex.create({
     // in LTR, left in RTL — so the switch mirrors per convention (Material,
     // iOS): off-thumb on the reading-start side, on-thumb on the reading-end.
     transform: {
-      default: 'translateX(12px)',
-      ':is([dir="rtl"] *)': 'translateX(-12px)',
+      default: 'translateX(var(--switch-travel, 12px))',
+      ':is([dir="rtl"] *)': 'translateX(calc(-1 * var(--switch-travel, 12px)))',
     },
   },
   md: {
     width: 20,
     height: 20,
     transform: {
-      default: 'translateX(14px)',
-      ':is([dir="rtl"] *)': 'translateX(-14px)',
+      default: 'translateX(var(--switch-travel, 14px))',
+      ':is([dir="rtl"] *)': 'translateX(calc(-1 * var(--switch-travel, 14px)))',
     },
   },
 });
@@ -433,11 +433,13 @@ export interface SwitchProps extends Omit<BaseProps, 'onChange'> {
   status?: InputStatus;
   /**
    * Size variant controlling track and thumb dimensions.
-   * - 'sm': 34x20px (matches sm checkbox/radio vertical rhythm)
+   * - 'sm': 32x20px (matches sm checkbox/radio vertical rhythm)
    * - 'md': 40x24px (default, matches md checkbox/radio vertical rhythm)
-   * @default 'md'
+   * - 'lg': theme-defined large size (falls back to md geometry)
+   * Minim maps md to medium and lg to large; sm remains a medium alias.
+   * @default 'lg'
    */
-  size?: 'sm' | 'md';
+  size?: 'sm' | 'md' | 'lg';
 }
 
 // Dynamic field width (number -> px, string used as-is).
@@ -483,7 +485,7 @@ export function Switch({
   labelPosition = 'end',
   labelSpacing = 'hug',
   status,
-  size = 'md',
+  size = 'lg',
   width,
   xstyle,
   className,
@@ -504,6 +506,7 @@ export function Switch({
   const isBusy = isLoading || optimisticValue !== value;
 
   const isOn = optimisticValue === true;
+  const nativeSize = size === 'lg' ? 'md' : size;
 
   // Disabled-reason tooltip. Disabled controls swallow pointer events, so the
   // tooltip listeners attach to the switch row (which already exists) and the
@@ -536,7 +539,7 @@ export function Switch({
     describedByParts.length > 0 ? describedByParts.join(' ') : undefined;
 
   const switchElement = (
-    <div {...stylex.props(styles.switchWrapper, wrapperSizeStyles[size])}>
+    <div {...stylex.props(styles.switchWrapper, wrapperSizeStyles[nativeSize])}>
       <input
         ref={useMergedRefs(ref, disabledMessageTooltip.positionRef)}
         id={id}
@@ -577,7 +580,7 @@ export function Switch({
           styles.input,
           rtlStyles.centerInline('-50%'),
           styles.inputCoarse,
-          inputSizeStyles[size],
+          inputSizeStyles[nativeSize],
           isDisabled && styles.inputDisabled,
           isBusy && styles.inputBusy,
         )}
@@ -592,7 +595,7 @@ export function Switch({
           }),
           stylex.props(
             styles.track,
-            trackSizeStyles[size],
+            trackSizeStyles[nativeSize],
             isOn ? styles.trackOn : styles.trackOff,
             !isDisabled && styles.trackFocus,
             isDisabled && styles.trackDisabled,
@@ -607,7 +610,9 @@ export function Switch({
             }),
             stylex.props(
               styles.thumb,
-              isOn ? thumbOnSizeStyles[size] : thumbOffSizeStyles[size],
+              isOn
+                ? thumbOnSizeStyles[nativeSize]
+                : thumbOffSizeStyles[nativeSize],
               isOn ? styles.thumbOn : styles.thumbOff,
             ),
           )}>
@@ -619,7 +624,11 @@ export function Switch({
   );
 
   const labelElement = (
-    <div {...stylex.props(styles.labelWrapper, labelWrapperSizeStyles[size])}>
+    <div
+      {...stylex.props(
+        styles.labelWrapper,
+        labelWrapperSizeStyles[nativeSize],
+      )}>
       <FieldLabel
         // See CheckboxInput: the control names its own label target rather
         // than the label guessing at its placement.
@@ -642,6 +651,7 @@ export function Switch({
     <div
       {...mergeProps(
         themeProps('switch-field', {
+          size,
           labelPosition: labelPosition !== 'end' ? labelPosition : undefined,
           labelSpacing: labelSpacing !== 'hug' ? labelSpacing : undefined,
         }),

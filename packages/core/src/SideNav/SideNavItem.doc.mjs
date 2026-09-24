@@ -110,7 +110,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'Size variant for the nav item row.',
-      default: "'md'",
+      default: "'lg'",
     },
   ],
 };
@@ -190,7 +190,7 @@ export const docsZh = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: '导航项的尺寸变体。',
-      default: "'md'",
+      default: "'lg'",
     },
   ],
 };

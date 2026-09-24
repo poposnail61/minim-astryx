@@ -167,6 +167,7 @@ than adding a DropdownMenu-owned heading target.
     "delegatesTo": {"owner": "component:Icon", "target": "icon"}
   },
   "Pointer menu surface": {"target": "dropdown-menu"},
+  "Pointer popup surface": {"target": "dropdown-menu-popup"},
   "Pointer action row": {"target": "dropdown-menu-item"},
   "Menu radio row": {"target": "menu-radio-row"},
   "Icon-rendered item icon": {

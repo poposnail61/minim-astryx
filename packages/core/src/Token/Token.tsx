@@ -62,7 +62,7 @@ export interface TokenProps extends BaseProps<HTMLElement> {
   label: string;
   /**
    * The size of the token.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: TokenSize;
   /**
@@ -291,7 +291,7 @@ const colorStyles = stylex.create({
  */
 export function Token({
   label,
-  size = 'md',
+  size = 'lg',
   color = 'default',
   icon,
   isDisabled = false,

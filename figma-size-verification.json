@@ -1,0 +1,3235 @@
+{
+  "base": [
+    {
+      "page": "action",
+      "rows": [
+        {
+          "set": "action/button-group",
+          "id": "8400:13980",
+          "size": "lg",
+          "count": 6,
+          "heights": [
+            44,
+            134
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8400:13981",
+            "8406:22425"
+          ]
+        },
+        {
+          "set": "action/button-group",
+          "id": "8400:13980",
+          "size": "md",
+          "count": 6,
+          "heights": [
+            36,
+            110
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8400:14003",
+            "8406:22432"
+          ]
+        },
+        {
+          "set": "context-menu",
+          "id": "8406:27972",
+          "size": "lg",
+          "count": 1,
+          "heights": [
+            263
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8463:29253"
+          ]
+        },
+        {
+          "set": "context-menu",
+          "id": "8406:27972",
+          "size": "md",
+          "count": 1,
+          "heights": [
+            223
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8406:27971"
+          ]
+        },
+        {
+          "set": "menu-item",
+          "id": "8406:27695",
+          "size": "lg",
+          "count": 4,
+          "heights": [
+            44
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8406:27696",
+            "8464:32574"
+          ]
+        },
+        {
+          "set": "menu-item",
+          "id": "8406:27695",
+          "size": "md",
+          "count": 4,
+          "heights": [
+            36
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8406:27701",
+            "8464:32579"
+          ]
+        },
+        {
+          "set": "menu-divider",
+          "id": "10301:18822",
+          "size": "md",
+          "count": 1,
+          "heights": [
+            9
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10301:18823"
+          ]
+        },
+        {
+          "set": "menu-divider",
+          "id": "10301:18822",
+          "size": "lg",
+          "count": 1,
+          "heights": [
+            17
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10301:18825"
+          ]
+        },
+        {
+          "set": "dropdown-menu",
+          "id": "10794:30460",
+          "size": "lg",
+          "count": 4,
+          "heights": [
+            44,
+            249
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10794:30473",
+            "10794:30477"
+          ]
+        },
+        {
+          "set": "dropdown-menu",
+          "id": "10794:30460",
+          "size": "md",
+          "count": 4,
+          "heights": [
+            36,
+            209
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10794:30467",
+            "10794:30471"
+          ]
+        },
+        {
+          "set": "button/toggle-button",
+          "id": "8406:23379",
+          "size": "lg",
+          "count": 4,
+          "heights": [
+            44
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8406:23380",
+            "8406:23911"
+          ]
+        },
+        {
+          "set": "button/toggle-button",
+          "id": "8406:23379",
+          "size": "md",
+          "count": 4,
+          "heights": [
+            36
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8406:23390",
+            "8406:23915"
+          ]
+        },
+        {
+          "set": "segmented-control",
+          "id": "8464:32640",
+          "size": "md",
+          "count": 2,
+          "heights": [
+            36
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8464:32689",
+            "8490:33541"
+          ]
+        },
+        {
+          "set": "segmented-control",
+          "id": "8464:32640",
+          "size": "lg",
+          "count": 2,
+          "heights": [
+            44
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8464:32737",
+            "8490:33545"
+          ]
+        },
+        {
+          "set": "segmented-control/segmented-control-item",
+          "id": "8464:32785",
+          "size": "lg",
+          "count": 6,
+          "heights": [
+            40
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8464:32844",
+            "8464:32847"
+          ]
+        },
+        {
+          "set": "segmented-control/segmented-control-item",
+          "id": "8464:32785",
+          "size": "md",
+          "count": 6,
+          "heights": [
+            32
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8464:32816",
+            "8464:32819"
+          ]
+        },
+        {
+          "set": "button",
+          "id": "8400:9742",
+          "size": "lg",
+          "count": 84,
+          "heights": [
+            44
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8406:16371",
+            "8400:9779"
+          ]
+        },
+        {
+          "set": "button",
+          "id": "8400:9742",
+          "size": "md",
+          "count": 84,
+          "heights": [
+            36
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8400:9743",
+            "8406:16335"
+          ]
+        },
+        {
+          "set": "more-menu",
+          "id": "10737:38548",
+          "size": "lg",
+          "count": 8,
+          "heights": [
+            44,
+            200
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10749:43538",
+            "10749:43550"
+          ]
+        },
+        {
+          "set": "more-menu",
+          "id": "10737:38548",
+          "size": "md",
+          "count": 8,
+          "heights": [
+            36,
+            168
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10749:43202",
+            "10749:43214"
+          ]
+        }
+      ]
+    },
+    {
+      "page": "input",
+      "rows": [
+        {
+          "set": "input-group",
+          "id": "10322:37482",
+          "size": "lg",
+          "count": 5,
+          "heights": [
+            90,
+            122
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:37513",
+            "10322:37558"
+          ]
+        },
+        {
+          "set": "input-group",
+          "id": "10322:37482",
+          "size": "md",
+          "count": 5,
+          "heights": [
+            80,
+            112
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:37498",
+            "10322:37543"
+          ]
+        },
+        {
+          "set": "date-time-input",
+          "id": "10322:37116",
+          "size": "lg",
+          "count": 8,
+          "heights": [
+            84,
+            116
+          ],
+          "fonts": [
+            15,
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:37145",
+            "10322:37187"
+          ]
+        },
+        {
+          "set": "date-time-input",
+          "id": "10322:37116",
+          "size": "md",
+          "count": 8,
+          "heights": [
+            76,
+            108
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:37131",
+            "10322:37173"
+          ]
+        },
+        {
+          "set": "date-range-input",
+          "id": "10322:36857",
+          "size": "lg",
+          "count": 8,
+          "heights": [
+            84,
+            116
+          ],
+          "fonts": [
+            15,
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:36878",
+            "10322:36908"
+          ]
+        },
+        {
+          "set": "date-range-input",
+          "id": "10322:36857",
+          "size": "md",
+          "count": 8,
+          "heights": [
+            76,
+            108
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:36868",
+            "10322:36898"
+          ]
+        },
+        {
+          "set": "checkbox/checkbox-list",
+          "id": "10388:57120",
+          "size": "lg",
+          "count": 2,
+          "heights": [
+            206,
+            102
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10388:57128",
+            "10388:57142"
+          ]
+        },
+        {
+          "set": "checkbox/checkbox-list",
+          "id": "10388:57120",
+          "size": "md",
+          "count": 2,
+          "heights": [
+            176,
+            88
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10388:57121",
+            "10388:57135"
+          ]
+        },
+        {
+          "set": "checkbox/checkbox-list-item",
+          "id": "10388:57149",
+          "size": "lg",
+          "count": 12,
+          "heights": [
+            66,
+            44
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10388:57163",
+            "10388:57170"
+          ]
+        },
+        {
+          "set": "checkbox/checkbox-list-item",
+          "id": "10388:57149",
+          "size": "md",
+          "count": 12,
+          "heights": [
+            56,
+            36
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10388:57150",
+            "10388:57157"
+          ]
+        },
+        {
+          "set": "typeahead",
+          "id": "10322:36567",
+          "size": "lg",
+          "count": 8,
+          "heights": [
+            84,
+            116
+          ],
+          "fonts": [
+            15,
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:36588",
+            "10322:36618"
+          ]
+        },
+        {
+          "set": "typeahead",
+          "id": "10322:36567",
+          "size": "md",
+          "count": 8,
+          "heights": [
+            76,
+            108
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:36578",
+            "10322:36608"
+          ]
+        },
+        {
+          "set": "tokenizer",
+          "id": "10322:36219",
+          "size": "lg",
+          "count": 8,
+          "heights": [
+            68,
+            100
+          ],
+          "fonts": [
+            15,
+            12,
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:36244",
+            "10322:36280"
+          ]
+        },
+        {
+          "set": "tokenizer",
+          "id": "10322:36219",
+          "size": "md",
+          "count": 8,
+          "heights": [
+            60,
+            92
+          ],
+          "fonts": [
+            15,
+            12
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:36232",
+            "10322:36268"
+          ]
+        },
+        {
+          "set": "time-input",
+          "id": "10322:35877",
+          "size": "lg",
+          "count": 8,
+          "heights": [
+            84,
+            116
+          ],
+          "fonts": [
+            15,
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:35898",
+            "10322:35928"
+          ]
+        },
+        {
+          "set": "time-input",
+          "id": "10322:35877",
+          "size": "md",
+          "count": 8,
+          "heights": [
+            76,
+            108
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:35888",
+            "10322:35918"
+          ]
+        },
+        {
+          "set": "text-input",
+          "id": "10322:35557",
+          "size": "lg",
+          "count": 8,
+          "heights": [
+            96,
+            128
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:35578",
+            "10322:35608"
+          ]
+        },
+        {
+          "set": "text-input",
+          "id": "10322:35557",
+          "size": "md",
+          "count": 8,
+          "heights": [
+            84,
+            116
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:35568",
+            "10322:35598"
+          ]
+        },
+        {
+          "set": "text-area",
+          "id": "10322:35184",
+          "size": "lg",
+          "count": 8,
+          "heights": [
+            182,
+            214
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:35211",
+            "10322:35250"
+          ]
+        },
+        {
+          "set": "text-area",
+          "id": "10322:35184",
+          "size": "md",
+          "count": 8,
+          "heights": [
+            160,
+            192
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:35198",
+            "10322:35237"
+          ]
+        },
+        {
+          "set": "switch-control",
+          "id": "10823:40057",
+          "size": "lg",
+          "count": 2,
+          "heights": [
+            28
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10823:40064",
+            "10823:40058"
+          ]
+        },
+        {
+          "set": "switch-control",
+          "id": "10823:40057",
+          "size": "md",
+          "count": 2,
+          "heights": [
+            24
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10823:40061",
+            "10823:40067"
+          ]
+        },
+        {
+          "set": "selector",
+          "id": "10322:34900",
+          "size": "lg",
+          "count": 8,
+          "heights": [
+            84,
+            116
+          ],
+          "fonts": [
+            15,
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:34921",
+            "10322:34951"
+          ]
+        },
+        {
+          "set": "selector",
+          "id": "10322:34900",
+          "size": "md",
+          "count": 8,
+          "heights": [
+            76,
+            108
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:34911",
+            "10322:34941"
+          ]
+        },
+        {
+          "set": "radio/radio-list-item",
+          "id": "10388:56854",
+          "size": "lg",
+          "count": 12,
+          "heights": [
+            66,
+            44
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10388:56872",
+            "10388:56881"
+          ]
+        },
+        {
+          "set": "radio/radio-list-item",
+          "id": "10388:56854",
+          "size": "md",
+          "count": 12,
+          "heights": [
+            56,
+            36
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10388:56855",
+            "10388:56864"
+          ]
+        },
+        {
+          "set": "radio/radio-list",
+          "id": "10388:57047",
+          "size": "lg",
+          "count": 2,
+          "heights": [
+            206,
+            102
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10388:57055",
+            "10388:57069"
+          ]
+        },
+        {
+          "set": "radio/radio-list",
+          "id": "10388:57047",
+          "size": "md",
+          "count": 2,
+          "heights": [
+            176,
+            88
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10388:57048",
+            "10388:57062"
+          ]
+        },
+        {
+          "set": "number-input",
+          "id": "10322:34531",
+          "size": "lg",
+          "count": 8,
+          "heights": [
+            84,
+            116
+          ],
+          "fonts": [
+            15,
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:34558",
+            "10322:34597"
+          ]
+        },
+        {
+          "set": "number-input",
+          "id": "10322:34531",
+          "size": "md",
+          "count": 8,
+          "heights": [
+            76,
+            108
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:34545",
+            "10322:34584"
+          ]
+        },
+        {
+          "set": "selector/multi-selector",
+          "id": "10322:32283",
+          "size": "lg",
+          "count": 64,
+          "heights": [
+            84,
+            116
+          ],
+          "fonts": [
+            15,
+            16.5,
+            13.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:33756",
+            "10322:33767"
+          ]
+        },
+        {
+          "set": "selector/multi-selector",
+          "id": "10322:32283",
+          "size": "md",
+          "count": 64,
+          "heights": [
+            76,
+            108
+          ],
+          "fonts": [
+            15,
+            12
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:33020",
+            "10322:33031"
+          ]
+        },
+        {
+          "set": "date-input",
+          "id": "10322:31820",
+          "size": "lg",
+          "count": 8,
+          "heights": [
+            84,
+            116
+          ],
+          "fonts": [
+            15,
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:31841",
+            "10322:31871"
+          ]
+        },
+        {
+          "set": "date-input",
+          "id": "10322:31820",
+          "size": "md",
+          "count": 8,
+          "heights": [
+            76,
+            108
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:31831",
+            "10322:31861"
+          ]
+        },
+        {
+          "set": "field",
+          "id": "10322:32097",
+          "size": "lg",
+          "count": 4,
+          "heights": [
+            84,
+            116
+          ],
+          "fonts": [
+            15,
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10425:24124",
+            "10425:24155"
+          ]
+        },
+        {
+          "set": "field",
+          "id": "10322:32097",
+          "size": "md",
+          "count": 4,
+          "heights": [
+            76,
+            108
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10322:32098",
+            "10322:32107"
+          ]
+        },
+        {
+          "set": "checkbox/checkbox-input",
+          "id": "10737:37768",
+          "size": "lg",
+          "count": 12,
+          "heights": [
+            44
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10748:22579",
+            "10748:22602"
+          ]
+        },
+        {
+          "set": "checkbox/checkbox-input",
+          "id": "10737:37768",
+          "size": "md",
+          "count": 12,
+          "heights": [
+            36
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10737:37873",
+            "10748:22475"
+          ]
+        }
+      ]
+    },
+    {
+      "page": "content",
+      "rows": [
+        {
+          "set": "token",
+          "id": "10481:30669",
+          "size": "lg",
+          "count": 24,
+          "heights": [
+            22
+          ],
+          "fonts": [
+            13.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10481:30684",
+            "10481:30691"
+          ]
+        },
+        {
+          "set": "token",
+          "id": "10481:30669",
+          "size": "md",
+          "count": 24,
+          "heights": [
+            20
+          ],
+          "fonts": [
+            12
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10481:30670",
+            "10481:30677"
+          ]
+        },
+        {
+          "set": "code-block",
+          "id": "10481:29684",
+          "size": "md",
+          "count": 1,
+          "heights": [
+            392
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10481:29685"
+          ]
+        },
+        {
+          "set": "avatar",
+          "id": "10481:29146",
+          "size": "md",
+          "count": 12,
+          "heights": [
+            36
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10481:29257",
+            "10481:29259"
+          ]
+        },
+        {
+          "set": "avatar",
+          "id": "10481:29146",
+          "size": "lg",
+          "count": 12,
+          "heights": [
+            48
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10481:29312",
+            "10481:29314"
+          ]
+        },
+        {
+          "set": "avatar",
+          "id": "10481:29438",
+          "size": "lg",
+          "count": 3,
+          "heights": [
+            48
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10481:29475",
+            "10481:29478"
+          ]
+        },
+        {
+          "set": "avatar",
+          "id": "10481:29438",
+          "size": "md",
+          "count": 3,
+          "heights": [
+            36
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10481:29463",
+            "10481:29466"
+          ]
+        }
+      ]
+    },
+    {
+      "page": "chat",
+      "rows": [
+        {
+          "set": "chat/chat-send-button",
+          "id": "10794:31659",
+          "size": "lg",
+          "count": 3,
+          "heights": [
+            44
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10794:31662",
+            "10794:31666"
+          ]
+        },
+        {
+          "set": "chat/chat-send-button",
+          "id": "10794:31659",
+          "size": "md",
+          "count": 3,
+          "heights": [
+            36
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10794:31660",
+            "10794:31664"
+          ]
+        },
+        {
+          "set": "chat/chat-dictation-button",
+          "id": "10794:31672",
+          "size": "lg",
+          "count": 2,
+          "heights": [
+            44
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10794:31675",
+            "10794:31685"
+          ]
+        },
+        {
+          "set": "chat/chat-dictation-button",
+          "id": "10794:31672",
+          "size": "md",
+          "count": 2,
+          "heights": [
+            36
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10794:31673",
+            "10794:31677"
+          ]
+        }
+      ]
+    },
+    {
+      "page": "container",
+      "rows": []
+    },
+    {
+      "page": "feedback",
+      "rows": [
+        {
+          "set": "spinner",
+          "id": "8406:14972",
+          "size": "lg",
+          "count": 4,
+          "heights": [
+            28,
+            58
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8406:15001",
+            "8406:14978"
+          ]
+        },
+        {
+          "set": "spinner",
+          "id": "8406:14972",
+          "size": "md",
+          "count": 4,
+          "heights": [
+            52,
+            24
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8406:14987",
+            "8406:14997"
+          ]
+        },
+        {
+          "set": "badge",
+          "id": "8406:25250",
+          "size": "md",
+          "count": 8,
+          "heights": [
+            20
+          ],
+          "fonts": [
+            12
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8406:25251",
+            "8406:25255"
+          ]
+        },
+        {
+          "set": "badge",
+          "id": "8406:25250",
+          "size": "lg",
+          "count": 8,
+          "heights": [
+            22
+          ],
+          "fonts": [
+            13.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "8406:28758",
+            "8406:28762"
+          ]
+        }
+      ]
+    },
+    {
+      "page": "layout",
+      "rows": []
+    },
+    {
+      "page": "navigation",
+      "rows": [
+        {
+          "set": "tabs/tab-list",
+          "id": "10653:31706",
+          "size": "lg",
+          "count": 2,
+          "heights": [
+            44
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10653:31727",
+            "10653:31732"
+          ]
+        },
+        {
+          "set": "tabs/tab-list",
+          "id": "10653:31706",
+          "size": "md",
+          "count": 2,
+          "heights": [
+            36
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10653:31707",
+            "10653:31712"
+          ]
+        },
+        {
+          "set": "tabs/tab",
+          "id": "10653:31737",
+          "size": "lg",
+          "count": 2,
+          "heights": [
+            44
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10653:31764",
+            "10653:31770"
+          ]
+        },
+        {
+          "set": "tabs/tab",
+          "id": "10653:31737",
+          "size": "md",
+          "count": 2,
+          "heights": [
+            36
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10653:31738",
+            "10653:31744"
+          ]
+        },
+        {
+          "set": "pagination",
+          "id": "10653:31278",
+          "size": "lg",
+          "count": 5,
+          "heights": [
+            44
+          ],
+          "fonts": [
+            16.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10653:31279",
+            "10653:31301"
+          ]
+        },
+        {
+          "set": "pagination",
+          "id": "10653:31278",
+          "size": "md",
+          "count": 5,
+          "heights": [
+            36
+          ],
+          "fonts": [
+            15
+          ],
+          "missingStyle": [],
+          "ids": [
+            "10653:31290",
+            "10653:31308"
+          ]
+        }
+      ]
+    },
+    {
+      "page": "overlay",
+      "rows": []
+    },
+    {
+      "page": "table",
+      "rows": []
+    },
+    {
+      "page": "shared",
+      "rows": [
+        {
+          "set": "image-content",
+          "id": "7959:17331",
+          "size": "lg",
+          "count": 1,
+          "heights": [
+            44
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "7959:17348"
+          ]
+        },
+        {
+          "set": "image-content",
+          "id": "7959:17331",
+          "size": "md",
+          "count": 1,
+          "heights": [
+            36
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "7959:17340"
+          ]
+        },
+        {
+          "set": "person-content",
+          "id": "7959:17383",
+          "size": "lg",
+          "count": 1,
+          "heights": [
+            44
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "7959:17390"
+          ]
+        },
+        {
+          "set": "person-content",
+          "id": "7959:17383",
+          "size": "md",
+          "count": 1,
+          "heights": [
+            36
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "7959:17388"
+          ]
+        },
+        {
+          "set": "slot-label-content",
+          "id": "7959:17426",
+          "size": "lg",
+          "count": 6,
+          "heights": [
+            28,
+            50,
+            20,
+            40
+          ],
+          "fonts": [
+            16.5,
+            13.5
+          ],
+          "missingStyle": [],
+          "ids": [
+            "7959:17427",
+            "8406:27499"
+          ]
+        },
+        {
+          "set": "slot-label-content",
+          "id": "7959:17426",
+          "size": "md",
+          "count": 6,
+          "heights": [
+            24,
+            44,
+            18,
+            36
+          ],
+          "fonts": [
+            15,
+            12
+          ],
+          "missingStyle": [],
+          "ids": [
+            "7959:17436",
+            "8406:27508"
+          ]
+        },
+        {
+          "set": "slot-icon-content",
+          "id": "7962:28640",
+          "size": "lg",
+          "count": 2,
+          "heights": [
+            28,
+            20
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "7962:28641",
+            "7962:28643"
+          ]
+        },
+        {
+          "set": "slot-icon-content",
+          "id": "7962:28640",
+          "size": "md",
+          "count": 2,
+          "heights": [
+            24,
+            18
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "7962:28645",
+            "7962:28647"
+          ]
+        },
+        {
+          "set": "slot-checkbox-content",
+          "id": "7959:17464",
+          "size": "md",
+          "count": 4,
+          "heights": [
+            24
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "7959:17465",
+            "10317:15575"
+          ]
+        },
+        {
+          "set": "slot-checkbox-content",
+          "id": "7959:17464",
+          "size": "lg",
+          "count": 4,
+          "heights": [
+            28
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "7959:17467",
+            "10317:15577"
+          ]
+        },
+        {
+          "set": "slot-radio-content",
+          "id": "10318:15594",
+          "size": "md",
+          "count": 4,
+          "heights": [
+            24
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10318:15595",
+            "10318:15597"
+          ]
+        },
+        {
+          "set": "slot-radio-content",
+          "id": "10318:15594",
+          "size": "lg",
+          "count": 4,
+          "heights": [
+            28
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10318:15599",
+            "10318:15601"
+          ]
+        },
+        {
+          "set": "icon-content",
+          "id": "10388:60625",
+          "size": "lg",
+          "count": 2,
+          "heights": [
+            22,
+            18
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10388:60626",
+            "10388:60628"
+          ]
+        },
+        {
+          "set": "icon-content",
+          "id": "10388:60625",
+          "size": "md",
+          "count": 2,
+          "heights": [
+            20,
+            16
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10388:60630",
+            "10388:60632"
+          ]
+        },
+        {
+          "set": "slot-image-content",
+          "id": "7959:17459",
+          "size": "lg",
+          "count": 1,
+          "heights": [
+            22
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "7959:17460"
+          ]
+        },
+        {
+          "set": "slot-image-content",
+          "id": "7959:17459",
+          "size": "md",
+          "count": 1,
+          "heights": [
+            20
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "7959:17462"
+          ]
+        },
+        {
+          "set": "description-content",
+          "id": "7959:17492",
+          "size": "md",
+          "count": 1,
+          "heights": [
+            16
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "7959:17493"
+          ]
+        },
+        {
+          "set": "icon",
+          "id": "10737:38806",
+          "size": "lg",
+          "count": 1,
+          "heights": [
+            24
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10749:22576"
+          ]
+        },
+        {
+          "set": "icon",
+          "id": "10737:38806",
+          "size": "md",
+          "count": 1,
+          "heights": [
+            20
+          ],
+          "fonts": [],
+          "missingStyle": [],
+          "ids": [
+            "10749:22573"
+          ]
+        }
+      ]
+    }
+  ],
+  "compact": [
+    {
+      "page": "action",
+      "rows": [
+        {
+          "set": "action/button-group",
+          "id": "8400:13980",
+          "size": "lg",
+          "count": 6,
+          "h": [
+            44,
+            134
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "action/button-group",
+          "id": "8400:13980",
+          "size": "md",
+          "count": 6,
+          "h": [
+            36,
+            110
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "context-menu",
+          "id": "8406:27972",
+          "size": "lg",
+          "count": 1,
+          "h": [
+            215
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "context-menu",
+          "id": "8406:27972",
+          "size": "md",
+          "count": 1,
+          "h": [
+            215
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "menu-item",
+          "id": "8406:27695",
+          "size": "lg",
+          "count": 4,
+          "h": [
+            36
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "menu-item",
+          "id": "8406:27695",
+          "size": "md",
+          "count": 4,
+          "h": [
+            36
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "menu-divider",
+          "id": "10301:18822",
+          "size": "md",
+          "count": 1,
+          "h": [
+            9
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "menu-divider",
+          "id": "10301:18822",
+          "size": "lg",
+          "count": 1,
+          "h": [
+            13
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "dropdown-menu",
+          "id": "10794:30460",
+          "size": "lg",
+          "count": 4,
+          "h": [
+            36,
+            209
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "dropdown-menu",
+          "id": "10794:30460",
+          "size": "md",
+          "count": 4,
+          "h": [
+            28,
+            201
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "button/toggle-button",
+          "id": "8406:23379",
+          "size": "lg",
+          "count": 4,
+          "h": [
+            36
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "button/toggle-button",
+          "id": "8406:23379",
+          "size": "md",
+          "count": 4,
+          "h": [
+            28
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "segmented-control",
+          "id": "8464:32640",
+          "size": "md",
+          "count": 2,
+          "h": [
+            28
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "segmented-control",
+          "id": "8464:32640",
+          "size": "lg",
+          "count": 2,
+          "h": [
+            36
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "segmented-control/segmented-control-item",
+          "id": "8464:32785",
+          "size": "lg",
+          "count": 6,
+          "h": [
+            32
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "segmented-control/segmented-control-item",
+          "id": "8464:32785",
+          "size": "md",
+          "count": 6,
+          "h": [
+            24
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "button",
+          "id": "8400:9742",
+          "size": "lg",
+          "count": 84,
+          "h": [
+            36,
+            44
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "button",
+          "id": "8400:9742",
+          "size": "md",
+          "count": 84,
+          "h": [
+            28,
+            36
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "more-menu",
+          "id": "10737:38548",
+          "size": "lg",
+          "count": 8,
+          "h": [
+            36,
+            164,
+            88
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "more-menu",
+          "id": "10737:38548",
+          "size": "md",
+          "count": 8,
+          "h": [
+            28,
+            156
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        }
+      ]
+    },
+    {
+      "page": "input",
+      "rows": [
+        {
+          "set": "input-group",
+          "id": "10322:37482",
+          "size": "lg",
+          "count": 5,
+          "h": [
+            80,
+            108
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [
+            36,
+            38
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "input-group",
+          "id": "10322:37482",
+          "size": "md",
+          "count": 5,
+          "h": [
+            70,
+            98
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [
+            28,
+            30
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "date-time-input",
+          "id": "10322:37116",
+          "size": "lg",
+          "count": 8,
+          "h": [
+            72,
+            98,
+            74
+          ],
+          "font": [
+            13.5,
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "date-time-input",
+          "id": "10322:37116",
+          "size": "md",
+          "count": 8,
+          "h": [
+            64,
+            90,
+            66
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "date-range-input",
+          "id": "10322:36857",
+          "size": "lg",
+          "count": 8,
+          "h": [
+            72,
+            98,
+            74
+          ],
+          "font": [
+            13.5,
+            15
+          ],
+          "inputH": [
+            36,
+            38
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "date-range-input",
+          "id": "10322:36857",
+          "size": "md",
+          "count": 8,
+          "h": [
+            64,
+            90,
+            66
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [
+            28,
+            30
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "checkbox/checkbox-list",
+          "id": "10388:57120",
+          "size": "lg",
+          "count": 2,
+          "h": [
+            170,
+            86
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "checkbox/checkbox-list",
+          "id": "10388:57120",
+          "size": "md",
+          "count": 2,
+          "h": [
+            140,
+            72
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "checkbox/checkbox-list-item",
+          "id": "10388:57149",
+          "size": "lg",
+          "count": 12,
+          "h": [
+            56,
+            36
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "checkbox/checkbox-list-item",
+          "id": "10388:57149",
+          "size": "md",
+          "count": 12,
+          "h": [
+            46,
+            28
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "typeahead",
+          "id": "10322:36567",
+          "size": "lg",
+          "count": 8,
+          "h": [
+            72,
+            98,
+            74
+          ],
+          "font": [
+            13.5,
+            15
+          ],
+          "inputH": [
+            36,
+            38
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "typeahead",
+          "id": "10322:36567",
+          "size": "md",
+          "count": 8,
+          "h": [
+            64,
+            90,
+            66
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [
+            28,
+            30
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "tokenizer",
+          "id": "10322:36219",
+          "size": "lg",
+          "count": 8,
+          "h": [
+            58,
+            84,
+            60
+          ],
+          "font": [
+            13.5,
+            10.5,
+            15
+          ],
+          "inputH": [
+            36,
+            38
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "tokenizer",
+          "id": "10322:36219",
+          "size": "md",
+          "count": 8,
+          "h": [
+            54,
+            80
+          ],
+          "font": [
+            13.5,
+            10.5
+          ],
+          "inputH": [
+            32
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "time-input",
+          "id": "10322:35877",
+          "size": "lg",
+          "count": 8,
+          "h": [
+            72,
+            98,
+            74
+          ],
+          "font": [
+            13.5,
+            15
+          ],
+          "inputH": [
+            36,
+            38
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "time-input",
+          "id": "10322:35877",
+          "size": "md",
+          "count": 8,
+          "h": [
+            64,
+            90,
+            66
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [
+            28,
+            30
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "text-input",
+          "id": "10322:35557",
+          "size": "lg",
+          "count": 8,
+          "h": [
+            84,
+            110,
+            86
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [
+            36,
+            38
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "text-input",
+          "id": "10322:35557",
+          "size": "md",
+          "count": 8,
+          "h": [
+            72,
+            98,
+            74
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [
+            28,
+            30
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "text-area",
+          "id": "10322:35184",
+          "size": "lg",
+          "count": 8,
+          "h": [
+            176,
+            202
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "text-area",
+          "id": "10322:35184",
+          "size": "md",
+          "count": 8,
+          "h": [
+            154,
+            180
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "switch-control",
+          "id": "10823:40057",
+          "size": "lg",
+          "count": 2,
+          "h": [
+            24
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "switch-control",
+          "id": "10823:40057",
+          "size": "md",
+          "count": 2,
+          "h": [
+            20
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "selector",
+          "id": "10322:34900",
+          "size": "lg",
+          "count": 8,
+          "h": [
+            72,
+            98,
+            74
+          ],
+          "font": [
+            13.5,
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "selector",
+          "id": "10322:34900",
+          "size": "md",
+          "count": 8,
+          "h": [
+            64,
+            90,
+            66
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "radio/radio-list-item",
+          "id": "10388:56854",
+          "size": "lg",
+          "count": 12,
+          "h": [
+            56,
+            36
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "radio/radio-list-item",
+          "id": "10388:56854",
+          "size": "md",
+          "count": 12,
+          "h": [
+            46,
+            28
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "radio/radio-list",
+          "id": "10388:57047",
+          "size": "lg",
+          "count": 2,
+          "h": [
+            170,
+            86
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "radio/radio-list",
+          "id": "10388:57047",
+          "size": "md",
+          "count": 2,
+          "h": [
+            140,
+            72
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "number-input",
+          "id": "10322:34531",
+          "size": "lg",
+          "count": 8,
+          "h": [
+            72,
+            98,
+            74
+          ],
+          "font": [
+            13.5,
+            15
+          ],
+          "inputH": [
+            36,
+            38
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "number-input",
+          "id": "10322:34531",
+          "size": "md",
+          "count": 8,
+          "h": [
+            64,
+            90,
+            66
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [
+            28,
+            30
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "selector/multi-selector",
+          "id": "10322:32283",
+          "size": "lg",
+          "count": 64,
+          "h": [
+            72,
+            98
+          ],
+          "font": [
+            13.5,
+            15,
+            12
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "selector/multi-selector",
+          "id": "10322:32283",
+          "size": "md",
+          "count": 64,
+          "h": [
+            64,
+            90
+          ],
+          "font": [
+            13.5,
+            10.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "date-input",
+          "id": "10322:31820",
+          "size": "lg",
+          "count": 8,
+          "h": [
+            72,
+            98,
+            74
+          ],
+          "font": [
+            13.5,
+            15
+          ],
+          "inputH": [
+            36,
+            38
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "date-input",
+          "id": "10322:31820",
+          "size": "md",
+          "count": 8,
+          "h": [
+            64,
+            90,
+            66
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [
+            28,
+            30
+          ],
+          "inputPadding": [
+            10
+          ]
+        },
+        {
+          "set": "field",
+          "id": "10322:32097",
+          "size": "lg",
+          "count": 4,
+          "h": [
+            72,
+            98
+          ],
+          "font": [
+            13.5,
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "field",
+          "id": "10322:32097",
+          "size": "md",
+          "count": 4,
+          "h": [
+            64,
+            90
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "checkbox/checkbox-input",
+          "id": "10737:37768",
+          "size": "lg",
+          "count": 12,
+          "h": [
+            36
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "checkbox/checkbox-input",
+          "id": "10737:37768",
+          "size": "md",
+          "count": 12,
+          "h": [
+            28
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        }
+      ]
+    },
+    {
+      "page": "content",
+      "rows": [
+        {
+          "set": "token",
+          "id": "10481:30669",
+          "size": "lg",
+          "count": 24,
+          "h": [
+            20
+          ],
+          "font": [
+            12
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "token",
+          "id": "10481:30669",
+          "size": "md",
+          "count": 24,
+          "h": [
+            18
+          ],
+          "font": [
+            10.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "code-block",
+          "id": "10481:29684",
+          "size": "md",
+          "count": 1,
+          "h": [
+            362
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "avatar",
+          "id": "10481:29146",
+          "size": "md",
+          "count": 12,
+          "h": [
+            36
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "avatar",
+          "id": "10481:29146",
+          "size": "lg",
+          "count": 12,
+          "h": [
+            48
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "avatar",
+          "id": "10481:29438",
+          "size": "lg",
+          "count": 3,
+          "h": [
+            48
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "avatar",
+          "id": "10481:29438",
+          "size": "md",
+          "count": 3,
+          "h": [
+            36
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        }
+      ]
+    },
+    {
+      "page": "chat",
+      "rows": [
+        {
+          "set": "chat/chat-send-button",
+          "id": "10794:31659",
+          "size": "lg",
+          "count": 3,
+          "h": [
+            36
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "chat/chat-send-button",
+          "id": "10794:31659",
+          "size": "md",
+          "count": 3,
+          "h": [
+            28
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "chat/chat-dictation-button",
+          "id": "10794:31672",
+          "size": "lg",
+          "count": 2,
+          "h": [
+            36
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "chat/chat-dictation-button",
+          "id": "10794:31672",
+          "size": "md",
+          "count": 2,
+          "h": [
+            28
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        }
+      ]
+    },
+    {
+      "page": "feedback",
+      "rows": [
+        {
+          "set": "spinner",
+          "id": "8406:14972",
+          "size": "lg",
+          "count": 4,
+          "h": [
+            26,
+            52
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "spinner",
+          "id": "8406:14972",
+          "size": "md",
+          "count": 4,
+          "h": [
+            46,
+            22
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "badge",
+          "id": "8406:25250",
+          "size": "md",
+          "count": 8,
+          "h": [
+            18
+          ],
+          "font": [
+            10.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "badge",
+          "id": "8406:25250",
+          "size": "lg",
+          "count": 8,
+          "h": [
+            20
+          ],
+          "font": [
+            12
+          ],
+          "inputH": [],
+          "inputPadding": []
+        }
+      ]
+    },
+    {
+      "page": "navigation",
+      "rows": [
+        {
+          "set": "tabs/tab-list",
+          "id": "10653:31706",
+          "size": "lg",
+          "count": 2,
+          "h": [
+            36
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "tabs/tab-list",
+          "id": "10653:31706",
+          "size": "md",
+          "count": 2,
+          "h": [
+            28
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "tabs/tab",
+          "id": "10653:31737",
+          "size": "lg",
+          "count": 2,
+          "h": [
+            36
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "tabs/tab",
+          "id": "10653:31737",
+          "size": "md",
+          "count": 2,
+          "h": [
+            28
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "pagination",
+          "id": "10653:31278",
+          "size": "lg",
+          "count": 5,
+          "h": [
+            36
+          ],
+          "font": [
+            15
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "pagination",
+          "id": "10653:31278",
+          "size": "md",
+          "count": 5,
+          "h": [
+            28
+          ],
+          "font": [
+            13.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        }
+      ]
+    },
+    {
+      "page": "shared",
+      "rows": [
+        {
+          "set": "image-content",
+          "id": "7959:17331",
+          "size": "lg",
+          "count": 1,
+          "h": [
+            44
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "image-content",
+          "id": "7959:17331",
+          "size": "md",
+          "count": 1,
+          "h": [
+            36
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "person-content",
+          "id": "7959:17383",
+          "size": "lg",
+          "count": 1,
+          "h": [
+            36
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "person-content",
+          "id": "7959:17383",
+          "size": "md",
+          "count": 1,
+          "h": [
+            32
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "slot-label-content",
+          "id": "7959:17426",
+          "size": "lg",
+          "count": 6,
+          "h": [
+            24,
+            44,
+            18,
+            36
+          ],
+          "font": [
+            15,
+            12
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "slot-label-content",
+          "id": "7959:17426",
+          "size": "md",
+          "count": 6,
+          "h": [
+            20,
+            38,
+            16,
+            32
+          ],
+          "font": [
+            13.5,
+            10.5
+          ],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "slot-icon-content",
+          "id": "7962:28640",
+          "size": "lg",
+          "count": 2,
+          "h": [
+            24,
+            18
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "slot-icon-content",
+          "id": "7962:28640",
+          "size": "md",
+          "count": 2,
+          "h": [
+            20,
+            16
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "slot-checkbox-content",
+          "id": "7959:17464",
+          "size": "md",
+          "count": 4,
+          "h": [
+            20
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "slot-checkbox-content",
+          "id": "7959:17464",
+          "size": "lg",
+          "count": 4,
+          "h": [
+            24
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "slot-radio-content",
+          "id": "10318:15594",
+          "size": "md",
+          "count": 4,
+          "h": [
+            20
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "slot-radio-content",
+          "id": "10318:15594",
+          "size": "lg",
+          "count": 4,
+          "h": [
+            24
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "icon-content",
+          "id": "10388:60625",
+          "size": "lg",
+          "count": 2,
+          "h": [
+            20,
+            16
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "icon-content",
+          "id": "10388:60625",
+          "size": "md",
+          "count": 2,
+          "h": [
+            18,
+            14
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "slot-image-content",
+          "id": "7959:17459",
+          "size": "lg",
+          "count": 1,
+          "h": [
+            22
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "slot-image-content",
+          "id": "7959:17459",
+          "size": "md",
+          "count": 1,
+          "h": [
+            20
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "description-content",
+          "id": "7959:17492",
+          "size": "md",
+          "count": 1,
+          "h": [
+            14
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "icon",
+          "id": "10737:38806",
+          "size": "lg",
+          "count": 1,
+          "h": [
+            24
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        },
+        {
+          "set": "icon",
+          "id": "10737:38806",
+          "size": "md",
+          "count": 1,
+          "h": [
+            20
+          ],
+          "font": [],
+          "inputH": [],
+          "inputPadding": []
+        }
+      ]
+    }
+  ]
+}

@@ -18,6 +18,20 @@ export const minimIconComponents = {
   icon: {
     base: {
       lineHeight: '1',
+      // Only input affordances: preserve option rows, help and status paints.
+      ':is(.astryx-input-start-icon *, .astryx-typeahead > .astryx-icon, .astryx-selector > .astryx-icon, .astryx-multi-selector > .astryx-icon, .astryx-time-input > div > .astryx-icon, .astryx-time-input > button > .astryx-icon)':
+        {
+          color: minim('fg-neutral'),
+          fontWeight: minim('typography-font-weight-medium'),
+        },
+      ':is(.astryx-tokenizer > .astryx-icon, .astryx-tokenizer > span > .astryx-icon)':
+        {
+          color: minim('fg-neutral'),
+          fontWeight: minim('typography-font-weight-regular'),
+        },
+      ':is(.astryx-field-label *)': {
+        fontWeight: minim('typography-font-weight-medium'),
+      },
     },
     'size:xsm': {
       width: iconBox('typography-line-height-xs'),

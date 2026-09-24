@@ -385,7 +385,7 @@ export interface SideNavItemProps extends BaseProps<HTMLElement> {
       };
   /**
    * Size variant for the nav item.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: NavItemSize;
 }
@@ -437,7 +437,7 @@ export function SideNavItem({
   actions,
   children,
   collapsible: itemCollapsible,
-  size = 'md',
+  size = 'lg',
   'data-testid': testId,
   ref,
   xstyle,

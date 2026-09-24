@@ -212,7 +212,7 @@ export function CheckboxIndicator({
         ),
         stylex.props(
           styles.box,
-          boxSizeStyles[size],
+          boxSizeStyles[size === 'lg' ? 'md' : size],
           isCheckedOrIndeterminate ? styles.checked : styles.unchecked,
           isDisabled && styles.disabled,
           isDisabled && !isCheckedOrIndeterminate && styles.disabledUnchecked,
@@ -231,7 +231,7 @@ export function CheckboxIndicator({
               themeProps('checkbox-indicator-check', {size}),
               stylex.props(
                 styles.checkmark,
-                checkmarkSizeStyles[size],
+                checkmarkSizeStyles[size === 'lg' ? 'md' : size],
                 isChecked && styles.checkmarkVisible,
               ),
             )}>
@@ -249,7 +249,7 @@ export function CheckboxIndicator({
               themeProps('checkbox-indicator-dash', {size}),
               stylex.props(
                 styles.indeterminateMark,
-                indeterminateSizeStyles[size],
+                indeterminateSizeStyles[size === 'lg' ? 'md' : size],
                 isIndeterminate && styles.indeterminateMarkVisible,
               ),
             )}

@@ -28,7 +28,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'The size of the token.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'color',
@@ -190,7 +190,7 @@ export const docsZh = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: '标记的大小。',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'color',

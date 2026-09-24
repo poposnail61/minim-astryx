@@ -201,7 +201,7 @@ export interface TokenizerProps<T extends SearchableItem> extends Omit<
   endContent?: ReactNode;
   /** Auto-focus on mount. @default false */
   hasAutoFocus?: boolean;
-  /** Input size. @default 'md' */
+  /** Input size. @default 'lg' */
   size?: TokenizerSize;
   /**
    * Controls how tokens overflow when the container is too narrow.
@@ -484,7 +484,7 @@ export function Tokenizer<T extends SearchableItem>({
   handleRef,
 }: TokenizerProps<T>) {
   const t = useTranslator();
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const inputId = useId();
   const descriptionId = useId();
   const statusMessageId = useId();

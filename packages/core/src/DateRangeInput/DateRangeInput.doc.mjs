@@ -132,7 +132,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'Size of the trigger.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'status',
@@ -184,6 +184,7 @@ export const docs = {
         states: ['disabled'],
       },
       {className: 'astryx-date-range-input-toggle-icon', states: ['state']},
+      {className: 'astryx-date-range-input-popup'},
       {
         className: 'astryx-date-range-input-clear-icon',
         deprecatedFor: 'input-clear-icon',
@@ -236,6 +237,11 @@ export const docs = {
       },
     ],
     anatomy: [
+      {
+        name: 'Calendar popup surface',
+        required: false,
+        description: 'Positioned popover surface wrapping the range calendar.',
+      },
       {
         name: 'Label',
         required: true,

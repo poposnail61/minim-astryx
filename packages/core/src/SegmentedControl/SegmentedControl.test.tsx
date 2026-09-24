@@ -152,7 +152,7 @@ describe('SegmentedControl', () => {
     expect(screen.getByText('Grid')).toHaveClass(
       'astryx-segmented-control-item-label',
     );
-    expect(screen.getByText('Grid')).toHaveAttribute('data-size', 'md');
+    expect(screen.getByText('Grid')).toHaveAttribute('data-size', 'lg');
     expect(screen.getByText('Grid')).toHaveAttribute(
       'data-selected',
       'selected',

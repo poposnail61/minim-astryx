@@ -449,7 +449,7 @@ export interface PowerSearchProps extends Omit<
   handleRef?: React.Ref<PowerSearchHandle>;
   /**
    * Size of the search input.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: PowerSearchSize;
   /**
@@ -580,7 +580,7 @@ export function PowerSearch({
   style,
   components: componentOverrides,
 }: PowerSearchProps) {
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const config = useInternalConfig(configProp);
   const searchSource = usePowerSearchSource(config, maxSearchResults);
   const t = useTranslator();

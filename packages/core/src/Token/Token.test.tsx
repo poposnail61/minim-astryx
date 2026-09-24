@@ -108,7 +108,7 @@ describe('Token', () => {
     const removeButton = screen.getByRole('button', {name: 'Remove Removable'});
     expect(removeButton).toBeInTheDocument();
     expect(removeButton).toHaveClass('astryx-token-remove');
-    expect(removeButton).toHaveAttribute('data-size', 'md');
+    expect(removeButton).toHaveAttribute('data-size', 'lg');
     fireEvent.click(removeButton);
     expect(handleRemove).toHaveBeenCalledTimes(1);
   });

@@ -147,7 +147,7 @@ unqualified `banner` target.
   "Banner frame": {"target": "banner-frame"},
   "Status surface": {"target": "banner"},
   "Icon": {"target": "banner-icon"},
-  "Title": {"inherits": "banner"},
+  "Title": {"target": "banner-title"},
   "Description": {"target": "banner-description"},
   "Action button": {
     "delegatesTo": {"owner": "component:Button", "target": "button"}

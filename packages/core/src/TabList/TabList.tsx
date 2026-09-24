@@ -97,7 +97,7 @@ export interface TabListProps extends Omit<BaseProps<HTMLElement>, 'onChange'> {
   /**
    * Size of the tab hover targets. Uses the same element size tokens
    * as Button and TextInput (`sm` = 28px, `md` = 32px, `lg` = 36px).
-   * @default 'md'
+   * @default 'lg'
    */
   size?: TabListSize;
   /**
@@ -415,7 +415,7 @@ export function TabList({
 }: TabListProps) {
   const t = useTranslator();
   const ariaLabel = ariaLabelFromProps ?? t('@astryx.tabList.label');
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const hasScroll = overflow !== 'visible';
 
   const stripRef = useRef<HTMLDivElement | null>(null);

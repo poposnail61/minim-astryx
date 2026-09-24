@@ -65,7 +65,7 @@ export type IndicatorState<F extends IndicatorFamily = IndicatorFamily> =
   IndicatorFamilyMap[F];
 
 /** Indicator size scale — matches the control sizes of the owning inputs. */
-export type IndicatorSize = 'sm' | 'md';
+export type IndicatorSize = 'sm' | 'md' | 'lg';
 
 /**
  * Which edge of its row an indicator sits on.

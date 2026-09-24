@@ -8,14 +8,32 @@ import {minimBaseTokens, minimCompactTokens} from '../minimTokens.generated';
 const px = (value: string) => Number.parseFloat(value) * 16;
 
 describe('Minim advanced component styles', () => {
+  it('uses a quiet neutral today marker without changing selection', () => {
+    for (const marker of [
+      'marker:today-only',
+      'marker:today-in-range',
+    ] as const) {
+      expect(minimAdvancedComponents['calendar-day'][marker].boxShadow).toBe(
+        'inset 0 0 0 1px var(--minim-stroke-neutral)',
+      );
+    }
+    expect(
+      minimAdvancedComponents['calendar-day']['selected:selected']
+        .backgroundColor,
+    ).toBe('var(--minim-bg-primary-solid)');
+  });
   it('keeps audited unbound primitives density-independent', () => {
     expect(minimAdvancedComponents.calendar.base).toMatchObject({
-      '--calendar-cell-size': '32px',
+      '--calendar-cell-size':
+        'calc(var(--minim-content-large-box-size) + 2 * var(--minim-control-large-padding-block))',
+      '--calendar-cell-padding': 'var(--minim-spacing-50)',
       borderRadius: 'var(--minim-radius-container)',
     });
     expect(minimAdvancedComponents['calendar-day'].base).toMatchObject({
-      width: '28px',
-      height: '28px',
+      width: '100%',
+      height: '100%',
+      fontSize: 'var(--minim-typography-font-size-lg)',
+      lineHeight: 'var(--minim-typography-line-height-lg)',
     });
     expect(minimAdvancedComponents['slider-track'].base).toMatchObject({
       backgroundColor: 'var(--minim-fg-neutral)',
@@ -30,11 +48,11 @@ describe('Minim advanced component styles', () => {
 
   it('derives power-search height inside the border box in both densities', () => {
     const height = (tokens: typeof minimBaseTokens) =>
-      px(tokens['--minim-typography-line-height-md']) +
-      2 * px(tokens['--minim-spacing-150']);
+      px(tokens['--minim-content-large-box-size']) +
+      2 * px(tokens['--minim-control-large-padding-block']);
 
-    expect(height(minimBaseTokens)).toBe(32);
-    expect(height(minimCompactTokens)).toBe(26);
+    expect(height(minimBaseTokens)).toBe(44);
+    expect(height(minimCompactTokens)).toBe(36);
     expect(
       minimAdvancedComponents['power-search-trigger'].base[
         '--power-search-trigger-min-height'
@@ -47,12 +65,13 @@ describe('Minim advanced component styles', () => {
     ).toBe('var(--minim-stroke-primary)');
   });
 
-  it('keeps file input border inside 32px and maps popover mode padding', () => {
+  it('keeps file input border inside large controls and maps popover mode padding', () => {
     const fileHeight = (tokens: typeof minimBaseTokens) =>
-      px(tokens['--minim-content-medium-box-size']) +
-      2 * px(tokens['--minim-spacing-100']);
+      px(tokens['--minim-content-large-box-size']) +
+      2 * px(tokens['--minim-control-large-padding-block']);
 
-    expect(fileHeight(minimBaseTokens)).toBe(32);
+    expect(fileHeight(minimBaseTokens)).toBe(44);
+    expect(fileHeight(minimCompactTokens)).toBe(36);
     expect(minimAdvancedComponents['file-input'].base.boxSizing).toBe(
       'border-box',
     );

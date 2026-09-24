@@ -60,7 +60,7 @@ export interface MoreMenuProps extends Pick<
 
   /**
    * Size of the trigger button.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: ButtonSize;
 
@@ -146,7 +146,7 @@ export function MoreMenu({
 }: MoreMenuProps) {
   const t = useTranslator();
   const label = labelFromProps ?? t('@astryx.moreMenu.label');
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const moreIcon = useIcon('moreHorizontal');
 
   return (

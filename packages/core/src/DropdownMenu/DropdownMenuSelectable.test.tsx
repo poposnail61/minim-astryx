@@ -142,7 +142,7 @@ describe('DropdownMenuRadioGroup / RadioItem', () => {
     // retains the shared radio target for fallback themes.
     const box = checked.querySelector('.astryx-dropdown-menu-radio');
     expect(checked).toHaveClass('astryx-menu-radio-row');
-    expect(checked).toHaveAttribute('data-size', 'md');
+    expect(checked).toHaveAttribute('data-size', 'lg');
     expect(box).toHaveClass('astryx-radio');
     expect(box).toHaveAttribute('data-size', 'md');
     expect(box).toHaveAttribute('data-checked', 'checked');

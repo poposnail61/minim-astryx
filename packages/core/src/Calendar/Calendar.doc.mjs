@@ -195,6 +195,12 @@ export const docs = {
         default: 'var(--size-element-md)',
       },
       {
+        name: '--_calendar-cell-size',
+        description: 'Resolved grid-cell size inherited by calendar descendants.',
+        default: 'var(--calendar-cell-size, var(--size-element-md))',
+        private: true,
+      },
+      {
         name: '--_calendar-day-size',
         description: 'Private visible day-button size inside a calendar cell.',
         default: 'var(--size-element-sm)',
@@ -351,6 +357,12 @@ export const docsZh = {
         description:
           'Grid-cell size shared by calendar headers, rows, and range fills.',
         default: 'var(--size-element-md)',
+      },
+      {
+        name: '--_calendar-cell-size',
+        description: 'Resolved grid-cell size inherited by calendar descendants.',
+        default: 'var(--calendar-cell-size, var(--size-element-md))',
+        private: true,
       },
       {
         name: '--_calendar-day-size',

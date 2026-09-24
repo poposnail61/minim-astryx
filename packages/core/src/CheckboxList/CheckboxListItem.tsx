@@ -216,7 +216,7 @@ export function CheckboxListItem({
   // Density from list context for checkbox sizing
   const listCtx = use(ListContext);
   const density = listCtx?.density ?? 'balanced';
-  const checkboxSize = density === 'compact' ? 'sm' : 'md';
+  const checkboxSize = ctx?.size ?? (density === 'compact' ? 'md' : 'lg');
 
   // Disabled: parent-level OR item-level
   const effectiveDisabled = (ctx?.isDisabled ?? false) || isItemDisabled;

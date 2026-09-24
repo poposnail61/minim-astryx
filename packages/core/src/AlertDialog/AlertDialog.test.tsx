@@ -221,7 +221,7 @@ describe('AlertDialog', () => {
       for (const button of buttons) {
         const computed = getComputedStyle(button);
         expect(computed.whiteSpace).toBe('nowrap');
-        expect(computed.height).toBe('var(--size-element-md)');
+        expect(computed.height).toBe('var(--size-element-lg)');
         expect(computed.maxWidth).toBe('100%');
       }
     });

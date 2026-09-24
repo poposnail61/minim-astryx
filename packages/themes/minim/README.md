@@ -29,6 +29,17 @@ The current Figma source is light-mode only, so both theme definitions use the s
 
 ## Verification
 
+### Menu item spacing
+
+Adjacent menu items use `spacing/50` (`--minim-spacing-50`), which is
+`0.125rem` (2px at the default root size) in both Base and Compact.
+Use `SideNavSection` with `SideNavItem` for sidebar navigation; the section
+owns the inter-item gap via `--spacing-0-5`, mapped to `spacing/50`.
+Dropdown and selector lists use the same Minim spacing token in their theme
+recipes. Do not substitute a stack of buttons with a separate gap value.
+This is the gap **between items**, not the icon/label gap inside an item or
+the space between navigation sections.
+
 `scripts/check-minim-blue-components.mjs` opens all 36 documented families in both density modes and records screenshots, runtime errors, and page overflow. `scripts/check-minim-blue-interactions.mjs` checks keyboard navigation, card selection, popover dismissal, and five representative mobile layouts. Start the docsite first; the default QA URL is `http://127.0.0.1:5181` and can be changed with `MINIM_QA_URL`.
 
 These checks exercise real component showcases, not generated playground controls. They are rendering and interaction checks, not a pixel-diff guarantee for every Figma variant. The captured Figma evidence preserves variant names and token bindings for further design review.

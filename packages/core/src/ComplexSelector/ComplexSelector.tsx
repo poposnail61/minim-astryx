@@ -338,7 +338,7 @@ export function ComplexSelector<Value>({
   status,
   statusVariant = 'attached',
   labelTooltip,
-  size = 'md',
+  size = 'lg',
   variant = 'input',
   startIcon,
   width,

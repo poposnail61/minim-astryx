@@ -278,12 +278,12 @@ export interface ButtonProps extends BaseProps<HTMLButtonElement> {
   label: string;
   /**
    * The visual style variant of the button.
-   * @default 'secondary'
+   * @default 'neutral'
    */
   variant?: ButtonVariant;
   /**
    * The size of the button.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: ButtonSize;
   /**
@@ -556,7 +556,7 @@ const groupStyles = stylex.create({
  */
 export function Button({
   label,
-  variant = 'secondary',
+  variant = 'neutral',
   size: sizeProp,
   type = 'button',
   isDisabled = false,
@@ -581,7 +581,7 @@ export function Button({
   ...props
 }: ButtonProps): ReactNode {
   const t = useTranslator();
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const buttonGroup = useButtonGroup();
 
   const [isPending, startTransition] = useTransition();

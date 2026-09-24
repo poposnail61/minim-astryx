@@ -96,9 +96,9 @@ export const docs = {
     },
     {
       name: 'size',
-      type: "'sm' | 'md'",
+      type: "'sm' | 'md' | 'lg'",
       description: 'The size of the checkbox. sm for compact layouts, md for default.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'onFocus',
@@ -130,10 +130,11 @@ export const docs = {
   ],
   theming: {
     targets: [
-      {className: 'astryx-checkbox-input', visualProps: ['size']},
+      {className: 'astryx-checkbox-input', visualProps: ['size', 'label']},
+      {className: 'astryx-checkbox-control-slot', visualProps: ['size']},
       {className: 'astryx-checkbox-indicator', visualProps: ['size'], states: ['checked', 'disabled']},
       {className: 'astryx-checkbox', visualProps: ['size'], states: ['checked', 'disabled'], deprecatedFor: 'checkbox-indicator'},
-      {className: 'astryx-checkbox-label'},
+      {className: 'astryx-checkbox-label', visualProps: ['size']},
     ],
   },
   usage: {
@@ -190,7 +191,7 @@ export const docsZh = {
     {name: 'isReadOnly', type: 'boolean', description: '复选框是否为只读。以完整不透明度显示当前状态但阻止交互。与 isDisabled 不同，只读复选框不会变暗。', default: 'false'},
     {name: 'isOptional', type: 'boolean', description: '字段是否可选。与 isRequired 互斥。', default: 'false'},
     {name: 'isRequired', type: 'boolean', description: '复选框是否必填。与 isOptional 互斥。', default: 'false'},
-    {name: 'size', type: "'sm' | 'md'", description: '复选框尺寸。sm 用于紧凑布局，md 为默认。', default: "'md'"},
+    {name: 'size', type: "'sm' | 'md' | 'lg'", description: '复选框尺寸。sm 用于紧凑布局，md 为默认。', default: "'lg'"},
     {name: 'onFocus', type: '(e: FocusEvent<HTMLInputElement>) => void', description: '复选框获得焦点时触发的回调。'},
     {name: 'onBlur', type: '(e: FocusEvent<HTMLInputElement>) => void', description: '复选框失去焦点时触发的回调。'},
     {name: 'labelIcon', type: 'IconType', description: '标签文本前显示的图标。'},
@@ -206,11 +207,13 @@ export const docsZh = {
         className: 'astryx-checkbox-input',
         visualProps: [
           'size',
+          'label',
         ],
       },
+      {className: 'astryx-checkbox-control-slot', visualProps: ['size']},
       {className: 'astryx-checkbox-indicator', visualProps: ['size'], states: ['checked', 'disabled']},
       {className: 'astryx-checkbox', visualProps: ['size'], states: ['checked', 'disabled'], deprecatedFor: 'checkbox-indicator'},
-      {className: 'astryx-checkbox-label'},
+      {className: 'astryx-checkbox-label', visualProps: ['size']},
     ],
   },
 };

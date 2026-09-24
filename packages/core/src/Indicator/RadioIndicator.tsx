@@ -176,7 +176,7 @@ export function RadioIndicator({
         ),
         stylex.props(
           styles.circle,
-          circleSizeStyles[size],
+          circleSizeStyles[size === 'lg' ? 'md' : size],
           isChecked ? styles.checked : styles.unchecked,
           isDisabled && styles.disabled,
           isDisabled && !isChecked && styles.disabledUnchecked,
@@ -195,7 +195,10 @@ export function RadioIndicator({
                   {size},
                   {legacyNames: ['radio-dot']},
                 ),
-                stylex.props(styles.dot, dotSizeStyles[size]),
+                stylex.props(
+                  styles.dot,
+                  dotSizeStyles[size === 'lg' ? 'md' : size],
+                ),
               )}
             />
           )}

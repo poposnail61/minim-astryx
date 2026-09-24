@@ -226,7 +226,7 @@ export const docs = {
       type: "'sm' | 'md' | 'lg'",
       description:
         'Size of the textarea, affecting internal padding. Height is controlled by rows, not size.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'onPaste',
@@ -490,7 +490,7 @@ export const docsZh = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: '文本域的尺寸，影响内部填充。高度由 rows 控制，而非 size。',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'onPaste',

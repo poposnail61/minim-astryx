@@ -72,7 +72,7 @@ export const docs = {
       name: 'size',
       type: 'ButtonSize',
       description: 'Size of the trigger button.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'icon',
@@ -174,7 +174,7 @@ export const docsZh = {
       name: 'size',
       type: 'ButtonSize',
       description: '触发按钮的尺寸。',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'icon',

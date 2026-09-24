@@ -34,7 +34,7 @@
       "require": "./dist/source.js"
     },
     "./built": {
-      "types": "./dist/minim-family.d.ts",
+      "types": "./built.d.ts",
       "import": "./dist/minim-family.js",
       "require": "./dist/minim-family.js"
     },
@@ -46,6 +46,7 @@
     "./assets/icon-catalog.json": "./assets/icon-catalog.json"
   },
   "files": [
+    "built.d.ts",
     "dist",
     "src/fonts.css",
     "assets/icon-catalog.json",

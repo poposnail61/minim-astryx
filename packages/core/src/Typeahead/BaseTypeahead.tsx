@@ -240,7 +240,7 @@ export interface BaseTypeaheadProps<T extends SearchableItem> extends Omit<
   /**
    * Size of the typeahead, used to scale dropdown item padding.
    * When 'sm', items get compact padding to match the trigger size.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: 'sm' | 'md' | 'lg';
 }
@@ -447,7 +447,7 @@ export const BaseTypeahead = function BaseTypeahead<T extends SearchableItem>({
   anchorRef,
   onKeyDown: externalOnKeyDown,
   debounceMs = 150,
-  size = 'md',
+  size = 'lg',
   xstyle,
   className,
   style,
@@ -563,6 +563,7 @@ export const BaseTypeahead = function BaseTypeahead<T extends SearchableItem>({
     // The popup's own role="listbox" is the exposed semantics; the input keeps
     // DOM focus, so wrapping it in a modal dialog would misrepresent it.
     role: 'none',
+    surfaceTarget: 'typeahead-popup',
   });
 
   // Show the layer, deferring past the active click if a pointer is down.
@@ -1096,11 +1097,14 @@ export const BaseTypeahead = function BaseTypeahead<T extends SearchableItem>({
                     tabIndex={-1}
                     onClick={() => handleSelect(item)}
                     onMouseEnter={() => highlightOnHover(index)}
-                    {...stylex.props(
-                      styles.item,
-                      itemSizeStyles[size],
-                      index === highlightedIndex && styles.itemHighlighted,
-                      isSelected && styles.itemSelected,
+                    {...mergeProps(
+                      themeProps('typeahead-option-row', {size}),
+                      stylex.props(
+                        styles.item,
+                        itemSizeStyles[size],
+                        index === highlightedIndex && styles.itemHighlighted,
+                        isSelected && styles.itemSelected,
+                      ),
                     )}>
                     <span {...stylex.props(styles.itemContent)}>
                       {renderItem ? (

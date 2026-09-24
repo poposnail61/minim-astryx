@@ -237,7 +237,10 @@ const styles = stylex.create({
     // and a themed size moves both together — without the sizing moving from
     // an inline style to a rule, which would hand a caller's `style={{width}}`
     // a precedence over the box that it has never had.
-    [BOX_SIZE]: `calc(var(${RESOLVED_DIAMETER}) + var(${RESOLVED_STROKE}) * 2)`,
+    [BOX_SIZE]: `var(--spinner-box-size, calc(var(${RESOLVED_DIAMETER}) + var(${RESOLVED_STROKE}) * 2))`,
+    boxSizing: 'content-box',
+    paddingInline: 'var(--spinner-padding-inline, 0px)',
+    paddingBlock: 'var(--spinner-padding-block, 0px)',
 
     // The box is the ring's size, and a host does not get to take that away.
     //
@@ -298,7 +301,7 @@ const styles = stylex.create({
     // attribute would need that centre as a number in user units.
     transformBox: 'fill-box',
     transformOrigin: 'center',
-    strokeLinecap: 'round',
+    strokeLinecap: 'var(--spinner-linecap, round)',
     // The geometry the ring is actually drawn at. `r` and `stroke-width` are
     // CSS properties on an SVG shape, and a CSS declaration outranks the
     // presentation attribute of the same name — so the attributes below stay
@@ -427,7 +430,7 @@ export interface SpinnerProps extends BaseProps<HTMLSpanElement> {
    * - 'md': 14px diameter
    * - 'lg': 18px diameter
    * - 'xl': 28px diameter
-   * @default 'md'
+   * @default 'lg'
    */
   size?: SpinnerSize;
   /**
@@ -479,7 +482,7 @@ export interface SpinnerProps extends BaseProps<HTMLSpanElement> {
  * ```
  */
 export function Spinner({
-  size = 'md',
+  size = 'lg',
   shade = 'default',
   label,
   xstyle,
@@ -559,10 +562,13 @@ export function Spinner({
           cy="50%"
           r={diameter / 2}
           strokeWidth={border}
-          {...stylex.props(
-            styles.circle,
-            styles.track,
-            trackOpacityStyles[shade],
+          {...mergeProps(
+            themeProps('spinner-track', {shade}),
+            stylex.props(
+              styles.circle,
+              styles.track,
+              trackOpacityStyles[shade],
+            ),
           )}
         />
         <circle
@@ -602,7 +608,11 @@ export function Spinner({
       )}>
       {spinner}
       {typeof label === 'string' ? (
-        <Text id={labelId} type="body" weight="bold">
+        <Text
+          id={labelId}
+          type="body"
+          weight="bold"
+          {...themeProps('spinner-label', {size, shade})}>
           {label}
         </Text>
       ) : (

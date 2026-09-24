@@ -141,7 +141,7 @@ export interface ToggleButtonProps extends BaseProps<HTMLButtonElement> {
   /**
    * The size of the toggle button.
    * When used inside ToggleButtonGroup, defaults to the group's size.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: ButtonSize;
 
@@ -269,7 +269,7 @@ export function ToggleButton({
     group && value != null
       ? group.selectedValues.has(value)
       : (isPressedProp ?? false);
-  const size = sizeProp ?? group?.size ?? 'md';
+  const size = sizeProp ?? group?.size ?? 'lg';
   const isDisabled = group?.isDisabled ?? isDisabledProp;
 
   // Track the pressed state optimistically so the button reflects the intended

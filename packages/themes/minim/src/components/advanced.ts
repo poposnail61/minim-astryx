@@ -22,7 +22,14 @@ const fieldSurface = {
 export const minimAdvancedComponents = {
   calendar: {
     base: {
-      '--calendar-cell-size': '32px',
+      '--calendar-cell-size':
+        'calc(var(--minim-content-large-box-size) + 2 * var(--minim-control-large-padding-block))',
+      '--calendar-cell-padding': minim('spacing-50'),
+      '--calendar-month-font-size': minim('typography-font-size-lg'),
+      '--calendar-month-line-height': minim('typography-line-height-lg'),
+      '--calendar-weekday-height': minim('typography-line-height-sm'),
+      '--calendar-weekday-padding-bottom': '0px',
+      '--calendar-row-gap': minim('spacing-200'),
       padding: minim('spacing-300'),
       borderRadius: minim('radius-container'),
       backgroundColor: minim('bg-layer'),
@@ -30,10 +37,18 @@ export const minimAdvancedComponents = {
   },
   'calendar-day': {
     base: {
-      width: '28px',
-      height: '28px',
+      width: '100%',
+      height: '100%',
+      fontSize: minim('typography-font-size-lg'),
+      lineHeight: minim('typography-line-height-lg'),
       color: minim('fg-neutral'),
       borderRadius: minim('radius-full'),
+    },
+    'marker:today-only': {
+      boxShadow: `inset 0 0 0 1px ${minim('stroke-neutral')}`,
+    },
+    'marker:today-in-range': {
+      boxShadow: `inset 0 0 0 1px ${minim('stroke-neutral')}`,
     },
     'selected:selected': {
       color: minim('fg-on-surface'),
@@ -44,9 +59,9 @@ export const minimAdvancedComponents = {
   'power-search-trigger': {
     base: {
       '--power-search-trigger-min-height':
-        'calc(var(--minim-typography-line-height-md) + 2 * var(--minim-spacing-150))',
-      '--power-search-content-gap': minim('content-medium-text-gap'),
-      '--power-search-padding-block': minim('spacing-150'),
+        'calc(var(--minim-content-large-box-size) + 2 * var(--minim-control-large-padding-block))',
+      '--power-search-content-gap': minim('spacing-200'),
+      '--power-search-padding-block': minim('control-large-padding-block'),
       '--power-search-padding-inline': minim('spacing-300'),
       '--power-search-background': minim('bg-field'),
       '--power-search-border-color': minim('stroke-neutral'),
@@ -72,9 +87,9 @@ export const minimAdvancedComponents = {
     base: {...fieldSurface, gap: minim('spacing-200')},
     'mode:input': {
       height:
-        'calc(var(--minim-content-medium-box-size) + 2 * var(--minim-spacing-100))',
-      paddingBlock: minim('spacing-100'),
-      paddingInline: minim('spacing-200'),
+        'calc(var(--minim-content-large-box-size) + 2 * var(--minim-control-large-padding-block))',
+      paddingBlock: minim('control-large-padding-block'),
+      paddingInline: minim('spacing-300'),
     },
     'mode:dropzone': {
       paddingBlock: minim('spacing-500'),
@@ -87,9 +102,9 @@ export const minimAdvancedComponents = {
   'file-input-icon': {
     base: {color: minim('fg-neutral')},
     'mode:input': {
-      '--minim-icon-box-size': minim('typography-line-height-xs'),
-      width: minim('typography-line-height-xs'),
-      height: minim('typography-line-height-xs'),
+      '--minim-icon-box-size': minim('typography-line-height-lg'),
+      width: minim('typography-line-height-lg'),
+      height: minim('typography-line-height-lg'),
     },
     'mode:dropzone': {
       '--minim-icon-box-size': minim('typography-line-height-md'),

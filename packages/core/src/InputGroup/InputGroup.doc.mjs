@@ -72,7 +72,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'Default size for inputs in the group.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'status',

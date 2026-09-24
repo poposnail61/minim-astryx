@@ -636,11 +636,17 @@ export function Banner({
             styles.headerContent,
             isRenderable(endContent) && styles.headerContentWithEndContent,
           )}>
-          <div {...stylex.props(styles.title)}>{title}</div>
+          <div
+            {...mergeProps(
+              themeProps('banner-title', {status}),
+              stylex.props(styles.title),
+            )}>
+            {title}
+          </div>
           {isRenderable(description) && (
             <div
               {...mergeProps(
-                themeProps('banner-description'),
+                themeProps('banner-description', {status}),
                 stylex.props(styles.description),
               )}>
               {description}

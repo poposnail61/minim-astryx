@@ -3,6 +3,13 @@
 /** @type {import('@astryxdesign/cli/authoring').ComponentDoc} */
 
 export const docs = {
+  theming: {
+    targets: [{className: 'astryx-checkbox-list-item', visualProps: ['size']}],
+    derived: [
+      {property: 'fontSize', vars: ['--_item-label-font-size']},
+      {property: 'lineHeight', vars: ['--_item-label-line-height']},
+    ],
+  },
   name: 'CheckboxListItem',
   subComponentOf: 'CheckboxList',
   displayName: 'Checkbox List Item',

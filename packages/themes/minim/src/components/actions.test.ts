@@ -19,18 +19,22 @@ describe('Minim action component overrides', () => {
     expect(group.base).not.toHaveProperty('width');
   });
 
-  it('keeps Toggle public sizes while applying Button md/lg geometry', () => {
+  it('aligns Toggle md/lg sizes with Button md/lg geometry', () => {
     const toggle = minimActionComponents['toggle-button'];
-    expect(toggle['size:sm'].height).toContain(
+    expect(toggle.base.gap).toBe('var(--minim-spacing-200)');
+    expect(toggle['content:icon-only'].paddingInline).toBe('0');
+    expect(toggle['size:md'].paddingInline).toBe('var(--minim-spacing-300)');
+    expect(toggle['size:lg'].paddingInline).toBe('var(--minim-spacing-400)');
+    expect(toggle['size:md'].height).toContain(
       '--minim-content-medium-box-size',
     );
-    expect(toggle['size:md'].height).toContain(
+    expect(toggle['size:lg'].height).toContain(
       '--minim-content-large-box-size',
     );
-    expect(toggle['size:sm']['--minim-button-label-font-size']).toBe(
+    expect(toggle['size:md']['--minim-button-label-font-size']).toBe(
       'var(--minim-typography-font-size-md)',
     );
-    expect(toggle['size:md']['--minim-button-label-font-size']).toBe(
+    expect(toggle['size:lg']['--minim-button-label-font-size']).toBe(
       'var(--minim-typography-font-size-lg)',
     );
   });

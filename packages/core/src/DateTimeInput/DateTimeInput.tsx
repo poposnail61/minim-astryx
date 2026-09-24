@@ -439,7 +439,7 @@ export interface DateTimeInputProps extends Omit<
 
   /**
    * The size of the inputs.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: DateTimeInputSize;
 
@@ -618,7 +618,7 @@ function PointerDateTimeField({
     placeholderFromProps ?? t('@astryx.dateTimeInput.placeholder');
   const timePlaceholder =
     timePlaceholderFromProps ?? t('@astryx.dateTimeInput.timePlaceholder');
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const dateInputId = useId();
   const timeInputId = useId();
   const descriptionID = useId();
@@ -861,6 +861,7 @@ function PointerDateTimeField({
 
   // --- Popover ---
   const popover = usePopover({
+    surfaceTarget: 'date-time-input-popup',
     dialogLabel: t('@astryx.dateTimeInput.dialogLabel'),
     closeButtonLabel: t('@astryx.dateInput.closeCalendar'),
     // Return focus to the date input when the calendar closes — but only when
@@ -1090,6 +1091,7 @@ function PointerDateTimeField({
   }, []);
 
   const timePopover = usePopover({
+    surfaceTarget: 'date-time-input-time-popup',
     hasLightDismiss: true,
     hasCloseButton: false,
     hasAutoFocus: false,

@@ -3,6 +3,11 @@
 /** @type {import('@astryxdesign/cli/authoring').ComponentAnatomyElement[]} */
 const anatomy = [
   {
+    name: 'Pointer popup surface',
+    required: false,
+    description: 'Positioned popover surface wrapping the pointer menu.',
+  },
+  {
     name: 'Trigger button',
     required: true,
     description: 'Button that opens and closes the selected menu presentation.',
@@ -163,6 +168,7 @@ export const docs = {
       {className: 'astryx-dropdown-menu-section-heading'},
       {className: 'astryx-dropdown-menu-divider'},
       {className: 'astryx-dropdown-menu-indicator-icon'},
+      {className: 'astryx-dropdown-menu-popup'},
     ],
     vars: [
       {

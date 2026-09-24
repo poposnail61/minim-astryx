@@ -57,7 +57,7 @@ import type {PaginationVariantMap} from './index';
 export type PaginationVariant = keyof PaginationVariantMap;
 
 /** Size of the pagination controls. */
-export type PaginationSize = 'sm' | 'md';
+export type PaginationSize = 'sm' | 'md' | 'lg';
 
 export interface PaginationProps extends Omit<
   BaseProps<HTMLElement>,
@@ -142,7 +142,7 @@ export interface PaginationProps extends Omit<
   siblingCount?: number;
   /**
    * Size of the pagination controls.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: PaginationSize;
 
@@ -372,7 +372,7 @@ export function Pagination({
   hasFirstLast = true,
   step: stepProp = 1,
   siblingCount = 1,
-  size = 'md',
+  size = 'lg',
   isDisabled = false,
   label: labelFromProps,
   'data-testid': testId,
@@ -569,7 +569,7 @@ export function Pagination({
       ? Math.min(optimisticPage * pageSize, totalItems)
       : optimisticPage * pageSize;
 
-  const buttonSize = size === 'sm' ? 'sm' : 'md';
+  const buttonSize = size;
   const isSm = size === 'sm';
 
   // First/last buttons only exist in the input variant, and only when the page
@@ -732,7 +732,9 @@ export function Pagination({
             width={
               isSm
                 ? sizeVars['--size-element-sm']
-                : sizeVars['--size-element-md']
+                : size === 'lg'
+                  ? sizeVars['--size-element-lg']
+                  : sizeVars['--size-element-md']
             }
             isDisabled={isInputDisabled}
             data-testid={testId != null ? `${testId}-input` : undefined}

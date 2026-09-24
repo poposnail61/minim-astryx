@@ -25,40 +25,37 @@ export const minimActionComponents = {
   },
   'toggle-button': {
     base: {
-      gap: '0',
+      gap: minim('spacing-200'),
       borderRadius: `var(--_button-radius, ${minim('radius-element')})`,
       ':active': {transform: 'none'},
     },
-    'size:sm': {
+    'size:md': {
       '--minim-button-icon-size': minim('typography-line-height-md'),
-      '--minim-button-icon-slot-width': minim('content-medium-icon-box-width'),
       '--minim-button-icon-slot-height': minim('content-medium-box-size'),
       '--minim-button-label-font-size': minim('typography-font-size-md'),
       '--minim-button-label-line-height': minim('typography-line-height-md'),
       '--minim-button-label-inset-block': minim(
         'content-medium-text-inset-block',
       ),
-      '--minim-button-label-inset-inline': minim('spacing-100'),
       height:
         'calc(var(--minim-content-medium-box-size) + 2 * var(--minim-control-medium-padding-block))',
       paddingBlock: minim('control-medium-padding-block'),
-      paddingInline: minim('control-medium-padding-inline'),
+      paddingInline: minim('spacing-300'),
     },
-    'size:md': {
+    'size:lg': {
       '--minim-button-icon-size': minim('typography-line-height-lg'),
-      '--minim-button-icon-slot-width': minim('content-large-icon-box-width'),
       '--minim-button-icon-slot-height': minim('content-large-box-size'),
       '--minim-button-label-font-size': minim('typography-font-size-lg'),
       '--minim-button-label-line-height': minim('typography-line-height-lg'),
       '--minim-button-label-inset-block': minim(
         'content-large-text-inset-block',
       ),
-      '--minim-button-label-inset-inline': minim('spacing-100'),
       height:
         'calc(var(--minim-content-large-box-size) + 2 * var(--minim-control-large-padding-block))',
       paddingBlock: minim('control-large-padding-block'),
-      paddingInline: minim('control-large-padding-inline'),
+      paddingInline: minim('spacing-400'),
     },
+    'content:icon-only': {paddingInline: '0'},
     'variant:default+isPressed:false': {
       color: minim('fg-neutral'),
       backgroundColor: minim('bg-neutral-subtle'),

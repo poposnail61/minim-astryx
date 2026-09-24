@@ -135,10 +135,10 @@ export const docs = {
     },
     {
       name: 'size',
-      type: "'sm' | 'md'",
+      type: "'sm' | 'md' | 'lg'",
       description:
-        'Visual control size. When omitted, compact density resolves to sm and other densities resolve to md.',
-      default: "'md'",
+        'Visual control size. When omitted, compact density resolves to md and other densities resolve to lg.',
+      default: "'lg'",
     },
     {
       name: 'orientation',

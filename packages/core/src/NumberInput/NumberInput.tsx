@@ -307,7 +307,7 @@ interface NumberInputPropsBase extends Omit<
    * - 'sm': Compact size (28px height)
    * - 'md': Default size (32px height)
    * - 'lg': Large size (36px height)
-   * @default 'md'
+   * @default 'lg'
    */
   size?: NumberInputSize;
   // onChange and hasClear defined in discriminated union below
@@ -564,7 +564,7 @@ export function NumberInput({
   const t = useTranslator();
   const locale = useLocale();
   const isEffectivelyRequired = useResolvedRequired({isRequired, isOptional});
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const id = useId();
   const inputLabelID = useId();
   const descriptionID = useId();

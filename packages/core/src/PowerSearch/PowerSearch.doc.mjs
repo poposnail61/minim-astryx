@@ -168,7 +168,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'Size of the search input and tokens.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'menuWidth',
@@ -515,7 +515,7 @@ export const docsZh = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: '搜索输入框和标记的尺寸。',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'xstyle',

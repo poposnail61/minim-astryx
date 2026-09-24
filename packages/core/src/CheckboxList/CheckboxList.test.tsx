@@ -82,7 +82,7 @@ describe('CheckboxList', () => {
     );
   });
 
-  it('preserves the legacy density-to-size mapping when size is omitted', () => {
+  it('maps explicit compact density to medium when size is omitted', () => {
     render(
       <CheckboxList
         label="Preferences"
@@ -93,8 +93,8 @@ describe('CheckboxList', () => {
       </CheckboxList>,
     );
 
-    expect(screen.getByRole('list')).toHaveAttribute('data-size', 'sm');
-    expect(screen.getByRole('listitem')).toHaveAttribute('data-size', 'sm');
+    expect(screen.getByRole('list')).toHaveAttribute('data-size', 'md');
+    expect(screen.getByRole('listitem')).toHaveAttribute('data-size', 'md');
   });
 
   it('exposes row state through the checkbox-list-item theme target', () => {
@@ -105,7 +105,7 @@ describe('CheckboxList', () => {
     );
     const row = screen.getByRole('listitem');
     expect(row).toHaveClass('astryx-checkbox-list-item');
-    expect(row).toHaveAttribute('data-size', 'md');
+    expect(row).toHaveAttribute('data-size', 'lg');
     expect(row).toHaveAttribute('data-selected', 'selected');
     expect(row).toHaveAttribute('data-disabled', 'disabled');
   });

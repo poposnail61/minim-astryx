@@ -170,7 +170,7 @@ export interface ToolbarProps extends BaseProps<HTMLDivElement> {
    * - `'sm'`: Compact — fits sm buttons/inputs (28px elements)
    * - `'md'`: Standard — fits md buttons/inputs (32px elements)
    * - `'lg'`: Spacious — fits lg buttons/inputs (36px elements)
-   * @default 'md'
+   * @default 'lg'
    */
   size?: ToolbarSize;
   /**
@@ -222,7 +222,7 @@ export function Toolbar({
   centerContent,
   endContent,
   label,
-  size = 'md',
+  size = 'lg',
   gap = 1,
   orientation = 'horizontal',
   variant = 'transparent',

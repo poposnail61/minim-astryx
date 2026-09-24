@@ -199,7 +199,7 @@ interface ContextMenuBaseProps extends BaseProps {
   children: ReactNode;
   /** Custom menu width. @default '160px' */
   menuWidth?: number | string;
-  /** Size of menu items. @default 'md' */
+  /** Size of menu items. @default 'lg' */
   size?: 'sm' | 'md' | 'lg';
   /**
    * Accessible name for the menu surface, announced when it opens.
@@ -266,7 +266,7 @@ export type ContextMenuProps = ContextMenuDataProps | ContextMenuCompoundProps;
 export function ContextMenu({
   children,
   menuWidth,
-  size = 'md',
+  size = 'lg',
   label: labelFromProps,
   isDisabled = false,
   onOpenChange,

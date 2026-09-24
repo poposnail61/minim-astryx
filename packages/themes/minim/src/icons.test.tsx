@@ -65,9 +65,9 @@ describe('Minim icon registry', () => {
       chevronLeft: 'chevron-left',
       chevronRight: 'chevron-right',
       check: 'check',
-      success: 'check-circle',
-      error: 'close-circle',
-      warning: 'warning-triangle',
+      success: 'check-circle-solid',
+      error: 'close-circle-solid',
+      warning: 'warning-triangle-solid',
       info: 'info-circle',
       calendar: 'calendar',
       clock: 'time',
@@ -85,6 +85,9 @@ describe('Minim icon registry', () => {
       keyof typeof minimSemanticGlyphNames
     >) {
       const glyphName = minimSemanticGlyphNames[semanticName];
+      expect(iconCatalog.icons.some(glyph => glyph.name === glyphName)).toBe(
+        true,
+      );
       const markup = renderToStaticMarkup(
         <>{minimIconRegistry[semanticName]}</>,
       );

@@ -109,7 +109,7 @@ export interface ProgressBarProps extends BaseProps<HTMLDivElement> {
   formatValueLabel?: (value: number, max: number) => string;
   /**
    * Visual style variant mapped to semantic color tokens.
-   * @default 'accent'
+   * @default 'neutral'
    */
   variant?: ProgressBarVariant;
   /**
@@ -423,7 +423,7 @@ export function ProgressBar({
   isLabelHidden = false,
   hasValueLabel = false,
   formatValueLabel = defaultFormatValueLabel,
-  variant = 'accent',
+  variant = 'neutral',
   isIndeterminate = false,
   isDisabled = false,
   marks,

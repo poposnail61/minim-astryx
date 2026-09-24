@@ -46,8 +46,8 @@ export interface ChatSendButtonProps extends BaseProps<HTMLButtonElement> {
   sendIcon?: ReactNode;
   /** Icon for the stop state. Resolves from icon registry by default. */
   stopIcon?: ReactNode;
-  /** Button size. @default 'md' */
-  size?: 'sm' | 'md';
+  /** Button size. @default 'lg' */
+  size?: 'sm' | 'md' | 'lg';
 }
 
 // =============================================================================
@@ -87,7 +87,7 @@ export function ChatSendButton(props: ChatSendButtonProps): ReactNode {
     onStop = context?.onStop,
     sendIcon,
     stopIcon,
-    size = 'md',
+    size = 'lg',
     xstyle,
     className,
     style,

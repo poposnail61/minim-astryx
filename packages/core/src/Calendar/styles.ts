@@ -48,7 +48,8 @@ export const calendarStyles = stylex.create({
     flex: 1,
     textAlign: 'center',
     fontWeight: fontWeightVars['--font-weight-semibold'],
-    fontSize: typeScaleVars['--text-label-size'],
+    fontSize: `var(--calendar-month-font-size, ${typeScaleVars['--text-label-size']})`,
+    lineHeight: 'var(--calendar-month-line-height, normal)',
     color: colorVars['--color-text-primary'],
   },
   monthsContainer: {
@@ -80,8 +81,8 @@ export const monthGridStyles = stylex.create({
   dayName: {
     width: 'var(--_calendar-cell-size)',
     // Restores the small gap the standalone header used to have below it.
-    height: `calc(var(--_calendar-cell-size) + ${spacingVars['--spacing-1']})`,
-    paddingBottom: spacingVars['--spacing-1'],
+    height: `var(--calendar-weekday-height, calc(var(--_calendar-cell-size) + ${spacingVars['--spacing-1']}))`,
+    paddingBottom: `var(--calendar-weekday-padding-bottom, ${spacingVars['--spacing-1']})`,
     boxSizing: 'border-box',
     display: 'flex',
     alignItems: 'center',
@@ -96,6 +97,7 @@ export const monthGridStyles = stylex.create({
   daysGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(7, 1fr)',
+    rowGap: 'var(--calendar-row-gap, 0px)',
   },
   daysGridWithNumbers: {
     gridTemplateColumns: 'auto repeat(7, 1fr)',
@@ -118,16 +120,10 @@ export const monthGridStyles = stylex.create({
 // Day Cell Styles - Structural (layout, sizing, positioning)
 // =============================================================================
 
-// Half the gap between the day button and its cell — (--size-element-md minus
-// --size-element-sm) / 2 — so the band's rounded caps line up with the button
-// and the button's ::before bleeds out to meet its neighbour's. Deliberately a
-// literal and NOT a spacing token: this is a layout value derived from the two
-// size tokens, and pinning it to --spacing-0-5 desynchronises it from them
-// (matcha sets that step to 3px, which overlaps adjacent days' hit targets by
-// 2px). Deriving it with calc() from the size tokens would be better still and
-// would close butter's 4px dead gap; that needs its own measured change.
-const BAND_INSET = '2px';
-const HIT_BLEED = '-2px';
+// Padding-based themes keep the range band and hit area aligned with the day.
+// Other themes retain their existing 2px inset.
+const BAND_INSET = 'var(--calendar-cell-padding, 2px)';
+const HIT_BLEED = 'calc(-1 * var(--calendar-cell-padding, 2px))';
 
 export const dayCellStyles = stylex.create({
   // Cell container
@@ -137,6 +133,8 @@ export const dayCellStyles = stylex.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 'var(--_calendar-cell-size)',
+    boxSizing: 'border-box',
+    padding: 'var(--calendar-cell-padding, 0px)',
     isolation: 'isolate',
   },
 

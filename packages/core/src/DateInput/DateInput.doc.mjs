@@ -107,7 +107,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'Size of the input control.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'status',
@@ -180,6 +180,7 @@ export const docs = {
     targets: [
       {className: 'astryx-date-input', visualProps: ['size', 'status'], states: ['disabled']},
       {className: 'astryx-date-input-toggle-icon', states: ['state']},
+      {className: 'astryx-date-input-popup'},
       {className: 'astryx-date-input-clear-icon', deprecatedFor: 'input-clear-icon'},
     ],
   },
@@ -406,7 +407,7 @@ export const docsZh = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: '输入控件的尺寸。',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'status',
@@ -466,6 +467,7 @@ export const docsZh = {
         states: ['disabled'],
       },
       {className: 'astryx-date-input-toggle-icon', states: ['state']},
+      {className: 'astryx-date-input-popup'},
       {className: 'astryx-date-input-clear-icon', deprecatedFor: 'input-clear-icon'},
     ],
   },

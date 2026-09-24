@@ -46,6 +46,14 @@ export const derivedVarRegistry: Record<string, DerivedVarEntry[]> = {
   avatar: [{property: 'borderRadius', vars: ['--_avatar-radius']}],
   banner: [{property: 'borderRadius', vars: ['--_banner-radius']}],
   button: [{property: 'borderRadius', vars: ['--_button-radius']}],
+  'checkbox-list-item': [
+    {property: 'fontSize', vars: ['--_item-label-font-size']},
+    {property: 'lineHeight', vars: ['--_item-label-line-height']},
+  ],
+  'radio-list-item': [
+    {property: 'fontSize', vars: ['--_item-label-font-size']},
+    {property: 'lineHeight', vars: ['--_item-label-line-height']},
+  ],
   card: [
     {property: 'borderRadius', vars: ['--_card-radius']},
     {property: 'padding', expand: 'container'},

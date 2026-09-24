@@ -62,7 +62,7 @@ export const minimContentComponents = {
   },
   citation: {
     base: {
-      height: 'auto',
+      height: minim('typography-line-height-md'),
       paddingBlock: '0',
       paddingInline: minim('spacing-100'),
       borderRadius: minim('radius-full'),
@@ -75,7 +75,7 @@ export const minimContentComponents = {
     base: {
       minWidth: '0',
       paddingBlock: minim('content-supporting-medium-text-inset-block'),
-      paddingInline: minim('content-supporting-medium-text-inset-inline'),
+      paddingInline: '0',
       ...supportingMedium,
     },
   },

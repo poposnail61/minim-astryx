@@ -477,7 +477,7 @@ export function TouchDateTimeField({
     timePlaceholderFromProps ?? t('@astryx.dateTimeInput.timePlaceholder');
   const resolvedTimeLabel =
     timeLabel ?? t('@astryx.dateTimeInput.timeSuffix', {label});
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const dateInputId = useId();
   const timeInputId = useId();
   const descriptionID = useId();

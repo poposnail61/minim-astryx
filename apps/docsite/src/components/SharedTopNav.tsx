@@ -62,6 +62,7 @@ const styles = stylex.create({
 const NAV_ITEMS = [
   {key: 'docs', label: 'Docs', href: '/docs/getting-started'},
   {key: 'components', label: 'Components', href: '/components'},
+  {key: 'examples', label: 'Examples', href: '/examples'},
 ] as const;
 
 export function SharedTopNav() {

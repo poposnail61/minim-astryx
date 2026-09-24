@@ -194,7 +194,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: 'Size used to scale dropdown option padding.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'anchorRef',
@@ -351,7 +351,7 @@ export const docsZh = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description: '用于调整下拉选项内边距的尺寸。',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'anchorRef',

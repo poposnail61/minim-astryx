@@ -38,7 +38,7 @@ import {themeProps} from '../utils/themeProps';
 /**
  * Size of the radio controls, matching CheckboxInput sizes.
  */
-export type RadioListSize = 'sm' | 'md';
+export type RadioListSize = 'sm' | 'md' | 'lg';
 
 export interface RadioListContextValue {
   name: string;
@@ -149,7 +149,7 @@ export interface RadioListProps extends Omit<
    * The size of the radio controls.
    * - 'sm': Compact size (20px radio)
    * - 'md': Default size (24px radio)
-   * @default 'md'
+   * @default 'lg'
    */
   size?: RadioListSize;
   /**
@@ -199,7 +199,7 @@ export function RadioList({
   disabledMessage,
   isRequired = false,
   isOptional = false,
-  size = 'md',
+  size = 'lg',
   status,
   labelTooltip,
   width,

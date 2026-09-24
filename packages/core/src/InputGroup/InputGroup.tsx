@@ -105,7 +105,7 @@ export interface InputGroupProps extends Omit<
 
   /**
    * Default size for inputs in the group.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: InputGroupSize;
 
@@ -155,7 +155,7 @@ export function InputGroup({
   'data-testid': testId,
   ...rest
 }: InputGroupProps) {
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const inputId = useId();
   const labelID = useId();
   const descriptionID = useId();

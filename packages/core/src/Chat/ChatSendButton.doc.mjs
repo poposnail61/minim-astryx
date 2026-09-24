@@ -59,9 +59,9 @@ export const docs = {
     },
     {
       name: 'size',
-      type: "'sm' | 'md'",
+      type: "'sm' | 'md' | 'lg'",
       description: 'Button size.',
-      default: "'md'",
+      default: "'lg'",
     },
     {
       name: 'xstyle',

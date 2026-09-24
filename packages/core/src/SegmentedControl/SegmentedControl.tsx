@@ -51,7 +51,7 @@ export interface SegmentedControlProps extends Omit<
   label: string;
   /**
    * Size variant for the control.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: SegmentedControlSize;
   /**
@@ -158,7 +158,7 @@ export function SegmentedControl({
   onBlur: onBlurProp,
   ...rest
 }: SegmentedControlProps) {
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
 
   // Disabled-reason tooltip. Applies to the whole-group disabled state. Disabled
   // controls swallow pointer events, so the tooltip listeners attach to the

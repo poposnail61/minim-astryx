@@ -95,7 +95,7 @@ export const docs = {
       name: 'variant',
       type: "'accent' | 'success' | 'warning' | 'error' | 'neutral'",
       description: 'Semantic color variant.',
-      default: "'accent'",
+      default: "'neutral'",
     },
     {
       name: 'isIndeterminate',
@@ -260,7 +260,7 @@ export const docsZh = {
       name: 'variant',
       type: "'accent' | 'success' | 'warning' | 'error' | 'neutral'",
       description: '语义颜色变体。',
-      default: "'accent'",
+      default: "'neutral'",
     },
     {
       name: 'isIndeterminate',

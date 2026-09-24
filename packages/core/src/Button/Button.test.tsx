@@ -17,6 +17,19 @@ import {Badge} from '../Badge/Badge';
 import {InternationalizationProvider} from '../i18n';
 
 describe('Button', () => {
+  it('defaults to neutral without overriding an explicit variant', () => {
+    const {rerender} = render(<Button label="Default" />);
+    expect(screen.getByRole('button')).toHaveAttribute(
+      'data-variant',
+      'neutral',
+    );
+    rerender(<Button label="Primary" variant="primary" />);
+    expect(screen.getByRole('button')).toHaveAttribute(
+      'data-variant',
+      'primary',
+    );
+  });
+
   // Retained, narrowed: the shared contract proves the ROLE and the accessible
   // NAME in a real engine (button.role.exposed, button.name.exposed), which is
   // strictly stronger than asserting them here. What stays is the part it does

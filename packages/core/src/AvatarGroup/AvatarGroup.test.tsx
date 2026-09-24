@@ -235,7 +235,7 @@ describe('AvatarGroup — size cascade', () => {
       </AvatarGroup>,
     );
 
-    expect(screen.getByTestId('alice')).toHaveAttribute('data-size', 'md');
+    expect(screen.getByTestId('alice')).toHaveAttribute('data-size', 'lg');
   });
 
   it("outside a group the avatar's own size applies", () => {

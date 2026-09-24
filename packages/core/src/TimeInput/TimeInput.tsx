@@ -295,7 +295,7 @@ export interface TimeInputProps extends Omit<
    * The size of the input.
    * - 'sm': Compact size (18px height)
    * - 'md': Default size (26px height)
-   * @default 'md'
+   * @default 'lg'
    */
   size?: TimeInputSize;
 
@@ -375,7 +375,7 @@ export function TimeInput({
   const isEffectivelyRequired = useResolvedRequired({isRequired, isOptional});
   const placeholder =
     placeholderFromProps ?? t('@astryx.timeInput.placeholder');
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const isTouch = useMediaQuery(TOUCH_POINTER_QUERY);
   const requestsNativePicker =
     nativePicker === 'always' || (nativePicker === 'touch' && isTouch);
@@ -430,6 +430,7 @@ export function TimeInput({
     useInputStatusIcon({
       status,
       statusVariant,
+      size,
       isInGroup: !!inputGroup,
     });
 

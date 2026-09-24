@@ -79,6 +79,7 @@ import {
 import {mergeProps, rtlStyles} from '../utils';
 import type {BaseProps} from '../BaseProps';
 import {themeProps} from '../utils/themeProps';
+import {useSize} from '../SizeContext';
 import {
   getInteractionModality,
   useInteractionModalityTracking,
@@ -598,7 +599,7 @@ function DropdownMenuPopover({
   } = props as Record<string, unknown>;
 
   const menuId = useId();
-  const menuSize = button.size ?? 'md';
+  const menuSize = useSize(button.size, 'lg');
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   // Open state
@@ -658,6 +659,7 @@ function DropdownMenuPopover({
   }, [isControlled, onClick, onOpenChange]);
 
   const popover = usePopover({
+    surfaceTarget: 'dropdown-menu-popup',
     onHide: handleLayerHide,
     onShow: handleLayerShow,
     hasLightDismiss: true,

@@ -172,7 +172,7 @@ export interface LinkProps extends BaseProps<
    * @default false
    */
   hasUnderline?: boolean;
-  /** Visual color variant. @default 'primary' */
+  /** Visual color variant. @default 'neutral' */
   variant?: LinkVariant;
   /**
    * Whether the link is disabled.
@@ -299,7 +299,7 @@ export function Link({
   label,
   href,
   hasUnderline = false,
-  variant = 'primary',
+  variant = 'neutral',
   isDisabled = false,
   isExternalLink = false,
   newTabLabel: newTabLabelFromProps,

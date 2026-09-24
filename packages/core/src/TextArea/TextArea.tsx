@@ -333,7 +333,7 @@ export interface TextAreaProps extends Omit<
   /**
    * The size of the textarea, affecting internal padding.
    * Height is controlled by `rows`, not size.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: TextAreaSize;
   /**
@@ -401,7 +401,7 @@ export function TextArea({
   ref,
   ...rest
 }: TextAreaProps) {
-  const size = useSize(sizeProp, 'md');
+  const size = useSize(sizeProp, 'lg');
   const t = useTranslator();
   const isEffectivelyRequired = useResolvedRequired({isRequired, isOptional});
   const announce = useAnnounce();
@@ -437,6 +437,7 @@ export function TextArea({
     useInputStatusIcon({
       status,
       statusVariant,
+      size,
     });
 
   const ariaDescribedBy =

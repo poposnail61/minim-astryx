@@ -54,7 +54,7 @@ export interface NavHeadingMenuProps extends BaseProps<HTMLDivElement> {
 
   /**
    * Size — controls min-width and flows to items for padding.
-   * @default 'md'
+   * @default 'lg'
    */
   size?: NavHeadingMenuSize;
 
@@ -90,7 +90,7 @@ export interface NavHeadingMenuProps extends BaseProps<HTMLDivElement> {
 export function NavHeadingMenu({
   ref,
   children,
-  size = 'md',
+  size = 'lg',
   minWidth,
   xstyle,
   className,

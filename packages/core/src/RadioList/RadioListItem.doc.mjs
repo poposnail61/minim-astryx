@@ -3,6 +3,16 @@
 /** @type {import('@astryxdesign/cli/authoring').ComponentDoc} */
 
 export const docs = {
+  theming: {
+    targets: [
+      {className: 'astryx-radio-list-item', visualProps: ['size']},
+      {className: 'astryx-radio-control-slot', visualProps: ['size']},
+    ],
+    derived: [
+      {property: 'fontSize', vars: ['--_item-label-font-size']},
+      {property: 'lineHeight', vars: ['--_item-label-line-height']},
+    ],
+  },
   name: 'RadioListItem',
   subComponentOf: 'RadioList',
   displayName: 'Radio List Item',
