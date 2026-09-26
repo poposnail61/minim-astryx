@@ -1437,6 +1437,7 @@ export function Selector<T extends SelectorOptionType>(
             // is the public SelectorOption content primitive, not this row.
             themeProps('selector-option-row', {
               size,
+              highlighted: isHighlighted ? 'true' : null,
               selected: isSelected ? 'selected' : null,
               disabled: item.disabled ? 'disabled' : null,
             }),
@@ -1858,7 +1859,8 @@ export function Selector<T extends SelectorOptionType>(
               xstyle={styles.triggerIcon}
             />
           )
-        ) : !isEffectivelyReadOnly ? (
+        ) : null}
+        {!isEffectivelyReadOnly ? (
           <Icon
             icon="chevronDown"
             size="sm"

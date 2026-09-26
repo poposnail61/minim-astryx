@@ -8,12 +8,12 @@ export default defineConfig({
   expect: {timeout: 15000},
   workers: 1,
   use: {
-    baseURL: 'http://localhost:5181',
+    baseURL: process.env.MINIM_DOCSITE_URL ?? 'http://localhost:5181',
     channel: 'chrome',
     colorScheme: 'light',
     trace: 'retain-on-failure',
   },
-  outputDir: '/tmp/minim-new-mobile/results',
+  outputDir: process.env.MINIM_QA_OUTPUT ?? '/tmp/minim-new-mobile/results',
   projects: [
     {name: 'mobile', use: {viewport: {width: 390, height: 844}}},
     {name: 'narrow', use: {viewport: {width: 360, height: 780}}},

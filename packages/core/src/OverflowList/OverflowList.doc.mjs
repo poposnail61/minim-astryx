@@ -113,7 +113,7 @@ export const docs = {
       name: 'behavior',
       type: "'observeSelf' | 'observeParent'",
       description:
-        "Controls which element is measured for available width. 'observeSelf' uses the container's own width. 'observeParent' observes the parent element, useful when the list should stay content-sized while still detecting available space.",
+        "Controls which element is measured for available width. 'observeSelf' uses the container's own width; give its layout a stable available width rather than a shrink-to-content parent. 'observeParent' observes the parent element, useful when the list should stay content-sized while still detecting available space. The rendered CSS gap is measured so theme density changes keep the fit calculation in sync.",
       default: "'observeSelf'",
     },
     {

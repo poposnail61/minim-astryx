@@ -22,7 +22,13 @@ const fieldSurface = {
 export const minimAdvancedComponents = {
   calendar: {
     base: {
-      '--calendar-cell-size': '32px',
+      '--calendar-cell-size': 'var(--minim-component-large-height)',
+      '--calendar-cell-padding': minim('spacing-50'),
+      '--calendar-month-font-size': minim('typography-font-size-lg'),
+      '--calendar-month-line-height': minim('typography-line-height-lg'),
+      '--calendar-weekday-height': minim('typography-line-height-sm'),
+      '--calendar-weekday-padding-bottom': '0px',
+      '--calendar-row-gap': minim('spacing-200'),
       padding: minim('spacing-300'),
       borderRadius: minim('radius-container'),
       backgroundColor: minim('bg-layer'),
@@ -30,10 +36,18 @@ export const minimAdvancedComponents = {
   },
   'calendar-day': {
     base: {
-      width: '28px',
-      height: '28px',
+      width: '100%',
+      height: '100%',
+      fontSize: minim('typography-font-size-lg'),
+      lineHeight: minim('typography-line-height-lg'),
       color: minim('fg-neutral'),
       borderRadius: minim('radius-full'),
+    },
+    'marker:today-only': {
+      boxShadow: `inset 0 0 0 1px ${minim('stroke-neutral')}`,
+    },
+    'marker:today-in-range': {
+      boxShadow: `inset 0 0 0 1px ${minim('stroke-neutral')}`,
     },
     'selected:selected': {
       color: minim('fg-on-surface'),
@@ -44,15 +58,20 @@ export const minimAdvancedComponents = {
   'power-search-trigger': {
     base: {
       '--power-search-trigger-min-height':
-        'calc(var(--minim-typography-line-height-md) + 2 * var(--minim-spacing-150))',
-      '--power-search-content-gap': minim('content-medium-text-gap'),
-      '--power-search-padding-block': minim('spacing-150'),
+        'var(--minim-component-large-height)',
+      '--power-search-content-gap': minim('spacing-200'),
+      '--power-search-padding-block': minim('component-large-padding-block'),
       '--power-search-padding-inline': minim('spacing-300'),
       '--power-search-background': minim('bg-field'),
       '--power-search-border-color': minim('stroke-neutral'),
-      '--power-search-focus-border-color': minim('stroke-primary'),
-      '--power-search-focus-ring': `inset 0 0 0 1px ${minim('stroke-primary')}`,
+      '--power-search-focus-border-color': minim('stroke-neutral-strong'),
+      '--power-search-focus-ring': 'none',
       '--power-search-radius': minim('radius-element'),
+      ':is(*) .astryx-tokenizer > span > .astryx-icon': {
+        color: minim('fg-muted'),
+        fontWeight: minim('typography-font-weight-medium'),
+      },
+      ':is(*) input::placeholder': {color: minim('fg-muted')},
     },
   },
   'power-search-popover': {
@@ -61,46 +80,89 @@ export const minimAdvancedComponents = {
       borderRadius: minim('radius-container'),
       boxShadow: minim('elevation-low'),
     },
-    'mode:fields': {padding: minim('spacing-100')},
+    'mode:fields': {padding: minim('spacing-200')},
     'mode:value-editor': {
+      padding: minim('spacing-200'),
       '--power-search-popover-padding': minim('spacing-300'),
+      '--power-search-editor-footer-gap': minim('spacing-200'),
+      ':is(*) .astryx-power-search-editor-field': {
+        flex: '1 1 0',
+        minWidth: '0',
+      },
     },
     'mode:results': {padding: minim('spacing-200')},
     'mode:empty': {padding: minim('spacing-200')},
   },
   'file-input': {
-    base: {...fieldSurface, gap: minim('spacing-200')},
+    base: {
+      ...fieldSurface,
+      gap: minim('spacing-200'),
+      ':is(*) > span:not(.astryx-icon):not(.astryx-spinner)': {
+        fontSize: minim('typography-font-size-lg'),
+        lineHeight: minim('typography-line-height-lg'),
+      },
+      ':is(.astryx-file-input) .astryx-input-status-icon': {
+        fontSize: minim('typography-line-height-lg'),
+        width: minim('component-large-width-inline'),
+        height:
+          'calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-component-large-padding-block-slot))',
+      },
+      ':focus-within': {
+        borderColor: minim('stroke-neutral-strong'),
+        boxShadow: 'none',
+      },
+      ':has(button:disabled)': {
+        backgroundColor: minim('bg-disabled'),
+      },
+      ':has(button:disabled) .astryx-file-input-icon': {
+        color: minim('fg-neutral'),
+      },
+      ':has(button:disabled) > span:not(.astryx-icon):not(.astryx-spinner)': {
+        color: minim('fg-neutral'),
+      },
+    },
     'mode:input': {
-      height:
-        'calc(var(--minim-content-medium-box-size) + 2 * var(--minim-spacing-100))',
-      paddingBlock: minim('spacing-100'),
-      paddingInline: minim('spacing-200'),
+      height: 'var(--minim-component-large-height)',
+      paddingBlock: minim('component-large-padding-block'),
+      paddingInline: minim('spacing-300'),
     },
     'mode:dropzone': {
-      paddingBlock: minim('spacing-500'),
-      paddingInline: minim('spacing-400'),
+      // Figma draws the 1px stroke inside its auto-layout bounds.
+      paddingBlock: 'calc(var(--minim-spacing-500) - 1px)',
+      paddingInline: minim('spacing-300'),
     },
     'status:error': {borderColor: minim('stroke-critical')},
     'status:warning': {borderColor: minim('stroke-warning')},
-    'status:success': {borderColor: minim('stroke-primary')},
+    'status:success': {borderColor: minim('stroke-neutral')},
   },
   'file-input-icon': {
-    base: {color: minim('fg-neutral')},
+    base: {
+      color: minim('fg-muted'),
+      fontWeight: minim('typography-font-weight-medium'),
+    },
     'mode:input': {
-      '--minim-icon-box-size': minim('typography-line-height-xs'),
-      width: minim('typography-line-height-xs'),
-      height: minim('typography-line-height-xs'),
+      '--minim-icon-box-size': minim('typography-line-height-lg'),
+      ':is(.astryx-icon)': {
+        fontSize: minim('typography-line-height-lg'),
+        width: minim('component-large-width-inline'),
+        height:
+          'calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-component-large-padding-block-slot))',
+      },
     },
     'mode:dropzone': {
-      '--minim-icon-box-size': minim('typography-line-height-md'),
-      width: minim('typography-line-height-md'),
-      height: minim('typography-line-height-md'),
+      '--minim-icon-box-size': minim('typography-line-height-lg'),
+      ':is(.astryx-icon)': {
+        fontSize: minim('typography-line-height-lg'),
+        width: minim('component-large-width-inline'),
+        height:
+          'calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-component-large-padding-block-slot))',
+      },
     },
   },
   slider: {base: {gap: minim('spacing-200')}},
   'slider-track': {
     base: {
-      backgroundColor: minim('fg-neutral'),
+      backgroundColor: minim('bg-neutral'),
       borderRadius: minim('radius-full'),
     },
     'orientation:horizontal': {height: '4px'},

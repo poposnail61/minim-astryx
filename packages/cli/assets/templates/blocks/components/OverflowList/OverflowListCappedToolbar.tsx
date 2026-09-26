@@ -13,7 +13,7 @@ const actions = ['Save', 'Edit', 'Duplicate', 'Share', 'Archive', 'Delete'];
 export default function OverflowListCappedToolbar() {
   return (
     <Center width={420}>
-      <Card padding={2}>
+      <Card padding={2} width="100%">
         <OverflowList
           gap={2}
           maxVisibleItems={3}

@@ -79,6 +79,13 @@ describe('Minim icon registry', () => {
       arrowDown: 'arrow-down',
       copy: 'copy',
       stop: 'stop',
+      chevronsLeft: 'arrow-end-left',
+      chevronsRight: 'arrow-end-right',
+      arrowsUpDown: 'swap-vert',
+      funnel: 'setting',
+      viewColumns: 'view-table',
+      checkDouble: 'check',
+      wrench: 'setting',
     });
 
     for (const semanticName of Object.keys(minimSemanticGlyphNames) as Array<
@@ -109,17 +116,7 @@ describe('Minim icon registry', () => {
   });
 
   it('leaves unapproved or unavailable semantic icons unmapped', () => {
-    expect(minimUnmappedIconNames).toEqual([
-      'chevronsLeft',
-      'chevronsRight',
-      'arrowsUpDown',
-      'funnel',
-      'eyeSlash',
-      'viewColumns',
-      'checkDouble',
-      'wrench',
-      'microphone',
-    ]);
+    expect(minimUnmappedIconNames).toEqual(['eyeSlash', 'microphone']);
 
     for (const iconName of minimUnmappedIconNames) {
       expect(minimIconRegistry[iconName]).toBeUndefined();

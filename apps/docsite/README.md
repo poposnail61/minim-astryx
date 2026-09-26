@@ -13,6 +13,53 @@ pnpm dev         # start the dev server
 ```
 
 `pnpm dev` and `pnpm build` both run `generate` automatically via `predev`/`prebuild` scripts.
+Generation preserves unchanged registry, stylesheet, and preview files to avoid
+unnecessary development reloads, while removing obsolete generated previews.
+
+### Recovering Stale Workspace Build Errors
+
+Stop the docsite development server before rebuilding core or theme packages:
+their build scripts replace `dist`, and a running server can cache missing CSS
+or incomplete module exports during that interval. Finish the package builds
+before restarting the server.
+
+If errors persist even though the referenced build files exist, stop the server,
+move the docsite's `.next` directory to a temporary backup location, and restart
+`pnpm dev`. This regenerates the development cache without changing source files.
+Do not move the cache while its server is running. The separate `.next-qa` cache
+does not need to be touched to recover the editing server.
+
+## Stable Local QA
+
+Keep the development server for editing. Run browser checks against a separate
+production build so lazy examples do not compete with on-demand compilation:
+
+```bash
+pnpm -F @astryxdesign/docsite qa
+pnpm -F @astryxdesign/docsite qa review-fixes menus sizes
+```
+
+The runner generates current docs, builds into `.next-qa` (not the development
+server's `.next`), starts `next start` on an available loopback port, waits for
+a successful component-page response, and runs the requested suites sequentially
+with one worker. It then stops its server and releases its run lock. It does not
+stop or restart the editing server. As with `pnpm build`, workspace packages must
+already be built; rebuild changed core/theme packages before QA.
+
+The default suite is `review-fixes`. Other suites: `menus`, `sizes`, `visual`,
+`admin`, `examples`, `mobile-apps`, `mobile-examples`, `sample-apps`.
+Pass several suites in one invocation to share one build. Do not edit source or
+rebuild packages during that invocation; run again after changes.
+
+Logs and test artifacts live in `.qa/` (ignored by Git). A second QA run fails
+immediately instead of competing with the first. If the machine or runner is
+force-killed, check the PID in `.qa/run.lock` before removing that stale lock.
+Build failures stop the run; the runner never falls back to the development
+server or silently uses an old build.
+
+For deliberate manual testing, all local Playwright configs accept
+`MINIM_DOCSITE_URL` and `MINIM_QA_OUTPUT`. Running Playwright directly keeps its
+existing development-server default; use `pnpm qa` for stable regression checks.
 
 ## How It Works
 

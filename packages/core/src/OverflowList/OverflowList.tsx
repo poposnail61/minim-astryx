@@ -11,7 +11,8 @@
  * Renders a horizontal list of items, hiding those that don't fit in the
  * available width and optionally showing an overflow indicator. Supports an
  * optional item cap (`maxVisibleItems`) and bounded multi-row wrapping
- * (`maxRows`). Uses a hidden measurement container to avoid flickering.
+ * (`maxRows`). Uses a hidden measurement container to avoid flickering and
+ * the rendered gap to keep density changes consistent with overflow math.
  *
  * SYNC: When modified, update these files to stay in sync:
  * - /packages/core/src/OverflowList/index.ts (exports if types change)
@@ -283,15 +284,21 @@ export function OverflowList({
   const observeParent = behavior === 'observeParent';
   const isMultiRow = maxRows != null && maxRows > 1;
 
-  const {containerRef, measureRef, visibleCount, hasOverflow, rowHeight} =
-    useOverflow(itemCount, {
-      gap: gapPx,
-      minVisibleItems,
-      maxVisibleItems,
-      maxRows,
-      collapseFrom,
-      behavior,
-    });
+  const {
+    containerRef,
+    measureRef,
+    visibleCount,
+    hasOverflow,
+    rowHeight,
+    gap: measuredGap,
+  } = useOverflow(itemCount, {
+    gap: gapPx,
+    minVisibleItems,
+    maxVisibleItems,
+    maxRows,
+    collapseFrom,
+    behavior,
+  });
 
   const allItems: OverflowItem[] = childArray.map((child, index) => ({
     child,
@@ -388,7 +395,7 @@ export function OverflowList({
             isMultiRow &&
               rowHeight > 0 &&
               maxRows != null &&
-              multiRowHeight.height(maxRows, rowHeight, gapPx),
+              multiRowHeight.height(maxRows, rowHeight, measuredGap),
             observeParent && hasOverflow && styles.fillParent,
             xstyle,
           ),

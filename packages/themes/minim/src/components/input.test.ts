@@ -6,6 +6,25 @@ import {minimInputComponents} from './input';
 import {minimBaseTokens, minimCompactTokens} from '../minimTokens.generated';
 
 describe('Minim input component styles', () => {
+  it('derives control heights from slots and padding in both densities', () => {
+    for (const [tokens, expected] of [
+      [minimBaseTokens, [36, 44, 52]],
+      [minimCompactTokens, [28, 36, 44]],
+    ] as const) {
+      const px = (value: string) => parseFloat(value) * 16;
+      const medium =
+        px(tokens['--minim-typography-line-height-md']) +
+        2 * px(tokens['--minim-component-medium-padding-block-slot']);
+      const large =
+        px(tokens['--minim-typography-line-height-lg']) +
+        2 * px(tokens['--minim-component-large-padding-block-slot']);
+      expect([
+        medium + 2 * px(tokens['--minim-component-medium-padding-block']),
+        large + 2 * px(tokens['--minim-component-large-padding-block']),
+        large + 2 * px(tokens['--minim-component-xlarge-padding-block']),
+      ]).toEqual(expected);
+    }
+  });
   it('matches selector and text input typography at each size', () => {
     for (const size of ['md', 'lg'] as const) {
       for (const name of ['selector', 'text-input'] as const) {
@@ -19,12 +38,12 @@ describe('Minim input component styles', () => {
   it('keeps Astryx md/lg sizes mapped to verified Minim aliases', () => {
     expect(minimInputComponents['text-input']['size:md']).toMatchObject({
       gap: 'var(--minim-spacing-200)',
-      paddingBlock: 'var(--minim-control-medium-padding-block)',
+      paddingBlock: 'var(--minim-component-medium-padding-block)',
       paddingInline: 'var(--minim-spacing-300)',
     });
     expect(minimInputComponents['number-input']['size:lg']).toMatchObject({
       gap: 'var(--minim-spacing-200)',
-      paddingBlock: 'var(--minim-control-large-padding-block)',
+      paddingBlock: 'var(--minim-component-large-padding-block)',
       paddingInline: 'var(--minim-spacing-300)',
     });
     expect(minimInputComponents['input-start-icon']['size:md']).toMatchObject({
@@ -69,15 +88,20 @@ describe('Minim input component styles', () => {
     expect(
       minimInputComponents['text-input']['disabled:disabled'],
     ).toMatchObject({
-      backgroundColor: 'var(--minim-bg-disabled)',
-      opacity: '1',
+      opacity: 'var(--minim-input-disabled-opacity, 0.5)',
     });
     expect(
       minimInputComponents['text-input-control']['disabled:disabled'],
     ).toEqual({
-      color: 'var(--minim-fg-disabled)',
-      '::placeholder': {color: 'var(--minim-fg-disabled)'},
+      color: 'var(--minim-fg-neutral)',
+      '::placeholder': {color: 'var(--minim-fg-placeholder)'},
     });
+  });
+
+  it('uses the Figma placeholder token for editable text inputs', () => {
+    expect(
+      minimInputComponents['text-input-control'].base['::placeholder'],
+    ).toEqual({color: 'var(--minim-fg-placeholder)'});
   });
 
   it('uses density-aware XS attached status geometry only', () => {
@@ -90,10 +114,22 @@ describe('Minim input component styles', () => {
       lineHeight: 'var(--minim-typography-line-height-xs)',
       marginTop: '0',
       padding: 'var(--minim-spacing-200)',
+      paddingInline: 'var(--minim-spacing-300)',
     });
     expect(minimInputComponents['field-status']).not.toHaveProperty(
       'variant:detached',
     );
+  });
+
+  it('uses primary blue for attached and detached success messages', () => {
+    for (const variant of ['attached', 'detached'] as const) {
+      expect(
+        minimInputComponents['field-status'][`variant:${variant}+type:success`],
+      ).toEqual({
+        backgroundColor: 'var(--minim-bg-primary)',
+        color: 'var(--minim-fg-primary)',
+      });
+    }
   });
 
   it('pins base and compact metrics, including border-box control heights', () => {
@@ -118,12 +154,15 @@ describe('Minim input component styles', () => {
 
     const rem = (value: string) => Number.parseFloat(value) * 16;
     expect(
-      rem(minimBaseTokens['--minim-content-medium-box-size']) +
-        2 * rem(minimBaseTokens['--minim-control-medium-padding-block']),
+      rem(minimBaseTokens['--minim-typography-line-height-md']) +
+        2 *
+          rem(minimBaseTokens['--minim-component-medium-padding-block-slot']) +
+        2 * rem(minimBaseTokens['--minim-component-medium-padding-block']),
     ).toBe(36);
     expect(
-      rem(minimBaseTokens['--minim-content-large-box-size']) +
-        2 * rem(minimBaseTokens['--minim-control-large-padding-block']),
+      rem(minimBaseTokens['--minim-typography-line-height-lg']) +
+        2 * rem(minimBaseTokens['--minim-component-large-padding-block-slot']) +
+        2 * rem(minimBaseTokens['--minim-component-large-padding-block']),
     ).toBe(44);
     expect(minimInputComponents['text-input'].base).toMatchObject({
       borderColor: 'var(--minim-stroke-neutral)',
@@ -147,7 +186,7 @@ describe('Minim input component styles', () => {
     expect(component).toContain('.astryx-tokenizer[data-size="md"]');
     expect(component).toContain('--tokenizer-gap: var(--minim-spacing-200)');
     expect(component).toContain(
-      '--tokenizer-padding-block: var(--minim-control-medium-padding-block)',
+      '--tokenizer-padding-block: var(--minim-component-medium-padding-block)',
     );
     expect(component).toContain(
       '--tokenizer-padding-inline: var(--minim-spacing-300)',
@@ -175,8 +214,7 @@ describe('Minim input component styles', () => {
       paddingInline: 'var(--minim-spacing-300)',
     });
     expect(minimInputComponents['input-group']['size:lg']).toMatchObject({
-      height:
-        'calc(var(--minim-content-large-box-size) + 2 * var(--minim-control-large-padding-block))',
+      height: 'var(--minim-component-large-height)',
     });
     expect(minimInputComponents['multi-selector']).not.toHaveProperty('base');
     expect(minimInputComponents['multi-selector']).toHaveProperty(
@@ -190,7 +228,8 @@ describe('Minim input component styles', () => {
     );
     expect(minimInputComponents.tokenizer['size:md']).toMatchObject({
       '--tokenizer-gap': 'var(--minim-spacing-200)',
-      '--tokenizer-padding-block': 'var(--minim-control-medium-padding-block)',
+      '--tokenizer-padding-block':
+        'var(--minim-component-medium-padding-block)',
       '--tokenizer-padding-inline': 'var(--minim-spacing-300)',
     });
     expect(minimInputComponents.tokenizer['disabled:disabled']).toEqual({
@@ -244,7 +283,7 @@ describe('Minim input component styles', () => {
       const control = minimInputComponents['text-area-control'][`size:${size}`];
       expect(control.paddingInline).toBe('var(--_textarea-inline-padding)');
       expect(control.paddingBlock).toBe(
-        `calc(var(--minim-control-${tokenSize}-padding-block) + var(--minim-content-${tokenSize}-text-inset-block))`,
+        `calc(var(--minim-component-${tokenSize}-padding-block) + var(--minim-component-${tokenSize}-padding-block-slot))`,
       );
     }
   });

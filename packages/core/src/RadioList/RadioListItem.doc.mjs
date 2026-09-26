@@ -9,6 +9,7 @@ export const docs = {
       {className: 'astryx-radio-control-slot', visualProps: ['size']},
     ],
     derived: [
+      {property: 'color', vars: ['--_item-label-color', '--_item-description-color']},
       {property: 'fontSize', vars: ['--_item-label-font-size']},
       {property: 'lineHeight', vars: ['--_item-label-line-height']},
     ],

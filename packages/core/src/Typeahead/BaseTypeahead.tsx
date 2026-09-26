@@ -1098,7 +1098,10 @@ export const BaseTypeahead = function BaseTypeahead<T extends SearchableItem>({
                     onClick={() => handleSelect(item)}
                     onMouseEnter={() => highlightOnHover(index)}
                     {...mergeProps(
-                      themeProps('typeahead-option-row', {size}),
+                      themeProps('typeahead-option-row', {
+                        size,
+                        highlighted: index === highlightedIndex ? 'true' : null,
+                      }),
                       stylex.props(
                         styles.item,
                         itemSizeStyles[size],

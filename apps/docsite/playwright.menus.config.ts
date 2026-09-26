@@ -8,11 +8,11 @@ export default defineConfig({
   timeout: 60000,
   expect: {timeout: 10000},
   use: {
-    baseURL: 'http://localhost:5181',
+    baseURL: process.env.MINIM_DOCSITE_URL ?? 'http://localhost:5181',
     channel: 'chrome',
     trace: 'retain-on-failure',
   },
-  outputDir: '/tmp/minim-menus/results',
+  outputDir: process.env.MINIM_QA_OUTPUT ?? '/tmp/minim-menus/results',
   projects: [
     {name: 'wide', use: {viewport: {width: 1280, height: 1000}}},
     {name: 'narrow', use: {viewport: {width: 390, height: 844}}},

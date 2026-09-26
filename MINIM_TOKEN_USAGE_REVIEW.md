@@ -1,5 +1,64 @@
 # Token Usage Review
 
+## Content box removal - 2026-09-25
+
+- Removed all four remaining content/*/box-size variables after verifying zero
+  references across all 15 Figma content pages, including hidden instance content.
+- Internal height is typography line-height plus twice component/{size}/padding-block-slot.
+  No height-slot token is introduced. Outer controls use component/{size}/height;
+  badges and tokens retain component/{size}/height-inline.
+- Base/Compact internal heights: large 28/24, medium 24/20,
+  supporting-large 20/18, supporting-medium 18/16.
+- Figma wrappers hug their contents. Image and audio slots use a transparent
+  inline-height reference plus slot padding; artwork stays absolutely positioned.
+  Table labels retain their wrapper height through line-height and slot padding.
+- Switch tracks hug their existing proportional shapes plus spacing/50 padding.
+  The large shape height uses width-inline (24/20); medium uses spacing/500
+  (20/16). Track dimensions remain large 64x28/54x24 and medium 54x24/44x20.
+- Current exported semantic-token count is 59. Active source and CLI templates
+  no longer reference content size tokens. Earlier audit records below are historical.
+- Verification: 78 theme/component tests, 12 token-generation tests, and 16
+  desktop/mobile browser checks passed in Base and Compact. Theme build passed.
+
+## Component spacing consolidation - 2026-09-25
+
+- Canonical vertical padding: component/{medium,large,xlarge}/padding-block.
+  Base values are 6/8/12; Compact values are 4/6/10. Matching content slots
+  produce heights 36/44/52 and 28/36/44 respectively.
+- Nested segmented items use component/{medium,large}/padding-block-inner
+  (Base 4/6, Compact 2/4), accounting for the outer container inset.
+- Inline padding and gaps use spacing tokens, never component padding tokens.
+  Component-specific spacing choices remain: fields and menus use spacing/300;
+  large buttons use spacing/400. Menu-to-menu spacing stays spacing/50 (2/2).
+- Removed 12 redundant inline/gap/row variables after rebinding Figma references.
+  No control/, control-item/ or row/ token names remain. Live token count is 326.
+- Inline normalization: former row 8/8 becomes spacing/200 (8/6), former control
+  medium 8/5 becomes 8/6, xlarge 14/12 becomes 16/12, nested medium 6/3 becomes
+  6/4. Vertical geometry and content-driven table height are unchanged.
+- Verification: 95 Minim tests, 12 token-generation tests, the CLI bundle test,
+  and four desktop/mobile size checks pass. Menu coverage passes for all 48
+  cases across the initial run and a four-case rerun after replacing a stale
+  pixel-string assertion with the actual typography token comparison.
+- Figma verification found no retired token references across the 15 content
+  pages. ListItem without a description measures Base 36/44 and Compact 28/36.
+- Earlier sections below are historical records, not the current token contract.
+
+## Second cleanup
+
+- Removed eight additional variables: bg/neutral-glass, bg/muted-solid,
+  bg/highlight-solid, stroke/highlight, radius/full/component-medium,
+  radius/full/component-large, radius/full/component-xlarge, control/medium/gap.
+- The old CLI date-time gap reference disappears when regenerating the bundle:
+  current DateTimeInput is joined, with an intentional zero gap. For spaced
+  layouts, spacing/200 remains the Base 8 / Compact 6 replacement.
+- Refreshed the complete Minim CLI theme bundle, including missing component modules.
+- Embedded Spinner SM/MD/LG geometry now follows typography line-height tokens;
+  ring thickness retains the Figma proportions. Standalone XL remains 36px.
+- Bound 28 EmptyState/CodeBlock spacing properties in Figma. EmptyState's old
+  24px inline inset now uses spacing/500 (Base 20 / Compact 16), in code too.
+- Current variable count: 338. The original audit below is historical evidence,
+  not the current removal list.
+
 ## Applied follow-up
 
 The audit below is the pre-change baseline. The approved follow-up is now applied:

@@ -1892,7 +1892,10 @@ function PointerDateTimeField({
                     onClick={() => commitTimeOption(option.time)}
                     onMouseEnter={() => highlightTimeOnHover(index)}
                     {...mergeProps(
-                      themeProps('date-time-input-time-option'),
+                      themeProps('date-time-input-time-option', {
+                        size,
+                        highlighted: index === activeTimeIndex ? 'true' : null,
+                      }),
                       stylex.props(
                         styles.timeOption,
                         timeOptionSizeStyles[size],

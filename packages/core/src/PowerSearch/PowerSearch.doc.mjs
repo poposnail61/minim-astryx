@@ -270,6 +270,12 @@ export const docs = {
         description:
           'Popover used to select or edit a filter field, operator, and value.',
       },
+      {
+        name: 'Filter-editor field, operator and value areas',
+        required: false,
+        description:
+          'Control wrappers inside the filter editor that share available width.',
+      },
     ],
     description:
       'PowerSearch is a structured filter bar where each token represents a field, operator, and value. Use it for complex multi-dimensional filtering when users need to combine multiple search criteria. For simple single-field search, use a text input instead.',
@@ -300,6 +306,7 @@ export const docs = {
     targets: [
       {className: 'astryx-power-search'},
       {className: 'astryx-power-search-trigger'},
+      {className: 'astryx-power-search-editor-field'},
       {
         className: 'astryx-power-search-popover',
         visualProps: ['mode'],
@@ -357,6 +364,11 @@ export const docs = {
         description:
           'Internal padding for the value-editor popover content and footer.',
         default: 'var(--spacing-3)',
+      },
+      {
+        name: '--power-search-editor-footer-gap',
+        description: 'Additional space before the editor footer, after content padding.',
+        default: '0px',
       },
     ],
   },

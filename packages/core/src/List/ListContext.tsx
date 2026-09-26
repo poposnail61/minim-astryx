@@ -12,9 +12,11 @@
 import {createContext} from 'react';
 
 export type ListDensity = 'compact' | 'balanced' | 'spacious';
+export type ListSize = 'md' | 'lg';
 export type ListMarkerStyle = 'none' | 'disc' | 'decimal' | 'circle';
 
 export interface ListContextValue {
+  size: ListSize;
   density: ListDensity;
   hasDividers: boolean;
   listStyle: ListMarkerStyle;

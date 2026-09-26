@@ -9,14 +9,14 @@ export default defineConfig({
   expect: {timeout: 10000},
   workers: 1,
   use: {
-    baseURL: 'http://localhost:5181',
+    baseURL: process.env.MINIM_DOCSITE_URL ?? 'http://localhost:5181',
     channel: 'chrome',
     isMobile: true,
     hasTouch: true,
     colorScheme: 'light',
     trace: 'retain-on-failure',
   },
-  outputDir: '/tmp/minim-mobile/results',
+  outputDir: process.env.MINIM_QA_OUTPUT ?? '/tmp/minim-mobile/results',
   projects: [
     {name: 'mobile-390', use: {viewport: {width: 390, height: 844}}},
     {name: 'mobile-320', use: {viewport: {width: 320, height: 740}}},

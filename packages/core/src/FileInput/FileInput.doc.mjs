@@ -98,7 +98,7 @@ export const docs = {
       name: 'isLoading',
       type: 'boolean',
       description:
-        'Puts the input in a loading state, showing a spinner and setting aria-busy.',
+        'Puts the input in a loading state, showing a spinner and setting aria-busy. Input mode preserves the leading upload icon and places the spinner after the text; dropzone mode shows only the spinner.',
       default: 'false',
     },
     {

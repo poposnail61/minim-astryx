@@ -307,6 +307,28 @@ describe('MultiSelector', () => {
     expect(screen.getByText('Apple & Banana & Orange')).toBeInTheDocument();
   });
 
+  it('keeps nested badges aligned when the input size changes', () => {
+    const props = {
+      label: 'Fruit',
+      options: defaultOptions,
+      value: ['Apple'],
+      onChange: () => {},
+      triggerDisplay: 'badges' as const,
+    };
+    const {container, rerender} = render(
+      <MultiSelector {...props} size="md" />,
+    );
+    expect(container.querySelector('.astryx-badge')).toHaveAttribute(
+      'data-size',
+      'md',
+    );
+    rerender(<MultiSelector {...props} size="lg" />);
+    expect(container.querySelector('.astryx-badge')).toHaveAttribute(
+      'data-size',
+      'lg',
+    );
+  });
+
   it('ignores formatValue in badges display', () => {
     render(
       <MultiSelector
@@ -2313,10 +2335,10 @@ describe('MultiSelector statusVariant forwarding', () => {
         status={{type: 'error', message: 'Required'}}
       />,
     );
-    // Attached: the status glyph replaces the chevron indicator on the field.
+    // Status feedback must not hide the affordance for opening the options.
     expect(
       container.querySelector('.astryx-multi-selector-indicator-icon'),
-    ).toBeNull();
+    ).not.toBeNull();
   });
 
   it('suppresses the on-field status icon for the detached variant', () => {

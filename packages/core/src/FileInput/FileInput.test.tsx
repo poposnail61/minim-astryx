@@ -613,6 +613,20 @@ describe('FileInput', () => {
         screen.queryByRole('button', {name: 'Clear Upload'}),
       ).not.toBeInTheDocument();
     });
+
+    it('keeps the leading upload icon while the input spinner is trailing', () => {
+      const {container} = render(
+        <FileInput label="Upload" value={null} onChange={() => {}} isLoading />,
+      );
+      const icon = container.querySelector('.astryx-file-input-icon');
+      const spinner = container.querySelector('.astryx-spinner');
+      expect(icon).toBeInTheDocument();
+      expect(spinner).toBeInTheDocument();
+      expect(
+        icon!.compareDocumentPosition(spinner!) &
+          Node.DOCUMENT_POSITION_FOLLOWING,
+      ).toBeTruthy();
+    });
   });
 
   describe('drag and drop', () => {

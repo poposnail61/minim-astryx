@@ -14,17 +14,12 @@ export const minimBaseTokens = {
   '--minim-bg-field': 'rgb(100% 100% 100% / 100%)',
   '--minim-bg-highlight':
     'rgb(99.21568632125854% 97.64705896377563% 78.43137383460999% / 100%)',
-  '--minim-bg-highlight-solid':
-    'rgb(90.19607901573181% 70.1960802078247% 7.450980693101883% / 100%)',
   '--minim-bg-layer': 'rgb(100% 100% 100% / 100%)',
   '--minim-bg-layer-base':
     'rgb(95.686274766922% 95.686274766922% 96.07843160629272% / 100%)',
   '--minim-bg-layer-overlay': 'rgb(0% 0% 0% / 40%)',
   '--minim-bg-layer-overlay-light': 'rgb(100% 100% 100% / 60.00000238418579%)',
-  '--minim-bg-muted-solid':
-    'rgb(44.31372582912445% 44.31372582912445% 47.843137383461% / 100%)',
   '--minim-bg-neutral': 'rgb(0% 0% 0% / 5%)',
-  '--minim-bg-neutral-glass': 'rgb(0% 0% 0% / 20%)',
   '--minim-bg-neutral-solid':
     'rgb(9.41176488995552% 9.41176488995552% 10.588235408067703% / 100%)',
   '--minim-bg-neutral-subtle': 'rgb(100% 100% 100% / 100%)',
@@ -50,37 +45,28 @@ export const minimBaseTokens = {
     'rgb(99.60784316062927% 95.29411792755127% 78.03921699523926% / 100%)',
   '--minim-bg-yellow':
     'rgb(99.21568632125854% 97.64705896377563% 78.43137383460999% / 100%)',
-  '--minim-button-min-width-lg': '2.75rem',
-  '--minim-button-min-width-md': '2.25rem',
-  '--minim-button-min-width-xl': '3.25rem',
-  '--minim-content-large-box-size': '1.75rem',
-  '--minim-content-large-icon-box-width': '1.5rem',
-  '--minim-content-large-text-gap': '0.25rem',
-  '--minim-content-large-text-inset-block': '0.1875rem',
-  '--minim-content-medium-box-size': '1.5rem',
-  '--minim-content-medium-icon-box-width': '1.25rem',
-  '--minim-content-medium-text-gap': '0.25rem',
-  '--minim-content-medium-text-inset-block': '0.125rem',
-  '--minim-content-supporting-large-box-size': '1.25rem',
-  '--minim-content-supporting-large-icon-box-width': '1.125rem',
-  '--minim-content-supporting-large-text-gap': '0.125rem',
-  '--minim-content-supporting-large-text-inset-block': '0.0625rem',
-  '--minim-content-supporting-medium-box-size': '1.125rem',
-  '--minim-content-supporting-medium-icon-box-width': '1rem',
-  '--minim-content-supporting-medium-text-gap': '0.125rem',
-  '--minim-content-supporting-medium-text-inset-block': '0.0625rem',
-  '--minim-control-item-large-padding-block': '0.375rem',
-  '--minim-control-item-large-padding-inline': '0.5rem',
-  '--minim-control-item-medium-padding-block': '0.25rem',
-  '--minim-control-item-medium-padding-inline': '0.375rem',
-  '--minim-control-large-gap': '0.5rem',
-  '--minim-control-large-padding-block': '0.5rem',
-  '--minim-control-large-padding-inline': '0.625rem',
-  '--minim-control-medium-gap': '0.5rem',
-  '--minim-control-medium-padding-block': '0.375rem',
-  '--minim-control-medium-padding-inline': '0.5rem',
-  '--minim-control-xlarge-padding-block': '0.75rem',
-  '--minim-control-xlarge-padding-inline': '0.875rem',
+  '--minim-component-large-height': '2.75rem',
+  '--minim-component-large-height-inline': '1.375rem',
+  '--minim-component-large-padding-block': '0.5rem',
+  '--minim-component-large-padding-block-inner': '0.375rem',
+  '--minim-component-large-padding-block-slot': '0.1875rem',
+  '--minim-component-large-width-inline': '1.5rem',
+  '--minim-component-medium-height': '2.25rem',
+  '--minim-component-medium-height-inline': '1.25rem',
+  '--minim-component-medium-padding-block': '0.375rem',
+  '--minim-component-medium-padding-block-inner': '0.25rem',
+  '--minim-component-medium-padding-block-slot': '0.125rem',
+  '--minim-component-medium-width-inline': '1.25rem',
+  '--minim-component-person-sm-height': '2rem',
+  '--minim-component-person-xl-height': '4.25rem',
+  '--minim-component-person-xsm-height': '1.75rem',
+  '--minim-component-person-xxl-height': '6.25rem',
+  '--minim-component-supporting-large-padding-block-slot': '0.0625rem',
+  '--minim-component-supporting-large-width-inline': '1.125rem',
+  '--minim-component-supporting-medium-padding-block-slot': '0.0625rem',
+  '--minim-component-supporting-medium-width-inline': '1rem',
+  '--minim-component-xlarge-height': '3.25rem',
+  '--minim-component-xlarge-padding-block': '0.75rem',
   '--minim-elevation-high':
     '0rem 0.125rem 0.125rem 0rem rgb(0% 0% 0% / 10.000000149011612%), 0rem 0.5rem 1.5rem 0rem rgb(0% 0% 0% / 10.000000149011612%)',
   '--minim-elevation-low':
@@ -131,17 +117,8 @@ export const minimBaseTokens = {
   '--minim-radius-element': '0.75rem',
   '--minim-radius-element-item': '0.625rem',
   '--minim-radius-full': '62.4375rem',
-  '--minim-radius-full-component-large': '1.375rem',
-  '--minim-radius-full-component-medium': '1.125rem',
-  '--minim-radius-full-component-xlarge': '1.625rem',
   '--minim-radius-inner': '0.5rem',
   '--minim-radius-overlay': '2rem',
-  '--minim-row-large-gap': '0.5rem',
-  '--minim-row-large-padding-block': '0.5rem',
-  '--minim-row-large-padding-inline': '0.5rem',
-  '--minim-row-medium-gap': '0.5rem',
-  '--minim-row-medium-padding-block': '0.375rem',
-  '--minim-row-medium-padding-inline': '0.5rem',
   '--minim-shadow-neutral': 'rgb(0% 0% 0% / 10%)',
   '--minim-spacing-0': '0rem',
   '--minim-spacing-100': '0.25rem',
@@ -157,8 +134,6 @@ export const minimBaseTokens = {
   '--minim-spacing-800': '2rem',
   '--minim-stroke-critical':
     'rgb(84.70588326454163% 10.196078568696976% 10.196078568696976% / 100%)',
-  '--minim-stroke-highlight':
-    'rgb(96.07843160629272% 79.21568751335144% 5.882352963089943% / 100%)',
   '--minim-stroke-neutral': 'rgb(0% 0% 0% / 10%)',
   '--minim-stroke-neutral-strong':
     'rgb(9.41176488995552% 9.41176488995552% 10.588235408067703% / 100%)',
@@ -208,17 +183,12 @@ export const minimCompactTokens = {
   '--minim-bg-field': 'rgb(100% 100% 100% / 100%)',
   '--minim-bg-highlight':
     'rgb(99.21568632125854% 97.64705896377563% 78.43137383460999% / 100%)',
-  '--minim-bg-highlight-solid':
-    'rgb(90.19607901573181% 70.1960802078247% 7.450980693101883% / 100%)',
   '--minim-bg-layer': 'rgb(100% 100% 100% / 100%)',
   '--minim-bg-layer-base':
     'rgb(95.686274766922% 95.686274766922% 96.07843160629272% / 100%)',
   '--minim-bg-layer-overlay': 'rgb(0% 0% 0% / 40%)',
   '--minim-bg-layer-overlay-light': 'rgb(100% 100% 100% / 60.00000238418579%)',
-  '--minim-bg-muted-solid':
-    'rgb(44.31372582912445% 44.31372582912445% 47.843137383461% / 100%)',
   '--minim-bg-neutral': 'rgb(0% 0% 0% / 5%)',
-  '--minim-bg-neutral-glass': 'rgb(0% 0% 0% / 20%)',
   '--minim-bg-neutral-solid':
     'rgb(9.41176488995552% 9.41176488995552% 10.588235408067703% / 100%)',
   '--minim-bg-neutral-subtle': 'rgb(100% 100% 100% / 100%)',
@@ -244,37 +214,28 @@ export const minimCompactTokens = {
     'rgb(99.60784316062927% 95.29411792755127% 78.03921699523926% / 100%)',
   '--minim-bg-yellow':
     'rgb(99.21568632125854% 97.64705896377563% 78.43137383460999% / 100%)',
-  '--minim-button-min-width-lg': '2.25rem',
-  '--minim-button-min-width-md': '1.75rem',
-  '--minim-button-min-width-xl': '2.75rem',
-  '--minim-content-large-box-size': '1.5rem',
-  '--minim-content-large-icon-box-width': '1.25rem',
-  '--minim-content-large-text-gap': '0.25rem',
-  '--minim-content-large-text-inset-block': '0.125rem',
-  '--minim-content-medium-box-size': '1.25rem',
-  '--minim-content-medium-icon-box-width': '1.125rem',
-  '--minim-content-medium-text-gap': '0.25rem',
-  '--minim-content-medium-text-inset-block': '0.0625rem',
-  '--minim-content-supporting-large-box-size': '1.125rem',
-  '--minim-content-supporting-large-icon-box-width': '1rem',
-  '--minim-content-supporting-large-text-gap': '0.125rem',
-  '--minim-content-supporting-large-text-inset-block': '0.0625rem',
-  '--minim-content-supporting-medium-box-size': '1rem',
-  '--minim-content-supporting-medium-icon-box-width': '0.875rem',
-  '--minim-content-supporting-medium-text-gap': '0.125rem',
-  '--minim-content-supporting-medium-text-inset-block': '0.0625rem',
-  '--minim-control-item-large-padding-block': '0.25rem',
-  '--minim-control-item-large-padding-inline': '0.375rem',
-  '--minim-control-item-medium-padding-block': '0.125rem',
-  '--minim-control-item-medium-padding-inline': '0.1875rem',
-  '--minim-control-large-gap': '0.375rem',
-  '--minim-control-large-padding-block': '0.375rem',
-  '--minim-control-large-padding-inline': '0.5rem',
-  '--minim-control-medium-gap': '0.375rem',
-  '--minim-control-medium-padding-block': '0.25rem',
-  '--minim-control-medium-padding-inline': '0.3125rem',
-  '--minim-control-xlarge-padding-block': '0.625rem',
-  '--minim-control-xlarge-padding-inline': '0.75rem',
+  '--minim-component-large-height': '2.25rem',
+  '--minim-component-large-height-inline': '1.25rem',
+  '--minim-component-large-padding-block': '0.375rem',
+  '--minim-component-large-padding-block-inner': '0.25rem',
+  '--minim-component-large-padding-block-slot': '0.125rem',
+  '--minim-component-large-width-inline': '1.25rem',
+  '--minim-component-medium-height': '1.75rem',
+  '--minim-component-medium-height-inline': '1.125rem',
+  '--minim-component-medium-padding-block': '0.25rem',
+  '--minim-component-medium-padding-block-inner': '0.125rem',
+  '--minim-component-medium-padding-block-slot': '0.0625rem',
+  '--minim-component-medium-width-inline': '1.125rem',
+  '--minim-component-person-sm-height': '1.75rem',
+  '--minim-component-person-xl-height': '3.75rem',
+  '--minim-component-person-xsm-height': '1.5rem',
+  '--minim-component-person-xxl-height': '6.25rem',
+  '--minim-component-supporting-large-padding-block-slot': '0.0625rem',
+  '--minim-component-supporting-large-width-inline': '1rem',
+  '--minim-component-supporting-medium-padding-block-slot': '0.0625rem',
+  '--minim-component-supporting-medium-width-inline': '0.875rem',
+  '--minim-component-xlarge-height': '2.75rem',
+  '--minim-component-xlarge-padding-block': '0.625rem',
   '--minim-elevation-high':
     '0rem 0.125rem 0.125rem 0rem rgb(0% 0% 0% / 10.000000149011612%), 0rem 0.5rem 1.5rem 0rem rgb(0% 0% 0% / 10.000000149011612%)',
   '--minim-elevation-low':
@@ -325,17 +286,8 @@ export const minimCompactTokens = {
   '--minim-radius-element': '0.625rem',
   '--minim-radius-element-item': '0.5rem',
   '--minim-radius-full': '62.4375rem',
-  '--minim-radius-full-component-large': '1.125rem',
-  '--minim-radius-full-component-medium': '0.875rem',
-  '--minim-radius-full-component-xlarge': '1.375rem',
   '--minim-radius-inner': '0.375rem',
   '--minim-radius-overlay': '1.5rem',
-  '--minim-row-large-gap': '0.375rem',
-  '--minim-row-large-padding-block': '0.375rem',
-  '--minim-row-large-padding-inline': '0.5rem',
-  '--minim-row-medium-gap': '0.375rem',
-  '--minim-row-medium-padding-block': '0.25rem',
-  '--minim-row-medium-padding-inline': '0.5rem',
   '--minim-shadow-neutral': 'rgb(0% 0% 0% / 10%)',
   '--minim-spacing-0': '0rem',
   '--minim-spacing-100': '0.25rem',
@@ -351,8 +303,6 @@ export const minimCompactTokens = {
   '--minim-spacing-800': '1.5rem',
   '--minim-stroke-critical':
     'rgb(84.70588326454163% 10.196078568696976% 10.196078568696976% / 100%)',
-  '--minim-stroke-highlight':
-    'rgb(96.07843160629272% 79.21568751335144% 5.882352963089943% / 100%)',
   '--minim-stroke-neutral': 'rgb(0% 0% 0% / 10%)',
   '--minim-stroke-neutral-strong':
     'rgb(9.41176488995552% 9.41176488995552% 10.588235408067703% / 100%)',
@@ -451,15 +401,6 @@ export const minimTokenMetadata = {
         'rgb(99.21568632125854% 97.64705896377563% 78.43137383460999% / 100%)',
     },
   },
-  '--minim-bg-highlight-solid': {
-    id: 'VariableID:7751:17868',
-    name: 'bg/highlight-solid',
-    collection: 'semantic-color',
-    resolvedModes: {
-      'light theme':
-        'rgb(90.19607901573181% 70.1960802078247% 7.450980693101883% / 100%)',
-    },
-  },
   '--minim-bg-layer': {
     id: 'VariableID:2509:7333',
     name: 'bg/layer',
@@ -493,29 +434,12 @@ export const minimTokenMetadata = {
       'light theme': 'rgb(100% 100% 100% / 60.00000238418579%)',
     },
   },
-  '--minim-bg-muted-solid': {
-    id: 'VariableID:6692:19008',
-    name: 'bg/muted-solid',
-    collection: 'semantic-color',
-    resolvedModes: {
-      'light theme':
-        'rgb(44.31372582912445% 44.31372582912445% 47.843137383461% / 100%)',
-    },
-  },
   '--minim-bg-neutral': {
     id: 'VariableID:4113:20766',
     name: 'bg/neutral',
     collection: 'semantic-color',
     resolvedModes: {
       'light theme': 'rgb(0% 0% 0% / 5%)',
-    },
-  },
-  '--minim-bg-neutral-glass': {
-    id: 'VariableID:6607:7788',
-    name: 'bg/neutral-glass',
-    collection: 'semantic-color',
-    resolvedModes: {
-      'light theme': 'rgb(0% 0% 0% / 20%)',
     },
   },
   '--minim-bg-neutral-solid': {
@@ -655,283 +579,202 @@ export const minimTokenMetadata = {
         'rgb(99.21568632125854% 97.64705896377563% 78.43137383460999% / 100%)',
     },
   },
-  '--minim-button-min-width-lg': {
+  '--minim-component-large-height': {
     id: 'VariableID:10937:30621',
-    name: 'button/min-width/lg',
+    name: 'component/large/height',
     collection: 'semantic-token',
     resolvedModes: {
       base: '2.75rem',
       compact: '2.25rem',
     },
   },
-  '--minim-button-min-width-md': {
-    id: 'VariableID:10937:30620',
-    name: 'button/min-width/md',
+  '--minim-component-large-height-inline': {
+    id: 'VariableID:11244:3',
+    name: 'component/large/height-inline',
     collection: 'semantic-token',
     resolvedModes: {
-      base: '2.25rem',
-      compact: '1.75rem',
-    },
-  },
-  '--minim-button-min-width-xl': {
-    id: 'VariableID:10937:30622',
-    name: 'button/min-width/xl',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '3.25rem',
-      compact: '2.75rem',
-    },
-  },
-  '--minim-content-large-box-size': {
-    id: 'VariableID:8125:16045',
-    name: 'content/large/box-size',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '1.75rem',
-      compact: '1.5rem',
-    },
-  },
-  '--minim-content-large-icon-box-width': {
-    id: 'VariableID:10302:16528',
-    name: 'content/large/icon-box-width',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '1.5rem',
+      base: '1.375rem',
       compact: '1.25rem',
     },
   },
-  '--minim-content-large-text-gap': {
-    id: 'VariableID:7959:28287',
-    name: 'content/large/text-gap',
+  '--minim-component-large-padding-block': {
+    id: 'VariableID:7962:29264',
+    name: 'component/large/padding-block',
     collection: 'semantic-token',
     resolvedModes: {
-      base: '0.25rem',
+      base: '0.5rem',
+      compact: '0.375rem',
+    },
+  },
+  '--minim-component-large-padding-block-inner': {
+    id: 'VariableID:8490:33365',
+    name: 'component/large/padding-block-inner',
+    collection: 'semantic-token',
+    resolvedModes: {
+      base: '0.375rem',
       compact: '0.25rem',
     },
   },
-  '--minim-content-large-text-inset-block': {
+  '--minim-component-large-padding-block-slot': {
     id: 'VariableID:7959:28280',
-    name: 'content/large/text-inset-block',
+    name: 'component/large/padding-block-slot',
     collection: 'semantic-token',
     resolvedModes: {
       base: '0.1875rem',
       compact: '0.125rem',
     },
   },
-  '--minim-content-medium-box-size': {
-    id: 'VariableID:8125:16046',
-    name: 'content/medium/box-size',
+  '--minim-component-large-width-inline': {
+    id: 'VariableID:10302:16528',
+    name: 'component/large/width-inline',
     collection: 'semantic-token',
     resolvedModes: {
       base: '1.5rem',
       compact: '1.25rem',
     },
   },
-  '--minim-content-medium-icon-box-width': {
-    id: 'VariableID:10302:16529',
-    name: 'content/medium/icon-box-width',
+  '--minim-component-medium-height': {
+    id: 'VariableID:10937:30620',
+    name: 'component/medium/height',
+    collection: 'semantic-token',
+    resolvedModes: {
+      base: '2.25rem',
+      compact: '1.75rem',
+    },
+  },
+  '--minim-component-medium-height-inline': {
+    id: 'VariableID:11244:2',
+    name: 'component/medium/height-inline',
     collection: 'semantic-token',
     resolvedModes: {
       base: '1.25rem',
       compact: '1.125rem',
     },
   },
-  '--minim-content-medium-text-gap': {
-    id: 'VariableID:7959:28288',
-    name: 'content/medium/text-gap',
+  '--minim-component-medium-padding-block': {
+    id: 'VariableID:7962:29267',
+    name: 'component/medium/padding-block',
     collection: 'semantic-token',
     resolvedModes: {
-      base: '0.25rem',
+      base: '0.375rem',
       compact: '0.25rem',
     },
   },
-  '--minim-content-medium-text-inset-block': {
+  '--minim-component-medium-padding-block-inner': {
+    id: 'VariableID:8490:33367',
+    name: 'component/medium/padding-block-inner',
+    collection: 'semantic-token',
+    resolvedModes: {
+      base: '0.25rem',
+      compact: '0.125rem',
+    },
+  },
+  '--minim-component-medium-padding-block-slot': {
     id: 'VariableID:7959:28284',
-    name: 'content/medium/text-inset-block',
+    name: 'component/medium/padding-block-slot',
     collection: 'semantic-token',
     resolvedModes: {
       base: '0.125rem',
       compact: '0.0625rem',
     },
   },
-  '--minim-content-supporting-large-box-size': {
-    id: 'VariableID:8125:16047',
-    name: 'content/supporting-large/box-size',
+  '--minim-component-medium-width-inline': {
+    id: 'VariableID:10302:16529',
+    name: 'component/medium/width-inline',
     collection: 'semantic-token',
     resolvedModes: {
       base: '1.25rem',
       compact: '1.125rem',
     },
   },
-  '--minim-content-supporting-large-icon-box-width': {
-    id: 'VariableID:10302:16530',
-    name: 'content/supporting-large/icon-box-width',
+  '--minim-component-person-sm-height': {
+    id: 'VariableID:11321:33787',
+    name: 'component/person-sm/height',
     collection: 'semantic-token',
     resolvedModes: {
-      base: '1.125rem',
-      compact: '1rem',
+      base: '2rem',
+      compact: '1.75rem',
     },
   },
-  '--minim-content-supporting-large-text-gap': {
-    id: 'VariableID:7962:28561',
-    name: 'content/supporting-large/text-gap',
+  '--minim-component-person-xl-height': {
+    id: 'VariableID:11321:33789',
+    name: 'component/person-xl/height',
     collection: 'semantic-token',
     resolvedModes: {
-      base: '0.125rem',
-      compact: '0.125rem',
+      base: '4.25rem',
+      compact: '3.75rem',
     },
   },
-  '--minim-content-supporting-large-text-inset-block': {
+  '--minim-component-person-xsm-height': {
+    id: 'VariableID:11321:33788',
+    name: 'component/person-xsm/height',
+    collection: 'semantic-token',
+    resolvedModes: {
+      base: '1.75rem',
+      compact: '1.5rem',
+    },
+  },
+  '--minim-component-person-xxl-height': {
+    id: 'VariableID:11321:33790',
+    name: 'component/person-xxl/height',
+    collection: 'semantic-token',
+    resolvedModes: {
+      base: '6.25rem',
+      compact: '6.25rem',
+    },
+  },
+  '--minim-component-supporting-large-padding-block-slot': {
     id: 'VariableID:7962:28560',
-    name: 'content/supporting-large/text-inset-block',
+    name: 'component/supporting-large/padding-block-slot',
     collection: 'semantic-token',
     resolvedModes: {
       base: '0.0625rem',
       compact: '0.0625rem',
     },
   },
-  '--minim-content-supporting-medium-box-size': {
-    id: 'VariableID:8125:16173',
-    name: 'content/supporting-medium/box-size',
+  '--minim-component-supporting-large-width-inline': {
+    id: 'VariableID:10302:16530',
+    name: 'component/supporting-large/width-inline',
     collection: 'semantic-token',
     resolvedModes: {
       base: '1.125rem',
       compact: '1rem',
     },
   },
-  '--minim-content-supporting-medium-icon-box-width': {
+  '--minim-component-supporting-medium-padding-block-slot': {
+    id: 'VariableID:7962:28577',
+    name: 'component/supporting-medium/padding-block-slot',
+    collection: 'semantic-token',
+    resolvedModes: {
+      base: '0.0625rem',
+      compact: '0.0625rem',
+    },
+  },
+  '--minim-component-supporting-medium-width-inline': {
     id: 'VariableID:10302:16531',
-    name: 'content/supporting-medium/icon-box-width',
+    name: 'component/supporting-medium/width-inline',
     collection: 'semantic-token',
     resolvedModes: {
       base: '1rem',
       compact: '0.875rem',
     },
   },
-  '--minim-content-supporting-medium-text-gap': {
-    id: 'VariableID:7962:28575',
-    name: 'content/supporting-medium/text-gap',
+  '--minim-component-xlarge-height': {
+    id: 'VariableID:10937:30622',
+    name: 'component/xlarge/height',
     collection: 'semantic-token',
     resolvedModes: {
-      base: '0.125rem',
-      compact: '0.125rem',
+      base: '3.25rem',
+      compact: '2.75rem',
     },
   },
-  '--minim-content-supporting-medium-text-inset-block': {
-    id: 'VariableID:7962:28577',
-    name: 'content/supporting-medium/text-inset-block',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.0625rem',
-      compact: '0.0625rem',
-    },
-  },
-  '--minim-control-item-large-padding-block': {
-    id: 'VariableID:8490:33365',
-    name: 'control-item/large/padding-block',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.375rem',
-      compact: '0.25rem',
-    },
-  },
-  '--minim-control-item-large-padding-inline': {
-    id: 'VariableID:8490:33364',
-    name: 'control-item/large/padding-inline',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.5rem',
-      compact: '0.375rem',
-    },
-  },
-  '--minim-control-item-medium-padding-block': {
-    id: 'VariableID:8490:33367',
-    name: 'control-item/medium/padding-block',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.25rem',
-      compact: '0.125rem',
-    },
-  },
-  '--minim-control-item-medium-padding-inline': {
-    id: 'VariableID:8490:33366',
-    name: 'control-item/medium/padding-inline',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.375rem',
-      compact: '0.1875rem',
-    },
-  },
-  '--minim-control-large-gap': {
-    id: 'VariableID:7964:30459',
-    name: 'control/large/gap',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.5rem',
-      compact: '0.375rem',
-    },
-  },
-  '--minim-control-large-padding-block': {
-    id: 'VariableID:7962:29264',
-    name: 'control/large/padding-block',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.5rem',
-      compact: '0.375rem',
-    },
-  },
-  '--minim-control-large-padding-inline': {
-    id: 'VariableID:7962:29263',
-    name: 'control/large/padding-inline',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.625rem',
-      compact: '0.5rem',
-    },
-  },
-  '--minim-control-medium-gap': {
-    id: 'VariableID:7964:30464',
-    name: 'control/medium/gap',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.5rem',
-      compact: '0.375rem',
-    },
-  },
-  '--minim-control-medium-padding-block': {
-    id: 'VariableID:7962:29267',
-    name: 'control/medium/padding-block',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.375rem',
-      compact: '0.25rem',
-    },
-  },
-  '--minim-control-medium-padding-inline': {
-    id: 'VariableID:7962:29266',
-    name: 'control/medium/padding-inline',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.5rem',
-      compact: '0.3125rem',
-    },
-  },
-  '--minim-control-xlarge-padding-block': {
+  '--minim-component-xlarge-padding-block': {
     id: 'VariableID:7962:29244',
-    name: 'control/xlarge/padding-block',
+    name: 'component/xlarge/padding-block',
     collection: 'semantic-token',
     resolvedModes: {
       base: '0.75rem',
       compact: '0.625rem',
-    },
-  },
-  '--minim-control-xlarge-padding-inline': {
-    id: 'VariableID:7962:29243',
-    name: 'control/xlarge/padding-inline',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.875rem',
-      compact: '0.75rem',
     },
   },
   '--minim-fg-amber': {
@@ -1174,33 +1017,6 @@ export const minimTokenMetadata = {
       compact: '62.4375rem',
     },
   },
-  '--minim-radius-full-component-large': {
-    id: 'VariableID:7962:29251',
-    name: 'radius/full/component-large',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '1.375rem',
-      compact: '1.125rem',
-    },
-  },
-  '--minim-radius-full-component-medium': {
-    id: 'VariableID:7964:29569',
-    name: 'radius/full/component-medium',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '1.125rem',
-      compact: '0.875rem',
-    },
-  },
-  '--minim-radius-full-component-xlarge': {
-    id: 'VariableID:8042:8724',
-    name: 'radius/full/component-xlarge',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '1.625rem',
-      compact: '1.375rem',
-    },
-  },
   '--minim-radius-inner': {
     id: 'VariableID:7964:30207',
     name: 'radius/inner',
@@ -1217,60 +1033,6 @@ export const minimTokenMetadata = {
     resolvedModes: {
       base: '2rem',
       compact: '1.5rem',
-    },
-  },
-  '--minim-row-large-gap': {
-    id: 'VariableID:8049:8716',
-    name: 'row/large/gap',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.5rem',
-      compact: '0.375rem',
-    },
-  },
-  '--minim-row-large-padding-block': {
-    id: 'VariableID:8049:8715',
-    name: 'row/large/padding-block',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.5rem',
-      compact: '0.375rem',
-    },
-  },
-  '--minim-row-large-padding-inline': {
-    id: 'VariableID:8049:8714',
-    name: 'row/large/padding-inline',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.5rem',
-      compact: '0.5rem',
-    },
-  },
-  '--minim-row-medium-gap': {
-    id: 'VariableID:8049:8719',
-    name: 'row/medium/gap',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.5rem',
-      compact: '0.375rem',
-    },
-  },
-  '--minim-row-medium-padding-block': {
-    id: 'VariableID:8049:8718',
-    name: 'row/medium/padding-block',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.375rem',
-      compact: '0.25rem',
-    },
-  },
-  '--minim-row-medium-padding-inline': {
-    id: 'VariableID:8049:8717',
-    name: 'row/medium/padding-inline',
-    collection: 'semantic-token',
-    resolvedModes: {
-      base: '0.5rem',
-      compact: '0.5rem',
     },
   },
   '--minim-shadow-neutral': {
@@ -1396,15 +1158,6 @@ export const minimTokenMetadata = {
     resolvedModes: {
       'light theme':
         'rgb(84.70588326454163% 10.196078568696976% 10.196078568696976% / 100%)',
-    },
-  },
-  '--minim-stroke-highlight': {
-    id: 'VariableID:7751:17869',
-    name: 'stroke/highlight',
-    collection: 'semantic-color',
-    resolvedModes: {
-      'light theme':
-        'rgb(96.07843160629272% 79.21568751335144% 5.882352963089943% / 100%)',
     },
   },
   '--minim-stroke-neutral': {

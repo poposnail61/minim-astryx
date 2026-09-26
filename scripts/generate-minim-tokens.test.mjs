@@ -126,6 +126,22 @@ test('font soft mode remains represented without theme-mode inference', () => {
   assert.equal(model.compact['--minim-font'], 'Minim Base VF');
 });
 
+test('component block padding preserves Base and Compact heights', () => {
+  const model = generateTokenModel(document);
+  const px = value => Number.parseFloat(value) * 16;
+  for (const [mode, expected] of [['base', [36, 44, 52]], ['compact', [28, 36, 44]]]) {
+    for (const [index, size] of ['medium', 'large', 'xlarge'].entries()) {
+      const content = size === 'medium' ? 'medium' : 'large';
+      const height = (px(model[mode][`--minim-typography-line-height-${content === 'medium' ? 'md' : 'lg'}`]) + 2 * px(model[mode][`--minim-component-${content}-padding-block-slot`])) + 2 * px(model[mode][`--minim-component-${size}-padding-block`]);
+      assert.equal(height, expected[index]);
+    }
+  }
+  for (const name of Object.keys(model.base)) {
+    if (!name.startsWith('--minim-component-')) continue;
+    assert.match(name, /^--minim-component-((medium|large|xlarge)-(height(-inline)?|padding-block(-inner|-slot)?)|supporting-(medium|large)-padding-block-slot|(supporting-)?(medium|large)-width-inline|person-(xsm|sm|xl|xxl)-height)$/);
+  }
+});
+
 test('source and generated metadata counts match the validated export', () => {
   const model = generateTokenModel(document);
   assert.deepEqual(
@@ -136,16 +152,16 @@ test('source and generated metadata counts match the validated export', () => {
       ]),
     ),
     {
-      'semantic-color': 61,
+      'semantic-color': 57,
       'base-color': 127,
       font: 3,
       'base-token': 74,
-      'semantic-token': 81,
+      'semantic-token': 63,
     },
   );
-  assert.equal(Object.keys(model.base).length, 148);
-  assert.equal(Object.keys(model.compact).length, 148);
-  assert.equal(Object.keys(model.metadata).length, 145);
+  assert.equal(Object.keys(model.base).length, 126);
+  assert.equal(Object.keys(model.compact).length, 126);
+  assert.equal(Object.keys(model.metadata).length, 123);
   assert.equal(model.textStyles.length, 28);
   assert.equal(model.effectStyles.length, 3);
 });
@@ -155,7 +171,18 @@ test('retired aliases stay absent and button minimum widths follow density', () 
   const names = Object.values(document.collections)
     .flat()
     .map(v => v.name);
+  assert.equal(names.some(name => /^(control|control-item|row)\//.test(name)), false);
+  assert.equal(names.some(name => name.startsWith('content/')), false);
+  assert.equal(names.some(name => name.endsWith('/height-slot')), false);
   for (const name of [
+    'control/medium/gap',
+    'bg/neutral-glass',
+    'bg/muted-solid',
+    'bg/highlight-solid',
+    'stroke/highlight',
+    'radius/full/component-medium',
+    'radius/full/component-large',
+    'radius/full/component-xlarge',
     'bg/neutral-tint',
     'bg/field-subtle',
     'alpha/black/100',
@@ -167,16 +194,16 @@ test('retired aliases stay absent and button minimum widths follow density', () 
     assert.ok(!names.includes(name), name);
   assert.equal(model.base['--minim-shadow-neutral'], 'rgb(0% 0% 0% / 10%)');
   for (const [size, base, compact] of [
-    ['md', 36, 28],
-    ['lg', 44, 36],
-    ['xl', 52, 44],
+    ['medium', 36, 28],
+    ['large', 44, 36],
+    ['xlarge', 52, 44],
   ]) {
     assert.equal(
-      model.base[`--minim-button-min-width-${size}`],
+      model.base[`--minim-component-${size}-height`],
       `${base / 16}rem`,
     );
     assert.equal(
-      model.compact[`--minim-button-min-width-${size}`],
+      model.compact[`--minim-component-${size}-height`],
       `${compact / 16}rem`,
     );
   }

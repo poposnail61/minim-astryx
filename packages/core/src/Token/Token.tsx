@@ -185,7 +185,6 @@ const styles = stylex.create({
     justifyContent: 'center',
     position: 'relative',
     padding: 0,
-    marginInlineEnd: `calc(-1 * ${spacingVars['--spacing-1']})`,
     cursor: {
       default: 'pointer',
       ':is(:disabled,[aria-disabled="true"])': 'default',

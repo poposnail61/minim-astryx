@@ -23,6 +23,7 @@ import type {BaseProps} from '../BaseProps';
 import {
   ListContext,
   type ListDensity,
+  type ListSize,
   type ListMarkerStyle,
 } from './ListContext';
 import {mergeProps} from '../utils';
@@ -30,6 +31,7 @@ import {themeProps} from '../utils/themeProps';
 
 export {
   type ListDensity,
+  type ListSize,
   type ListMarkerStyle as ListStyle,
 } from './ListContext';
 
@@ -44,12 +46,11 @@ export interface ListProps extends BaseProps<
   children: ReactNode;
 
   /**
-   * Spacing density for list items.
-   * - 'compact': Tighter spacing for dense UIs
-   * - 'balanced': Standard spacing
-   * - 'spacious': Extra spacing for readability
-   * @default 'balanced'
+   * Default item size. Individual ListItems may override it.
+   * @default 'lg'
    */
+  size?: ListSize;
+  /** @deprecated Use size. compact maps to md; balanced/spacious map to lg. */
   density?: ListDensity;
 
   /**
@@ -142,7 +143,8 @@ const dynamicStyles = stylex.create({
  */
 export function List({
   children,
-  density = 'balanced',
+  size: sizeProp,
+  density,
   hasDividers = false,
   header,
   listStyle = 'none',
@@ -155,12 +157,14 @@ export function List({
   ...props
 }: ListProps) {
   const headerId = useId();
+  const size = sizeProp ?? (density === 'compact' ? 'md' : 'lg');
+  const legacyDensity = density ?? (size === 'md' ? 'compact' : 'balanced');
   const isOrdered = listStyle === 'decimal';
   const Tag = isOrdered ? 'ol' : 'ul';
 
   const contextValue = useMemo(
-    () => ({density, hasDividers, listStyle}),
-    [density, hasDividers, listStyle],
+    () => ({size, density: legacyDensity, hasDividers, listStyle}),
+    [size, legacyDensity, hasDividers, listStyle],
   );
 
   const listElement = (
@@ -182,7 +186,7 @@ export function List({
       // variant.
       role="list"
       {...mergeProps(
-        themeProps('list', {density, listStyle}),
+        themeProps('list', {size, listStyle}),
         stylex.props(
           styles.list,
           hasDividers && styles.withDividers,

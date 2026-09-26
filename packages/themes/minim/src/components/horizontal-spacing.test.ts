@@ -18,7 +18,7 @@ describe('shared horizontal content contract', () => {
         minimBadgeTokenComponents['badge-label'][`size:${size}`],
       ]) {
         expect(styles.paddingInline).toBe('0');
-        expect(styles.paddingBlock).toContain('text-inset-block');
+        expect(styles.paddingBlock).toContain('padding-block');
       }
     }
     for (const size of ['sm', 'md'] as const) {

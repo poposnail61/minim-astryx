@@ -31,28 +31,28 @@ export const minimActionComponents = {
     },
     'size:md': {
       '--minim-button-icon-size': minim('typography-line-height-md'),
-      '--minim-button-icon-slot-height': minim('content-medium-box-size'),
+      '--minim-button-icon-slot-height':
+        'calc(var(--minim-typography-line-height-md) + 2 * var(--minim-component-medium-padding-block-slot))',
       '--minim-button-label-font-size': minim('typography-font-size-md'),
       '--minim-button-label-line-height': minim('typography-line-height-md'),
       '--minim-button-label-inset-block': minim(
-        'content-medium-text-inset-block',
+        'component-medium-padding-block-slot',
       ),
-      height:
-        'calc(var(--minim-content-medium-box-size) + 2 * var(--minim-control-medium-padding-block))',
-      paddingBlock: minim('control-medium-padding-block'),
+      height: 'var(--minim-component-medium-height)',
+      paddingBlock: minim('component-medium-padding-block'),
       paddingInline: minim('spacing-300'),
     },
     'size:lg': {
       '--minim-button-icon-size': minim('typography-line-height-lg'),
-      '--minim-button-icon-slot-height': minim('content-large-box-size'),
+      '--minim-button-icon-slot-height':
+        'calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-component-large-padding-block-slot))',
       '--minim-button-label-font-size': minim('typography-font-size-lg'),
       '--minim-button-label-line-height': minim('typography-line-height-lg'),
       '--minim-button-label-inset-block': minim(
-        'content-large-text-inset-block',
+        'component-large-padding-block-slot',
       ),
-      height:
-        'calc(var(--minim-content-large-box-size) + 2 * var(--minim-control-large-padding-block))',
-      paddingBlock: minim('control-large-padding-block'),
+      height: 'var(--minim-component-large-height)',
+      paddingBlock: minim('component-large-padding-block'),
       paddingInline: minim('spacing-400'),
     },
     'content:icon-only': {paddingInline: '0'},

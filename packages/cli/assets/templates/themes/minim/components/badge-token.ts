@@ -22,15 +22,17 @@ const supportingPart = {
   },
   'size:md': {
     '--minim-icon-box-size': minim('typography-line-height-xs'),
-    width: minim('content-supporting-medium-icon-box-width'),
-    height: minim('content-supporting-medium-box-size'),
+    width: minim('component-supporting-medium-width-inline'),
+    height:
+      'calc(var(--minim-typography-line-height-xs) + 2 * var(--minim-component-supporting-medium-padding-block-slot))',
     fontSize: minim('typography-line-height-xs'),
     lineHeight: minim('typography-line-height-xs'),
   },
   'size:lg': {
     '--minim-icon-box-size': minim('typography-line-height-sm'),
-    width: minim('content-supporting-large-icon-box-width'),
-    height: minim('content-supporting-large-box-size'),
+    width: minim('component-supporting-large-width-inline'),
+    height:
+      'calc(var(--minim-typography-line-height-sm) + 2 * var(--minim-component-supporting-large-padding-block-slot))',
     fontSize: minim('typography-line-height-sm'),
     lineHeight: minim('typography-line-height-sm'),
   },
@@ -39,12 +41,14 @@ const supportingPart = {
 const supportingContentPart = {
   base: supportingPart.base,
   'size:md': {
-    height: minim('content-supporting-medium-box-size'),
+    height:
+      'calc(var(--minim-typography-line-height-xs) + 2 * var(--minim-component-supporting-medium-padding-block-slot))',
     fontSize: minim('typography-font-size-xs'),
     lineHeight: minim('typography-line-height-xs'),
   },
   'size:lg': {
-    height: minim('content-supporting-large-box-size'),
+    height:
+      'calc(var(--minim-typography-line-height-sm) + 2 * var(--minim-component-supporting-large-padding-block-slot))',
     fontSize: minim('typography-font-size-sm'),
     lineHeight: minim('typography-line-height-sm'),
   },
@@ -55,14 +59,18 @@ export const minimBadgeTokenComponents = {
   badge: {
     base: {
       width: 'fit-content',
-      height: 'auto',
-      gap: minim('content-supporting-medium-text-gap'),
+      height: minim('component-large-height-inline'),
+      gap: minim('spacing-100'),
       paddingBlock: '0',
-      paddingInline: minim('spacing-100'),
+      paddingInline: minim('spacing-150'),
       borderRadius: minim('radius-full'),
     },
+    'size:md': {
+      height: minim('component-medium-height-inline'),
+    },
     'size:lg': {
-      gap: minim('content-supporting-large-text-gap'),
+      height: minim('component-large-height-inline'),
+      gap: minim('spacing-100'),
     },
     'size:dot': {
       width: minim('spacing-200'),
@@ -95,14 +103,14 @@ export const minimBadgeTokenComponents = {
   },
   'badge-label': {
     'size:md': {
-      paddingInline: minim('spacing-50'),
-      paddingBlock: minim('content-supporting-medium-text-inset-block'),
+      paddingInline: '0',
+      paddingBlock: minim('component-supporting-medium-padding-block-slot'),
       fontSize: minim('typography-font-size-xs'),
       lineHeight: minim('typography-line-height-xs'),
     },
     'size:lg': {
-      paddingInline: minim('spacing-50'),
-      paddingBlock: minim('content-supporting-large-text-inset-block'),
+      paddingInline: '0',
+      paddingBlock: minim('component-supporting-large-padding-block-slot'),
       fontSize: minim('typography-font-size-sm'),
       lineHeight: minim('typography-line-height-sm'),
     },
@@ -111,21 +119,28 @@ export const minimBadgeTokenComponents = {
   token: {
     base: {
       width: 'fit-content',
-      height: 'auto',
-      gap: minim('content-supporting-medium-text-gap'),
+      height: minim('component-large-height-inline'),
+      gap: minim('spacing-100'),
       paddingBlock: '0',
-      paddingInline: minim('spacing-100'),
+      paddingInline: minim('spacing-150'),
       borderRadius: minim('radius-full'),
     },
     'size:sm': {
-      gap: minim('content-supporting-medium-text-gap'),
+      height: minim('component-medium-height-inline'),
+      gap: minim('spacing-100'),
     },
     'size:md': {
-      gap: minim('content-supporting-large-text-gap'),
+      height: minim('component-medium-height-inline'),
+      gap: minim('spacing-100'),
+    },
+    'size:lg': {
+      height: minim('component-large-height-inline'),
+      gap: minim('spacing-100'),
     },
     'color:default': subtle('bg-layer-base', 'fg-neutral'),
     'color:red': subtle('bg-critical', 'fg-critical'),
     'color:orange': subtle('bg-orange', 'fg-orange'),
+    'color:amber': subtle('bg-amber', 'fg-amber'),
     'color:yellow': subtle('bg-yellow', 'fg-yellow'),
     'color:green': subtle('bg-secondary', 'fg-secondary'),
     'color:teal': subtle('bg-teal', 'fg-teal'),
@@ -137,14 +152,20 @@ export const minimBadgeTokenComponents = {
   },
   'token-label': {
     'size:sm': {
-      paddingInline: minim('spacing-50'),
-      paddingBlock: minim('content-supporting-medium-text-inset-block'),
+      paddingInline: '0',
+      paddingBlock: minim('component-supporting-medium-padding-block-slot'),
       fontSize: minim('typography-font-size-xs'),
       lineHeight: minim('typography-line-height-xs'),
     },
     'size:md': {
-      paddingInline: minim('spacing-50'),
-      paddingBlock: minim('content-supporting-large-text-inset-block'),
+      paddingInline: '0',
+      paddingBlock: minim('component-supporting-medium-padding-block-slot'),
+      fontSize: minim('typography-font-size-xs'),
+      lineHeight: minim('typography-line-height-xs'),
+    },
+    'size:lg': {
+      paddingInline: '0',
+      paddingBlock: minim('component-supporting-large-padding-block-slot'),
       fontSize: minim('typography-font-size-sm'),
       lineHeight: minim('typography-line-height-sm'),
     },
@@ -152,26 +173,29 @@ export const minimBadgeTokenComponents = {
   'token-icon': {
     ...supportingPart,
     'size:sm': supportingPart['size:md'],
-    'size:md': supportingPart['size:lg'],
   },
   'token-end-content': {
     ...supportingContentPart,
     'size:sm': supportingContentPart['size:md'],
-    'size:md': supportingContentPart['size:lg'],
   },
   'token-remove': {
     base: {color: 'inherit'},
     'size:sm': {
       '--minim-icon-box-size': minim('typography-line-height-xs'),
-      width: minim('content-supporting-medium-icon-box-width'),
-      height: minim('content-supporting-medium-box-size'),
+      width: minim('component-supporting-medium-width-inline'),
+      height:
+        'calc(var(--minim-typography-line-height-xs) + 2 * var(--minim-component-supporting-medium-padding-block-slot))',
       fontSize: minim('typography-line-height-xs'),
       lineHeight: minim('typography-line-height-xs'),
     },
     'size:md': {
+      ...supportingPart['size:md'],
+    },
+    'size:lg': {
       '--minim-icon-box-size': minim('typography-line-height-sm'),
-      width: minim('content-supporting-large-icon-box-width'),
-      height: minim('content-supporting-large-box-size'),
+      width: minim('component-supporting-large-width-inline'),
+      height:
+        'calc(var(--minim-typography-line-height-sm) + 2 * var(--minim-component-supporting-large-padding-block-slot))',
       fontSize: minim('typography-line-height-sm'),
       lineHeight: minim('typography-line-height-sm'),
     },

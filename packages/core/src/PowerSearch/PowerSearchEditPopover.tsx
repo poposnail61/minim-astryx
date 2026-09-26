@@ -16,11 +16,13 @@ import React, {useState, useCallback, useEffect, useMemo, useRef} from 'react';
 import * as stylex from '@stylexjs/stylex';
 import {Button} from '../Button';
 import {Selector} from '../Selector';
+import {SizeProvider} from '../SizeContext';
 import {HStack, VStack} from '../Stack';
 import {Icon} from '../Icon';
 import {TreeList, type TreeListItemData} from '../TreeList';
 import {useTranslator} from '../i18n';
 import {isImeKeyEvent} from '../utils/ime';
+import {mergeProps} from '../utils';
 import {spacingVars, typeScaleVars} from '../theme/tokens.stylex';
 import {PowerSearchValueEditor} from './PowerSearchValueEditor';
 import {resolveOperatorLabel} from './resolveOperatorLabel';
@@ -51,7 +53,7 @@ const styles = stylex.create({
   },
   footer: {
     padding: `var(--power-search-popover-padding, ${spacingVars['--spacing-3']})`,
-    paddingTop: 0,
+    paddingTop: 'var(--power-search-editor-footer-gap, 0px)',
   },
   fieldSelector: {
     flexGrow: 1,
@@ -355,14 +357,16 @@ function NestedSubFilterRow({
       )}
       {operatorValue && !isEmptyType && !isNestedType && (
         <div {...stylex.props(styles.nestedRowValueEditor)}>
-          <PowerSearchValueEditor
-            operatorValue={operatorValue}
-            filterValue={subFilter.value}
-            onChange={handleValueChange}
-            config={config}
-            maxMenuItems={maxMenuItems}
-            isDisabled={isReadOnly}
-          />
+          <SizeProvider value="md">
+            <PowerSearchValueEditor
+              operatorValue={operatorValue}
+              filterValue={subFilter.value}
+              onChange={handleValueChange}
+              config={config}
+              maxMenuItems={maxMenuItems}
+              isDisabled={isReadOnly}
+            />
+          </SizeProvider>
         </div>
       )}
     </HStack>
@@ -808,14 +812,14 @@ export function PowerSearchEditPopover({
               <Button
                 label={t('@astryx.powersearch.editor.cancel')}
                 onClick={onCancel}
-                variant="ghost"
-                size="sm"
+                variant="neutral-subtle"
+                size="lg"
               />
               <Button
                 label={saveButtonLabel}
                 onClick={handleSave}
-                variant="primary"
-                size="sm"
+                variant="neutral"
+                size="lg"
                 isDisabled={isSaveDisabled}
               />
             </HStack>
@@ -829,7 +833,11 @@ export function PowerSearchEditPopover({
     <div {...stylex.props(styles.container)} onKeyDown={handleKeyDown}>
       <div {...stylex.props(styles.content)}>
         <HStack gap={2} xstyle={styles.chipRow}>
-          <div {...stylex.props(styles.fieldSelector)}>
+          <div
+            {...mergeProps(
+              stylex.props(styles.fieldSelector),
+              'astryx-power-search-editor-field',
+            )}>
             <Selector
               label={t('@astryx.powersearch.editor.field')}
               isLabelHidden
@@ -841,7 +849,11 @@ export function PowerSearchEditPopover({
             />
           </div>
           {showOperatorSelector && operatorOptions.length > 0 && (
-            <div {...stylex.props(styles.operatorSelector)}>
+            <div
+              {...mergeProps(
+                stylex.props(styles.operatorSelector),
+                'astryx-power-search-editor-field',
+              )}>
               <Selector
                 label={t('@astryx.powersearch.editor.operator')}
                 isLabelHidden
@@ -854,16 +866,23 @@ export function PowerSearchEditPopover({
             </div>
           )}
           {operatorValue && !isEmptyType && (
-            <div ref={valueEditorRef} {...stylex.props(styles.valueEditor)}>
-              <PowerSearchValueEditor
-                operatorValue={operatorValue}
-                filterValue={partialFilter.value}
-                onChange={handleValueChange}
-                onEnter={handleSave}
-                config={config}
-                maxMenuItems={maxMenuItems}
-                isDisabled={isReadOnly}
-              />
+            <div
+              ref={valueEditorRef}
+              {...mergeProps(
+                stylex.props(styles.valueEditor),
+                'astryx-power-search-editor-field',
+              )}>
+              <SizeProvider value="md">
+                <PowerSearchValueEditor
+                  operatorValue={operatorValue}
+                  filterValue={partialFilter.value}
+                  onChange={handleValueChange}
+                  onEnter={handleSave}
+                  config={config}
+                  maxMenuItems={maxMenuItems}
+                  isDisabled={isReadOnly}
+                />
+              </SizeProvider>
             </div>
           )}
         </HStack>
@@ -885,14 +904,14 @@ export function PowerSearchEditPopover({
               <Button
                 label={t('@astryx.powersearch.editor.cancel')}
                 onClick={onCancel}
-                variant="ghost"
-                size="sm"
+                variant="neutral-subtle"
+                size="lg"
               />
               <Button
                 label={saveButtonLabel}
                 onClick={handleSave}
-                variant="primary"
-                size="sm"
+                variant="neutral"
+                size="lg"
                 isDisabled={isSaveDisabled}
               />
             </HStack>

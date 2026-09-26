@@ -112,7 +112,7 @@ export const docs = {
       name: 'size',
       type: "'sm' | 'md' | 'lg'",
       description:
-        'Track and thumb size. Default theme: sm 32x20, md 40x24, lg falls back to md. Minim: md (and legacy sm) is medium, 54x24 base / 54x20 compact; lg is 64x28 base / 64x24 compact. Track, click area and thumb travel share --switch-width, --switch-height, --switch-padding and --switch-travel.',
+        'Track and thumb size. Default theme: sm 32x20, md 40x24, lg falls back to md. Minim: md (and legacy sm) is medium, 54x24 base / 44x20 compact; lg is 64x28 base / 54x24 compact. The thumb keeps a 1.5:1 aspect ratio and the adjacent space is 1:1. Track width, click area and travel derive from content height and spacing tokens.',
       default: "'lg'",
     },
     {

@@ -228,7 +228,7 @@ export const docs = {
       {className: 'astryx-date-time-input-time-listbox'},
       {className: 'astryx-date-time-input-popup'},
       {className: 'astryx-date-time-input-time-popup'},
-      {className: 'astryx-date-time-input-time-option'},
+      {className: 'astryx-date-time-input-time-option', visualProps: ['size', 'highlighted']},
     ],
   },
   usage: {
@@ -561,7 +561,7 @@ export const docsZh = {
       {className: 'astryx-date-time-input-time-listbox'},
       {className: 'astryx-date-time-input-popup'},
       {className: 'astryx-date-time-input-time-popup'},
-      {className: 'astryx-date-time-input-time-option'},
+      {className: 'astryx-date-time-input-time-option', visualProps: ['size', 'highlighted']},
     ],
   },
 };

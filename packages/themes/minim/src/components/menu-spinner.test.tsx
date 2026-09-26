@@ -7,6 +7,93 @@ import {minimMenuIndicators} from '../indicators';
 import {minimTheme} from '../minimTheme';
 
 describe('Minim menu and Spinner overrides', () => {
+  it('shares responsive medium and large geometry across all menu row families', () => {
+    for (const key of [
+      'dropdown-menu-item',
+      'selector-option-row',
+      'multi-selector-option',
+      'typeahead-option-row',
+      'date-time-input-time-option',
+      'nav-heading-menu-item',
+    ] as const) {
+      for (const [size, component] of [
+        ['md', 'medium'],
+        ['lg', 'large'],
+      ] as const) {
+        const row = minimMenuSpinnerComponents[key][`size:${size}`];
+        expect(row.minHeight).toBe(
+          `var(--minim-component-${component}-height)`,
+        );
+        expect(row['--text-body-size']).toBe(
+          `var(--minim-typography-font-size-${size})`,
+        );
+        expect(row.paddingInline).toBe('var(--minim-spacing-300)');
+        expect(row.paddingBlock).toContain(
+          `--minim-component-${component}-padding-block`,
+        );
+      }
+    }
+  });
+
+  it('keeps selection separate from keyboard and pointer highlight in listboxes', () => {
+    for (const key of [
+      'selector-option-row',
+      'multi-selector-option',
+      'typeahead-option-row',
+      'date-time-input-time-option',
+    ] as const) {
+      const row = minimMenuSpinnerComponents[key].base;
+      expect(row[':is([aria-selected="true"])']).toEqual({
+        backgroundColor: 'var(--minim-bg-neutral)',
+        fontWeight: 'var(--minim-typography-font-weight-regular)',
+      });
+      expect(
+        row[':is([data-highlighted="true"]):not([aria-disabled="true"])']
+          .backgroundImage,
+      ).toContain('--minim-bg-overlay-hover');
+    }
+  });
+
+  it('matches independent selected, hover and disabled Figma menu states', () => {
+    const row = minimMenuSpinnerComponents['dropdown-menu-item'].base;
+    expect(row[':is([aria-checked="true"])'].backgroundColor).toBe(
+      'var(--minim-bg-neutral)',
+    );
+    expect(row[':focus:not([aria-disabled="true"])'].backgroundColor).toBe(
+      'var(--minim-bg-overlay-hover)',
+    );
+    expect(
+      row[':is([aria-checked="true"]):focus:not([aria-disabled="true"])'],
+    ).toEqual({
+      backgroundColor: 'var(--minim-bg-neutral)',
+      backgroundImage:
+        'linear-gradient(var(--minim-bg-overlay-hover), var(--minim-bg-overlay-hover))',
+    });
+    expect(row[':is([aria-disabled="true"])']).toEqual({
+      opacity: '0.5',
+      '--item-disabled-opacity': '1',
+      backgroundImage: 'none',
+    });
+    const {component} = generateThemeCSS(minimTheme);
+    expect(component).toContain(
+      'linear-gradient(var(--minim-bg-overlay-hover), var(--minim-bg-overlay-hover))',
+    );
+  });
+  it('scales embedded spinner geometry with the density typography tokens', () => {
+    for (const [size, typography, ratio] of [
+      ['sm', 'md', '0.85'],
+      ['md', 'md', '0.85'],
+      ['lg', 'lg', '0.875'],
+    ] as const) {
+      const recipe = minimMenuSpinnerComponents.spinner[`size:${size}`];
+      expect(recipe['--spinner-box-size']).toBe(
+        `var(--minim-typography-line-height-${typography})`,
+      );
+      expect(recipe['--spinner-diameter']).toBe(
+        `calc(var(--minim-typography-line-height-${typography}) * ${ratio})`,
+      );
+    }
+  });
   it('shares a single-inset surface across suggestion and calendar popups', () => {
     for (const key of [
       'selector-popup',
@@ -36,7 +123,7 @@ describe('Minim menu and Spinner overrides', () => {
     expect(
       minimMenuSpinnerComponents['selector-option-row'].base,
     ).toMatchObject({
-      paddingBlock: 'var(--minim-row-large-padding-block)',
+      paddingBlock: 'var(--minim-component-large-padding-block)',
       paddingInline: 'var(--minim-spacing-300)',
       '--text-body-size': 'var(--minim-typography-font-size-lg)',
     });

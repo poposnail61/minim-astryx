@@ -14,7 +14,7 @@ export default defineConfig({
     colorScheme: 'light',
     trace: 'retain-on-failure',
   },
-  outputDir: '/tmp/minim-examples/results',
+  outputDir: process.env.MINIM_QA_OUTPUT ?? '/tmp/minim-examples/results',
   projects: [
     {name: 'desktop', use: {viewport: {width: 1440, height: 1000}}},
     {name: 'mobile', use: {viewport: {width: 390, height: 844}}},

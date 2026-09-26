@@ -1098,7 +1098,7 @@
             "type": "INSTANCE",
             "paddingLeft": "content/medium/icon-inset-inline",
             "paddingRight": "content/medium/icon-inset-inline",
-            "width": "content/medium/icon-box-width",
+            "width": "component/medium/width-inline",
             "children": [
               {
                 "name": "chevron-right",
@@ -1117,7 +1117,7 @@
                 "type": "INSTANCE",
                 "paddingLeft": "content/medium/icon-inset-inline",
                 "paddingRight": "content/medium/icon-inset-inline",
-                "width": "content/medium/icon-box-width"
+                "width": "component/medium/width-inline"
               }
             ]
           },
@@ -1140,7 +1140,7 @@
             "type": "INSTANCE",
             "paddingLeft": "content/medium/icon-inset-inline",
             "paddingRight": "content/medium/icon-inset-inline",
-            "width": "content/medium/icon-box-width",
+            "width": "component/medium/width-inline",
             "children": [
               {
                 "name": "chevron-down",
@@ -2149,7 +2149,7 @@
                 "type": "INSTANCE",
                 "paddingLeft": "content/medium/icon-inset-inline",
                 "paddingRight": "content/medium/icon-inset-inline",
-                "width": "content/medium/icon-box-width"
+                "width": "component/medium/width-inline"
               }
             ]
           }
@@ -2258,7 +2258,7 @@
                 "type": "INSTANCE",
                 "paddingLeft": "content/medium/icon-inset-inline",
                 "paddingRight": "content/medium/icon-inset-inline",
-                "width": "content/medium/icon-box-width"
+                "width": "component/medium/width-inline"
               },
               {
                 "name": "Placeholder",
@@ -3087,7 +3087,7 @@
                 "type": "INSTANCE",
                 "paddingLeft": "content/medium/icon-inset-inline",
                 "paddingRight": "content/medium/icon-inset-inline",
-                "width": "content/medium/icon-box-width"
+                "width": "component/medium/width-inline"
               },
               {
                 "name": "Label Text",
@@ -3199,8 +3199,8 @@
               {
                 "name": "label-content",
                 "type": "FRAME",
-                "paddingTop": "content/supporting-medium/text-inset-block",
-                "paddingBottom": "content/supporting-medium/text-inset-block",
+                "paddingTop": "component/supporting-medium/padding-block-slot",
+                "paddingBottom": "component/supporting-medium/padding-block-slot",
                 "paddingLeft": "spacing/50",
                 "paddingRight": "spacing/50"
               }
@@ -3223,8 +3223,8 @@
               {
                 "name": "label-content",
                 "type": "FRAME",
-                "paddingTop": "content/supporting-medium/text-inset-block",
-                "paddingBottom": "content/supporting-medium/text-inset-block",
+                "paddingTop": "component/supporting-medium/padding-block-slot",
+                "paddingBottom": "component/supporting-medium/padding-block-slot",
                 "paddingLeft": "spacing/50",
                 "paddingRight": "spacing/50"
               }
@@ -3247,8 +3247,8 @@
               {
                 "name": "label-content",
                 "type": "FRAME",
-                "paddingTop": "content/supporting-medium/text-inset-block",
-                "paddingBottom": "content/supporting-medium/text-inset-block",
+                "paddingTop": "component/supporting-medium/padding-block-slot",
+                "paddingBottom": "component/supporting-medium/padding-block-slot",
                 "paddingLeft": "spacing/50",
                 "paddingRight": "spacing/50"
               }
@@ -3271,8 +3271,8 @@
               {
                 "name": "label-content",
                 "type": "FRAME",
-                "paddingTop": "content/supporting-medium/text-inset-block",
-                "paddingBottom": "content/supporting-medium/text-inset-block",
+                "paddingTop": "component/supporting-medium/padding-block-slot",
+                "paddingBottom": "component/supporting-medium/padding-block-slot",
                 "paddingLeft": "spacing/50",
                 "paddingRight": "spacing/50"
               }
@@ -3295,8 +3295,8 @@
               {
                 "name": "label-content",
                 "type": "FRAME",
-                "paddingTop": "content/supporting-medium/text-inset-block",
-                "paddingBottom": "content/supporting-medium/text-inset-block",
+                "paddingTop": "component/supporting-medium/padding-block-slot",
+                "paddingBottom": "component/supporting-medium/padding-block-slot",
                 "paddingLeft": "spacing/50",
                 "paddingRight": "spacing/50"
               }
@@ -3383,12 +3383,12 @@
           {
             "name": "Leading Checkbox",
             "type": "INSTANCE",
-            "paddingTop": "content/medium/icon-inset-block",
-            "paddingBottom": "content/medium/icon-inset-block",
+            "paddingTop": "component/medium/padding-block-slot",
+            "paddingBottom": "component/medium/padding-block-slot",
             "itemSpacing": "spacing/100",
             "paddingLeft": "content/medium/icon-inset-inline",
             "paddingRight": "content/medium/icon-inset-inline",
-            "width": "content/medium/icon-box-width",
+            "width": "component/medium/width-inline",
             "children": [
               {
                 "name": "check-mini-outline",
@@ -3437,7 +3437,7 @@
             "type": "INSTANCE",
             "paddingLeft": "content/medium/icon-inset-inline",
             "paddingRight": "content/medium/icon-inset-inline",
-            "width": "content/medium/icon-box-width",
+            "width": "component/medium/width-inline",
             "children": [
               {
                 "name": "swap-vert",
@@ -3550,8 +3550,8 @@
           {
             "name": "Leading Checkbox",
             "type": "INSTANCE",
-            "paddingTop": "content/large/text-inset-block",
-            "paddingBottom": "content/large/text-inset-block",
+            "paddingTop": "component/large/padding-block-slot",
+            "paddingBottom": "component/large/padding-block-slot",
             "width": "typography/line-height/xl",
             "children": [
               {
@@ -3577,7 +3577,7 @@
             "type": "INSTANCE",
             "paddingLeft": "content/medium/icon-inset-inline",
             "paddingRight": "content/medium/icon-inset-inline",
-            "width": "content/medium/icon-box-width",
+            "width": "component/medium/width-inline",
             "children": [
               {
                 "name": "chevron-right",
@@ -3734,7 +3734,7 @@
             "type": "INSTANCE",
             "paddingLeft": "content/medium/icon-inset-inline",
             "paddingRight": "content/medium/icon-inset-inline",
-            "width": "content/medium/icon-box-width",
+            "width": "component/medium/width-inline",
             "children": [
               {
                 "name": "chevron-down",
@@ -3753,7 +3753,7 @@
                 "type": "INSTANCE",
                 "paddingLeft": "content/medium/icon-inset-inline",
                 "paddingRight": "content/medium/icon-inset-inline",
-                "width": "content/medium/icon-box-width"
+                "width": "component/medium/width-inline"
               }
             ]
           },
@@ -4076,7 +4076,7 @@
                 "type": "INSTANCE",
                 "paddingLeft": "content/medium/icon-inset-inline",
                 "paddingRight": "content/medium/icon-inset-inline",
-                "width": "content/medium/icon-box-width"
+                "width": "component/medium/width-inline"
               }
             ]
           }
@@ -4187,7 +4187,7 @@
               {
                 "name": "status-icon",
                 "type": "INSTANCE",
-                "width": "content/supporting-large/icon-box-width"
+                "width": "component/supporting-large/width-inline"
               },
               {
                 "name": "header-content",

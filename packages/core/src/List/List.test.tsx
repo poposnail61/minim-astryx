@@ -221,6 +221,23 @@ describe('List', () => {
   // Density variants
   // ===========================================================================
 
+  it('inherits size and supports per-item overrides', () => {
+    const {container} = render(
+      <List size="md">
+        <ListItem label="Inherited" />
+        <ListItem label="Override" size="lg" />
+      </List>,
+    );
+    const items = container.querySelectorAll('li');
+    expect(items[0]).toHaveAttribute('data-size', 'md');
+    expect(items[1]).toHaveAttribute('data-size', 'lg');
+  });
+
+  it('defaults standalone items to lg', () => {
+    const {container} = render(<ListItem label="Standalone" />);
+    expect(container.querySelector('li')).toHaveAttribute('data-size', 'lg');
+  });
+
   it('renders with compact density', () => {
     const {container} = render(
       <List density="compact">

@@ -287,6 +287,8 @@ const CROSS_COMPONENT_VARS: Record<string, string[]> = {
  * name. The list should shrink over time, not grow.
  */
 const VARS_WITHOUT_DERIVED_MAPPING = new Set([
+  // Controls the disabled content only, not opacity of the owning row.
+  '--item-disabled-opacity',
   // No standard CSS property maps onto these — they are component behaviors.
   '--button-focus-offset',
   '--button-icon-only-aspect',

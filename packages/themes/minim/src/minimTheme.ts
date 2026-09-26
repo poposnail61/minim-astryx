@@ -248,10 +248,8 @@ const foundationTokenMappings = {
   '--radius-container': minim('radius-container'),
   '--radius-page': minim('radius-overlay'),
   '--radius-full': minim('radius-full'),
-  '--size-element-md':
-    'calc(var(--minim-content-medium-box-size) + 2 * var(--minim-control-medium-padding-block))',
-  '--size-element-lg':
-    'calc(var(--minim-content-large-box-size) + 2 * var(--minim-control-large-padding-block))',
+  '--size-element-md': 'var(--minim-component-medium-height)',
+  '--size-element-lg': 'var(--minim-component-large-height)',
   '--shadow-low': minim('elevation-low'),
   '--shadow-med': minim('elevation-medium'),
   '--shadow-high': minim('elevation-high'),

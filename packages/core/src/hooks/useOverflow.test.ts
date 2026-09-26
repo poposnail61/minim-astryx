@@ -6,7 +6,14 @@ import {useOverflow} from './useOverflow';
 
 // Builds a mock container element with a given offsetWidth
 function mockContainer(width: number): HTMLElement {
-  return {offsetWidth: width} as unknown as HTMLElement;
+  const element = document.createElement('div');
+  Object.defineProperty(element, 'offsetWidth', {
+    value: width,
+    configurable: true,
+  });
+  element.getBoundingClientRect = () =>
+    new DOMRect(0, 0, element.offsetWidth, 0);
+  return element;
 }
 
 // Builds a mock measure element whose children have the given widths.
@@ -16,15 +23,16 @@ function mockMeasure(
   indicatorWidth?: number,
   itemHeight = 0,
 ): HTMLElement {
-  const children: {offsetWidth: number; offsetHeight: number}[] =
-    itemWidths.map(w => ({
-      offsetWidth: w,
-      offsetHeight: itemHeight,
-    }));
-  if (indicatorWidth != null) {
-    children.push({offsetWidth: indicatorWidth, offsetHeight: itemHeight});
+  const element = document.createElement('div');
+  for (const width of [
+    ...itemWidths,
+    ...(indicatorWidth == null ? [] : [indicatorWidth]),
+  ]) {
+    const child = mockContainer(width);
+    Object.defineProperty(child, 'offsetHeight', {value: itemHeight});
+    element.appendChild(child);
   }
-  return {children} as unknown as HTMLElement;
+  return element;
 }
 
 // Stubs ResizeObserver — fires callback immediately on observe, like the real one
@@ -429,7 +437,7 @@ describe('useOverflow with behavior=observeParent', () => {
     parentWidth: number,
     parentPadding = 0,
   ): HTMLElement {
-    const container = {offsetWidth: 0} as unknown as HTMLElement;
+    const container = mockContainer(0);
 
     const parent = {clientWidth: parentWidth};
 

@@ -50,12 +50,24 @@ describe('Minim content component styles', () => {
       lineHeight: 'var(--minim-typography-line-height-xs)',
     });
     expect(minimContentComponents['empty-state-title'].base).toMatchObject({
-      fontSize: 'var(--minim-typography-font-size-3xl)',
-      lineHeight: 'var(--minim-typography-line-height-3xl)',
+      fontSize: 'var(--minim-typography-font-size-xl)',
+      lineHeight: 'var(--minim-typography-line-height-xl)',
     });
     expect(minimContentComponents['empty-state'].base.paddingInline).toBe(
-      '1.5rem',
+      'var(--minim-spacing-500)',
     );
+    expect(minimContentComponents['empty-state'].base.paddingBlock).toBe(
+      'var(--minim-spacing-500)',
+    );
+    expect(minimContentComponents['empty-state'].base.gap).toBe(
+      'var(--minim-spacing-300)',
+    );
+    expect(
+      minimContentComponents['empty-state']['variant:compact'].paddingInline,
+    ).toBe('var(--minim-spacing-300)');
+    expect(
+      minimContentComponents['empty-state-title']['variant:compact'].fontWeight,
+    ).toBe('var(--minim-typography-font-weight-medium)');
   });
 
   it('does not let Text base styles override explicit type or size styles', () => {
@@ -82,6 +94,9 @@ describe('Minim content component styles', () => {
       'width',
     );
     expect(minimContentComponents.citation.base).not.toHaveProperty('width');
+    expect(minimContentComponents.citation.base.gap).toBe(
+      'var(--minim-spacing-100)',
+    );
     expect(minimContentComponents['empty-state'].base).not.toHaveProperty(
       'width',
     );

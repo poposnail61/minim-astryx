@@ -74,7 +74,12 @@ export function ShowcasePreview({name}: ShowcasePreviewProps) {
           justifyContent: 'safe center',
         }}
         {...previewNavigationProps}>
-        <div style={{minWidth: 'fit-content'}}>
+        <div
+          style={
+            name === 'OverflowList'
+              ? {width: '100%', minWidth: 0}
+              : {minWidth: 'fit-content'}
+          }>
           <Component />
         </div>
       </div>

@@ -190,7 +190,10 @@ until its implementation and verification complete.
 {
   "Power search root": {"target": "power-search"},
   "Search field and tokens": {"target": "power-search-trigger"},
-  "Filter-editor popover": {"target": "power-search-popover"}
+  "Filter-editor popover": {"target": "power-search-popover"},
+  "Filter-editor field, operator and value areas": {
+    "target": "power-search-editor-field"
+  }
 }
 ```
 

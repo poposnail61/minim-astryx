@@ -8,6 +8,38 @@ import {minimBaseTokens, minimCompactTokens} from '../minimTokens.generated';
 const px = (value: string) => Number.parseFloat(value) * 16;
 
 describe('Minim advanced component styles', () => {
+  it('matches file status glyphs to the large spinner diameter', () => {
+    expect(
+      minimAdvancedComponents['file-input'].base[
+        ':is(.astryx-file-input) .astryx-input-status-icon'
+      ],
+    ).toMatchObject({
+      fontSize: 'var(--minim-typography-line-height-lg)',
+      width: 'var(--minim-component-large-width-inline)',
+      height:
+        'calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-component-large-padding-block-slot))',
+    });
+  });
+  it('uses the large content slot for file-upload icons in both modes', () => {
+    expect(minimAdvancedComponents['file-input-icon'].base).toMatchObject({
+      color: 'var(--minim-fg-muted)',
+      fontWeight: 'var(--minim-typography-font-weight-medium)',
+    });
+    for (const mode of ['mode:input', 'mode:dropzone'] as const) {
+      expect(minimAdvancedComponents['file-input-icon'][mode]).toEqual({
+        ':is(.astryx-icon)': {
+          fontSize: 'var(--minim-typography-line-height-lg)',
+          width: 'var(--minim-component-large-width-inline)',
+          height:
+            'calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-component-large-padding-block-slot))',
+        },
+        '--minim-icon-box-size': 'var(--minim-typography-line-height-lg)',
+      });
+    }
+    expect(minimAdvancedComponents['file-input']['status:warning']).toEqual({
+      borderColor: 'var(--minim-stroke-warning)',
+    });
+  });
   it('uses a quiet neutral today marker without changing selection', () => {
     for (const marker of [
       'marker:today-only',
@@ -24,8 +56,7 @@ describe('Minim advanced component styles', () => {
   });
   it('keeps audited unbound primitives density-independent', () => {
     expect(minimAdvancedComponents.calendar.base).toMatchObject({
-      '--calendar-cell-size':
-        'calc(var(--minim-content-large-box-size) + 2 * var(--minim-control-large-padding-block))',
+      '--calendar-cell-size': 'var(--minim-component-large-height)',
       '--calendar-cell-padding': 'var(--minim-spacing-50)',
       borderRadius: 'var(--minim-radius-container)',
     });
@@ -36,7 +67,7 @@ describe('Minim advanced component styles', () => {
       lineHeight: 'var(--minim-typography-line-height-lg)',
     });
     expect(minimAdvancedComponents['slider-track'].base).toMatchObject({
-      backgroundColor: 'var(--minim-fg-neutral)',
+      backgroundColor: 'var(--minim-bg-neutral)',
     });
     expect(
       minimAdvancedComponents['slider-track']['orientation:horizontal'],
@@ -48,8 +79,9 @@ describe('Minim advanced component styles', () => {
 
   it('derives power-search height inside the border box in both densities', () => {
     const height = (tokens: typeof minimBaseTokens) =>
-      px(tokens['--minim-content-large-box-size']) +
-      2 * px(tokens['--minim-control-large-padding-block']);
+      px(tokens['--minim-typography-line-height-lg']) +
+      2 * px(tokens['--minim-component-large-padding-block-slot']) +
+      2 * px(tokens['--minim-component-large-padding-block']);
 
     expect(height(minimBaseTokens)).toBe(44);
     expect(height(minimCompactTokens)).toBe(36);
@@ -62,13 +94,14 @@ describe('Minim advanced component styles', () => {
       minimAdvancedComponents['power-search-trigger'].base[
         '--power-search-focus-border-color'
       ],
-    ).toBe('var(--minim-stroke-primary)');
+    ).toBe('var(--minim-stroke-neutral-strong)');
   });
 
   it('keeps file input border inside large controls and maps popover mode padding', () => {
     const fileHeight = (tokens: typeof minimBaseTokens) =>
-      px(tokens['--minim-content-large-box-size']) +
-      2 * px(tokens['--minim-control-large-padding-block']);
+      px(tokens['--minim-typography-line-height-lg']) +
+      2 * px(tokens['--minim-component-large-padding-block-slot']) +
+      2 * px(tokens['--minim-component-large-padding-block']);
 
     expect(fileHeight(minimBaseTokens)).toBe(44);
     expect(fileHeight(minimCompactTokens)).toBe(36);
@@ -77,7 +110,7 @@ describe('Minim advanced component styles', () => {
     );
     expect(
       minimAdvancedComponents['power-search-popover']['mode:fields'].padding,
-    ).toBe('var(--minim-spacing-100)');
+    ).toBe('var(--minim-spacing-200)');
     expect(
       minimAdvancedComponents['power-search-popover']['mode:value-editor'][
         '--power-search-popover-padding'

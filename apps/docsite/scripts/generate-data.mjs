@@ -25,6 +25,7 @@ import {execFileSync} from 'node:child_process';
 import {createRequire} from 'node:module';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 import {resolveContentRoot} from './resolve-content-root.mjs';
+import {writeIfChanged, pruneGeneratedPreviews} from './generated-files.mjs';
 import {template as queryTemplates} from '@astryxdesign/cli/api';
 import docsiteConfig from '../astryx.config.mjs';
 import {expandWorkspaceDirs} from '../../../scripts/lib/workspace-globs.mjs';
@@ -79,8 +80,10 @@ const COPYRIGHT_HEADER =
 
 function writeRegistry(filename, content) {
   const outPath = path.join(OUT_DIR, filename);
-  fs.writeFileSync(outPath, COPYRIGHT_HEADER + content, 'utf-8');
-  console.log(`  wrote ${path.relative(REPO_ROOT, outPath)}`);
+  const changed = writeIfChanged(outPath, COPYRIGHT_HEADER + content);
+  console.log(
+    `  ${changed ? 'wrote' : 'unchanged'} ${path.relative(REPO_ROOT, outPath)}`,
+  );
 }
 
 /**
@@ -465,12 +468,11 @@ function generatePackageStyles(packages, blocks, allComponents) {
     }
   }
   const outPath = path.join(OUT_DIR, 'package-styles.css');
-  fs.writeFileSync(
+  writeIfChanged(
     outPath,
     '/* Copyright (c) Meta Platforms, Inc. and affiliates. */\n\n' +
       imports.join('\n') +
       '\n',
-    'utf-8',
   );
   console.log(`  wrote ${path.relative(REPO_ROOT, outPath)}`);
 }
@@ -1883,7 +1885,7 @@ function writeThemesCss(body) {
 
 ${body}
 `;
-  fs.writeFileSync(outPath, content, 'utf-8');
+  writeIfChanged(outPath, content);
   console.log(`  wrote ${path.relative(REPO_ROOT, outPath)}`);
 }
 
@@ -1934,9 +1936,9 @@ function writeBlockPreview(block, outDir, basename) {
     if (!fs.existsSync(sourcePath)) {
       return null;
     }
-    fs.copyFileSync(sourcePath, destination);
+    writeIfChanged(destination, fs.readFileSync(sourcePath));
   } else {
-    fs.writeFileSync(destination, block.source, 'utf8');
+    writeIfChanged(destination, block.source);
   }
   return destFile;
 }
@@ -1945,7 +1947,6 @@ function generateShowcaseRegistry(blocks, availableRegistryPaths) {
   console.log('Generating showcase registry...');
 
   const SHOWCASE_OUT = path.join(OUT_DIR, 'showcases');
-  fs.rmSync(SHOWCASE_OUT, {recursive: true, force: true});
   fs.mkdirSync(SHOWCASE_OUT, {recursive: true});
 
   const entries = [];
@@ -1999,6 +2000,10 @@ function generateShowcaseRegistry(blocks, availableRegistryPaths) {
     }
   }
 
+  pruneGeneratedPreviews(
+    SHOWCASE_OUT,
+    entries.map(entry => entry.destFile),
+  );
   const seen = new Set();
   const uniqueEntries = entries.filter(entry => {
     if (seen.has(entry.exampleFor)) return false;
@@ -2047,7 +2052,6 @@ function generateExampleRegistry(blocks, availableRegistryPaths) {
   console.log('Generating example registry...');
 
   const EXAMPLES_OUT = path.join(OUT_DIR, 'examples');
-  fs.rmSync(EXAMPLES_OUT, {recursive: true, force: true});
   fs.mkdirSync(EXAMPLES_OUT, {recursive: true});
 
   const entries = [];
@@ -2102,6 +2106,10 @@ function generateExampleRegistry(blocks, availableRegistryPaths) {
     }
   }
 
+  pruneGeneratedPreviews(
+    EXAMPLES_OUT,
+    entries.map(entry => `${entry.basename}.tsx`),
+  );
   const grouped = {};
   for (const entry of entries) {
     if (!grouped[entry.exampleFor]) grouped[entry.exampleFor] = [];

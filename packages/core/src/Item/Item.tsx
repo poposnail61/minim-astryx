@@ -238,7 +238,7 @@ const styles = stylex.create({
     pointerEvents: 'none' as const,
   },
   disabledContent: {
-    opacity: 0.5,
+    opacity: 'var(--item-disabled-opacity, 0.5)',
   },
   invisibleButton: {
     all: 'unset',
@@ -277,8 +277,9 @@ const styles = stylex.create({
     flex: 1,
     minWidth: 0,
     textAlign: 'start',
-    paddingBlock: 'var(--_item-content-padding-block, 0px)',
-    rowGap: 'var(--_item-content-gap, 0px)',
+    paddingBlock:
+      'var(--item-content-padding-block, var(--_item-content-padding-block, 0px))',
+    rowGap: 'var(--item-content-gap, var(--_item-content-gap, 0px))',
   },
   // `layout="inline"`: label and description share one line, so the row fits a
   // fixed-height host such as a Selector trigger inside an InputGroup.
@@ -303,8 +304,8 @@ const styles = stylex.create({
     // Falls back to the primary text token; a parent (e.g. a destructive menu
     // item) can recolor the label by setting --_item-label-color.
     color: `var(--_item-label-color, ${colorVars['--color-text-primary']})`,
-    fontSize: `var(--_item-label-font-size, ${typeScaleVars['--text-body-size']})`,
-    lineHeight: `var(--_item-label-line-height, ${typeScaleVars['--text-body-leading']})`,
+    fontSize: `var(--item-label-font-size, var(--_item-label-font-size, ${typeScaleVars['--text-body-size']}))`,
+    lineHeight: `var(--item-label-line-height, var(--_item-label-line-height, ${typeScaleVars['--text-body-leading']}))`,
   },
   labelSingleTruncate: {
     overflow: 'hidden',

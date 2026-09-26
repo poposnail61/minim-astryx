@@ -1293,7 +1293,12 @@ export function MultiSelector<T extends MultiSelectorOptionType>({
         return (
           <span {...stylex.props(styles.triggerBadges)}>
             {displayed.map(label => (
-              <Badge key={label} label={label} variant="neutral" />
+              <Badge
+                key={label}
+                label={label}
+                variant="neutral"
+                size={size === 'lg' ? 'lg' : 'md'}
+              />
             ))}
             {remaining > 0 && (
               <span {...stylex.props(styles.triggerOverflow)}>
@@ -1312,6 +1317,7 @@ export function MultiSelector<T extends MultiSelectorOptionType>({
     placeholder,
     formatValue,
     maxBadges,
+    size,
   ]);
 
   // Render search input
@@ -1472,6 +1478,7 @@ export function MultiSelector<T extends MultiSelectorOptionType>({
             // reaching for structural selectors.
             themeProps('multi-selector-option', {
               size,
+              highlighted: isHighlighted ? 'true' : null,
               'select-all': isSelectAll ? 'select-all' : null,
               selected: isSelected ? 'selected' : null,
               disabled: item.disabled ? 'disabled' : null,
@@ -1893,7 +1900,8 @@ export function MultiSelector<T extends MultiSelectorOptionType>({
               xstyle={styles.triggerIcon}
             />
           )
-        ) : !isEffectivelyReadOnly ? (
+        ) : null}
+        {!isEffectivelyReadOnly ? (
           <Icon
             icon="chevronDown"
             size="sm"

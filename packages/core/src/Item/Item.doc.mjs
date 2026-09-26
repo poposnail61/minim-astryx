@@ -20,6 +20,7 @@ export const docs = {
       {className: 'astryx-item', visualProps: ['density', 'align']},
     ],
     vars: [
+      {name: '--item-disabled-opacity', description: 'Disabled label and description opacity. Set to 1 when the composed control uses dedicated disabled foreground tokens.', default: '0.5'},
       {name: '--_item-label-color', description: 'Color of the label line. Unset by default (the label uses the primary text token); a parent sets it to recolor the label it renders, as the destructive dropdown/context menu item does.', default: 'var(--color-text-primary)', private: true},
       {name: '--_item-description-color', description: 'Companion to --_item-label-color for the secondary description line.', default: 'var(--color-text-secondary)', private: true},
       {name: '--_item-content-padding-block', description: 'Optional block inset for the label and description slot.', default: '0px', private: true},

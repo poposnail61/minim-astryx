@@ -14,24 +14,65 @@ function segmentedHeight(
   const line = size === 'medium' ? 'md' : 'lg';
   return (
     px(tokens[`--minim-typography-line-height-${line}`]) +
-    2 * px(tokens[`--minim-content-${size}-text-inset-block`]) +
-    2 * px(tokens[`--minim-control-item-${size}-padding-block`]) +
+    2 * px(tokens[`--minim-component-${size}-padding-block-slot`]) +
+    2 * px(tokens[`--minim-component-${size}-padding-block-inner`]) +
     2 * px(tokens['--minim-spacing-50'])
   );
 }
 
 describe('Minim selection component styles', () => {
+  it('uses spacing instead of retired content gap tokens', () => {
+    expect(JSON.stringify(minimSelectionComponents)).not.toContain('text-gap');
+    for (const tokens of [minimBaseTokens, minimCompactTokens]) {
+      expect(Object.keys(tokens).some(key => key.endsWith('-text-gap'))).toBe(
+        false,
+      );
+      expect(px(tokens['--minim-spacing-100'])).toBe(4);
+    }
+  });
   it('uses the Figma switch dimensions and shared geometry in both densities', () => {
     const field = minimSelectionComponents['switch-field'];
-    expect(field.base['--switch-width']).toBe('3.375rem');
-    expect(field['size:lg']['--switch-width']).toBe('4rem');
-    expect(px(minimBaseTokens['--minim-content-medium-box-size'])).toBe(24);
-    expect(px(minimCompactTokens['--minim-content-medium-box-size'])).toBe(20);
-    expect(px(minimBaseTokens['--minim-content-large-box-size'])).toBe(28);
-    expect(px(minimCompactTokens['--minim-content-large-box-size'])).toBe(24);
-    expect(minimSelectionComponents['switch-thumb'].base.height).toBe(
-      'calc(var(--switch-height) - 2 * var(--switch-padding))',
+    expect(field.base['--switch-width']).toBe(
+      'calc(var(--switch-thumb-height) * 2.5 + 2 * var(--switch-padding))',
     );
+    expect(field.base['--switch-thumb-width']).toBe(
+      'calc(var(--switch-thumb-height) * 1.5)',
+    );
+    expect(field.base['--switch-travel']).toBe('var(--switch-thumb-height)');
+    expect(field.base['--switch-height']).toBe(
+      'calc(var(--minim-spacing-500) + 2 * var(--switch-padding))',
+    );
+    expect(
+      px(minimBaseTokens['--minim-typography-line-height-md']) +
+        2 * px(minimBaseTokens['--minim-component-medium-padding-block-slot']),
+    ).toBe(24);
+    expect(
+      px(minimCompactTokens['--minim-typography-line-height-md']) +
+        2 *
+          px(minimCompactTokens['--minim-component-medium-padding-block-slot']),
+    ).toBe(20);
+    expect(
+      px(minimBaseTokens['--minim-typography-line-height-lg']) +
+        2 * px(minimBaseTokens['--minim-component-large-padding-block-slot']),
+    ).toBe(28);
+    expect(
+      px(minimCompactTokens['--minim-typography-line-height-lg']) +
+        2 *
+          px(minimCompactTokens['--minim-component-large-padding-block-slot']),
+    ).toBe(24);
+    expect(minimSelectionComponents['switch-thumb'].base.height).toBe(
+      'var(--switch-thumb-height)',
+    );
+    for (const [tokens, widths] of [
+      [minimBaseTokens, [54, 54]],
+      [minimCompactTokens, [44, 44]],
+    ] as const) {
+      const padding = px(tokens['--minim-spacing-50']);
+      for (const index of [0, 1]) {
+        const inner = px(tokens['--minim-spacing-500']);
+        expect(inner * 2.5 + 2 * padding).toBe(widths[index]);
+      }
+    }
   });
   it('keeps list rows transparent and maps selection indicators to tokens', () => {
     expect(minimSelectionComponents['checkbox-list-content'].base.gap).toBe(
@@ -53,7 +94,7 @@ describe('Minim selection component styles', () => {
     expect(
       minimSelectionComponents['checkbox-list-item']['size:sm'],
     ).toMatchObject({
-      paddingBlock: 'var(--minim-content-medium-text-inset-block)',
+      paddingBlock: 'var(--minim-component-medium-padding-block-slot)',
       fontSize: 'var(--minim-typography-font-size-md)',
       lineHeight: 'var(--minim-typography-line-height-md)',
     });
@@ -66,12 +107,32 @@ describe('Minim selection component styles', () => {
     expect(
       minimSelectionComponents['checkbox-indicator']['disabled:disabled'],
     ).toMatchObject({
+      color: 'var(--minim-fg-disabled)',
       opacity: '1',
       backgroundColor: 'var(--minim-bg-disabled)',
     });
     expect(
       minimSelectionComponents['checkbox-indicator-check'].base.color,
     ).toBe('inherit');
+  });
+
+  it('uses Figma radio text and disabled colors without compounded opacity', () => {
+    expect(minimSelectionComponents['radio-list-item'].base).toMatchObject({
+      '--item-disabled-opacity': '1',
+    });
+    expect(
+      minimSelectionComponents['radio-list-item']['disabled:disabled'],
+    ).toMatchObject({
+      opacity: '1',
+      color: 'var(--minim-fg-disabled)',
+    });
+    expect(
+      minimSelectionComponents['radio-indicator']['disabled:disabled'],
+    ).toMatchObject({
+      opacity: '1',
+      color: 'var(--minim-fg-disabled)',
+      backgroundColor: 'var(--minim-bg-disabled)',
+    });
   });
 
   it('derives segmented geometry from content and padding in both densities', () => {
@@ -84,15 +145,15 @@ describe('Minim selection component styles', () => {
       minimSelectionComponents['segmented-control-item']['size:md'],
     ).toEqual({
       height: 'auto',
-      paddingBlock: 'var(--minim-control-item-medium-padding-block)',
+      paddingBlock: 'var(--minim-component-medium-padding-block-inner)',
       paddingInline: 'var(--minim-spacing-300)',
     });
     expect(
       minimSelectionComponents['segmented-control-item']['size:lg'],
     ).toEqual({
       height: 'auto',
-      paddingBlock: 'var(--minim-control-item-large-padding-block)',
-      paddingInline: 'var(--minim-spacing-400)',
+      paddingBlock: 'var(--minim-component-large-padding-block-inner)',
+      paddingInline: 'var(--minim-spacing-300)',
     });
     expect(segmentedHeight(minimBaseTokens, 'medium')).toBe(36);
     expect(segmentedHeight(minimBaseTokens, 'large')).toBe(44);
@@ -100,7 +161,13 @@ describe('Minim selection component styles', () => {
     expect(segmentedHeight(minimCompactTokens, 'large')).toBe(36);
   });
 
-  it('matches button horizontal spacing without adding label insets', () => {
+  it('uses Figma segment spacing without adding label insets', () => {
+    for (const size of ['md', 'lg'] as const) {
+      expect(
+        minimSelectionComponents['segmented-control-item'][`size:${size}`]
+          .paddingInline,
+      ).toBe('var(--minim-spacing-300)');
+    }
     expect(minimSelectionComponents['segmented-control-item'].base.gap).toBe(
       'var(--minim-spacing-200)',
     );
@@ -129,7 +196,7 @@ describe('Minim selection component styles', () => {
       minimSelectionComponents['segmented-control-item-icon']['size:md'],
     ).toMatchObject({
       '--minim-icon-box-size': 'var(--minim-typography-line-height-md)',
-      width: 'var(--minim-content-medium-icon-box-width)',
+      width: 'var(--minim-component-medium-width-inline)',
       fontSize: 'var(--minim-typography-line-height-md)',
       lineHeight: 'var(--minim-typography-line-height-md)',
     });
@@ -137,7 +204,7 @@ describe('Minim selection component styles', () => {
       minimSelectionComponents['segmented-control-item-icon']['size:lg'],
     ).toMatchObject({
       '--minim-icon-box-size': 'var(--minim-typography-line-height-lg)',
-      width: 'var(--minim-content-large-icon-box-width)',
+      width: 'var(--minim-component-large-width-inline)',
       fontSize: 'var(--minim-typography-line-height-lg)',
       lineHeight: 'var(--minim-typography-line-height-lg)',
     });
@@ -154,7 +221,8 @@ describe('Minim selection component styles', () => {
     expect(component).toContain('.astryx-checkbox-list-content');
     expect(component).toContain('.astryx-radio-list');
     expect(component).toContain('.astryx-radio-list-item');
-    expect(component).toContain('.astryx-switch-field[data-size="lg"]');
+    expect(component).toContain('.astryx-switch-field');
+    expect(component).toContain('.astryx-switch-label');
     expect(component).toContain('.astryx-segmented-control-item-icon');
     expect(component).toContain('.astryx-segmented-control-item-label');
   });

@@ -51,6 +51,10 @@ export const derivedVarRegistry: Record<string, DerivedVarEntry[]> = {
     {property: 'lineHeight', vars: ['--_item-label-line-height']},
   ],
   'radio-list-item': [
+    {
+      property: 'color',
+      vars: ['--_item-label-color', '--_item-description-color'],
+    },
     {property: 'fontSize', vars: ['--_item-label-font-size']},
     {property: 'lineHeight', vars: ['--_item-label-line-height']},
   ],

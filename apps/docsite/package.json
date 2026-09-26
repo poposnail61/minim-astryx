@@ -8,6 +8,7 @@
     "dev": "pnpm generate && next dev --webpack",
     "build": "pnpm generate && next build --webpack && node scripts/check-template-gallery-bundle.mjs",
     "start": "next start",
+    "qa": "node scripts/run-qa.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"

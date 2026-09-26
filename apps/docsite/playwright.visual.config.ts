@@ -17,7 +17,8 @@ export default defineConfig({
     colorScheme: 'light',
     trace: 'retain-on-failure',
   },
-  outputDir: '/tmp/minim-visual-qa/playwright-results',
+  outputDir:
+    process.env.MINIM_QA_OUTPUT ?? '/tmp/minim-visual-qa/playwright-results',
   projects: [
     {name: 'desktop', use: {viewport: {width: 1440, height: 1000}}},
     {

@@ -7,7 +7,13 @@ import {Button} from '@astryxdesign/core/Button';
 
 export default function OverflowListShowcase() {
   return (
-    <div style={{maxWidth: 400, border: '1px dashed #ccc', padding: 8}}>
+    <div
+      style={{
+        width: 400,
+        maxWidth: '100%',
+        border: '1px dashed #ccc',
+        padding: 8,
+      }}>
       <OverflowList
         gap={2}
         overflowRenderer={overflowItems => (

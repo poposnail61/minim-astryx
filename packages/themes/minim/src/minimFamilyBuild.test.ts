@@ -27,11 +27,13 @@ describe('Minim family build output', () => {
 
     expect(css).toContain('.astryx-button[data-size="md"]');
     expect(css).toContain(
-      'padding-block: var(--minim-control-medium-padding-block)',
+      'padding-block: var(--minim-component-medium-padding-block)',
     );
     expect(css).toContain('padding-inline: var(--minim-spacing-300)');
+    expect(css).not.toContain('--minim-content-');
+    expect(css).not.toContain('-height-slot');
     expect(css).toContain(
-      'padding-block: var(--minim-button-label-inset-block, var(--minim-content-medium-text-inset-block))',
+      'padding-block: var(--minim-button-label-inset-block, var(--minim-component-medium-padding-block-slot))',
     );
   });
 

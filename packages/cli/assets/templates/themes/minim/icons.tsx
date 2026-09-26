@@ -61,9 +61,9 @@ const semanticGlyphNames = {
   chevronLeft: 'chevron-left',
   chevronRight: 'chevron-right',
   check: 'check',
-  success: 'check-circle',
-  error: 'close-circle',
-  warning: 'warning-triangle',
+  success: 'check-circle-solid',
+  error: 'close-circle-solid',
+  warning: 'warning-triangle-solid',
   info: 'info-circle',
   calendar: 'calendar',
   clock: 'time',
@@ -75,6 +75,13 @@ const semanticGlyphNames = {
   arrowDown: 'arrow-down',
   copy: 'copy',
   stop: 'stop',
+  chevronsLeft: 'arrow-end-left',
+  chevronsRight: 'arrow-end-right',
+  arrowsUpDown: 'swap-vert',
+  funnel: 'setting',
+  viewColumns: 'view-table',
+  checkDouble: 'check',
+  wrench: 'setting',
 } as const satisfies Partial<Record<IconName, string>>;
 
 const namespacedIcons = Object.fromEntries(
@@ -96,16 +103,9 @@ export const minimIconRegistry: Partial<
   'token:remove': minimGlyph('close-mini'),
 };
 
-/** Semantic Astryx icons intentionally left to the inherited/default registry. */
+/** No safe catalog equivalent for dictation or password visibility. */
 export const minimUnmappedIconNames = [
-  'chevronsLeft',
-  'chevronsRight',
-  'arrowsUpDown',
-  'funnel',
   'eyeSlash',
-  'viewColumns',
-  'checkDouble',
-  'wrench',
   'microphone',
 ] as const satisfies readonly IconName[];
 

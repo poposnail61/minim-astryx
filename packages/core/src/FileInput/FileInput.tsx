@@ -483,6 +483,7 @@ export function FileInput({
     useInputStatusIcon({
       status,
       statusVariant,
+      size: 'lg',
     });
 
   // Required state. The trigger is a real button, but AT does not reliably
@@ -696,7 +697,7 @@ export function FileInput({
 
   const renderDropzoneContent = () => {
     if (isLoading) {
-      return <Spinner size="md" />;
+      return <Spinner size="lg" />;
     }
     if (hasFiles) {
       return (
@@ -721,16 +722,6 @@ export function FileInput({
   };
 
   const renderCompactContent = () => {
-    if (isLoading) {
-      return (
-        <>
-          <span {...stylex.props(styles.fileNameText)}>
-            {fileNames ?? displayPlaceholder}
-          </span>
-          <Spinner size="sm" />
-        </>
-      );
-    }
     return (
       <>
         <Icon
@@ -746,7 +737,7 @@ export function FileInput({
           )}>
           {fileNames ?? displayPlaceholder}
         </span>
-        {statusIcon}
+        {isLoading ? <Spinner size="lg" /> : statusIcon}
       </>
     );
   };

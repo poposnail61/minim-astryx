@@ -5,6 +5,11 @@ import {resolve} from 'node:path';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingRoot: resolve(import.meta.dirname, '../..'),
+  distDir: process.env.MINIM_QA === '1' ? '.next-qa' : '.next',
+  ...(process.env.MINIM_QA === '1'
+    ? {typescript: {tsconfigPath: 'tsconfig.qa.json'}}
+    : {}),
   cacheComponents: true,
   // A dynamic route segment can't carry a static extension, so the public
   // plaintext URL /blog/<slug>.txt is served by the /blog/txt/[slug] handler.

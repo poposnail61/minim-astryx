@@ -129,6 +129,64 @@ function labelsOf(spy: {mock: {calls: unknown[][]}}): string[] {
 }
 
 describe('OverflowList', () => {
+  it('keeps fractional item widths instead of rounding a fitting row to overflow', () => {
+    const bounds = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
+    bounds.mockImplementation(function (this: HTMLElement) {
+      const width = Number(
+        this.getAttribute('data-fraction') ?? this.offsetWidth,
+      );
+      return new DOMRect(0, 0, width, 20);
+    });
+    try {
+      render(
+        <OverflowList
+          gap={2}
+          data-w="138"
+          data-fraction="137.8"
+          data-testid="ov">
+          <button type="button" data-w="41" data-fraction="40.6">
+            A
+          </button>
+          <button type="button" data-w="41" data-fraction="40.6">
+            B
+          </button>
+          <button type="button" data-w="41" data-fraction="40.6">
+            C
+          </button>
+        </OverflowList>,
+      );
+      expect(visibleContainer().children).toHaveLength(3);
+    } finally {
+      bounds.mockRestore();
+    }
+  });
+
+  it('uses the rendered gap when density changes without changing props', () => {
+    render(
+      <OverflowList gap={2} data-w="132" data-testid="ov">
+        <button type="button" data-w="40">
+          A
+        </button>
+        <button type="button" data-w="40">
+          B
+        </button>
+        <button type="button" data-w="40">
+          C
+        </button>
+      </OverflowList>,
+    );
+    const visible = visibleContainer();
+    visible.style.columnGap = '8px';
+    triggerResize(visible);
+    expect(visible.children).toHaveLength(2);
+    visible.style.columnGap = '6px';
+    triggerResize(visible);
+    expect(visible.children).toHaveLength(3);
+    visible.style.columnGap = '8px';
+    triggerResize(visible);
+    expect(visible.children).toHaveLength(2);
+  });
+
   describe('when all items fit', () => {
     it('renders every item and no overflow indicator', () => {
       render(

@@ -10,7 +10,7 @@ import {Center} from '@astryxdesign/core/Center';
 export default function OverflowListCollapseFromStartList() {
   return (
     <Center width={300}>
-      <Card padding={2}>
+      <Card padding={2} width="100%">
         <OverflowList
           gap={2}
           collapseFrom="start"

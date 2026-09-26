@@ -62,9 +62,10 @@ export const minimContentComponents = {
   },
   citation: {
     base: {
-      height: 'auto',
+      gap: minim('spacing-100'),
+      height: minim('typography-line-height-md'),
       paddingBlock: '0',
-      paddingInline: minim('spacing-100'),
+      paddingInline: minim('spacing-150'),
       borderRadius: minim('radius-full'),
       backgroundColor: minim('bg-layer-base'),
       borderWidth: '0',
@@ -74,16 +75,17 @@ export const minimContentComponents = {
   'citation-label': {
     base: {
       minWidth: '0',
-      paddingBlock: minim('content-supporting-medium-text-inset-block'),
-      paddingInline: minim('content-supporting-medium-text-inset-inline'),
+      paddingBlock: minim('component-supporting-medium-padding-block-slot'),
+      paddingInline: '0',
       ...supportingMedium,
     },
   },
   'citation-icon': {
     base: {
       '--minim-icon-box-size': minim('typography-line-height-xs'),
-      width: minim('content-supporting-medium-icon-box-width'),
-      height: minim('content-supporting-medium-box-size'),
+      width: minim('component-supporting-medium-width-inline'),
+      height:
+        'calc(var(--minim-typography-line-height-xs) + 2 * var(--minim-component-supporting-medium-padding-block-slot))',
       fontSize: minim('typography-line-height-xs'),
       lineHeight: minim('typography-line-height-xs'),
       borderWidth: '0',
@@ -95,7 +97,7 @@ export const minimContentComponents = {
       fontFamily: codeFontFamily,
       backgroundColor: minim('bg-layer-base'),
       paddingBlock: '0',
-      paddingInline: minim('spacing-100'),
+      paddingInline: minim('spacing-150'),
       borderRadius: minim('radius-inner'),
     },
     'color:primary': {color: minim('fg-neutral')},
@@ -148,28 +150,33 @@ export const minimContentComponents = {
   'code-block-copy-button': {base: {color: minim('fg-muted')}},
   'empty-state': {
     base: {
-      gap: minim('spacing-400'),
-      paddingBlock: minim('spacing-800'),
-      // The source inset is an unbound fixed 24px value.
-      paddingInline: '1.5rem',
+      gap: minim('spacing-300'),
+      paddingBlock: minim('spacing-500'),
+      paddingInline: minim('spacing-500'),
       color: minim('fg-neutral'),
+      ':is(*) > [aria-hidden="true"] .astryx-icon': {
+        fontSize: minim('typography-line-height-xl'),
+        fontWeight: minim('typography-font-weight-bold'),
+        color: minim('fg-neutral'),
+      },
     },
     'variant:compact': {
       gap: minim('spacing-200'),
-      paddingBlock: minim('spacing-400'),
-      paddingInline: minim('spacing-400'),
+      paddingBlock: minim('spacing-300'),
+      paddingInline: minim('spacing-300'),
     },
   },
   'empty-state-title': {
-    // Default: heading/heading 1 (27/36). Compact: body medium (15/20).
-    base: heading('3xl'),
+    // Figma: heading 3; the compact variant uses medium body emphasis.
+    base: heading('xl'),
     'variant:compact': {
       fontSize: minim('typography-font-size-md'),
       lineHeight: minim('typography-line-height-md'),
+      fontWeight: minim('typography-font-weight-medium'),
     },
   },
   'empty-state-description': {
-    base: {...bodyMedium, color: minim('fg-muted')},
+    base: {...bodyMedium, color: minim('fg-neutral')},
     'variant:compact': supportingMedium,
   },
   heading: {

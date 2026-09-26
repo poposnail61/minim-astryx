@@ -131,7 +131,7 @@ export function NavHeadingMenuItem({
   'data-testid': testId,
 }: NavHeadingMenuItemProps) {
   const ctx = useNavHeadingMenuContext();
-  const size = ctx?.size ?? 'md';
+  const size = ctx?.size ?? 'lg';
 
   const handleClick = useCallback(() => {
     if (isDisabled) {
@@ -164,7 +164,7 @@ export function NavHeadingMenuItem({
         className,
         style,
       )}>
-      {icon && renderIconSlot(icon, {size: 'sm', color: 'secondary'})}
+      {icon && renderIconSlot(icon, {size: 'sm', color: 'inherit'})}
       <span {...stylex.props(styles.content)}>
         {typeof label === 'string' ? (
           <Text type="body" maxLines={1}>

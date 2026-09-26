@@ -4,6 +4,14 @@ import type {ComponentStyleMap} from '@astryxdesign/core/theme';
 
 const minim = (name: string) => `var(--minim-${name})`;
 
+const selectionRow = (size: 'medium' | 'large', type: 'md' | 'lg') => ({
+  minHeight: minim(`component-${size}-height`),
+  gap: minim('spacing-100'),
+  paddingBlock: minim(`component-${size}-padding-block`),
+  fontSize: minim(`typography-font-size-${type}`),
+  lineHeight: minim(`typography-line-height-${type}`),
+});
+
 const transparentRow = {
   gap: minim('spacing-200'),
   paddingBlock: minim('spacing-100'),
@@ -44,6 +52,34 @@ const disabledIndicator = {
 
 /** Minim selection-control overrides and the three approved anatomy hooks. */
 export const minimSelectionComponents = {
+  'radio-control-slot': {
+    'size:md': {
+      width: minim('component-medium-width-inline'),
+      height:
+        'calc(var(--minim-typography-line-height-md) + 2 * var(--minim-component-medium-padding-block-slot))',
+    },
+    'size:lg': {
+      width: minim('component-large-width-inline'),
+      height:
+        'calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-component-large-padding-block-slot))',
+    },
+  },
+  'checkbox-control-slot': {
+    'size:md': {
+      width: minim('component-medium-width-inline'),
+      height:
+        'calc(var(--minim-typography-line-height-md) + 2 * var(--minim-component-medium-padding-block-slot))',
+    },
+    'size:lg': {
+      width: minim('component-large-width-inline'),
+      height:
+        'calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-component-large-padding-block-slot))',
+    },
+  },
+  'checkbox-input': {
+    'size:md+label:visible': selectionRow('medium', 'md'),
+    'size:lg+label:visible': selectionRow('large', 'lg'),
+  },
   'checkbox-list-content': {
     base: {gap: minim('spacing-200')},
   },
@@ -52,35 +88,33 @@ export const minimSelectionComponents = {
   },
   'checkbox-list-item': {
     base: transparentRow,
+    'size:lg': selectionRow('large', 'lg'),
     'size:sm': {
-      gap: minim('content-medium-text-gap'),
-      paddingBlock: minim('content-medium-text-inset-block'),
+      gap: minim('spacing-100'),
+      paddingBlock: minim('component-medium-padding-block-slot'),
       fontSize: minim('typography-font-size-md'),
       lineHeight: minim('typography-line-height-md'),
     },
-    'size:md': {
-      gap: minim('content-large-text-gap'),
-      paddingBlock: minim('content-large-text-inset-block'),
-      fontSize: minim('typography-font-size-lg'),
-      lineHeight: minim('typography-line-height-lg'),
-    },
+    'size:md': selectionRow('medium', 'md'),
     'disabled:disabled': {color: minim('fg-disabled')},
   },
   'radio-list-item': {
-    base: transparentRow,
+    base: {
+      ...transparentRow,
+      '--item-disabled-opacity': '1',
+    },
+    'size:lg': selectionRow('large', 'lg'),
     'size:sm': {
-      gap: minim('content-medium-text-gap'),
-      paddingBlock: minim('content-medium-text-inset-block'),
+      gap: minim('spacing-100'),
+      paddingBlock: minim('component-medium-padding-block-slot'),
       fontSize: minim('typography-font-size-md'),
       lineHeight: minim('typography-line-height-md'),
     },
-    'size:md': {
-      gap: minim('content-large-text-gap'),
-      paddingBlock: minim('content-large-text-inset-block'),
-      fontSize: minim('typography-font-size-lg'),
-      lineHeight: minim('typography-line-height-lg'),
+    'size:md': selectionRow('medium', 'md'),
+    'disabled:disabled': {
+      opacity: '1',
+      color: minim('fg-disabled'),
     },
-    'disabled:disabled': {color: minim('fg-disabled')},
   },
   'checkbox-indicator': {
     base: {...selectionIndicator, borderRadius: minim('radius-inner')},
@@ -89,6 +123,10 @@ export const minimSelectionComponents = {
       height: minim('typography-line-height-md'),
     },
     'size:md': {
+      width: minim('typography-line-height-md'),
+      height: minim('typography-line-height-md'),
+    },
+    'size:lg': {
       width: minim('typography-line-height-lg'),
       height: minim('typography-line-height-lg'),
     },
@@ -107,6 +145,10 @@ export const minimSelectionComponents = {
       height: minim('typography-line-height-md'),
     },
     'size:md': {
+      width: minim('typography-line-height-md'),
+      height: minim('typography-line-height-md'),
+    },
+    'size:lg': {
       width: minim('typography-line-height-lg'),
       height: minim('typography-line-height-lg'),
     },
@@ -119,6 +161,35 @@ export const minimSelectionComponents = {
       backgroundColor: 'currentColor',
     },
   },
+  'checkbox-label': {
+    'size:md': {
+      fontSize: minim('typography-font-size-md'),
+      lineHeight: minim('typography-line-height-md'),
+    },
+    'size:lg': {
+      fontSize: minim('typography-font-size-lg'),
+      lineHeight: minim('typography-line-height-lg'),
+    },
+  },
+  'switch-field': {
+    base: {
+      '--switch-width':
+        'calc(var(--switch-thumb-height) * 2.5 + 2 * var(--switch-padding))',
+      '--switch-height':
+        'calc(var(--minim-spacing-500) + 2 * var(--switch-padding))',
+      '--switch-padding': minim('spacing-50'),
+      '--switch-thumb-height':
+        'calc(var(--switch-height) - 2 * var(--switch-padding))',
+      '--switch-thumb-width': 'calc(var(--switch-thumb-height) * 1.5)',
+      '--switch-travel': 'var(--switch-thumb-height)',
+    },
+  },
+  'switch-label': {
+    base: {
+      fontSize: minim('typography-font-size-sm'),
+      lineHeight: minim('typography-line-height-sm'),
+    },
+  },
   switch: {
     base: {
       '--focus-outline-color': minim('stroke-primary'),
@@ -126,7 +197,6 @@ export const minimSelectionComponents = {
       backgroundColor: minim('fg-disabled'),
       ':hover': {backgroundColor: minim('fg-disabled')},
     },
-    'size:md': {width: '40px', height: '24px'},
     'checked:checked': {
       backgroundColor: minim('bg-primary-solid'),
       ':hover': {backgroundColor: minim('bg-primary-solid')},
@@ -137,9 +207,10 @@ export const minimSelectionComponents = {
     base: {
       borderRadius: minim('radius-full'),
       backgroundColor: minim('fg-on-surface'),
+      width: 'var(--switch-thumb-width)',
+      height: 'var(--switch-thumb-height)',
+      flexShrink: '0',
     },
-    'size:md': {width: '16px', height: '16px'},
-    'size:md+checked:checked': {width: '20px', height: '20px'},
   },
   'segmented-control': {
     base: {
@@ -151,7 +222,7 @@ export const minimSelectionComponents = {
   },
   'segmented-control-item': {
     base: {
-      gap: '0',
+      gap: minim('spacing-200'),
       borderRadius: minim('radius-element-item'),
       backgroundColor: 'transparent',
       boxShadow: 'none',
@@ -159,13 +230,13 @@ export const minimSelectionComponents = {
     },
     'size:md': {
       height: 'auto',
-      paddingBlock: minim('control-item-medium-padding-block'),
-      paddingInline: minim('control-item-medium-padding-inline'),
+      paddingBlock: minim('component-medium-padding-block-inner'),
+      paddingInline: minim('spacing-300'),
     },
     'size:lg': {
       height: 'auto',
-      paddingBlock: minim('control-item-large-padding-block'),
-      paddingInline: minim('control-item-large-padding-inline'),
+      paddingBlock: minim('component-large-padding-block-inner'),
+      paddingInline: minim('spacing-300'),
     },
     'selected:selected': {
       color: minim('fg-neutral'),
@@ -184,17 +255,17 @@ export const minimSelectionComponents = {
     },
     'size:md': {
       '--minim-icon-box-size': minim('typography-line-height-md'),
-      width: minim('content-medium-icon-box-width'),
+      width: minim('component-medium-width-inline'),
       height:
-        'calc(var(--minim-typography-line-height-md) + 2 * var(--minim-content-medium-text-inset-block))',
+        'calc(var(--minim-typography-line-height-md) + 2 * var(--minim-component-medium-padding-block-slot))',
       fontSize: minim('typography-line-height-md'),
       lineHeight: minim('typography-line-height-md'),
     },
     'size:lg': {
       '--minim-icon-box-size': minim('typography-line-height-lg'),
-      width: minim('content-large-icon-box-width'),
+      width: minim('component-large-width-inline'),
       height:
-        'calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-content-large-text-inset-block))',
+        'calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-component-large-padding-block-slot))',
       fontSize: minim('typography-line-height-lg'),
       lineHeight: minim('typography-line-height-lg'),
     },
@@ -203,14 +274,14 @@ export const minimSelectionComponents = {
   'segmented-control-item-label': {
     base: {color: minim('fg-muted')},
     'size:md': {
-      paddingBlock: minim('content-medium-text-inset-block'),
-      paddingInline: minim('content-medium-text-inset-inline'),
+      paddingBlock: minim('component-medium-padding-block-slot'),
+      paddingInline: '0',
       fontSize: minim('typography-font-size-md'),
       lineHeight: minim('typography-line-height-md'),
     },
     'size:lg': {
-      paddingBlock: minim('content-large-text-inset-block'),
-      paddingInline: minim('content-large-text-inset-inline'),
+      paddingBlock: minim('component-large-padding-block-slot'),
+      paddingInline: '0',
       fontSize: minim('typography-font-size-lg'),
       lineHeight: minim('typography-line-height-lg'),
     },

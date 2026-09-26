@@ -64,7 +64,15 @@ describe('blue-outline component theme contracts', () => {
     );
     expect(
       components['top-nav-item']['size:md+isIconOnly:true'].paddingInline,
-    ).toBe(components['top-nav-item']['size:md'].paddingBlock);
+    ).toBe('var(--minim-spacing-150)');
+    for (const tokens of [minimBaseTokens, minimCompactTokens]) {
+      expect(tokens['--minim-spacing-150']).toBe(
+        tokens['--minim-component-medium-padding-block'],
+      );
+      expect(tokens['--minim-spacing-200']).toBe(
+        tokens['--minim-component-large-padding-block'],
+      );
+    }
     expect(components['top-nav-item']['size:md+isIconOnly:true'].width).toBe(
       components['top-nav-item']['size:md'].height,
     );

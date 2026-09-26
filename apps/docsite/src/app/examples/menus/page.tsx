@@ -29,6 +29,27 @@ import {TextArea} from '@astryxdesign/core/TextArea';
 import {NumberInput} from '@astryxdesign/core/NumberInput';
 import {TimeInput} from '@astryxdesign/core/TimeInput';
 import {useMinimDensity} from '../../providers';
+import {EmptyState} from '@astryxdesign/core/EmptyState';
+import {Icon} from '@astryxdesign/core/Icon';
+import {
+  PowerSearch,
+  type PowerSearchConfig,
+  type PowerSearchFilter,
+} from '@astryxdesign/core/PowerSearch';
+
+const filterConfig: PowerSearchConfig = {
+  name: 'Menu review',
+  fields: [
+    {
+      key: 'title',
+      label: 'Title',
+      defaultOperator: 'contains',
+      operators: [
+        {key: 'contains', label: 'contains', value: {type: 'string'}},
+      ],
+    },
+  ],
+};
 
 const options = ['예약 목록', '예약 상세', '여행자 정보', '여행 일정'];
 const entries = options.map((label, index) => ({id: String(index), label}));
@@ -41,6 +62,7 @@ const actions = options.map(label => ({label, onClick: () => {}}));
 export default function MenuExamples() {
   const {density, setDensity} = useMinimDensity();
   const [single, setSingle] = useState(options[0]);
+  const [filters, setFilters] = useState<ReadonlyArray<PowerSearchFilter>>([]);
   const [multiple, setMultiple] = useState<string[]>([options[0]]);
   const [person, setPerson] = useState<SearchableItem | null>(null);
   const [tokens, setTokens] = useState<SearchableItem[]>([]);
@@ -59,6 +81,26 @@ export default function MenuExamples() {
           <SegmentedControlItem label="Base" value="base" />
           <SegmentedControlItem label="Compact" value="compact" />
         </SegmentedControl>
+        <div data-testid="empty-state-review">
+          <EmptyState
+            title="No results found"
+            description="Try adjusting your search or filters."
+            icon={<Icon icon="minim:mail" />}
+          />
+          <EmptyState
+            isCompact
+            title="No results found"
+            description="Try adjusting your search or filters."
+            icon={<Icon icon="minim:mail" />}
+          />
+        </div>
+        <PowerSearch
+          config={filterConfig}
+          filters={filters}
+          onChange={setFilters}
+          label="PowerSearch review"
+          placeholder="Add filter..."
+        />
         <Selector
           label="Selector"
           options={options}
@@ -118,6 +160,29 @@ export default function MenuExamples() {
           isReadOnly
         />
         <TextInput label="Loading text" value="" isLoading startIcon="search" />
+        <div data-testid="disabled-input-icons">
+          <TextInput
+            label="Disabled search"
+            value="Search"
+            startIcon="search"
+            isDisabled
+          />
+          <DateInput label="Disabled date" nativePicker="never" isDisabled />
+          <TimeInput label="Disabled time" nativePicker="never" isDisabled />
+          <DateTimeInput
+            label="Disabled date time"
+            onChange={() => {}}
+            isDisabled
+          />
+          <Selector label="Disabled selector" options={options} isDisabled />
+          <MultiSelector
+            label="Disabled multi selector"
+            options={options}
+            value={[]}
+            onChange={() => {}}
+            isDisabled
+          />
+        </div>
         <TextInput
           label="Clearable text"
           value={single}
@@ -126,6 +191,18 @@ export default function MenuExamples() {
         />
         {(['error', 'warning', 'success'] as const).map(type => (
           <Stack key={type} gap={4}>
+            <Selector
+              label={`${type} selector`}
+              options={options}
+              status={{type, message: type}}
+            />
+            <MultiSelector
+              label={`${type} multi selector`}
+              options={options}
+              value={[]}
+              onChange={() => {}}
+              status={{type, message: type}}
+            />
             <TextArea
               label={`${type} notes`}
               value=""

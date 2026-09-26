@@ -63,9 +63,9 @@ describe('Feedback Figma synchronization', () => {
 
   it('matches the 20/22/36px ring silhouette and three-quarter sweep', () => {
     for (const [size, box] of [
-      ['sm', '20px'],
-      ['md', '20px'],
-      ['lg', '22px'],
+      ['sm', 'var(--minim-typography-line-height-md)'],
+      ['md', 'var(--minim-typography-line-height-md)'],
+      ['lg', 'var(--minim-typography-line-height-lg)'],
       ['xl', '36px'],
     ] as const) {
       expect(indicators.spinner[`size:${size}`]['--spinner-box-size']).toBe(

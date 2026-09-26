@@ -13,7 +13,7 @@ describe('Minim Button overrides', () => {
       'button-end-content',
     ]);
     expect(minimButtonComponents.button['size:xl'].height).toContain(
-      '--minim-control-xlarge-padding-block',
+      '--minim-component-xlarge-height',
     );
     expect(minimButtonComponents.button['content:icon-only']).toEqual({
       paddingInline: '0',
@@ -27,7 +27,7 @@ describe('Minim Button overrides', () => {
       'var(--minim-spacing-400)',
     );
     expect(minimButtonComponents.button['size:md'].paddingBlock).toBe(
-      'var(--minim-control-medium-padding-block)',
+      'var(--minim-component-medium-padding-block)',
     );
     expect(minimButtonComponents['button-icon']['size:md']).toMatchObject({
       '--minim-icon-box-size': expect.stringContaining(

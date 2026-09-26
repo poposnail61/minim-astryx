@@ -26,10 +26,10 @@ describe('Minim action component overrides', () => {
     expect(toggle['size:md'].paddingInline).toBe('var(--minim-spacing-300)');
     expect(toggle['size:lg'].paddingInline).toBe('var(--minim-spacing-400)');
     expect(toggle['size:md'].height).toContain(
-      '--minim-content-medium-box-size',
+      '--minim-component-medium-height',
     );
     expect(toggle['size:lg'].height).toContain(
-      '--minim-content-large-box-size',
+      '--minim-component-large-height',
     );
     expect(toggle['size:md']['--minim-button-label-font-size']).toBe(
       'var(--minim-typography-font-size-md)',

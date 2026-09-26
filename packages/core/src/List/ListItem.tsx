@@ -28,7 +28,7 @@ import {
   borderVars,
 } from '../theme/tokens.stylex';
 import type {BaseProps} from '../BaseProps';
-import {ListContext} from './ListContext';
+import {ListContext, type ListSize} from './ListContext';
 import {mergeProps} from '../utils';
 import {Item} from '../Item';
 import {themeProps} from '../utils/themeProps';
@@ -38,6 +38,8 @@ import {themeProps} from '../utils/themeProps';
 // =============================================================================
 
 export interface ListItemProps extends BaseProps<HTMLLIElement> {
+  /** Item size; inherits List size, otherwise lg. */
+  size?: ListSize;
   /** Ref forwarded to the root element */
   ref?: React.Ref<HTMLLIElement>;
   /**
@@ -205,6 +207,7 @@ const embeddedStyles = stylex.create({
  * ```
  */
 export function ListItem({
+  size: sizeProp,
   label,
   description,
   startContent,
@@ -223,7 +226,13 @@ export function ListItem({
   ...restProps
 }: ListItemProps) {
   const ctx = use(ListContext);
-  const density = ctx?.density ?? 'balanced';
+  const size = sizeProp ?? ctx?.size ?? 'lg';
+  const density =
+    sizeProp == null && ctx != null
+      ? ctx.density
+      : size === 'md'
+        ? 'compact'
+        : 'balanced';
   const hasDividers = ctx?.hasDividers ?? false;
   const listStyle = ctx?.listStyle ?? 'none';
   const hasMarkers = listStyle !== 'none';
@@ -264,7 +273,7 @@ export function ListItem({
         hasDividers && embeddedStyles.noRadius,
         xstyle,
       ]}
-      {...mergeProps(themeProps('list-item', {density}), {className, style})}
+      {...mergeProps(themeProps('list-item', {size}), {className, style})}
       {...restProps}
     />
   );

@@ -11,7 +11,8 @@
  * Measures children rendered in a hidden container to determine how many fit
  * in the available width, without flickering. Observes both the visible and
  * hidden measurement containers so changes to available width or measured child
- * sizes recalculate the result. Supports an optional item cap (`maxVisibleItems`)
+ * sizes recalculate the result. Reads the rendered gap so density modes use
+ * the same spacing for layout and measurement. Supports an optional item cap (`maxVisibleItems`)
  * and bounded multi-row wrapping (`maxRows`); the fit/clamp/row-packing math
  * lives in the pure `computeOverflow` helper.
  *
@@ -28,7 +29,7 @@ import {useDevWarning} from './useDevWarning';
 
 export interface UseOverflowOptions {
   /**
-   * Gap between items in pixels. Used in width calculations.
+   * Fallback gap in pixels when the container has no resolved CSS column gap.
    * @default 0
    */
   gap?: number;
@@ -88,6 +89,8 @@ export interface UseOverflowReturn {
   rows: number;
   /** Measured max item height in pixels; used to size the multi-row container */
   rowHeight: number;
+  /** Resolved column gap, shared with the bounded multi-row height. */
+  gap: number;
 }
 
 /**
@@ -134,6 +137,7 @@ export function useOverflow(
   const [visibleCount, setVisibleCount] = useState(itemCount);
   const [rows, setRows] = useState(1);
   const [rowHeight, setRowHeight] = useState(0);
+  const [measuredGap, setMeasuredGap] = useState(gap);
   const containerElRef = useRef<HTMLElement | null>(null);
   const measureElRef = useRef<HTMLElement | null>(null);
   const observedElRef = useRef<HTMLElement | null>(null);
@@ -148,6 +152,10 @@ export function useOverflow(
       return;
     }
 
+    // Keep fractional widths: rounding each child independently can make a
+    // content-sized row repeatedly drop items on density/font changes.
+    const widthOf = (element: HTMLElement) =>
+      element.getBoundingClientRect().width || element.offsetWidth;
     let availableWidth: number;
 
     if (observeParent && container.parentElement) {
@@ -158,7 +166,7 @@ export function useOverflow(
         parseFloat(parentStyle.paddingLeft) -
         parseFloat(parentStyle.paddingRight);
     } else {
-      availableWidth = container.offsetWidth;
+      availableWidth = widthOf(container);
     }
 
     const allChildren = Array.from(measure.children) as HTMLElement[];
@@ -170,7 +178,7 @@ export function useOverflow(
       ? allChildren.slice(0, itemCount)
       : allChildren;
     const indicatorWidth = hasIndicator
-      ? allChildren[allChildren.length - 1].offsetWidth
+      ? widthOf(allChildren[allChildren.length - 1])
       : 0;
 
     if (children.length === 0) {
@@ -181,15 +189,17 @@ export function useOverflow(
       return;
     }
 
-    const widths = children.map(child => child.offsetWidth);
+    const widths = children.map(widthOf);
     const measuredRowHeight = children.reduce(
       (max, child) => Math.max(max, child.offsetHeight || 0),
       0,
     );
 
+    const cssGap = parseFloat(getComputedStyle(container).columnGap);
+    const resolvedGap = Number.isFinite(cssGap) ? cssGap : gap;
     const {visibleCount: nextVisible, rows: nextRows} = computeOverflow({
       widths,
-      gap,
+      gap: resolvedGap,
       availableWidth,
       indicatorWidth,
       minVisibleItems,
@@ -200,6 +210,8 @@ export function useOverflow(
 
     // eslint-disable-next-line @eslint-react/set-state-in-effect -- overflow count is derived from measured DOM widths
     setVisibleCount(nextVisible);
+    // eslint-disable-next-line @eslint-react/set-state-in-effect -- derived from measured DOM
+    setMeasuredGap(resolvedGap);
     // eslint-disable-next-line @eslint-react/set-state-in-effect -- derived from measured DOM
     setRows(prev => (prev === nextRows ? prev : nextRows));
     // eslint-disable-next-line @eslint-react/set-state-in-effect -- derived from measured DOM
@@ -270,5 +282,6 @@ export function useOverflow(
     hasOverflow,
     rows,
     rowHeight,
+    gap: measuredGap,
   };
 }
