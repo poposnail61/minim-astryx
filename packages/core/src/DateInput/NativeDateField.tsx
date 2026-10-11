@@ -4,7 +4,7 @@
 
 /**
  * @file NativeDateField.tsx
- * @input Uses React, Field, Icon, InputClearButton, Spinner, useCalendarConstraints, hasEditableDateSegments
+ * @input Uses InputSurface for shared control chrome, React, Field, Icon, InputClearButton, Spinner, useCalendarConstraints, hasEditableDateSegments
  * @output Exports NativeDateField — the OS-picker touch surface
  * @position One of DateInput's three surfaces. `DateInput` picks the pointer
  *   field on a mouse and, on touch, either `TouchDateField` (the default) or
@@ -28,24 +28,17 @@
 
 import {useCallback, useEffect, useId, useRef, useState} from 'react';
 import * as stylex from '@stylexjs/stylex';
+import {InputSurface} from '../Field/InputSurface';
 import {useCalendarConstraints} from '../Calendar';
 import type {DateInputProps} from './DateInput';
 import {hasEditableDateSegments} from './nativeDateSegments';
-import {
-  Field,
-  InputClearButton,
-  inputStatusBorderStyles,
-  inputStatusFocusWithinStyles,
-  inputStatusHoverShadowStyles,
-  inputWrapperStyles,
-} from '../Field';
+import {Field, InputClearButton} from '../Field';
 import {useInputStatusIcon, useMergedRefs} from '../hooks';
 import {useMediaQuery} from '../hooks/useMediaQuery';
 import {useResolvedRequired} from '../hooks/useResolvedRequired';
 import {Icon} from '../Icon';
 import {useLocale, useTranslator} from '../i18n';
 import {useInputGroup} from '../InputGroup';
-import {groupStyles} from '../InputGroup/groupStyles';
 import {stableClassName} from '../naming';
 import {useSize} from '../SizeContext';
 import {Spinner} from '../Spinner';
@@ -62,7 +55,6 @@ import {
   focusOutlineStyles,
   formatSharedDate,
   getInputARIA,
-  mergeProps,
   parseDateInput,
   plainDateFromISO,
   plainDateToISO,
@@ -497,33 +489,23 @@ export function NativeDateField({
   }, [isEffectivelyDisabled]);
 
   const inputWrapper = (
-    <div
+    <InputSurface
       ref={el => {
         disabledMessageTooltip.ref(el);
       }}
       {...rest}
-      {...mergeProps(
-        themeProps('date-input', {
-          size,
-          status: status?.type ?? null,
-          disabled: isDisabled ? 'disabled' : null,
-        }),
-        stylex.props(
-          inputWrapperStyles.base,
-          sizeStyles[size],
-          styles.wrapper,
-          isEffectivelyDisabled && inputWrapperStyles.disabled,
-          status && inputStatusBorderStyles[status.type],
-          status &&
-            !isEffectivelyDisabled &&
-            inputStatusHoverShadowStyles[status.type],
-          status && inputStatusFocusWithinStyles[status.type],
-          inputGroup && groupStyles.inGroup,
-          xstyle,
-        ),
-        className,
-        style,
-      )}>
+      theming={themeProps('date-input', {
+        size,
+        status: status?.type ?? null,
+        disabled: isDisabled ? 'disabled' : null,
+      })}
+      controlStyles={[sizeStyles[size], styles.wrapper]}
+      isDisabled={isEffectivelyDisabled}
+      status={status}
+      isGrouped={!!inputGroup}
+      xstyle={xstyle}
+      className={className}
+      style={style}>
       {inputGroup && <VisuallyHidden id={inputLabelID}>{label}</VisuallyHidden>}
       <button
         type="button"
@@ -605,7 +587,7 @@ export function NativeDateField({
       {statusIcon}
       {showsDisabledMessage &&
         disabledMessageTooltip.renderTooltip(disabledMessage)}
-    </div>
+    </InputSurface>
   );
 
   if (inputGroup) {

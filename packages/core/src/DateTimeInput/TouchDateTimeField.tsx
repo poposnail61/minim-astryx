@@ -4,7 +4,7 @@
 
 /**
  * @file TouchDateTimeField.tsx
- * @input Uses React, Field, BottomSheet, SegmentedControl, DateInput month picker primitives, Wheel, StyleX intrinsic flex layout
+ * @input Uses InputSurface for shared control chrome, React, Field, BottomSheet, SegmentedControl, DateInput month picker primitives, Wheel, StyleX intrinsic flex layout
  * @output Exports TouchDateTimeField — the coarse-pointer surface behind DateTimeInput
  * @position Internal component; consumed by DateTimeInput.tsx
  *
@@ -34,17 +34,11 @@ import {
   useTransition,
 } from 'react';
 import * as stylex from '@stylexjs/stylex';
+import {InputSurface} from '../Field/InputSurface';
 import {BottomSheet} from '../BottomSheet';
 import {Button} from '../Button';
 import {useCalendarConstraints, type ISODateString} from '../Calendar';
-import {
-  Field,
-  InputClearButton,
-  inputWrapperStyles,
-  inputStatusBorderStyles,
-  inputStatusHoverShadowStyles,
-  inputStatusFocusWithinStyles,
-} from '../Field';
+import {Field, InputClearButton} from '../Field';
 import {useInputStatusIcon, useMergedRefs} from '../hooks';
 import {useResolvedRequired} from '../hooks/useResolvedRequired';
 import {Icon} from '../Icon';
@@ -1266,30 +1260,20 @@ export function TouchDateTimeField({
           className,
           style,
         )}>
-        <div
+        <InputSurface
           onClick={event => {
             if (event.target === event.currentTarget) {
               openSheet('date');
             }
           }}
-          {...mergeProps(
-            themeProps('date-time-input-date-segment', {
-              size,
-              status: status?.type ?? null,
-              disabled: isDisabled ? 'disabled' : null,
-            }),
-            stylex.props(
-              inputWrapperStyles.base,
-              sizeStyles[size],
-              styles.touchDateWrapper,
-              isEffectivelyDisabled && inputWrapperStyles.disabled,
-              status && inputStatusBorderStyles[status.type],
-              status &&
-                !isEffectivelyDisabled &&
-                inputStatusHoverShadowStyles[status.type],
-              status && inputStatusFocusWithinStyles[status.type],
-            ),
-          )}>
+          theming={themeProps('date-time-input-date-segment', {
+            size,
+            status: status?.type ?? null,
+            disabled: isDisabled ? 'disabled' : null,
+          })}
+          controlStyles={[sizeStyles[size], styles.touchDateWrapper]}
+          isDisabled={isEffectivelyDisabled}
+          status={status}>
           <button
             type="button"
             onClick={() => openSheet('date')}
@@ -1346,32 +1330,22 @@ export function TouchDateTimeField({
           )}
           {isBusy && <Spinner size="sm" />}
           {isRenderable(statusIcon) && statusIcon}
-        </div>
+        </InputSurface>
 
-        <div
+        <InputSurface
           onClick={event => {
             if (event.target === event.currentTarget) {
               openSheet('time');
             }
           }}
-          {...mergeProps(
-            themeProps('date-time-input-time-segment', {
-              size,
-              status: status?.type ?? null,
-              disabled: isDisabled ? 'disabled' : null,
-            }),
-            stylex.props(
-              inputWrapperStyles.base,
-              sizeStyles[size],
-              styles.touchTimeWrapper,
-              isEffectivelyDisabled && inputWrapperStyles.disabled,
-              status && inputStatusBorderStyles[status.type],
-              status &&
-                !isEffectivelyDisabled &&
-                inputStatusHoverShadowStyles[status.type],
-              status && inputStatusFocusWithinStyles[status.type],
-            ),
-          )}>
+          theming={themeProps('date-time-input-time-segment', {
+            size,
+            status: status?.type ?? null,
+            disabled: isDisabled ? 'disabled' : null,
+          })}
+          controlStyles={[sizeStyles[size], styles.touchTimeWrapper]}
+          isDisabled={isEffectivelyDisabled}
+          status={status}>
           <button
             type="button"
             onClick={() => openSheet('time')}
@@ -1421,7 +1395,7 @@ export function TouchDateTimeField({
               isEffectivelyDisabled && styles.inputDisabled,
             )}
           />
-        </div>
+        </InputSurface>
         <BottomSheet
           isOpen={isSheetOpen}
           onOpenChange={handleSheetOpenChange}

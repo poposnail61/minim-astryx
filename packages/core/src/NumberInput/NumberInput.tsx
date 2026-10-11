@@ -4,7 +4,7 @@
 
 /**
  * @file NumberInput.tsx
- * @input Uses React, useId, useState, useMemo, useCallback, Field, Icon, InputGroupContext
+ * @input Uses InputSurface for shared control chrome, React, useId, useState, useMemo, useCallback, Field, Icon, InputGroupContext
  * @output Exports NumberInput component, NumberInputProps
  * @position Core implementation; consumed by index.ts, tested by NumberInput.test.tsx
  *
@@ -29,6 +29,8 @@ import {
   type ReactNode,
 } from 'react';
 import * as stylex from '@stylexjs/stylex';
+import {InputSurface} from '../Field/InputSurface';
+import {inputControlStyles} from '../Field/inputControlStyles.stylex';
 import {
   colorVars,
   sizeVars,
@@ -41,10 +43,6 @@ import {
   Field,
   InputClearButton,
   type InputStatus,
-  inputWrapperStyles,
-  inputStatusBorderStyles,
-  inputStatusHoverShadowStyles,
-  inputStatusFocusWithinStyles,
   type FieldStatusVariant,
 } from '../Field';
 import {Icon, renderIconSlot, type IconType} from '../Icon';
@@ -97,29 +95,7 @@ const styles = stylex.create({
   wrapperWithNumberSteppers: {
     paddingInlineEnd: 0,
   },
-  input: {
-    display: 'block',
-    flex: 1,
-    minWidth: 0,
-    borderWidth: 0,
-    borderStyle: 'none',
-    padding: 0,
-    fontFamily: typographyVars['--font-family-body'],
-    fontSize: {
-      default: typeScaleVars['--text-body-size'],
-      '@media (pointer: coarse)': `max(1rem, ${typeScaleVars['--text-body-size']})`,
-    },
-    lineHeight: typeScaleVars['--text-body-leading'],
-    color: colorVars['--color-text-primary'],
-    backgroundColor: 'transparent',
-    outline: 'none',
-    '::placeholder': {
-      color: colorVars['--color-text-secondary'],
-    },
-  },
-  inputDisabled: {
-    cursor: 'default',
-  },
+
   inputInvalid: {
     color: colorVars['--color-text-secondary'],
   },
@@ -196,8 +172,6 @@ const sizeStyles = stylex.create({
 });
 
 export type NumberInputSize = keyof typeof sizeStyles;
-
-import {groupStyles} from '../InputGroup/groupStyles';
 
 // Re-export shared types for convenience
 
@@ -858,7 +832,7 @@ export function NumberInput({
     });
 
   const inputWrapper = (
-    <div
+    <InputSurface
       ref={el => {
         containerRef.current = el;
         // Anchor + hover/focus listeners for the disabled-message tooltip.
@@ -868,30 +842,25 @@ export function NumberInput({
       }}
       onClick={handleWrapperClick}
       onMouseUp={handleWrapperMouseUp}
-      {...mergeProps(
-        themeProps('number-input', {
-          size,
-          status: status?.type ?? null,
-          statusMessage:
-            status?.message && statusVariant === 'attached' ? 'attached' : null,
-          disabled: isDisabled ? 'disabled' : null,
-          readonly: isReadOnly ? 'readonly' : null,
-        }),
-        stylex.props(
-          inputWrapperStyles.base,
-          styles.wrapper,
-          hasNumberSteppers && styles.wrapperWithNumberSteppers,
-          sizeStyles[size],
-          isDisabled && inputWrapperStyles.disabled,
-          status && inputStatusBorderStyles[status.type],
-          status && !isDisabled && inputStatusHoverShadowStyles[status.type],
-          status && inputStatusFocusWithinStyles[status.type],
-          inputGroup && groupStyles.inGroup,
-          xstyle,
-        ),
-        className,
-        style,
-      )}>
+      theming={themeProps('number-input', {
+        size,
+        status: status?.type ?? null,
+        statusMessage:
+          status?.message && statusVariant === 'attached' ? 'attached' : null,
+        disabled: isDisabled ? 'disabled' : null,
+        readonly: isReadOnly ? 'readonly' : null,
+      })}
+      controlStyles={[
+        styles.wrapper,
+        hasNumberSteppers && styles.wrapperWithNumberSteppers,
+        sizeStyles[size],
+      ]}
+      isDisabled={isDisabled}
+      status={status}
+      isGrouped={!!inputGroup}
+      xstyle={xstyle}
+      className={className}
+      style={style}>
       {startIcon && (
         <span {...themeProps('input-start-icon', {size})}>
           {renderIconSlot(startIcon, {size: 'sm', color: 'secondary'})}
@@ -941,8 +910,8 @@ export function NumberInput({
             disabled: isDisabled ? 'disabled' : null,
           }),
           stylex.props(
-            styles.input,
-            isDisabled && styles.inputDisabled,
+            inputControlStyles.input,
+            isDisabled && inputControlStyles.inputDisabled,
             !isInputValid && styles.inputInvalid,
           ),
         )}
@@ -1020,7 +989,7 @@ export function NumberInput({
           </button>
         </div>
       )}
-    </div>
+    </InputSurface>
   );
 
   if (inputGroup) {

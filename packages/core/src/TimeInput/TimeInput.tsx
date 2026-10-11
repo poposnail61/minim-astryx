@@ -4,7 +4,7 @@
 
 /**
  * @file TimeInput.tsx
- * @input Uses React, Field, NativeTimeSegment, InputGroupContext, pointer media queries, and shared time utilities
+ * @input Uses InputSurface for shared control chrome, React, Field, NativeTimeSegment, InputGroupContext, pointer media queries, and shared time utilities
  * @output Exports TimeInput, TimeInputProps, and TimeInputNativePicker
  * @position Core implementation; consumed by index.ts, tested by TimeInput.test.tsx
  *
@@ -30,20 +30,13 @@ import {
   type FocusEvent,
 } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import {
-  colorVars,
-  sizeVars,
-  typographyVars,
-  typeScaleVars,
-} from '../theme/tokens.stylex';
+import {InputSurface} from '../Field/InputSurface';
+import {inputControlStyles} from '../Field/inputControlStyles.stylex';
+import {colorVars, sizeVars} from '../theme/tokens.stylex';
 import {
   Field,
   InputClearButton,
   type InputStatus,
-  inputWrapperStyles,
-  inputStatusBorderStyles,
-  inputStatusHoverShadowStyles,
-  inputStatusFocusWithinStyles,
   type FieldStatusVariant,
 } from '../Field';
 import {Icon} from '../Icon';
@@ -58,7 +51,6 @@ import {
   adjustTime,
   isImeKeyEvent,
   isTimeInRange,
-  mergeProps,
   getInputARIA,
 } from '../utils';
 import type {BaseProps} from '../BaseProps';
@@ -70,7 +62,6 @@ import {useMediaQuery} from '../hooks/useMediaQuery';
 import {useInputStatusIcon} from '../hooks/useInputStatusIcon';
 import {useResolvedRequired} from '../hooks/useResolvedRequired';
 import {useInputGroup} from '../InputGroup/InputGroupContext';
-import {groupStyles} from '../InputGroup/groupStyles';
 import {useTooltip} from '../Tooltip';
 import {themeProps} from '../utils/themeProps';
 import {useTranslator} from '../i18n';
@@ -87,29 +78,7 @@ const styles = stylex.create({
     justifyContent: 'center',
     flexShrink: 0,
   },
-  input: {
-    display: 'block',
-    flex: 1,
-    minWidth: 0,
-    borderWidth: 0,
-    borderStyle: 'none',
-    padding: 0,
-    fontFamily: typographyVars['--font-family-body'],
-    fontSize: {
-      default: typeScaleVars['--text-body-size'],
-      '@media (pointer: coarse)': `max(1rem, ${typeScaleVars['--text-body-size']})`,
-    },
-    lineHeight: typeScaleVars['--text-body-leading'],
-    color: colorVars['--color-text-primary'],
-    backgroundColor: 'transparent',
-    outline: 'none',
-    '::placeholder': {
-      color: colorVars['--color-text-secondary'],
-    },
-  },
-  inputDisabled: {
-    cursor: 'default',
-  },
+
   inputInvalid: {
     color: colorVars['--color-text-secondary'],
   },
@@ -651,7 +620,7 @@ export function TimeInput({
     });
 
   const inputWrapper = (
-    <div
+    <InputSurface
       ref={el => {
         containerRef.current = el;
         // Anchor + hover/focus listeners for the disabled-message tooltip.
@@ -661,25 +630,18 @@ export function TimeInput({
       }}
       onClick={usesNativeTimePicker ? undefined : handleWrapperClick}
       onMouseUp={usesNativeTimePicker ? undefined : handleWrapperMouseUp}
-      {...mergeProps(
-        themeProps('time-input', {
-          size,
-          status: status?.type ?? null,
-          disabled: isDisabled ? 'disabled' : null,
-        }),
-        stylex.props(
-          inputWrapperStyles.base,
-          sizeStyles[size],
-          isDisabled && inputWrapperStyles.disabled,
-          status && inputStatusBorderStyles[status.type],
-          status && !isDisabled && inputStatusHoverShadowStyles[status.type],
-          status && inputStatusFocusWithinStyles[status.type],
-          inputGroup && groupStyles.inGroup,
-          xstyle,
-        ),
-        className,
-        style,
-      )}>
+      theming={themeProps('time-input', {
+        size,
+        status: status?.type ?? null,
+        disabled: isDisabled ? 'disabled' : null,
+      })}
+      controlStyles={[sizeStyles[size]]}
+      isDisabled={isDisabled}
+      status={status}
+      isGrouped={!!inputGroup}
+      xstyle={xstyle}
+      className={className}
+      style={style}>
       {inputGroup && <VisuallyHidden id={inputLabelID}>{label}</VisuallyHidden>}
       {inputGroup && description && (
         <VisuallyHidden as="div" id={descriptionID}>
@@ -742,8 +704,8 @@ export function TimeInput({
             aria-busy={isBusy || undefined}
             aria-labelledby={ariaLabelledBy}
             {...stylex.props(
-              styles.input,
-              isDisabled && styles.inputDisabled,
+              inputControlStyles.input,
+              isDisabled && inputControlStyles.inputDisabled,
               !isInputValid && styles.inputInvalid,
             )}
           />
@@ -765,7 +727,7 @@ export function TimeInput({
         />
       )}
       {statusIcon}
-    </div>
+    </InputSurface>
   );
 
   if (inputGroup) {
