@@ -5,6 +5,34 @@ import {defineTheme, generateThemeRules} from '@astryxdesign/core/theme';
 import {minimButtonComponents} from './button';
 
 describe('Minim Button overrides', () => {
+  it('dims disabled solid buttons to 30% and keeps other variants at 50%', () => {
+    expect(
+      minimButtonComponents.button.base['--astryx-button-disabled-opacity'],
+    ).toBe('0.5');
+    for (const variant of [
+      'primary',
+      'neutral',
+      'critical',
+      'destructive',
+    ] as const) {
+      expect(
+        minimButtonComponents.button[`variant:${variant}`][
+          '--astryx-button-disabled-opacity'
+        ],
+      ).toBe('0.3');
+    }
+    for (const variant of [
+      'neutral-subtle',
+      'critical-subtle',
+      'ghost',
+      'outline',
+      'secondary',
+    ] as const) {
+      expect(
+        minimButtonComponents.button[`variant:${variant}`],
+      ).not.toHaveProperty('--astryx-button-disabled-opacity');
+    }
+  });
   it('leaves joined and standalone corner geometry to core', () => {
     expect(minimButtonComponents.button.base).not.toHaveProperty(
       'borderRadius',

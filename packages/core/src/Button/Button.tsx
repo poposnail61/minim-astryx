@@ -111,7 +111,8 @@ const styles = stylex.create({
     },
   },
   disabled: {
-    opacity: 0.5,
+    // Themes may tune disabled contrast without dimming loading-only buttons.
+    opacity: 'var(--astryx-button-disabled-opacity, 0.5)',
   },
   ariaDisabled: {
     // The variants' hover treatment already steps aside for

@@ -14,6 +14,7 @@ const focus = (stroke: string) => ({
 
 const solidOnSurface = {
   color: minim('fg-on-surface'),
+  '--astryx-button-disabled-opacity': '0.3',
 };
 
 const neutralForeground = {
@@ -29,6 +30,7 @@ const neutralForeground = {
 export const minimButtonComponents = {
   button: {
     base: {
+      '--astryx-button-disabled-opacity': '0.5',
       gap: minim('spacing-200'),
       paddingInline: minim('spacing-300'),
       // Core owns standalone and joined radii; its radius token maps to Minim.
