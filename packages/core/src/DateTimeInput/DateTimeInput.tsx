@@ -4,7 +4,7 @@
 
 /**
  * @file DateTimeInput.tsx
- * @input Uses React, Field, Calendar, NativeDateSegment, NativeTimeSegment, TouchDateTimeField, usePopover, useAnnounce, time parsing utilities, StyleX intrinsic flex layout
+ * @input Uses InputSurface for shared control chrome, React, Field, Calendar, NativeDateSegment, NativeTimeSegment, TouchDateTimeField, usePopover, useAnnounce, time parsing utilities, StyleX intrinsic flex layout
  * @output Exports DateTimeInput component, DateTimeInputProps, and native picker type
  * @position Core implementation; consumed by index.ts, tested by DateTimeInput.test.tsx
  *
@@ -33,6 +33,7 @@ import {
   type KeyboardEvent,
 } from 'react';
 import * as stylex from '@stylexjs/stylex';
+import {InputSurface} from '../Field/InputSurface';
 import {
   colorVars,
   sizeVars,
@@ -42,15 +43,7 @@ import {
   typeScaleVars,
   fontWeightVars,
 } from '../theme/tokens.stylex';
-import {
-  Field,
-  InputClearButton,
-  type InputStatus,
-  inputWrapperStyles,
-  inputStatusBorderStyles,
-  inputStatusHoverShadowStyles,
-  inputStatusFocusWithinStyles,
-} from '../Field';
+import {Field, InputClearButton, type InputStatus} from '../Field';
 import {Icon} from '../Icon';
 import {VisuallyHidden} from '../VisuallyHidden';
 import {Spinner} from '../Spinner';
@@ -1588,26 +1581,16 @@ function PointerDateTimeField({
           style,
         )}>
         {/* Date input */}
-        <div
+        <InputSurface
           ref={usesNativePicker ? undefined : popover.triggerRef}
-          {...mergeProps(
-            themeProps('date-time-input-date-segment', {
-              size,
-              status: status?.type ?? null,
-              disabled: isDisabled ? 'disabled' : null,
-            }),
-            stylex.props(
-              inputWrapperStyles.base,
-              sizeStyles[size],
-              styles.dateWrapper,
-              isEffectivelyDisabled && inputWrapperStyles.disabled,
-              status && inputStatusBorderStyles[status.type],
-              status &&
-                !isEffectivelyDisabled &&
-                inputStatusHoverShadowStyles[status.type],
-              status && inputStatusFocusWithinStyles[status.type],
-            ),
-          )}>
+          theming={themeProps('date-time-input-date-segment', {
+            size,
+            status: status?.type ?? null,
+            disabled: isDisabled ? 'disabled' : null,
+          })}
+          controlStyles={[sizeStyles[size], styles.dateWrapper]}
+          isDisabled={isEffectivelyDisabled}
+          status={status}>
           {usesNativePicker ? (
             <NativeDateSegment
               id={dateInputId}
@@ -1712,10 +1695,10 @@ function PointerDateTimeField({
           )}
           {isBusy && <Spinner size="sm" />}
           {statusIcon}
-        </div>
+        </InputSurface>
 
         {/* Time input */}
-        <div
+        <InputSurface
           ref={timeContainerRef}
           onClick={usesNativeTimePicker ? undefined : handleTimeWrapperClick}
           onMouseUp={
@@ -1725,24 +1708,14 @@ function PointerDateTimeField({
           // padding is routed to the input as a synthetic click, which would
           // otherwise open the list mid-gesture and let light dismiss eat it.
           onPointerDown={hasTimeOptions ? markTimePointerActive : undefined}
-          {...mergeProps(
-            themeProps('date-time-input-time-segment', {
-              size,
-              status: status?.type ?? null,
-              disabled: isDisabled ? 'disabled' : null,
-            }),
-            stylex.props(
-              inputWrapperStyles.base,
-              sizeStyles[size],
-              styles.timeWrapper,
-              isEffectivelyDisabled && inputWrapperStyles.disabled,
-              status && inputStatusBorderStyles[status.type],
-              status &&
-                !isEffectivelyDisabled &&
-                inputStatusHoverShadowStyles[status.type],
-              status && inputStatusFocusWithinStyles[status.type],
-            ),
-          )}>
+          theming={themeProps('date-time-input-time-segment', {
+            size,
+            status: status?.type ?? null,
+            disabled: isDisabled ? 'disabled' : null,
+          })}
+          controlStyles={[sizeStyles[size], styles.timeWrapper]}
+          isDisabled={isEffectivelyDisabled}
+          status={status}>
           {usesNativeTimePicker ? (
             <NativeTimeSegment
               id={timeInputId}
@@ -1841,7 +1814,7 @@ function PointerDateTimeField({
               </VisuallyHidden>
             </>
           )}
-        </div>
+        </InputSurface>
       </div>
 
       {!usesNativePicker &&

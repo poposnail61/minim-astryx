@@ -4,7 +4,7 @@
 
 /**
  * @file TouchDateField.tsx
- * @input Uses React, Field, BottomSheet, Button, Icon, Calendar hooks, MonthScroller, MonthYearWheels
+ * @input Uses InputSurface for shared control chrome, React, Field, BottomSheet, Button, Icon, Calendar hooks, MonthScroller, MonthYearWheels
  * @output Exports TouchDateField — the touch surface behind DateInput
  * @position Internal component; consumed by DateInput.tsx
  *
@@ -59,25 +59,18 @@ import {
   useTransition,
 } from 'react';
 import * as stylex from '@stylexjs/stylex';
+import {InputSurface} from '../Field/InputSurface';
 import {BottomSheet} from '../BottomSheet';
 import {Button} from '../Button';
 import {useCalendarConstraints} from '../Calendar';
 import type {DateInputProps} from './DateInput';
-import {
-  Field,
-  InputClearButton,
-  inputWrapperStyles,
-  inputStatusBorderStyles,
-  inputStatusHoverShadowStyles,
-  inputStatusFocusWithinStyles,
-} from '../Field';
+import {Field, InputClearButton} from '../Field';
 import {useInputStatusIcon, useMergedRefs} from '../hooks';
 import {useResolvedRequired} from '../hooks/useResolvedRequired';
 import {Icon} from '../Icon';
 import {IconButton} from '../IconButton';
 import {useLocale, useTranslator} from '../i18n';
 import {useInputGroup} from '../InputGroup';
-import {groupStyles} from '../InputGroup/groupStyles';
 import {stableClassName} from '../naming';
 import {useSize} from '../SizeContext';
 import {Spinner} from '../Spinner';
@@ -99,7 +92,6 @@ import {
   focusOutlineStyles,
   getInputARIA,
   isImeKeyEvent,
-  mergeProps,
   rtlStyles,
   themeProps,
   formatSharedDate,
@@ -1169,35 +1161,25 @@ export function TouchDateField({
   );
 
   const inputWrapper = (
-    <div
+    <InputSurface
       ref={el => {
         // Anchor + hover/focus listeners for the disabled-message tooltip.
         // Gated internally by isEnabled, so attaching unconditionally is safe.
         disabledMessageTooltip.ref(el);
       }}
       {...rest}
-      {...mergeProps(
-        themeProps('date-input', {
-          size,
-          status: status?.type ?? null,
-          disabled: isDisabled ? 'disabled' : null,
-        }),
-        stylex.props(
-          inputWrapperStyles.base,
-          sizeStyles[size],
-          styles.wrapper,
-          isEffectivelyDisabled && inputWrapperStyles.disabled,
-          status && inputStatusBorderStyles[status.type],
-          status &&
-            !isEffectivelyDisabled &&
-            inputStatusHoverShadowStyles[status.type],
-          status && inputStatusFocusWithinStyles[status.type],
-          inputGroup && groupStyles.inGroup,
-          xstyle,
-        ),
-        className,
-        style,
-      )}>
+      theming={themeProps('date-input', {
+        size,
+        status: status?.type ?? null,
+        disabled: isDisabled ? 'disabled' : null,
+      })}
+      controlStyles={[sizeStyles[size], styles.wrapper]}
+      isDisabled={isEffectivelyDisabled}
+      status={status}
+      isGrouped={!!inputGroup}
+      xstyle={xstyle}
+      className={className}
+      style={style}>
       {inputGroup && <VisuallyHidden id={inputLabelID}>{label}</VisuallyHidden>}
       <button
         type="button"
@@ -1271,7 +1253,7 @@ export function TouchDateField({
       </BottomSheet>
       {showsDisabledMessage &&
         disabledMessageTooltip.renderTooltip(disabledMessage)}
-    </div>
+    </InputSurface>
   );
 
   if (inputGroup) {

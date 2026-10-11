@@ -4,7 +4,7 @@
 
 /**
  * @file DateRangeInput.tsx
- * @input Uses React, Field, Calendar (range mode), usePopover
+ * @input Uses InputSurface for shared control chrome, React, Field, Calendar (range mode), usePopover
  * @output Exports DateRangeInput component, DateRangeInputProps
  * @position Core implementation; consumed by index.ts, tested by DateRangeInput.test.tsx
  *
@@ -18,6 +18,7 @@
 
 import {useId, useCallback, useMemo, useOptimistic, useTransition} from 'react';
 import * as stylex from '@stylexjs/stylex';
+import {InputSurface} from '../Field/InputSurface';
 import {
   plainDateFromISO,
   plainDateToday,
@@ -39,10 +40,6 @@ import {
   Field,
   InputClearButton,
   type InputStatus,
-  inputWrapperStyles,
-  inputStatusBorderStyles,
-  inputStatusHoverShadowStyles,
-  inputStatusFocusWithinStyles,
   type FieldStatusVariant,
 } from '../Field';
 import {Icon} from '../Icon';
@@ -622,7 +619,7 @@ export function DateRangeInput({
       statusVariant={statusVariant}
       labelTooltip={labelTooltip}
       width={width}>
-      <div
+      <InputSurface
         ref={el => {
           popover.triggerRef(el);
           // Anchor + hover/focus listeners for the disabled-message tooltip.
@@ -631,26 +628,17 @@ export function DateRangeInput({
           disabledMessageTooltip.ref(el);
         }}
         {...rest}
-        {...mergeProps(
-          themeProps('date-range-input', {
-            size,
-            status: status?.type ?? null,
-            disabled: isDisabled ? 'disabled' : null,
-          }),
-          stylex.props(
-            inputWrapperStyles.base,
-            sizeStyles[size],
-            isEffectivelyDisabled && inputWrapperStyles.disabled,
-            status && inputStatusBorderStyles[status.type],
-            status &&
-              !isEffectivelyDisabled &&
-              inputStatusHoverShadowStyles[status.type],
-            status && inputStatusFocusWithinStyles[status.type],
-            xstyle,
-          ),
-          className,
-          style,
-        )}>
+        theming={themeProps('date-range-input', {
+          size,
+          status: status?.type ?? null,
+          disabled: isDisabled ? 'disabled' : null,
+        })}
+        controlStyles={[sizeStyles[size]]}
+        isDisabled={isEffectivelyDisabled}
+        status={status}
+        xstyle={xstyle}
+        className={className}
+        style={style}>
         <button
           type="button"
           onClick={handleToggle}
@@ -709,7 +697,7 @@ export function DateRangeInput({
         )}
         {isBusy && <Spinner size="sm" />}
         {statusIcon}
-      </div>
+      </InputSurface>
       {popover.render(
         <div {...stylex.props(styles.popoverLayout)}>
           {presets && presets.length > 0 && (

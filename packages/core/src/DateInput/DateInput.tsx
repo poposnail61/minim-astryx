@@ -4,7 +4,7 @@
 
 /**
  * @file DateInput.tsx
- * @input Uses React, useId, useState, useCallback, useRef, Field, Icon, Calendar, usePopover, InputGroupContext
+ * @input Uses InputSurface for shared control chrome, React, useId, useState, useCallback, useRef, Field, Icon, Calendar, usePopover, InputGroupContext
  * @output Exports DateInput component, DateInputProps
  * @position Core implementation; consumed by index.ts, tested by DateInput.test.tsx
  *
@@ -25,28 +25,18 @@ import {
   useTransition,
 } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import {
-  colorVars,
-  sizeVars,
-  radiusVars,
-  typographyVars,
-  typeScaleVars,
-  borderVars,
-} from '../theme/tokens.stylex';
+import {InputSurface} from '../Field/InputSurface';
+import {inputControlStyles} from '../Field/inputControlStyles.stylex';
+import {colorVars, sizeVars, radiusVars} from '../theme/tokens.stylex';
 import {
   Field,
   InputClearButton,
   type InputStatus,
-  inputWrapperStyles,
-  inputStatusBorderStyles,
-  inputStatusHoverShadowStyles,
-  inputStatusFocusWithinStyles,
   type FieldStatusVariant,
 } from '../Field';
 import {Icon} from '../Icon';
 import {VisuallyHidden} from '../VisuallyHidden';
 import {useInputGroup} from '../InputGroup/InputGroupContext';
-import {groupStyles} from '../InputGroup/groupStyles';
 import {useSize} from '../SizeContext/SizeContext';
 import {Spinner} from '../Spinner';
 import {
@@ -91,29 +81,7 @@ const styles = stylex.create({
   iconButtonDisabled: {
     cursor: 'default',
   },
-  input: {
-    display: 'block',
-    flex: 1,
-    minWidth: 0,
-    borderWidth: 0,
-    borderStyle: 'none',
-    padding: 0,
-    fontFamily: typographyVars['--font-family-body'],
-    fontSize: {
-      default: typeScaleVars['--text-body-size'],
-      '@media (pointer: coarse)': `max(1rem, ${typeScaleVars['--text-body-size']})`,
-    },
-    lineHeight: typeScaleVars['--text-body-leading'],
-    color: colorVars['--color-text-primary'],
-    backgroundColor: 'transparent',
-    outline: 'none',
-    '::placeholder': {
-      color: colorVars['--color-text-secondary'],
-    },
-  },
-  inputDisabled: {
-    cursor: 'default',
-  },
+
   inputInvalid: {
     color: colorVars['--color-text-secondary'],
   },
@@ -172,7 +140,7 @@ export type {
   InputStatus as DateInputStatus,
   InputStatusType as DateInputStatusType,
 } from '../Field';
-import {mergeProps, isFocusDetached} from '../utils';
+import {isFocusDetached} from '../utils';
 import type {BaseProps} from '../BaseProps';
 import type {SizeValue} from '../utils/types';
 import {themeProps} from '../utils/themeProps';
@@ -737,7 +705,7 @@ function PointerDateField({
   );
 
   const inputWrapper = (
-    <div
+    <InputSurface
       ref={el => {
         popover.triggerRef(el);
         // Anchor + hover/focus listeners for the disabled-message tooltip.
@@ -746,27 +714,18 @@ function PointerDateField({
         disabledMessageTooltip.ref(el);
       }}
       {...rest}
-      {...mergeProps(
-        themeProps('date-input', {
-          size,
-          status: status?.type ?? null,
-          disabled: isDisabled ? 'disabled' : null,
-        }),
-        stylex.props(
-          inputWrapperStyles.base,
-          sizeStyles[size],
-          isEffectivelyDisabled && inputWrapperStyles.disabled,
-          status && inputStatusBorderStyles[status.type],
-          status &&
-            !isEffectivelyDisabled &&
-            inputStatusHoverShadowStyles[status.type],
-          status && inputStatusFocusWithinStyles[status.type],
-          inputGroup && groupStyles.inGroup,
-          xstyle,
-        ),
-        className,
-        style,
-      )}>
+      theming={themeProps('date-input', {
+        size,
+        status: status?.type ?? null,
+        disabled: isDisabled ? 'disabled' : null,
+      })}
+      controlStyles={[sizeStyles[size]]}
+      isDisabled={isEffectivelyDisabled}
+      status={status}
+      isGrouped={!!inputGroup}
+      xstyle={xstyle}
+      className={className}
+      style={style}>
       {inputGroup && <VisuallyHidden id={inputLabelID}>{label}</VisuallyHidden>}
       <button
         type="button"
@@ -828,8 +787,8 @@ function PointerDateField({
         aria-autocomplete="none"
         autoComplete="off"
         {...stylex.props(
-          styles.input,
-          isEffectivelyDisabled && styles.inputDisabled,
+          inputControlStyles.input,
+          isEffectivelyDisabled && inputControlStyles.inputDisabled,
           !isInputValid && styles.inputInvalid,
         )}
       />
@@ -866,7 +825,7 @@ function PointerDateField({
       )}
       {showsDisabledMessage &&
         disabledMessageTooltip.renderTooltip(disabledMessage)}
-    </div>
+    </InputSurface>
   );
 
   if (inputGroup) {

@@ -4,7 +4,7 @@
 
 /**
  * @file TextInput.tsx
- * @input Uses React, useId, ChangeEvent, Field, Icon, InputGroupContext
+ * @input Uses InputSurface for shared control chrome, React, useId, ChangeEvent, Field, Icon, InputGroupContext
  * @output Exports TextInput component, TextInputProps
  * @position Core implementation; consumed by index.ts, tested by TextInput.test.tsx
  *
@@ -27,20 +27,13 @@ import {
   type ReactNode,
 } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import {
-  colorVars,
-  sizeVars,
-  typographyVars,
-  typeScaleVars,
-} from '../theme/tokens.stylex';
+import {InputSurface} from '../Field/InputSurface';
+import {inputControlStyles} from '../Field/inputControlStyles.stylex';
+import {sizeVars} from '../theme/tokens.stylex';
 import {
   Field,
   InputClearButton,
   type InputStatus,
-  inputWrapperStyles,
-  inputStatusBorderStyles,
-  inputStatusHoverShadowStyles,
-  inputStatusFocusWithinStyles,
   type FieldStatusVariant,
 } from '../Field';
 import {renderIconSlot, type IconType} from '../Icon';
@@ -48,32 +41,6 @@ import {Spinner} from '../Spinner';
 import {useTooltip} from '../Tooltip';
 import {VisuallyHidden} from '../VisuallyHidden';
 import {getInputARIA, isImeKeyEvent} from '../utils';
-
-const styles = stylex.create({
-  input: {
-    display: 'block',
-    flex: 1,
-    minWidth: 0,
-    borderWidth: 0,
-    borderStyle: 'none',
-    padding: 0,
-    fontFamily: typographyVars['--font-family-body'],
-    fontSize: {
-      default: typeScaleVars['--text-body-size'],
-      '@media (pointer: coarse)': `max(1rem, ${typeScaleVars['--text-body-size']})`,
-    },
-    lineHeight: typeScaleVars['--text-body-leading'],
-    color: colorVars['--color-text-primary'],
-    backgroundColor: 'transparent',
-    outline: 'none',
-    '::placeholder': {
-      color: colorVars['--color-text-secondary'],
-    },
-  },
-  inputDisabled: {
-    cursor: 'default',
-  },
-});
 
 const sizeStyles = stylex.create({
   sm: {
@@ -88,8 +55,6 @@ const sizeStyles = stylex.create({
 });
 
 export type TextInputSize = keyof typeof sizeStyles;
-
-import {groupStyles} from '../InputGroup/groupStyles';
 
 // Re-export shared types for convenience
 
@@ -407,7 +372,7 @@ export function TextInput({
     });
 
   const inputWrapper = (
-    <div
+    <InputSurface
       ref={el => {
         containerRef.current = el;
         // Anchor + hover/focus listeners for the disabled-message tooltip.
@@ -417,28 +382,21 @@ export function TextInput({
       }}
       onClick={handleWrapperClick}
       onMouseUp={handleWrapperMouseUp}
-      {...mergeProps(
-        themeProps('text-input', {
-          size,
-          status: status?.type ?? null,
-          statusMessage:
-            status?.message && statusVariant === 'attached' ? 'attached' : null,
-          disabled: isDisabled ? 'disabled' : null,
-          readonly: isReadOnly ? 'readonly' : null,
-        }),
-        stylex.props(
-          inputWrapperStyles.base,
-          sizeStyles[size],
-          isDisabled && inputWrapperStyles.disabled,
-          status && inputStatusBorderStyles[status.type],
-          status && !isDisabled && inputStatusHoverShadowStyles[status.type],
-          status && inputStatusFocusWithinStyles[status.type],
-          inputGroup && groupStyles.inGroup,
-          xstyle,
-        ),
-        className,
-        style,
-      )}>
+      theming={themeProps('text-input', {
+        size,
+        status: status?.type ?? null,
+        statusMessage:
+          status?.message && statusVariant === 'attached' ? 'attached' : null,
+        disabled: isDisabled ? 'disabled' : null,
+        readonly: isReadOnly ? 'readonly' : null,
+      })}
+      controlStyles={[sizeStyles[size]]}
+      isDisabled={isDisabled}
+      status={status}
+      isGrouped={!!inputGroup}
+      xstyle={xstyle}
+      className={className}
+      style={style}>
       {startIcon && (
         <span {...themeProps('input-start-icon', {size})}>
           {renderIconSlot(startIcon, {size: 'sm', color: 'secondary'})}
@@ -487,7 +445,10 @@ export function TextInput({
             size,
             disabled: isDisabled ? 'disabled' : null,
           }),
-          stylex.props(styles.input, isDisabled && styles.inputDisabled),
+          stylex.props(
+            inputControlStyles.input,
+            isDisabled && inputControlStyles.inputDisabled,
+          ),
         )}
       />
       {hasClear && value !== '' && !isDisabled && !isReadOnly && (
@@ -498,7 +459,7 @@ export function TextInput({
       )}
       {isBusy && <Spinner size="sm" />}
       {statusIcon}
-    </div>
+    </InputSurface>
   );
 
   if (inputGroup) {
