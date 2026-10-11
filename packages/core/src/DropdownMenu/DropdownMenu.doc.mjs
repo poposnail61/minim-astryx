@@ -196,7 +196,7 @@ export const docs = {
       name: 'button',
       type: 'DropdownMenuButtonProps',
       description:
-        'Props for the trigger button (Button props except onClick).',
+        'Props for the trigger button (Button props except onClick). Set button.variant to neutral (default), outline, or neutral-subtle to match the Minim Figma variants. Set button.shape to pill to use radius/full on the trigger only. Size, shape and icon-only props do not change the menu surface.',
       default: "{ label: 'Menu' }",
     },
     {

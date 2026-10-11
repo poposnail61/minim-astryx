@@ -74,31 +74,31 @@ export const containerEdgeStyles = stylex.create({
   compact: {
     paddingInlineStart: {
       default: null,
-      ':first-child': `max(var(--container-padding-inline-start, ${spacingVars['--spacing-2']}), ${spacingVars['--spacing-2']})`,
+      ':first-child': `max(var(--container-padding-inline-start, var(--table-cell-padding-inline, ${spacingVars['--spacing-2']})), ${spacingVars['--spacing-2']})`,
     },
     paddingInlineEnd: {
       default: null,
-      ':last-child': `max(var(--container-padding-inline-end, ${spacingVars['--spacing-2']}), ${spacingVars['--spacing-2']})`,
+      ':last-child': `max(var(--container-padding-inline-end, var(--table-cell-padding-inline, ${spacingVars['--spacing-2']})), ${spacingVars['--spacing-2']})`,
     },
   },
   balanced: {
     paddingInlineStart: {
       default: null,
-      ':first-child': `max(var(--container-padding-inline-start, ${spacingVars['--spacing-3']}), ${spacingVars['--spacing-2']})`,
+      ':first-child': `max(var(--container-padding-inline-start, var(--table-cell-padding-inline, ${spacingVars['--spacing-3']})), ${spacingVars['--spacing-2']})`,
     },
     paddingInlineEnd: {
       default: null,
-      ':last-child': `max(var(--container-padding-inline-end, ${spacingVars['--spacing-3']}), ${spacingVars['--spacing-2']})`,
+      ':last-child': `max(var(--container-padding-inline-end, var(--table-cell-padding-inline, ${spacingVars['--spacing-3']})), ${spacingVars['--spacing-2']})`,
     },
   },
   spacious: {
     paddingInlineStart: {
       default: null,
-      ':first-child': `max(var(--container-padding-inline-start, ${spacingVars['--spacing-4']}), ${spacingVars['--spacing-2']})`,
+      ':first-child': `max(var(--container-padding-inline-start, var(--table-cell-padding-inline, ${spacingVars['--spacing-4']})), ${spacingVars['--spacing-2']})`,
     },
     paddingInlineEnd: {
       default: null,
-      ':last-child': `max(var(--container-padding-inline-end, ${spacingVars['--spacing-4']}), ${spacingVars['--spacing-2']})`,
+      ':last-child': `max(var(--container-padding-inline-end, var(--table-cell-padding-inline, ${spacingVars['--spacing-4']})), ${spacingVars['--spacing-2']})`,
     },
   },
 });

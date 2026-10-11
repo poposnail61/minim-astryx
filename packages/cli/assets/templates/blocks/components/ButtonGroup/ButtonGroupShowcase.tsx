@@ -16,7 +16,7 @@ import {
 
 export default function ButtonGroupShowcase() {
   return (
-    <Stack direction="horizontal" gap={6} vAlign="center">
+    <Stack direction="horizontal" gap={6} vAlign="center" wrap="wrap">
       <ButtonGroup label="Clipboard actions">
         <Button label="Copy" icon={<Icon icon={ClipboardDocumentIcon} />} />
         <Button label="Cut" icon={<Icon icon={ScissorsIcon} />} />

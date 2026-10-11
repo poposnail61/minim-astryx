@@ -24,7 +24,7 @@ import React, {useOptimistic, type ReactNode} from 'react';
 import * as stylex from '@stylexjs/stylex';
 import {colorVars, fontWeightVars} from '../theme/tokens.stylex';
 
-import {Button, type ButtonSize} from '../Button';
+import {Button, type ButtonSize, type ButtonShape} from '../Button';
 import type {Elevation} from '../utils/types';
 import {useToggleButtonGroup} from './ToggleButtonGroup';
 import type {BaseProps} from '../BaseProps';
@@ -91,6 +91,8 @@ const labelStyles = stylex.create({
 // =============================================================================
 
 export interface ToggleButtonProps extends BaseProps<HTMLButtonElement> {
+  /** Corner treatment, forwarded to Button. @default 'default' */
+  shape?: ButtonShape;
   ref?: React.Ref<HTMLButtonElement>;
   /**
    * Accessible label for the button (required).
@@ -249,6 +251,7 @@ export function ToggleButton({
   pressedChangeAction,
   size: sizeProp,
   variant = 'default',
+  shape = 'default',
   elevation = 'none',
   isDisabled: isDisabledProp = false,
   isLoading = false,
@@ -349,6 +352,7 @@ export function ToggleButton({
       label={label}
       variant="ghost"
       size={size}
+      shape={shape}
       elevation={elevation}
       isDisabled={isDisabled}
       isLoading={isLoading}
@@ -362,6 +366,7 @@ export function ToggleButton({
         elevation,
         size,
         variant,
+        shape,
       })}
       xstyle={[isPressed ? pressedStyles.background : undefined, xstyle]}
       style={style}

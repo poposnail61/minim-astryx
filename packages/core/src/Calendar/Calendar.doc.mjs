@@ -78,6 +78,13 @@ export const docs = {
   },
   props: [
     {
+      name: 'size',
+      type: "'md' | 'lg'",
+      description:
+        'Calendar cell, text and navigation button size. Theme density remains independent.',
+      default: "'lg'",
+    },
+    {
       name: 'mode',
       type: "'single' | 'range'",
       description: 'Selection mode.',
@@ -176,7 +183,7 @@ export const docs = {
   ],
   theming: {
     targets: [
-      {className: 'astryx-calendar', visualProps: ['mode']},
+      {className: 'astryx-calendar', visualProps: ['mode', 'size']},
       {
         className: 'astryx-calendar-nav',
         visualProps: ['nav'],
@@ -196,7 +203,8 @@ export const docs = {
       },
       {
         name: '--_calendar-cell-size',
-        description: 'Resolved grid-cell size inherited by calendar descendants.',
+        description:
+          'Resolved grid-cell size inherited by calendar descendants.',
         default: 'var(--calendar-cell-size, var(--size-element-md))',
         private: true,
       },
@@ -339,7 +347,7 @@ export const docsZh = {
     targets: [
       {
         className: 'astryx-calendar',
-        visualProps: ['mode'],
+        visualProps: ['mode', 'size'],
       },
       {
         className: 'astryx-calendar-nav',
@@ -360,7 +368,8 @@ export const docsZh = {
       },
       {
         name: '--_calendar-cell-size',
-        description: 'Resolved grid-cell size inherited by calendar descendants.',
+        description:
+          'Resolved grid-cell size inherited by calendar descendants.',
         default: 'var(--calendar-cell-size, var(--size-element-md))',
         private: true,
       },

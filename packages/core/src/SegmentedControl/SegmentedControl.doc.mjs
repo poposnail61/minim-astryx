@@ -39,8 +39,8 @@ export const docs = {
   },
   theming: {
     targets: [
-      {className: 'astryx-segmented-control', visualProps: ['size']},
-      {className: 'astryx-segmented-control-item', visualProps: ['size'], states: ['selected', 'disabled']},
+      {className: 'astryx-segmented-control', visualProps: ['size', 'shape']},
+      {className: 'astryx-segmented-control-item', visualProps: ['size', 'shape'], states: ['selected', 'disabled']},
       {className: 'astryx-segmented-control-item-icon', visualProps: ['size'], states: ['selected', 'disabled']},
       {className: 'astryx-segmented-control-item-label', visualProps: ['size'], states: ['selected', 'disabled']},
     ],
@@ -55,6 +55,12 @@ export const docs = {
   },
   description: 'Container wrapper providing context (value, onChange, size, isDisabled) to SegmentedControlItem children.',
   props: [
+    {
+      name: 'shape',
+      type: "'default' | 'pill'",
+      description: 'Corner shape shared by the container and every segment. Pill uses radius/full without changing spacing or selection.',
+      default: "'default'",
+    },
     {
       name: 'value',
       type: 'string',

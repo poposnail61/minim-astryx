@@ -22,6 +22,10 @@ const transparentRow = {
 } as const;
 
 const selectionIndicator = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexShrink: '0',
   boxSizing: 'border-box',
   borderWidth: '1px',
   borderStyle: 'solid',
@@ -68,12 +72,12 @@ export const minimSelectionComponents = {
     'size:md': {
       width: minim('component-medium-width-inline'),
       height:
-        'calc(var(--minim-typography-line-height-md) + 2 * var(--minim-component-medium-padding-block-slot))',
+        'var(--checkbox-control-height, calc(var(--minim-typography-line-height-md) + 2 * var(--minim-component-medium-padding-block-slot)))',
     },
     'size:lg': {
       width: minim('component-large-width-inline'),
       height:
-        'calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-component-large-padding-block-slot))',
+        'var(--checkbox-control-height, calc(var(--minim-typography-line-height-lg) + 2 * var(--minim-component-large-padding-block-slot)))',
     },
   },
   'checkbox-input': {
@@ -219,6 +223,7 @@ export const minimSelectionComponents = {
       borderRadius: minim('radius-element'),
       backgroundColor: minim('bg-neutral'),
     },
+    'shape:pill': {borderRadius: minim('radius-full')},
   },
   'segmented-control-item': {
     base: {
@@ -228,6 +233,7 @@ export const minimSelectionComponents = {
       boxShadow: 'none',
       ':hover': {backgroundColor: minim('bg-overlay-hover')},
     },
+    'shape:pill': {borderRadius: minim('radius-full')},
     'size:md': {
       height: 'auto',
       paddingBlock: minim('component-medium-padding-block-inner'),

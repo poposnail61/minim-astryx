@@ -3,6 +3,37 @@
 import {expect, test} from '@playwright/test';
 
 for (const density of ['Base', 'Compact']) {
+  test(`${density}: table typography and spacing match Figma`, async ({
+    page,
+  }) => {
+    await page.goto('/examples/sizes');
+    await page.getByRole('radio', {name: density, exact: true}).click();
+    const compact = density === 'Compact';
+    for (const size of ['md', 'lg', 'default']) {
+      const table = page.getByTestId(`size-${size}`).getByTestId('table-size');
+      await table.scrollIntoViewIfNeeded();
+      const medium = size === 'md';
+      const font = medium ? (compact ? 13.5 : 15) : compact ? 15 : 16.5;
+      const line = medium ? (compact ? 18 : 20) : compact ? 20 : 22;
+      for (const cell of await table.locator('th, td').all()) {
+        await expect(cell).toHaveCSS('font-size', `${font}px`);
+        await expect(cell).toHaveCSS('line-height', `${line}px`);
+        await expect(cell).toHaveCSS('padding-left', compact ? '10px' : '12px');
+        await expect(cell).toHaveCSS('padding-top', compact ? '6px' : '8px');
+      }
+      const height = await table
+        .locator('td')
+        .first()
+        .evaluate(el => el.getBoundingClientRect().height);
+      // Collapsed table borders can contribute half a pixel at the header edge.
+      expect(
+        Math.abs(height - (line + (compact ? 12 : 16))),
+      ).toBeLessThanOrEqual(1);
+      await table.screenshot({
+        path: `/tmp/minim-table-${density}-${size}-${test.info().project.name}.png`,
+      });
+    }
+  });
   test(`${density}: disabled checkbox colors match Figma`, async ({page}) => {
     await page.goto('/examples/sizes');
     await page.getByRole('radio', {name: density, exact: true}).click();

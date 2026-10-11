@@ -24,22 +24,34 @@ export const minimAdvancedComponents = {
     base: {
       '--calendar-cell-size': 'var(--minim-component-large-height)',
       '--calendar-cell-padding': minim('spacing-50'),
+      '--calendar-range-padding-block': '0px',
+      '--calendar-range-background': minim('bg-neutral'),
       '--calendar-month-font-size': minim('typography-font-size-lg'),
       '--calendar-month-line-height': minim('typography-line-height-lg'),
       '--calendar-weekday-height': minim('typography-line-height-sm'),
       '--calendar-weekday-padding-bottom': '0px',
       '--calendar-row-gap': minim('spacing-200'),
-      padding: minim('spacing-300'),
+      '--calendar-day-font-size': minim('typography-font-size-lg'),
+      '--calendar-day-line-height': minim('typography-line-height-lg'),
+      padding: minim('spacing-200'),
+      minWidth: '0px',
       borderRadius: minim('radius-container'),
       backgroundColor: minim('bg-layer'),
+    },
+    'size:md': {
+      '--calendar-cell-size': minim('component-medium-height'),
+      '--calendar-month-font-size': minim('typography-font-size-md'),
+      '--calendar-month-line-height': minim('typography-line-height-md'),
+      '--calendar-day-font-size': minim('typography-font-size-md'),
+      '--calendar-day-line-height': minim('typography-line-height-md'),
     },
   },
   'calendar-day': {
     base: {
       width: '100%',
       height: '100%',
-      fontSize: minim('typography-font-size-lg'),
-      lineHeight: minim('typography-line-height-lg'),
+      fontSize: 'var(--calendar-day-font-size)',
+      lineHeight: 'var(--calendar-day-line-height)',
       color: minim('fg-neutral'),
       borderRadius: minim('radius-full'),
     },
@@ -111,15 +123,18 @@ export const minimAdvancedComponents = {
         borderColor: minim('stroke-neutral-strong'),
         boxShadow: 'none',
       },
-      ':has(button:disabled)': {
+      ':has(button:is(:disabled,[aria-disabled="true"]))': {
         backgroundColor: minim('bg-disabled'),
+        opacity: 'var(--minim-input-disabled-opacity, 0.5)',
       },
-      ':has(button:disabled) .astryx-file-input-icon': {
-        color: minim('fg-neutral'),
-      },
-      ':has(button:disabled) > span:not(.astryx-icon):not(.astryx-spinner)': {
-        color: minim('fg-neutral'),
-      },
+      ':has(button:is(:disabled,[aria-disabled="true"])) .astryx-file-input-icon':
+        {
+          color: minim('fg-neutral'),
+        },
+      ':has(button:is(:disabled,[aria-disabled="true"])) > span:not(.astryx-icon):not(.astryx-spinner)':
+        {
+          color: minim('fg-neutral'),
+        },
     },
     'mode:input': {
       height: 'var(--minim-component-large-height)',

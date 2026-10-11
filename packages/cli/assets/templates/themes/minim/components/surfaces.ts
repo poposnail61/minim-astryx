@@ -36,13 +36,26 @@ export const minimSurfaceComponents = {
   'form-layout': {base: {gap: token('spacing-400')}},
   dialog: {
     base: {
-      borderRadius: token('radius-overlay'),
-      padding: token('spacing-400'),
+      borderRadius: token('radius-container'),
+      padding: token('spacing-500'),
     },
     'variant:fullscreen': {borderRadius: '0'},
   },
-  'dialog-header': {base: {gap: token('spacing-300')}},
-  'dialog-header-title-block': {base: {gap: token('spacing-50')}},
+  'dialog-header': {
+    base: {
+      gap: token('spacing-300'),
+      alignItems: 'center',
+      '--dialog-header-action-margin': '0px',
+    },
+  },
+  'dialog-header-title-block': {
+    base: {
+      gap: token('spacing-50'),
+      marginBlock: '0',
+      '--text-heading-2-size': token('typography-font-size-xl'),
+      '--text-heading-2-leading': token('typography-line-height-xl'),
+    },
+  },
   'hover-card': {
     base: {
       borderRadius: token('radius-element'),

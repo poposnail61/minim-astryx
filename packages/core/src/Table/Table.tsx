@@ -41,6 +41,9 @@ import {useTranslator} from '../i18n';
 
 export type TableDensity = 'compact' | 'balanced' | 'spacious';
 
+/** Typography and selection-control size, independent of row density. */
+export type TableSize = 'md' | 'lg';
+
 /** Divider style between cells */
 
 export type TableDividers = 'rows' | 'columns' | 'grid' | 'none';
@@ -62,6 +65,8 @@ export interface TableProps<T extends Record<string, unknown>> extends Omit<
 > {
   /** Row density. @default 'balanced' */
   density?: TableDensity;
+  /** Cell typography and selection-control size. @default 'lg' */
+  size?: TableSize;
   /** Divider style. @default 'rows' */
   dividers?: TableDividers;
   /** Striped even rows. @default false */
@@ -203,6 +208,7 @@ function buildTableStylePlugin<
 
 function TableInner<T extends Record<string, unknown>>({
   density = 'balanced',
+  size = 'lg',
   dividers = 'rows',
   isStriped = false,
   hasHover = false,
@@ -224,13 +230,14 @@ function TableInner<T extends Record<string, unknown>>({
   const contextValue = useMemo(
     () => ({
       density,
+      size,
       dividers,
       isStriped,
       hasHover,
       verticalAlign,
       textOverflow,
     }),
-    [density, dividers, isStriped, hasHover, verticalAlign, textOverflow],
+    [density, size, dividers, isStriped, hasHover, verticalAlign, textOverflow],
   );
 
   return (

@@ -68,20 +68,20 @@ export interface TableCellProps extends BaseProps<HTMLTableCellElement> {
 
 const densityStyles = stylex.create({
   compact: {
-    paddingBlock: spacingVars['--spacing-1'],
-    paddingInline: spacingVars['--spacing-2'],
+    paddingBlock: `var(--table-cell-padding-block, ${spacingVars['--spacing-1']})`,
+    paddingInline: `var(--table-cell-padding-inline, ${spacingVars['--spacing-2']})`,
     fontSize: typeScaleVars['--text-body-size'],
     boxSizing: 'border-box',
   },
   balanced: {
-    paddingBlock: spacingVars['--spacing-2'],
-    paddingInline: spacingVars['--spacing-3'],
+    paddingBlock: `var(--table-cell-padding-block, ${spacingVars['--spacing-2']})`,
+    paddingInline: `var(--table-cell-padding-inline, ${spacingVars['--spacing-3']})`,
     fontSize: typeScaleVars['--text-body-size'],
     boxSizing: 'border-box',
   },
   spacious: {
-    paddingBlock: spacingVars['--spacing-3'],
-    paddingInline: spacingVars['--spacing-4'],
+    paddingBlock: `var(--table-cell-padding-block, ${spacingVars['--spacing-3']})`,
+    paddingInline: `var(--table-cell-padding-inline, ${spacingVars['--spacing-4']})`,
     fontSize: typeScaleVars['--text-body-size'],
     boxSizing: 'border-box',
   },
@@ -109,16 +109,16 @@ const densityTextStyles = stylex.create({
 
 const densityPaddingStyles = stylex.create({
   compact: {
-    paddingBlock: spacingVars['--spacing-1'],
-    paddingInline: spacingVars['--spacing-2'],
+    paddingBlock: `var(--table-cell-padding-block, ${spacingVars['--spacing-1']})`,
+    paddingInline: `var(--table-cell-padding-inline, ${spacingVars['--spacing-2']})`,
   },
   balanced: {
-    paddingBlock: spacingVars['--spacing-2'],
-    paddingInline: spacingVars['--spacing-3'],
+    paddingBlock: `var(--table-cell-padding-block, ${spacingVars['--spacing-2']})`,
+    paddingInline: `var(--table-cell-padding-inline, ${spacingVars['--spacing-3']})`,
   },
   spacious: {
-    paddingBlock: spacingVars['--spacing-3'],
-    paddingInline: spacingVars['--spacing-4'],
+    paddingBlock: `var(--table-cell-padding-block, ${spacingVars['--spacing-3']})`,
+    paddingInline: `var(--table-cell-padding-inline, ${spacingVars['--spacing-4']})`,
   },
 });
 
@@ -252,7 +252,7 @@ export function TableCell({
       ref={ref}
       {...props}
       {...mergeProps(
-        themeProps('table-cell', {density: ctx?.density}),
+        themeProps('table-cell', {density: ctx?.density, size: ctx?.size}),
         stylex.props(...mergeXStyle(cellStyles, xstyle)),
         incomingClassName,
         incomingStyle,

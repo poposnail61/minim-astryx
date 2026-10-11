@@ -54,7 +54,7 @@ export const minimNavigationComponents = {
     base: {gap: token('spacing-100')},
     'size:sm': control('medium', 'md'),
     'size:md': control('medium', 'md'),
-    'size:lg': control('large', 'lg'),
+    'size:lg': {...control('large', 'lg'), paddingInline: token('spacing-200')},
   },
   'tab-hover': {base: {height: '100%'}},
   'tab-icon': {

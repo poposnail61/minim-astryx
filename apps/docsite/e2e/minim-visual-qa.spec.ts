@@ -6,6 +6,68 @@ import {expect, test, type Locator, type Page} from '@playwright/test';
 
 const OUTPUT_DIR = '/tmp/minim-visual-qa';
 const densities = ['base', 'compact'] as const;
+
+test('Calendar LG and MD follow Figma in both densities', async ({
+  page,
+}, info) => {
+  await page.goto('/components/Calendar', {waitUntil: 'domcontentloaded'});
+  await expect(
+    page.locator('.astryx-calendar[data-size="md"]').first(),
+  ).toBeVisible({timeout: 60_000});
+  await mkdir(OUTPUT_DIR, {recursive: true});
+  for (const density of densities) {
+    await setDensity(page, density);
+    for (const size of ['lg', 'md'] as const) {
+      const calendar = page
+        .locator(`.astryx-calendar[data-size="${size}"][data-mode="range"]`)
+        .first();
+      const expected =
+        density === 'base'
+          ? {
+              cell: size === 'lg' ? 44 : 36,
+              font: size === 'lg' ? 16.5 : 15,
+              padding: 8,
+            }
+          : {
+              cell: size === 'lg' ? 36 : 28,
+              font: size === 'lg' ? 15 : 13.5,
+              padding: 6,
+            };
+      const metrics = await calendar.evaluate(el => {
+        const day = el.querySelector<HTMLElement>('[data-date="2026-04-15"]')!;
+        const nav = el.querySelector<HTMLElement>('.astryx-calendar-nav')!;
+        const band = day.parentElement!.querySelector<HTMLElement>('div')!;
+        return {
+          width: el.getBoundingClientRect().width,
+          cell: day.parentElement!.getBoundingClientRect().height,
+          font: parseFloat(getComputedStyle(day).fontSize),
+          padding: parseFloat(getComputedStyle(el).paddingLeft),
+          navHeight: nav.getBoundingClientRect().height,
+          bandColor: getComputedStyle(band).backgroundColor,
+        };
+      });
+      expect(metrics.cell).toBe(expected.cell);
+      expect(metrics.width).toBe(expected.cell * 7 + expected.padding * 2);
+      expect(metrics.font).toBe(expected.font);
+      expect(metrics.padding).toBe(expected.padding);
+      expect(metrics.navHeight).toBe(expected.cell);
+      expect(metrics.bandColor).toBe('rgba(0, 0, 0, 0.05)');
+      await calendar.screenshot({
+        path: path.join(
+          OUTPUT_DIR,
+          `calendar-${info.project.name}-${density}-${size}.png`,
+        ),
+      });
+      await calendar.locator('[data-date="2026-04-12"]').click();
+      await calendar.locator('[data-date="2026-04-18"]').click();
+      await expect(
+        calendar.locator('[role="gridcell"][aria-selected="true"]'),
+      ).toHaveCount(7);
+      await calendar.locator('[data-date="2026-04-10"]').click();
+      await calendar.locator('[data-date="2026-04-20"]').click();
+    }
+  }
+});
 const pages = [
   {slug: 'Button', selector: '.astryx-button'},
   {slug: 'ButtonGroup', selector: '.astryx-button-group'},
@@ -140,6 +202,12 @@ async function assertButtonPreviewsAreNotClipped(page: Page) {
 }
 
 async function collectAndAssertButtonGroupEvidence(page: Page) {
+  await expect(
+    page.getByRole('group', {name: 'Clipboard actions', exact: true}).first(),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('group', {name: 'Save options', exact: true}).first(),
+  ).toBeVisible();
   const evidence = await page
     .locator('.astryx-button-group:visible')
     .evaluateAll(groups =>
@@ -154,6 +222,8 @@ async function collectAndAssertButtonGroupEvidence(page: Page) {
             color: style.color,
             left: box.left,
             right: box.right,
+            startRadius: style.borderStartStartRadius,
+            endRadius: style.borderStartEndRadius,
           };
         });
         return {
@@ -168,8 +238,8 @@ async function collectAndAssertButtonGroupEvidence(page: Page) {
   expect(neutral?.text).toBe('CopyCutPaste');
   expect(neutral?.backgroundColor).toMatch(/^rgba\(.+, 0\)$/);
   for (const child of neutral?.children ?? []) {
-    expect(child.color).toBe('rgb(24, 24, 27)');
-    expect(child.backgroundColor).toBe('rgba(0, 0, 0, 0.05)');
+    expect(child.color).toBe('rgb(255, 255, 255)');
+    expect(child.backgroundColor).toBe('rgb(24, 24, 27)');
   }
 
   expect(split?.text).toBe('Save');
@@ -183,6 +253,16 @@ async function collectAndAssertButtonGroupEvidence(page: Page) {
       (split?.children[0]?.right ?? 0) - (split?.children[1]?.left ?? 0),
     ),
   ).toBeLessThanOrEqual(0.5);
+
+  for (const group of evidence) {
+    group.children.forEach((child, index) => {
+      if (index > 0) {expect(child.startRadius).toBe('0px');}
+      else {expect(parseFloat(child.startRadius)).toBeGreaterThan(0);}
+      if (index < group.children.length - 1)
+        {expect(child.endRadius).toBe('0px');}
+      else {expect(parseFloat(child.endRadius)).toBeGreaterThan(0);}
+    });
+  }
 
   return evidence;
 }
@@ -328,6 +408,57 @@ async function assertInputGeometry(
 
 test.beforeAll(async () => {
   await mkdir(OUTPUT_DIR, {recursive: true});
+});
+
+test('Minim ButtonGroup joins corners in both densities', async ({
+  page,
+}, testInfo) => {
+  await page.goto('/components/ButtonGroup', {waitUntil: 'domcontentloaded'});
+  for (const density of densities) {
+    await setDensity(page, density);
+    await collectAndAssertButtonGroupEvidence(page);
+    for (const group of [
+      page.getByRole('group', {name: 'Clipboard actions', exact: true}).first(),
+      page.getByRole('group', {name: 'Save options', exact: true}).first(),
+    ]) {
+      await expect(group).toBeInViewport({ratio: 1});
+    }
+    await page.screenshot({
+      path: path.join(
+        OUTPUT_DIR,
+        `${testInfo.project.name}-${density}-joined-buttons.png`,
+      ),
+      fullPage: true,
+    });
+  }
+});
+
+test('Minim density survives navigation and lazy properties loading', async ({
+  page,
+}) => {
+  for (const slug of ['ButtonGroup', 'TextInput', 'Switch']) {
+    await page.goto(`/components/${slug}`, {waitUntil: 'domcontentloaded'});
+    await expect(
+      page
+        .locator(
+          '.astryx-' +
+            {
+              ButtonGroup: 'button-group',
+              TextInput: 'text-input',
+              Switch: 'switch',
+            }[slug],
+        )
+        .first(),
+    ).toBeVisible({timeout: 45000});
+    for (const density of ['compact', 'base', 'compact'] as const) {
+      await setDensity(page, density);
+    }
+  }
+  await page.getByRole('button', {name: 'Properties', exact: true}).click();
+  await expect(
+    page.getByRole('heading', {name: 'Props', exact: true}),
+  ).toBeVisible({timeout: 45000});
+  await setDensity(page, 'base');
 });
 
 test('Minim component pages render in both densities', async ({

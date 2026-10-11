@@ -153,6 +153,12 @@ export const docs = {
 
   props: [
     {
+      name: 'shape',
+      type: "'default' | 'pill'",
+      description: 'Pill uses radius/full without changing dimensions. Joined ButtonGroup geometry takes precedence.',
+      default: "'default'",
+    },
+    {
       name: 'label',
       type: 'string',
       description:
@@ -307,7 +313,7 @@ export const docs = {
     targets: [
       {
         className: 'astryx-button',
-        visualProps: ['size', 'variant', 'elevation', 'content'],
+        visualProps: ['size', 'shape', 'variant', 'elevation', 'content'],
       },
       {className: 'astryx-button-icon', visualProps: ['size']},
       {className: 'astryx-button-label', visualProps: ['size']},
@@ -408,6 +414,12 @@ export const docsZh = {
   },
   props: [
     {
+      name: 'shape',
+      type: "'default' | 'pill'",
+      description: 'Pill uses radius/full without changing dimensions. Joined ButtonGroup geometry takes precedence.',
+      default: "'default'",
+    },
+    {
       name: 'label',
       type: 'string',
       description: '无障碍标签；纯图标按钮时用作 aria-label。',
@@ -503,7 +515,7 @@ export const docsZh = {
     targets: [
       {
         className: 'astryx-button',
-        visualProps: ['size', 'variant', 'elevation', 'content'],
+        visualProps: ['size', 'shape', 'variant', 'elevation', 'content'],
       },
       {className: 'astryx-button-icon', visualProps: ['size']},
       {className: 'astryx-button-label', visualProps: ['size']},

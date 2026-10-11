@@ -182,7 +182,11 @@ export const minimContentComponents = {
   heading: {
     base: {fontFamily: baseFontFamily, color: minim('fg-neutral')},
     'level:1': heading('3xl'),
-    'level:2': heading('2xl'),
+    'level:2': {
+      ...heading('2xl'),
+      fontSize: 'var(--text-heading-2-size)',
+      lineHeight: 'var(--text-heading-2-leading)',
+    },
     'level:3': heading('xl'),
     'level:4': heading('lg'),
   },

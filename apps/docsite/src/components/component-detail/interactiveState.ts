@@ -20,7 +20,6 @@ import {
 } from './parsePropType';
 import {resolveValue} from './resolveElements';
 import type {
-  ComponentEntry,
   PropDoc,
   PlaygroundConfig,
 } from '../../generated/componentRegistry';
@@ -211,14 +210,7 @@ export function buildInitialState(
  * table unless their doc curates a playground (e.g. Theme, which previews
  * themed content). See #2733.
  */
-export function hasInteractivePlayground(
-  comp: Pick<ComponentEntry, 'category' | 'params' | 'playground'>,
-): boolean {
-  if (comp.params != null) {
-    return false;
-  }
-  return comp.category !== 'Utility' || comp.playground != null;
-}
+export {hasInteractivePlayground} from './playgroundAvailability';
 
 /**
  * True when an overlay-mode component (`playground.overlay`) is closed in the

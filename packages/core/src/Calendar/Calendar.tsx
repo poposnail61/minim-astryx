@@ -110,6 +110,8 @@ interface CalendarBaseProps extends Omit<
   handleRef?: React.Ref<CalendarHandle>;
   /** Number of months to display (default: 1) */
   numberOfMonths?: 1 | 2;
+  /** Visual size. Defaults to large; density is controlled by the theme. */
+  size?: 'md' | 'lg';
 
   /** Minimum selectable date in ISO format */
   min?: ISODateString;
@@ -231,6 +233,7 @@ export function Calendar({ref, ...props}: CalendarProps) {
   const {
     handleRef,
     mode = 'single',
+    size = 'lg',
     value,
     defaultValue,
     onChange,
@@ -512,8 +515,12 @@ export function Calendar({ref, ...props}: CalendarProps) {
       ref={ref}
       {...rest}
       {...mergeProps(
-        themeProps('calendar', {mode}),
-        stylex.props(calendarStyles.calendar, xstyle),
+        themeProps('calendar', {mode, size}),
+        stylex.props(
+          calendarStyles.calendar,
+          size === 'md' && calendarStyles.medium,
+          xstyle,
+        ),
         className,
         style,
       )}
@@ -527,7 +534,7 @@ export function Calendar({ref, ...props}: CalendarProps) {
           })}
           label={t('@astryx.calendar.previousMonth')}
           variant="ghost"
-          size="lg"
+          size={size}
           icon={
             // Wrapper span (not Icon props): Icon's string mode clobbers
             // caller classNames, so the RTL mirror must live on its own
@@ -552,7 +559,7 @@ export function Calendar({ref, ...props}: CalendarProps) {
           })}
           label={t('@astryx.calendar.nextMonth')}
           variant="ghost"
-          size="lg"
+          size={size}
           icon={
             <span {...stylex.props(calendarStyles.navIcon, rtlStyles.mirror)}>
               <Icon icon="chevronRight" size="sm" color="inherit" />

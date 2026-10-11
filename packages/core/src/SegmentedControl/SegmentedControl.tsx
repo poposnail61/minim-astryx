@@ -29,6 +29,7 @@ import type {
 import {mergeProps, composeEventHandlers} from '../utils';
 import {useSize} from '../SizeContext/SizeContext';
 import type {BaseProps} from '../BaseProps';
+import type {ButtonShape} from '../Button';
 import {themeProps} from '../utils/themeProps';
 
 import {useMergedRefs} from '../hooks/useMergedRefs';
@@ -54,6 +55,8 @@ export interface SegmentedControlProps extends Omit<
    * @default 'lg'
    */
   size?: SegmentedControlSize;
+  /** Corner treatment shared by the container and every segment. @default 'default' */
+  shape?: ButtonShape;
   /**
    * Layout mode for segment sizing.
    * - `'hug'` (default): each segment hugs its content width.
@@ -99,6 +102,9 @@ const styles = stylex.create({
   fill: {
     display: 'flex',
     width: '100%',
+  },
+  pill: {
+    '--_segmented-control-radius': radiusVars['--radius-full'],
   },
   disabled: {
     opacity: 0.5,
@@ -146,6 +152,7 @@ export function SegmentedControl({
   onChange,
   label,
   size: sizeProp,
+  shape = 'default',
   layout = 'hug',
   isDisabled = false,
   disabledMessage,
@@ -249,11 +256,12 @@ export function SegmentedControl({
       value,
       onChange,
       size,
+      shape,
       layout,
       isDisabled,
       hasDisabledMessage: showsDisabledMessage,
     }),
-    [value, onChange, size, layout, isDisabled, showsDisabledMessage],
+    [value, onChange, size, shape, layout, isDisabled, showsDisabledMessage],
   );
 
   return (
@@ -271,10 +279,11 @@ export function SegmentedControl({
         onFocus={handleContainerFocus}
         onBlur={composeEventHandlers(onBlurProp, hint.onBlur)}
         {...mergeProps(
-          themeProps('segmented-control', {size}),
+          themeProps('segmented-control', {size, shape}),
           stylex.props(
             styles.container,
             sizeStyles[size],
+            shape === 'pill' && styles.pill,
             layout === 'fill' && styles.fill,
             isDisabled &&
               (showsDisabledMessage

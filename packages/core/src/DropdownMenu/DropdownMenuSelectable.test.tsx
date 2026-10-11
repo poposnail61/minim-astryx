@@ -43,6 +43,30 @@ beforeEach(() => {
 });
 
 describe('DropdownMenuCheckboxItem', () => {
+  it.each(['md', 'lg'] as const)(
+    'matches %s menu and selection indicator sizes',
+    async size => {
+      const user = userEvent.setup();
+      render(
+        <DropdownMenu button={{label: 'Sizes', size}}>
+          <DropdownMenuCheckboxItem label="Checkbox" value={true} />
+          <DropdownMenuRadioGroup value="one" onChange={() => {}}>
+            <DropdownMenuRadioItem label="Radio" value="one" />
+          </DropdownMenuRadioGroup>
+        </DropdownMenu>,
+      );
+      await user.click(screen.getByRole('button', {name: /Sizes/}));
+      for (const [role, selector] of [
+        ['menuitemcheckbox', '.astryx-checkbox'],
+        ['menuitemradio', '.astryx-radio'],
+      ]) {
+        const row = screen.getByRole(role, {hidden: true});
+        expect(row).toHaveAttribute('data-size', size);
+        expect(row.querySelector(selector)).toHaveAttribute('data-size', size);
+      }
+    },
+  );
+
   it('calls onChange with the toggled value on click', async () => {
     const user = userEvent.setup();
     const onChangeSpy = vi.fn();
@@ -144,7 +168,7 @@ describe('DropdownMenuRadioGroup / RadioItem', () => {
     expect(checked).toHaveClass('astryx-menu-radio-row');
     expect(checked).toHaveAttribute('data-size', 'lg');
     expect(box).toHaveClass('astryx-radio');
-    expect(box).toHaveAttribute('data-size', 'md');
+    expect(box).toHaveAttribute('data-size', 'lg');
     expect(box).toHaveAttribute('data-checked', 'checked');
     expect(box?.querySelector('.astryx-radio-dot')).toBeInTheDocument();
 

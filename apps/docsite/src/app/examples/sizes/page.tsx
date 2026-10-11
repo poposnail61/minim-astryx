@@ -25,6 +25,7 @@ import {Token} from '@astryxdesign/core/Token';
 import {Switch} from '@astryxdesign/core/Switch';
 import {ProgressBar} from '@astryxdesign/core/ProgressBar';
 import {List, ListItem} from '@astryxdesign/core/List';
+import {Table} from '@astryxdesign/core/Table';
 import {
   SegmentedControl,
   SegmentedControlItem,
@@ -97,6 +98,19 @@ export default function SizeExamples() {
           key={size ?? 'default'}
           data-testid={`size-${size ?? 'default'}`}>
           <Heading level={2}>{size ?? 'Default'}</Heading>
+          <Table
+            size={size}
+            data-testid="table-size"
+            data={[
+              {name: 'Alice Johnson', role: 'Engineer'},
+              {name: 'Bob Smith', role: 'Designer'},
+            ]}
+            columns={[
+              {key: 'name', header: 'Name'},
+              {key: 'role', header: 'Role'},
+            ]}
+            dividers="none"
+          />
           <Button
             label="Button"
             size={size}

@@ -7,7 +7,7 @@ import {Stack} from '@astryxdesign/core/Layout';
 
 export default function ChatComposerInputShowcase() {
   return (
-    <Stack direction="vertical" width={450} maxWidth="100%">
+    <Stack direction="vertical" width="100%" maxWidth={450}>
       <ChatComposer
         onSubmit={() => {}}
         input={

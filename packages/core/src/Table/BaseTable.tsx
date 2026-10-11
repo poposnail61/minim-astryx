@@ -66,8 +66,12 @@ const styles = stylex.create({
   headerLabelRow: {
     display: 'inline-flex',
     alignItems: 'center',
-    gap: spacingVars['--spacing-1'],
+    gap: `var(--table-content-gap, ${spacingVars['--spacing-1']})`,
     minWidth: 0,
+  },
+  inheritedText: {
+    fontSize: 'inherit',
+    lineHeight: 'inherit',
   },
 });
 
@@ -202,7 +206,7 @@ function TableRowInner<T extends Record<string, unknown>>({
       rawContent.length > 0
     ) {
       content = (
-        <Text type="body" maxLines={1}>
+        <Text type="body" maxLines={1} xstyle={styles.inheritedText}>
           {rawContent}
         </Text>
       );

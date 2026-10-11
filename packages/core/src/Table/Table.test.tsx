@@ -51,6 +51,29 @@ const columns: TableColumn<User>[] = [
   {key: 'email', header: 'Email', width: proportional(2)},
 ];
 
+describe('Table size inheritance', () => {
+  it.each(['md', 'lg'] as const)('passes %s to header and body cells', size => {
+    const {container} = render(
+      <Table data={users} columns={columns} size={size} />,
+    );
+    for (const cell of container.querySelectorAll('th, td')) {
+      expect(cell).toHaveAttribute('data-size', size);
+    }
+    expect(container.querySelector('table')).not.toHaveAttribute('size');
+  });
+
+  it('defaults to large without removing density compatibility', () => {
+    const {container} = render(
+      <Table data={users} columns={columns} density="compact" />,
+    );
+    expect(container.querySelector('td')).toHaveAttribute('data-size', 'lg');
+    expect(container.querySelector('td')).toHaveAttribute(
+      'data-density',
+      'compact',
+    );
+  });
+});
+
 // =============================================================================
 // columnUtils Tests
 // =============================================================================

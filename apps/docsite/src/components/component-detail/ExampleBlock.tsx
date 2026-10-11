@@ -18,6 +18,7 @@ import {buildPlaygroundHref} from '../playgroundLink';
 import {trackOpenPlayground} from '../../lib/analytics';
 import {MarkdownText} from '../MarkdownText';
 import {preventPreviewNavigation} from './previewNavigation';
+import {DeferredPreview} from './DeferredPreview';
 import {
   shadcnRegistryIsPreview,
   shadcnRegistryOrigin,
@@ -33,13 +34,23 @@ function LivePreview({
 }) {
   const [Component, setComponent] = useState<ComponentType | null>(null);
   const [error, setError] = useState(false);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
+    let active = true;
+    setError(false);
     entry
       .load()
-      .then(mod => setComponent(() => mod.default))
-      .catch(() => setError(true));
-  }, [entry]);
+      .then(mod => {
+        if (active) {setComponent(() => mod.default);}
+      })
+      .catch(() => {
+        if (active) {setError(true);}
+      });
+    return () => {
+      active = false;
+    };
+  }, [entry, attempt]);
 
   const previewNavigationProps =
     componentName === 'SideNav'
@@ -52,6 +63,11 @@ function LivePreview({
         <Text type="supporting" color="secondary">
           Preview not available
         </Text>
+        <Button
+          label="Retry preview"
+          variant="ghost"
+          onClick={() => setAttempt(value => value + 1)}
+        />
       </Center>
     );
   }
@@ -72,7 +88,7 @@ function LivePreview({
         minHeight: 200,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'safe center',
       }}
       {...previewNavigationProps}>
       <div style={{minWidth: 'fit-content', padding: 'var(--spacing-4)'}}>
@@ -97,7 +113,13 @@ export function ExampleBlock({entry, componentName}: ExampleBlockProps) {
           {entry.name}
         </Text>
 
-        <LivePreview entry={entry} componentName={componentName} />
+        <DeferredPreview>
+          <LivePreview
+            key={`${componentName}/${entry.name}`}
+            entry={entry}
+            componentName={componentName}
+          />
+        </DeferredPreview>
 
         <Section variant="muted" padding={1} dividers={['top']}>
           <HStack

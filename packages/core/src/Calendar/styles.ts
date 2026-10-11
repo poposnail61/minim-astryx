@@ -44,6 +44,10 @@ export const calendarStyles = stylex.create({
     marginBottom: spacingVars['--spacing-2'],
     gap: spacingVars['--spacing-2'],
   },
+  medium: {
+    '--_calendar-cell-size': `var(--calendar-cell-size, ${sizeVars['--size-element-sm']})`,
+    '--_calendar-day-size': `calc(${sizeVars['--size-element-sm']} - 4px)`,
+  },
   monthYearLabel: {
     flex: 1,
     textAlign: 'center',
@@ -141,8 +145,8 @@ export const dayCellStyles = stylex.create({
   // Range background - structural positioning
   rangeBg: {
     position: 'absolute',
-    top: BAND_INSET,
-    bottom: BAND_INSET,
+    top: `var(--calendar-range-padding-block, ${BAND_INSET})`,
+    bottom: `var(--calendar-range-padding-block, ${BAND_INSET})`,
     insetInlineStart: 0,
     insetInlineEnd: 0,
   },
@@ -247,7 +251,7 @@ export const dayCellStyles = stylex.create({
 export const dayCellTheme = stylex.create({
   // Range background color
   rangeBg: {
-    backgroundColor: `var(--_calendar-range-background, ${colorVars['--color-accent-muted']})`,
+    backgroundColor: `var(--calendar-range-background, var(--_calendar-range-background, ${colorVars['--color-accent-muted']}))`,
   },
 
   // Preview background (muted overlay)

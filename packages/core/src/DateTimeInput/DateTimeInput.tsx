@@ -208,7 +208,6 @@ const styles = stylex.create({
     maxHeight: 300,
     overflowY: 'auto',
     padding: spacingVars['--spacing-1'],
-    minWidth: 'anchor-size(width)',
   },
   timeOption: {
     boxSizing: 'border-box',
@@ -1910,7 +1909,11 @@ function PointerDateTimeField({
               })}
             </div>
           ),
-          {placement: 'below', alignment: 'start'},
+          {
+            placement: 'below',
+            alignment: 'start',
+            style: {minWidth: 'anchor-size(width)'},
+          },
         )}
 
       {showsDisabledMessage &&

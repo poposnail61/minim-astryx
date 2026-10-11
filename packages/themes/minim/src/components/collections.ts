@@ -36,19 +36,40 @@ export const minimCollectionComponents = {
   item: {
     base: {gap: token('spacing-200'), borderRadius: token('radius-element')},
   },
+  table: {
+    base: {'--table-selected-bg': token('bg-neutral')},
+  },
   'table-cell': {
     base: {
+      '--table-cell-padding-block': token('spacing-200'),
+      '--table-cell-padding-inline': token('spacing-300'),
+      '--table-content-gap': token('spacing-200'),
+      '--checkbox-control-height': token('typography-line-height-lg'),
       fontSize: token('typography-font-size-lg'),
       lineHeight: token('typography-line-height-lg'),
       borderColor: token('stroke-neutral-subtle'),
     },
+    'size:md': {
+      '--checkbox-control-height': token('typography-line-height-md'),
+      fontSize: token('typography-font-size-md'),
+      lineHeight: token('typography-line-height-md'),
+    },
   },
   'table-header-cell': {
     base: {
-      fontSize: token('typography-font-size-md'),
-      lineHeight: token('typography-line-height-md'),
+      '--table-cell-padding-block': token('spacing-200'),
+      '--table-cell-padding-inline': token('spacing-300'),
+      '--table-content-gap': token('spacing-200'),
+      '--checkbox-control-height': token('typography-line-height-lg'),
+      fontSize: token('typography-font-size-lg'),
+      lineHeight: token('typography-line-height-lg'),
       borderColor: token('stroke-neutral'),
       backgroundColor: token('bg-layer'),
+    },
+    'size:md': {
+      '--checkbox-control-height': token('typography-line-height-md'),
+      fontSize: token('typography-font-size-md'),
+      lineHeight: token('typography-line-height-md'),
     },
   },
   'tree-list': {

@@ -120,7 +120,7 @@ const sortStyles = stylex.create({
   button: {
     display: 'flex',
     alignItems: 'center',
-    gap: spacingVars['--spacing-1'],
+    gap: `var(--table-content-gap, ${spacingVars['--spacing-1']})`,
     background: 'transparent',
     border: 'none',
     padding: 0,

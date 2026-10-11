@@ -40,6 +40,22 @@ function politeRegion(): HTMLElement | null {
   return document.querySelector('[data-astryx-live-region="polite"]');
 }
 
+it('defaults to large and passes medium size to both navigation buttons', () => {
+  const {container, rerender} = render(<Calendar focusDate="2026-01-01" />);
+  expect(container.querySelector('.astryx-calendar')).toHaveAttribute(
+    'data-size',
+    'lg',
+  );
+  rerender(<Calendar size="md" focusDate="2026-01-01" />);
+  expect(container.querySelector('.astryx-calendar')).toHaveAttribute(
+    'data-size',
+    'md',
+  );
+  const buttons = container.querySelectorAll('.astryx-calendar-nav');
+  expect(buttons).toHaveLength(2);
+  buttons.forEach(button => expect(button).toHaveAttribute('data-size', 'md'));
+});
+
 /**
  * Helper to find a day button by its day number.
  * Day buttons are native <button> elements with aria-labels like

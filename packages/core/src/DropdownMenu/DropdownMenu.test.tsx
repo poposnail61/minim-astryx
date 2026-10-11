@@ -72,6 +72,22 @@ beforeEach(() => {
 });
 
 describe('DropdownMenu', () => {
+  it.each(['neutral', 'outline', 'neutral-subtle'] as const)(
+    'preserves the %s trigger variant when opened',
+    variant => {
+      render(
+        <DropdownMenu
+          button={{label: 'Actions', variant}}
+          items={[{label: 'Item 1'}]}
+        />,
+      );
+      const trigger = screen.getByRole('button', {name: /Actions/});
+      expect(trigger).toHaveAttribute('data-variant', variant);
+      fireEvent.click(trigger);
+      expect(trigger).toHaveAttribute('data-variant', variant);
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    },
+  );
   it('renders trigger button with label', () => {
     render(
       <DropdownMenu button={{label: 'Actions'}} items={[{label: 'Item 1'}]} />,

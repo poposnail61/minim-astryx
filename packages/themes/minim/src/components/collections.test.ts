@@ -49,5 +49,22 @@ describe('Collection density sizing', () => {
     expect(components['table-cell'].base).not.toHaveProperty('height');
     expect(components['table-cell'].base).not.toHaveProperty('paddingBlock');
     expect(components['table-header-cell'].base).not.toHaveProperty('height');
+    for (const target of ['table-cell', 'table-header-cell'] as const) {
+      expect(components[target].base['--table-cell-padding-block']).toBe(
+        'var(--minim-spacing-200)',
+      );
+      expect(components[target].base['--table-cell-padding-inline']).toBe(
+        'var(--minim-spacing-300)',
+      );
+      expect(components[target].base.fontSize).toBe(
+        'var(--minim-typography-font-size-lg)',
+      );
+      expect(components[target]['size:md'].fontSize).toBe(
+        'var(--minim-typography-font-size-md)',
+      );
+    }
+    expect(components.table.base['--table-selected-bg']).toBe(
+      'var(--minim-bg-neutral)',
+    );
   });
 });

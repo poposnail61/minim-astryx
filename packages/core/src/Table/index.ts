@@ -84,6 +84,7 @@ export type {
 export type {
   TableProps,
   TableDensity,
+  TableSize,
   TableDividers,
   TableTextOverflow,
 } from './Table';

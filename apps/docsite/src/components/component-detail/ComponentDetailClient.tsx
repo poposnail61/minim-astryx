@@ -3,7 +3,7 @@
 'use client';
 
 import * as stylex from '@stylexjs/stylex';
-import {Suspense} from 'react';
+import {lazy, Suspense, useEffect, useState} from 'react';
 import {useSearchParams, useRouter, usePathname} from 'next/navigation';
 import {Heading, Text} from '@astryxdesign/core/Text';
 import {VStack} from '@astryxdesign/core/Layout';
@@ -21,26 +21,35 @@ import {BestPractices} from './BestPractices';
 import {Theming} from './Theming';
 import {Accessibility} from './Accessibility';
 import {HookSignature} from './HookSignature';
-import {ExampleBlock} from './ExampleBlock';
+import {ComponentExamples} from './ComponentExamples';
+import {DeferredPreview} from './DeferredPreview';
 import {MarkdownText} from '../MarkdownText';
-import {
-  InteractivePreviewStage,
-  useInteractiveState,
-} from './InteractivePreview';
-import {hasInteractivePlayground} from './interactiveState';
+import {hasInteractivePlayground} from './playgroundAvailability';
 import {hasThemingContent} from './themingHelpers';
 import {CURRENT_TARGET} from '../../lib/docsVersions';
-import {PlaygroundPropsTable} from './PlaygroundPropsTable';
 import {PropsTable} from './PropsTable';
 import type {ComponentEntry} from '../../generated/componentRegistry';
 import type {BlockEntry} from '../../generated/blockRegistry';
 import {showcaseRegistry} from '../../generated/showcaseRegistry';
-import {exampleRegistry} from '../../generated/exampleRegistry';
+import {componentExampleLoaders} from '../../generated/componentExampleLoaders';
 import {trackNavigate} from '../../lib/analytics';
+
+const PropertiesPanel = lazy(() => import('./PropertiesPanel'));
 
 const styles = stylex.create({
   section: {
     marginInline: 'auto',
+  },
+  title: {
+    fontSize: {
+      default: typeScaleVars['--text-display-1-size'],
+      '@media (max-width: 768px)': typeScaleVars['--text-display-3-size'],
+    },
+    lineHeight: {
+      default: typeScaleVars['--text-display-1-leading'],
+      '@media (max-width: 768px)': typeScaleVars['--text-display-3-leading'],
+    },
+    overflowWrap: 'anywhere',
   },
   // Match the docs article body treatment (16px / 1.75) from DocPageLayout,
   // scoped to the Overview prose only — the dense Properties props table keeps
@@ -51,19 +60,6 @@ const styles = stylex.create({
   overviewProse: {
     [typeScaleVars['--text-body-size']]: '1rem', // 16px
     [typeScaleVars['--text-body-leading']]: '1.75', // 28px line box
-  },
-  previewStage: {
-    position: 'sticky',
-    top: 44,
-    zIndex: 10,
-    backgroundColor: 'var(--color-background-page)',
-    backdropFilter: 'blur(16px)',
-    maxHeight: {default: 400, '@media (max-width: 768px)': 250},
-    overflow: 'auto',
-    borderWidth: 'var(--border-width, 1px)',
-    borderStyle: 'solid',
-    borderColor: 'var(--color-border-emphasized)',
-    borderRadius: 'var(--radius-container)',
   },
   // Reserve enough of the article to keep the footer below the viewport while
   // Next streams the query-dependent tab panel. The named skeleton shapes
@@ -145,7 +141,7 @@ function OverviewContent({
         <PropsTable props={comp.props} heading="Props" />
       )}
 
-      {(exampleRegistry[comp.name] || []).length > 0 && (
+      {componentExampleLoaders[comp.name] && (
         <>
           <VStack gap={4}>
             <Heading level={2} type="display-3">
@@ -155,11 +151,9 @@ function OverviewContent({
               Common configurations, variations, and states.
             </Text>
           </VStack>
-          <VStack gap={10}>
-            {(exampleRegistry[comp.name] || []).map((entry, i) => (
-              <ExampleBlock key={i} entry={entry} componentName={comp.name} />
-            ))}
-          </VStack>
+          <DeferredPreview key={comp.name}>
+            <ComponentExamples name={comp.name} />
+          </DeferredPreview>
         </>
       )}
     </VStack>
@@ -222,11 +216,10 @@ function ComponentDetailTabs({
     router.replace(`${pathname}${qs ? `?${qs}` : ''}`, {scroll: false});
   };
 
-  const {knobs, state, setProp, missingRequiredProps} = useInteractiveState(
-    comp.name,
-    comp.props,
-    comp.playground,
-  );
+  const [visitedProperties, setVisitedProperties] = useState(false);
+  useEffect(() => {
+    if (tab === 'properties') {setVisitedProperties(true);}
+  }, [tab]);
 
   return (
     <>
@@ -249,39 +242,17 @@ function ComponentDetailTabs({
         />
       )}
 
-      {tab === 'properties' && hasPlayground && (
-        <VStack gap={4}>
-          <div {...stylex.props(styles.previewStage)}>
-            <InteractivePreviewStage
-              name={comp.name}
-              state={state}
-              knobs={knobs}
-              playground={comp.playground}
-              missingRequiredProps={missingRequiredProps}
-              onPropChange={setProp}
-              embedded
-              canControlOpenState={
-                comp.props.some(prop => prop.name === 'isOpen') &&
-                comp.props.some(prop => prop.name === 'onOpenChange')
-              }
-            />
-          </div>
-
-          {comp.props.length > 0 && (
-            <Section>
-              <VStack gap={3}>
-                <Heading level={3}>Props</Heading>
-                <PlaygroundPropsTable
-                  props={comp.props}
-                  typeDefs={comp.typeDefs}
-                  knobs={knobs}
-                  state={state}
-                  onPropChange={setProp}
-                />
-              </VStack>
-            </Section>
-          )}
-        </VStack>
+      {(tab === 'properties' || visitedProperties) && hasPlayground && (
+        <Suspense
+          fallback={
+            tab === 'properties' ? <Skeleton width="100%" height={200} /> : null
+          }>
+          <PropertiesPanel
+            key={comp.name}
+            comp={comp}
+            active={tab === 'properties'}
+          />
+        </Suspense>
       )}
 
       {tab === 'theming' && comp.theming && (
@@ -351,7 +322,9 @@ export function ComponentDetailClient({
         {/* This heading is independent of the URL and belongs in the static
             shell. Only the tab row and panel below need request state. */}
         <VStack gap={2}>
-          <Text type="display-1">{comp.displayName}</Text>
+          <Text type="display-1" xstyle={styles.title}>
+            {comp.displayName}
+          </Text>
           <Text type="supporting" color="secondary">
             {!comp.isReady ? 'Canary · ' : ''}
             {pkg}

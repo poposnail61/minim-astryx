@@ -4,6 +4,25 @@ import type {ComponentStyleMap} from '@astryxdesign/core/theme';
 
 const minim = (name: string) => 'var(--minim-' + name + ')';
 
+// DateInput is the disabled-field reference: neutral ink, disabled surface,
+// and one opacity owner. Grouped inputs inherit the owner's opacity guard.
+const disabledInput = {
+  opacity: 'var(--minim-input-disabled-opacity, 0.5)',
+  backgroundColor: minim('bg-disabled'),
+  color: minim('fg-neutral'),
+  ':is(*) input, :is(*) textarea': {color: minim('fg-neutral')},
+  ':is(*) input::placeholder, :is(*) textarea::placeholder': {
+    color: minim('fg-neutral'),
+  },
+  ':is(*) .astryx-input-start-icon .astryx-icon': {
+    color: minim('fg-neutral'),
+  },
+  ':is(*) > button:is([aria-haspopup="dialog"],[role="combobox"])': {
+    color: minim('fg-neutral'),
+  },
+  ':is(*) .astryx-token': {opacity: '1'},
+} as const;
+
 const inputBase = {
   gap: minim('spacing-200'),
   paddingBlock: minim('component-medium-padding-block'),
@@ -83,9 +102,7 @@ const inputStyles = {
       boxShadow: 'inset 0 0 0 1px ' + minim('stroke-primary'),
     },
   },
-  'disabled:disabled': {
-    opacity: 'var(--minim-input-disabled-opacity, 0.5)',
-  },
+  'disabled:disabled': disabledInput,
 } as const;
 
 const textAreaStyles = {
@@ -105,9 +122,7 @@ const textAreaStyles = {
   'status:error': inputStyles['status:error'],
   'status:warning': inputStyles['status:warning'],
   'status:success': inputStyles['status:success'],
-  'disabled:disabled': {
-    opacity: 'var(--minim-input-disabled-opacity, 0.5)',
-  },
+  'disabled:disabled': disabledInput,
 } as const;
 
 const {
@@ -133,7 +148,7 @@ const tokenizerStyles = {
   'status:error': inputStyles['status:error'],
   'status:warning': inputStyles['status:warning'],
   'status:success': inputStyles['status:success'],
-  'disabled:disabled': {opacity: '0.5'},
+  'disabled:disabled': disabledInput,
 } as const;
 
 const multiSelectorStyles = {
@@ -167,7 +182,7 @@ const controlStyles = {
   },
   'disabled:disabled': {
     color: minim('fg-neutral'),
-    '::placeholder': {color: minim('fg-muted')},
+    '::placeholder': {color: minim('fg-neutral')},
   },
 } as const;
 
@@ -175,6 +190,14 @@ const controlStyles = {
 // Keep the outer field inset, without the removed label-slot inline inset.
 const textAreaControlStyles = {
   ...controlStyles,
+  base: {
+    ...controlStyles.base,
+    '::placeholder': {color: minim('fg-placeholder')},
+  },
+  'disabled:disabled': {
+    ...controlStyles['disabled:disabled'],
+    '::placeholder': {color: minim('fg-neutral')},
+  },
   'size:md': {
     ...controlStyles['size:md'],
     paddingBlock:
@@ -189,7 +212,7 @@ const textAreaControlStyles = {
   },
 } as const;
 
-/** Input-family overrides; TextArea includes field and content insets on its control. */
+/** Input-family overrides share DateInput's disabled surface without dimming labels. */
 export const minimInputComponents = {
   field: {
     base: {gap: minim('spacing-100')},
@@ -202,7 +225,7 @@ export const minimInputComponents = {
       lineHeight: minim('typography-line-height-md'),
       fontWeight: minim('typography-font-weight-regular'),
     },
-    'disabled:disabled': {color: minim('fg-disabled')},
+    'disabled:disabled': {color: minim('fg-neutral')},
   },
   'field-description': {
     base: {
@@ -211,7 +234,7 @@ export const minimInputComponents = {
       lineHeight: minim('typography-line-height-xs'),
       fontWeight: minim('typography-font-weight-regular'),
     },
-    'disabled:disabled': {color: minim('fg-disabled')},
+    'disabled:disabled': {color: minim('fg-muted')},
   },
   'text-input': inputStyles,
   'number-input': inputStyles,
@@ -257,12 +280,24 @@ export const minimInputComponents = {
   'date-range-input': inputStyles,
   selector: inputStyles,
   'multi-selector': multiSelectorStyles,
+  'complex-selector': {
+    'variant:input': {
+      ':has(> button:disabled)': {
+        opacity: disabledInput.opacity,
+        backgroundColor: disabledInput.backgroundColor,
+        color: disabledInput.color,
+        borderColor: minim('stroke-neutral'),
+        boxShadow: 'inset 0 0 0 1px ' + minim('stroke-neutral'),
+      },
+      ':has(> button:disabled) > .astryx-icon': {color: minim('fg-neutral')},
+    },
+  },
   typeahead: inputStyles,
   tokenizer: tokenizerStyles,
   'date-time-input': {
     base: {gap: '0', flexWrap: 'nowrap'},
     'disabled:disabled': {
-      opacity: '0.5',
+      opacity: 'var(--minim-field-disabled-opacity, 0.5)',
       '--minim-input-disabled-opacity': '1',
     },
   },
@@ -300,7 +335,7 @@ export const minimInputComponents = {
     },
     'disabled:disabled': {
       ...controlStyles['disabled:disabled'],
-      '::placeholder': {color: minim('fg-placeholder')},
+      '::placeholder': {color: minim('fg-neutral')},
     },
   },
   'number-input-control': controlStyles,
@@ -349,6 +384,14 @@ export const minimInputComponents = {
     'status:success': {color: minim('fg-primary')},
   },
   'field-input-status': {
+    base: {
+      ':has(> [data-disabled="disabled"], > .astryx-file-input button:is(:disabled,[aria-disabled="true"]), > .astryx-complex-selector > button:disabled)':
+        {
+          opacity: '0.5',
+          '--minim-input-disabled-opacity': '1',
+          '--minim-field-disabled-opacity': '1',
+        },
+    },
     'variant:attached+message:visible': {
       overflow: 'hidden',
       borderRadius: minim('radius-element'),
@@ -403,8 +446,9 @@ export const minimInputComponents = {
       height: 'var(--minim-component-large-height)',
     },
     'disabled:disabled': {
-      opacity: '0.5',
+      opacity: 'var(--minim-field-disabled-opacity, 0.5)',
       '--minim-input-disabled-opacity': '1',
+      ':is(*) > .astryx-input-group-text': {color: minim('fg-neutral')},
     },
   },
   'input-group-text': {

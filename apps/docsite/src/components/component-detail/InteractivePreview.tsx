@@ -25,20 +25,15 @@ import {Code} from 'lucide-react';
 import {ComponentPreviewTheme} from './ComponentPreviewTheme';
 import {
   buildAppShellMobilePreviewContext,
-  buildInitialState,
   buildRuntimePreviewState,
   getOverlayPreviewControl,
-  getMissingRequiredProps,
   isOverlayPreviewClosed,
-  pickPrimaryProps,
   type KnobProp,
 } from './interactiveState';
-import type {
-  PropDoc,
-  PlaygroundConfig,
-} from '../../generated/componentRegistry';
+import type {PlaygroundConfig} from '../../generated/componentRegistry';
 
 export type {KnobProp} from './interactiveState';
+export {useInteractiveState} from './useInteractiveState';
 
 const styles = stylex.create({
   card: {
@@ -194,38 +189,6 @@ function generateCode(name: string, state: Record<string, unknown>): string {
   });
 
   return `<${componentName}\n${propLines.join('\n')}\n/>`;
-}
-
-export function useInteractiveState(
-  name: string,
-  props: PropDoc[],
-  playground?: PlaygroundConfig | null,
-) {
-  const knobs = useMemo(() => pickPrimaryProps(name, props), [name, props]);
-  const initialState = useMemo(
-    () => buildInitialState(knobs, playground),
-    [knobs, playground],
-  );
-  const [state, setState] = useState<Record<string, unknown>>(initialState);
-  const missingRequiredProps = useMemo(
-    () => getMissingRequiredProps(knobs, initialState),
-    [knobs, initialState],
-  );
-
-  const setProp = useCallback(
-    (propName: string, value: unknown) =>
-      setState(prev => ({...prev, [propName]: value})),
-    [],
-  );
-
-  const reset = useCallback(() => setState(initialState), [initialState]);
-
-  const isDirty = useMemo(
-    () => Object.keys(state).some(k => !Object.is(state[k], initialState[k])),
-    [state, initialState],
-  );
-
-  return {knobs, state, setProp, reset, isDirty, missingRequiredProps};
 }
 
 export function InteractivePreviewStage({

@@ -78,6 +78,107 @@ for (const density of ['Base', 'Compact']) {
       .getByTestId('disabled-input-icons')
       .screenshot({path: `/tmp/minim-disabled-${density}.png`});
   });
+  test(`${density} disabled input family matches DateInput`, async ({page}) => {
+    await page.goto('/examples/menus', {waitUntil: 'domcontentloaded'});
+    const mode = page.getByRole('radio', {name: density, exact: true});
+    await expect(async () => {
+      await mode.click();
+      await expect(mode).toHaveAttribute('aria-checked', 'true', {
+        timeout: 1000,
+      });
+    }).toPass();
+    const samples = page.getByTestId('disabled-input-family');
+    await expect(samples).toBeVisible();
+    await expect(samples.locator('.astryx-text-input').first()).toHaveCSS(
+      'height',
+      density === 'Base' ? '44px' : '36px',
+    );
+    const surfaces = samples.locator(
+      [
+        '.astryx-text-input',
+        '.astryx-text-area',
+        '.astryx-number-input',
+        '.astryx-date-range-input',
+        '.astryx-typeahead',
+        '.astryx-tokenizer',
+        '.astryx-file-input',
+        '.astryx-complex-selector',
+        '.astryx-multi-selector',
+      ].join(','),
+    );
+    expect(await surfaces.count()).toBeGreaterThanOrEqual(13);
+    await expect(samples.locator('.astryx-complex-selector')).toHaveCSS(
+      'box-shadow',
+      await samples
+        .locator('.astryx-text-input')
+        .first()
+        .evaluate(el => getComputedStyle(el).boxShadow),
+    );
+    for (const surface of await surfaces.all()) {
+      await expect(surface).toHaveCSS(
+        'background-color',
+        'rgba(0, 0, 0, 0.05)',
+      );
+      const alpha = await surface.evaluate(el => {
+        let result = 1;
+        for (let node: Element | null = el; node; node = node.parentElement) {
+          result *= Number(getComputedStyle(node).opacity);
+        }
+        return result;
+      });
+      expect(alpha).toBeCloseTo(0.5);
+    }
+    for (const label of await samples
+      .locator('.astryx-field-label:visible')
+      .all()) {
+      await expect(label).toHaveCSS('color', 'rgb(24, 24, 27)');
+      expect(
+        await label.evaluate(el => {
+          let result = 1;
+          for (let node: Element | null = el; node; node = node.parentElement) {
+            result *= Number(getComputedStyle(node).opacity);
+          }
+          return result;
+        }),
+      ).toBe(1);
+    }
+    for (const input of await samples
+      .locator('input[placeholder]:visible,textarea[placeholder]:visible')
+      .all()) {
+      await expect(input).toHaveCSS('color', 'rgb(24, 24, 27)');
+      expect(
+        await input.evaluate(el => getComputedStyle(el, '::placeholder').color),
+      ).toBe('rgb(24, 24, 27)');
+    }
+    const explained = samples.getByRole('textbox', {
+      name: 'Disabled explanation',
+      exact: true,
+    });
+    await explained.focus();
+    await page.keyboard.type('blocked');
+    await expect(explained).toHaveValue('');
+    await expect(explained).toHaveAttribute('aria-disabled', 'true');
+    for (const item of await samples
+      .locator(
+        '.astryx-token, .astryx-input-group-text, .astryx-date-range-input > button[aria-haspopup="dialog"]',
+      )
+      .all()) {
+      expect(
+        await item.evaluate(el => {
+          let result = 1;
+          for (let node: Element | null = el; node; node = node.parentElement) {
+            result *= Number(getComputedStyle(node).opacity);
+          }
+          return result;
+        }),
+      ).toBeCloseTo(0.5);
+      await expect(item).toHaveCSS('color', 'rgb(24, 24, 27)');
+    }
+    await explained.blur();
+    await samples.screenshot({
+      path: `/tmp/minim-disabled-family-${density}-${test.info().project.name}.png`,
+    });
+  });
   test(`${density} optional status and loading icons`, async ({page}) => {
     const errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));
@@ -236,6 +337,37 @@ for (const density of ['Base', 'Compact']) {
         );
       }
       const box = (await surface.boundingBox())!;
+      if (name === 'TimeOptions') {
+        const input = page.getByRole('combobox', {
+          name: 'DateTimeInput time',
+          exact: true,
+        });
+        const segment = page
+          .locator('.astryx-date-time-input-time-segment')
+          .filter({has: input});
+        expect(box.width).toBeGreaterThanOrEqual(
+          (await segment.boundingBox())!.width - 1,
+        );
+        // Scrolling late presets must not consume the painted menu inset.
+        await input.press('End');
+        const list = surface.getByRole('listbox');
+        const last = list.getByRole('option').last();
+        await expect(last).toBeInViewport();
+        const listBox = (await list.boundingBox())!;
+        const surfaceBox = (await surface.boundingBox())!;
+        expect(listBox.y - surfaceBox.y).toBeCloseTo(
+          density === 'Base' ? 8 : 6,
+          0,
+        );
+        expect(
+          await last.evaluate(el => {
+            const r = el.getBoundingClientRect();
+            return el.contains(
+              document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2),
+            );
+          }),
+        ).toBe(true);
+      }
       expect(box.x).toBeGreaterThanOrEqual(-1);
       expect(box.x + box.width).toBeLessThanOrEqual(
         page.viewportSize()!.width + 1,

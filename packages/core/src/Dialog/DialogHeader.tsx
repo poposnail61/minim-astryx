@@ -39,8 +39,8 @@ const styles = stylex.create({
   },
   // Compensate for the icon button's visual padding on the actions area
   actionsCompensation: {
-    marginBlock: `calc(-1 * ${spacingVars['--spacing-2']})`,
-    marginInlineEnd: `calc(-1 * ${spacingVars['--spacing-2']})`,
+    marginBlock: `var(--dialog-header-action-margin, calc(-1 * ${spacingVars['--spacing-2']}))`,
+    marginInlineEnd: `var(--dialog-header-action-margin, calc(-1 * ${spacingVars['--spacing-2']}))`,
   },
   titleWrapper: {
     display: 'flex',
@@ -202,6 +202,7 @@ export function DialogHeader({
             {endContent}
             {onOpenChange && (
               <Button
+                size="md"
                 variant="ghost"
                 label={t('@astryx.dialog.close')}
                 tooltip={t('@astryx.dialog.close')}

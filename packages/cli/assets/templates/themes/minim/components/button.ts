@@ -31,7 +31,7 @@ export const minimButtonComponents = {
     base: {
       gap: minim('spacing-200'),
       paddingInline: minim('spacing-300'),
-      borderRadius: `var(--_button-radius, ${minim('radius-element')})`,
+      // Core owns standalone and joined radii; its radius token maps to Minim.
       borderInlineStartColor: minim('stroke-neutral'),
       borderBlockStartColor: minim('stroke-neutral'),
       ':active': {transform: 'none'},

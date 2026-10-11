@@ -21,6 +21,18 @@ function segmentedHeight(
 }
 
 describe('Minim selection component styles', () => {
+  it('uses radius/full for both pill surfaces without spacing overrides', () => {
+    for (const name of [
+      'segmented-control',
+      'segmented-control-item',
+    ] as const) {
+      expect(minimSelectionComponents[name]['shape:pill']).toEqual({
+        borderRadius: 'var(--minim-radius-full)',
+      });
+    }
+    expect(px(minimBaseTokens['--minim-radius-full'])).toBe(999);
+    expect(px(minimCompactTokens['--minim-radius-full'])).toBe(999);
+  });
   it('uses spacing instead of retired content gap tokens', () => {
     expect(JSON.stringify(minimSelectionComponents)).not.toContain('text-gap');
     for (const tokens of [minimBaseTokens, minimCompactTokens]) {

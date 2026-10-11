@@ -140,7 +140,7 @@ export function DropdownMenuRadioItem({
     );
   }
   const menuSize = menuCtx?.menuSize ?? 'md';
-  const controlSize = menuSize === 'sm' ? 'sm' : 'md';
+  const controlSize = menuSize === 'xl' ? 'lg' : menuSize;
   const isChecked = groupCtx.value === value;
   const MenuRadioControl = useIndicator('menu-radio');
   const SharedRadioControl = useIndicator('radio');

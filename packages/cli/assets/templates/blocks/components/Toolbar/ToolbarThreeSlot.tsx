@@ -12,7 +12,7 @@ import {ArrowLeftIcon} from '@heroicons/react/24/outline';
 
 export default function ToolbarThreeSlot() {
   return (
-    <Card style={{width: 600, height: '100%', marginTop: 260}}>
+    <Card width="100%" maxWidth={600}>
       <Toolbar
         label="Document toolbar"
         dividers={['bottom']}
@@ -27,7 +27,13 @@ export default function ToolbarThreeSlot() {
         centerContent={<Heading level={4}>Title</Heading>}
         endContent={
           <>
-            <Button label="Discard" variant="secondary" />
+            <Button
+              label="Discard"
+              tooltip="Discard changes"
+              icon={<Icon icon="close" />}
+              isIconOnly
+              variant="secondary"
+            />
             <Button label="Save" variant="primary" />
           </>
         }

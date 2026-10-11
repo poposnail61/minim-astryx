@@ -250,6 +250,7 @@ export function SegmentedControlItem({
       {...mergeProps(
         themeProps('segmented-control-item', {
           size,
+          shape: ctx.shape,
           selected: isSelected ? 'selected' : null,
           disabled: isItemDisabled ? 'disabled' : null,
         }),

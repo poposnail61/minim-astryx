@@ -12,6 +12,7 @@
  */
 
 import {createContext, use} from 'react';
+import type {ButtonShape} from '../Button';
 
 export type SegmentedControlSize = 'sm' | 'md' | 'lg';
 export type SegmentedControlLayout = 'hug' | 'fill';
@@ -20,6 +21,7 @@ export interface SegmentedControlContextValue {
   value: string;
   onChange: (value: string) => void;
   size: SegmentedControlSize;
+  shape: ButtonShape;
   layout: SegmentedControlLayout;
   isDisabled: boolean;
   /**

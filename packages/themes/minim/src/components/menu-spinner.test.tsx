@@ -102,7 +102,6 @@ describe('Minim menu and Spinner overrides', () => {
       'date-input-popup',
       'date-range-input-popup',
       'date-time-input-popup',
-      'date-time-input-time-popup',
     ] as const) {
       expect(minimMenuSpinnerComponents[key].base).toMatchObject({
         padding: '0',
@@ -113,6 +112,21 @@ describe('Minim menu and Spinner overrides', () => {
     expect(minimMenuSpinnerComponents['dropdown-menu'].base.gap).toBe(
       'var(--minim-spacing-50)',
     );
+  });
+  it('keeps the time menu inset on the popup rather than the scrolling list', () => {
+    expect(
+      minimMenuSpinnerComponents['date-time-input-time-popup'].base,
+    ).toMatchObject({
+      padding: 'var(--minim-spacing-200)',
+      borderRadius: 'var(--minim-radius-container)',
+      boxShadow: 'var(--minim-elevation-low)',
+    });
+    expect(
+      minimMenuSpinnerComponents['date-time-input-time-listbox'].base,
+    ).toMatchObject({
+      padding: '0',
+      scrollPaddingBlock: 'var(--minim-spacing-100)',
+    });
   });
   it('gives Selector one list inset and large Minim option typography', () => {
     expect(minimMenuSpinnerComponents['selector-popup'].base).toMatchObject({

@@ -27,7 +27,7 @@ import type {
   DropdownMenuPresentation,
 } from '../DropdownMenu';
 import type {LayerAlignment, LayerPlacement} from '../Layer';
-import type {ButtonVariant, ButtonSize} from '../Button';
+import type {ButtonVariant, ButtonSize, ButtonShape} from '../Button';
 import type {BaseProps} from '../BaseProps';
 import {stableClassName} from '../naming';
 import {useTranslator} from '../i18n';
@@ -63,6 +63,9 @@ export interface MoreMenuProps extends Pick<
    * @default 'lg'
    */
   size?: ButtonSize;
+
+  /** Trigger corner treatment; the popup keeps its own radius. @default 'default' */
+  shape?: ButtonShape;
 
   /**
    * Override the default three-dot icon.
@@ -131,6 +134,7 @@ export function MoreMenu({
   label: labelFromProps,
   variant = 'ghost',
   size: sizeProp,
+  shape = 'default',
   icon,
   isDisabled = false,
   placement,
@@ -168,6 +172,7 @@ export function MoreMenu({
         icon: icon ?? moreIcon,
         variant,
         size,
+        shape,
         isDisabled,
         tooltip: label,
         isIconOnly: true,

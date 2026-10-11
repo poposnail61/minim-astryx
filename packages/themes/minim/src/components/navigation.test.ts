@@ -4,6 +4,11 @@ import {describe, expect, it} from 'vitest';
 import {minimNavigationComponents} from './navigation';
 
 describe('Minim navigation horizontal spacing', () => {
+  it('uses spacing-200 for large tabs, matching Figma', () => {
+    expect(minimNavigationComponents.tab['size:lg'].paddingInline).toBe(
+      'var(--minim-spacing-200)',
+    );
+  });
   it('uses menu spacing for both navigation sizes', () => {
     for (const name of ['side-nav-item', 'top-nav-item'] as const) {
       for (const size of ['size:md', 'size:lg'] as const) {

@@ -17,11 +17,17 @@ export const docs = {
   theming: {
     targets: [
       {className: 'astryx-toggle-button-group'},
-      {className: 'astryx-toggle-button', states: ['isPressed'], visualProps: ['elevation', 'size', 'variant', 'content']},
+      {className: 'astryx-toggle-button', states: ['isPressed'], visualProps: ['elevation', 'size', 'shape', 'variant', 'content']},
     ],
   },
   description: 'A button that toggles between pressed and unpressed states. Thin wrapper over Button with controlled toggle pattern, icon swap, and font weight emphasis.',
   props: [
+    {
+      name: 'shape',
+      type: "'default' | 'pill'",
+      description: 'Corner shape; pill uses radius/full without changing dimensions or pressed state.',
+      default: "'default'",
+    },
     {
       name: 'label',
       type: 'string',

@@ -4,6 +4,7 @@
 
 import type {ReactNode} from 'react';
 import {useLayoutEffect, useRef} from 'react';
+import {renderToString} from 'react-dom/server';
 import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {describe, expect, it, vi} from 'vitest';
@@ -113,6 +114,11 @@ vi.mock('../components/SearchPalette', () => ({
 import {SharedTopNav} from '../components/SharedTopNav';
 
 describe('SharedTopNav search lifecycle', () => {
+  it('keeps density controls disabled in server HTML until hydration', () => {
+    const html = renderToString(<SharedTopNav />);
+    expect(html).toContain('aria-disabled="true"');
+    expect(html).toContain('Interface density');
+  });
   it('keeps Search mounted through close so focus returns to its trigger', async () => {
     const user = userEvent.setup();
     render(<SharedTopNav />);

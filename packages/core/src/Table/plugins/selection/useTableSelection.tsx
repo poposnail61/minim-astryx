@@ -54,6 +54,7 @@ import {mergeRefs} from '../../../utils';
 import type {TablePlugin, TableColumn, BodyRowRenderProps} from '../../types';
 import {pixel} from '../../columnUtils';
 import {useTranslator} from '../../../i18n';
+import {TableContext} from '../../TableContext';
 
 // =============================================================================
 // Config Type
@@ -236,6 +237,7 @@ function SelectAllCheckboxInner<T extends Record<string, unknown>>({
   store: SelectionStore<T>;
 }) {
   const t = useTranslator();
+  const table = use(TableContext);
   const getSnapshot = useCallback(() => {
     const config = store.getConfig();
     const allSelected = config.getIsAllSelected();
@@ -258,7 +260,7 @@ function SelectAllCheckboxInner<T extends Record<string, unknown>>({
       onChange={() =>
         store.getConfig().onSelectAll({isAllSelected: !allSelected})
       }
-      size="sm"
+      size={table?.size ?? 'sm'}
     />
   );
 }
@@ -288,6 +290,7 @@ function SelectionCellContentInner<T extends Record<string, unknown>>({
   item: T;
 }) {
   const t = useTranslator();
+  const table = use(TableContext);
   const config = store.getConfig();
   const isSelected = useIsItemSelected(store, item);
   const selectable = config.getIsItemSelectable?.(item) ?? true;
@@ -311,7 +314,7 @@ function SelectionCellContentInner<T extends Record<string, unknown>>({
         store.getConfig().onSelectItem({item, isSelected: !isSelected})
       }
       isDisabled={!enabled}
-      size="sm"
+      size={table?.size ?? 'sm'}
     />
   );
 }
@@ -320,7 +323,7 @@ function SelectionCellContentInner<T extends Record<string, unknown>>({
 // Styles
 // =============================================================================
 
-const selectedBgColor = colorVars['--color-accent-muted'];
+const selectedBgColor = `var(--table-selected-bg, ${colorVars['--color-accent-muted']})`;
 
 /**
  * The row's current fill, republished for pinned cells to read. Declared as a

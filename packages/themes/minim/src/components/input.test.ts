@@ -6,6 +6,64 @@ import {minimInputComponents} from './input';
 import {minimBaseTokens, minimCompactTokens} from '../minimTokens.generated';
 
 describe('Minim input component styles', () => {
+  it('shares the disabled DateInput surface and keeps field labels readable', () => {
+    for (const name of [
+      'text-input',
+      'number-input',
+      'date-input',
+      'time-input',
+      'date-range-input',
+      'selector',
+      'typeahead',
+      'tokenizer',
+      'text-area',
+      'date-time-input-date-segment',
+      'date-time-input-time-segment',
+    ] as const) {
+      expect(minimInputComponents[name]['disabled:disabled']).toMatchObject({
+        backgroundColor: 'var(--minim-bg-disabled)',
+        color: 'var(--minim-fg-neutral)',
+        opacity: 'var(--minim-input-disabled-opacity, 0.5)',
+      });
+    }
+    expect(
+      minimInputComponents['multi-selector']['variant:input+disabled:disabled'],
+    ).toBe(minimInputComponents['date-input']['disabled:disabled']);
+    expect(minimInputComponents['field-label']['disabled:disabled']).toEqual({
+      color: 'var(--minim-fg-neutral)',
+    });
+    expect(
+      minimInputComponents['complex-selector']['variant:input'][
+        ':has(> button:disabled)'
+      ],
+    ).toMatchObject({
+      borderColor: 'var(--minim-stroke-neutral)',
+      boxShadow: 'inset 0 0 0 1px var(--minim-stroke-neutral)',
+    });
+    expect(
+      minimInputComponents['field-description']['disabled:disabled'],
+    ).toEqual({
+      color: 'var(--minim-fg-muted)',
+    });
+  });
+
+  it('dims the attached field once, including nested groups and file inputs', () => {
+    const owner = Object.values(
+      minimInputComponents['field-input-status'].base,
+    )[0];
+    expect(owner).toEqual({
+      opacity: '0.5',
+      '--minim-input-disabled-opacity': '1',
+      '--minim-field-disabled-opacity': '1',
+    });
+    for (const name of ['input-group', 'date-time-input'] as const) {
+      expect(minimInputComponents[name]['disabled:disabled']).toMatchObject({
+        opacity: 'var(--minim-field-disabled-opacity, 0.5)',
+        '--minim-input-disabled-opacity': '1',
+      });
+    }
+  });
+
   it('derives control heights from slots and padding in both densities', () => {
     for (const [tokens, expected] of [
       [minimBaseTokens, [36, 44, 52]],
@@ -94,7 +152,7 @@ describe('Minim input component styles', () => {
       minimInputComponents['text-input-control']['disabled:disabled'],
     ).toEqual({
       color: 'var(--minim-fg-neutral)',
-      '::placeholder': {color: 'var(--minim-fg-placeholder)'},
+      '::placeholder': {color: 'var(--minim-fg-neutral)'},
     });
   });
 
@@ -102,6 +160,14 @@ describe('Minim input component styles', () => {
     expect(
       minimInputComponents['text-input-control'].base['::placeholder'],
     ).toEqual({color: 'var(--minim-fg-placeholder)'});
+    expect(
+      minimInputComponents['text-area-control'].base['::placeholder'],
+    ).toEqual({color: 'var(--minim-fg-placeholder)'});
+    expect(
+      minimInputComponents['text-area-control']['disabled:disabled'][
+        '::placeholder'
+      ],
+    ).toEqual({color: 'var(--minim-fg-neutral)'});
   });
 
   it('uses density-aware XS attached status geometry only', () => {
@@ -232,12 +298,14 @@ describe('Minim input component styles', () => {
         'var(--minim-component-medium-padding-block)',
       '--tokenizer-padding-inline': 'var(--minim-spacing-300)',
     });
-    expect(minimInputComponents.tokenizer['disabled:disabled']).toEqual({
-      opacity: '0.5',
+    expect(minimInputComponents.tokenizer['disabled:disabled']).toMatchObject({
+      opacity: 'var(--minim-input-disabled-opacity, 0.5)',
     });
     expect(minimInputComponents['date-time-input']).toMatchObject({
       base: {gap: '0', flexWrap: 'nowrap'},
-      'disabled:disabled': {opacity: '0.5'},
+      'disabled:disabled': {
+        opacity: 'var(--minim-field-disabled-opacity, 0.5)',
+      },
     });
   });
 

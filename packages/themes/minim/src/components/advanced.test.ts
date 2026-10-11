@@ -63,8 +63,8 @@ describe('Minim advanced component styles', () => {
     expect(minimAdvancedComponents['calendar-day'].base).toMatchObject({
       width: '100%',
       height: '100%',
-      fontSize: 'var(--minim-typography-font-size-lg)',
-      lineHeight: 'var(--minim-typography-line-height-lg)',
+      fontSize: 'var(--calendar-day-font-size)',
+      lineHeight: 'var(--calendar-day-line-height)',
     });
     expect(minimAdvancedComponents['slider-track'].base).toMatchObject({
       backgroundColor: 'var(--minim-bg-neutral)',
@@ -75,6 +75,17 @@ describe('Minim advanced component styles', () => {
     expect(
       minimAdvancedComponents['slider-track']['orientation:vertical'],
     ).toEqual({width: '4px'});
+  });
+
+  it('uses Figma padding and medium calendar tokens', () => {
+    expect(minimAdvancedComponents.calendar.base.padding).toBe(
+      'var(--minim-spacing-200)',
+    );
+    expect(minimAdvancedComponents.calendar['size:md']).toMatchObject({
+      '--calendar-cell-size': 'var(--minim-component-medium-height)',
+      '--calendar-day-font-size': 'var(--minim-typography-font-size-md)',
+      '--calendar-month-line-height': 'var(--minim-typography-line-height-md)',
+    });
   });
 
   it('derives power-search height inside the border box in both densities', () => {

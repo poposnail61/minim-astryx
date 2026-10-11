@@ -5,7 +5,7 @@
 /**
  * @file Button.tsx
  * @input Uses React, ButtonHTMLAttributes, ReactNode, i18n (useTranslator)
- * @output Exports Button component, ButtonProps, ButtonVariant types
+ * @output Exports Button component, ButtonProps, ButtonVariant, ButtonShape types
  * @position Core implementation; consumed by index.ts, tested by Button.test.tsx
  *
  * SYNC: When modified, update these files to stay in sync:
@@ -259,7 +259,15 @@ export type ButtonVariant = keyof ButtonVariantMap;
  */
 export type ButtonSize = keyof typeof sizeStyles;
 
+export type ButtonShape = 'default' | 'pill';
+
+const shapeStyles = stylex.create({
+  pill: {'--_button-radius': radiusVars['--radius-full']},
+});
+
 export interface ButtonProps extends BaseProps<HTMLButtonElement> {
+  /** Corner treatment. Joined ButtonGroup edges take precedence. @default 'default' */
+  shape?: ButtonShape;
   /** Ref forwarded to the root element */
   ref?: React.Ref<HTMLButtonElement>;
   /** HTML button type attribute. @default 'button' */
@@ -557,6 +565,7 @@ const groupStyles = stylex.create({
 export function Button({
   label,
   variant = 'neutral',
+  shape = 'default',
   size: sizeProp,
   type = 'button',
   isDisabled = false,
@@ -670,6 +679,7 @@ export function Button({
   const sharedStylexProps = focusOutlineProps.focusVisible(
     styles.base,
     sizeStyles[size],
+    !buttonGroup && shape === 'pill' && shapeStyles.pill,
     isIconOnly && styles.iconOnly,
     interactionOverlayStyles.backgroundImage,
     buttonDisabled && styles.inactive,
@@ -702,6 +712,7 @@ export function Button({
     themeProps('button', {
       variant,
       size,
+      shape: buttonGroup ? 'default' : shape,
       elevation: buttonGroup ? 'none' : elevation,
       content: isIconOnly ? 'icon-only' : 'default',
     }),

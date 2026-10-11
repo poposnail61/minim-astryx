@@ -49,6 +49,12 @@ export const docs = {
   keywords: ["moremenu","overflow","kebab","dotmenu","threedot","ellipsis","dropdown","contextmenu","actionmenu"],
   props: [
     {
+      name: 'shape',
+      type: "'default' | 'pill'",
+      description: 'Trigger corner shape. Pill uses radius/full; the menu surface is unchanged.',
+      default: "'default'",
+    },
+    {
       name: 'items',
       type: 'DropdownMenuOption[]',
       description:

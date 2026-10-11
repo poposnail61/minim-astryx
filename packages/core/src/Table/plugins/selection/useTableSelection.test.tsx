@@ -216,7 +216,7 @@ describe('useTableSelection', () => {
   });
 
   describe('hasRowHighlight', () => {
-    const selectedBgColor = colorVars['--color-accent-muted'];
+    const selectedBgColor = `var(--table-selected-bg, ${colorVars['--color-accent-muted']})`;
 
     it('paints a checked row with the accent wash by default', async () => {
       const user = userEvent.setup();

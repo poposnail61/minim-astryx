@@ -2,7 +2,7 @@
 
 'use client';
 
-import {lazy, Suspense, useEffect, useState} from 'react';
+import {lazy, Suspense, useEffect, useState, useSyncExternalStore} from 'react';
 import {usePathname} from 'next/navigation';
 import * as stylex from '@stylexjs/stylex';
 import {
@@ -30,6 +30,10 @@ const LazySearchPalette = lazy(() =>
   import('./SearchPalette').then(module => ({default: module.SearchPalette})),
 );
 
+const subscribeHydration = () => () => {};
+const clientReady = () => true;
+const serverReady = () => false;
+
 // Responsive helpers. The desktop links and the mobile hamburger both live in
 // the DOM at all times; a pure CSS @media query decides which is visible so the
 // server-rendered HTML is correct on first paint (no post-hydration flip).
@@ -56,6 +60,12 @@ const styles = stylex.create({
     flexDirection: 'column',
     gap: spacingVars['--spacing-0-5'],
   },
+  desktopOnly: {
+    display: {default: 'inline-flex', [MOBILE_BREAKPOINT]: 'none'},
+  },
+  mobileOnly: {
+    display: {default: 'none', [MOBILE_BREAKPOINT]: 'inline-flex'},
+  },
 });
 
 // Primary navigation links, shared by the desktop bar and the mobile drawer.
@@ -66,6 +76,11 @@ const NAV_ITEMS = [
 ] as const;
 
 export function SharedTopNav() {
+  const isReady = useSyncExternalStore(
+    subscribeHydration,
+    clientReady,
+    serverReady,
+  );
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [hasLoadedSearch, setHasLoadedSearch] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -122,29 +137,43 @@ export function SharedTopNav() {
     return undefined;
   };
 
-  const navLinks = (onNavigate?: () => void) =>
-    NAV_ITEMS.map(item => (
-      <TopNavItem
-        key={item.key}
-        label={item.label}
-        href={item.href}
-        isSelected={getActiveItem() === item.key}
-        onClick={onNavigate}
-      />
-    ));
+  const navLinks = (onNavigate?: () => void, includeGitHub = false) => (
+    <>
+      {NAV_ITEMS.map(item => (
+        <TopNavItem
+          key={item.key}
+          label={item.label}
+          href={item.href}
+          isSelected={getActiveItem() === item.key}
+          onClick={onNavigate}
+        />
+      ))}
+      {includeGitHub && (
+        <TopNavItem label="GitHub" href={GITHUB_REPO} onClick={onNavigate} />
+      )}
+    </>
+  );
 
   return (
     <>
       <TopNav
         label="Minim Astryx navigation"
         heading={
-          <TopNavHeading logo={<span>Minim Astryx</span>} headingHref="/" />
+          <TopNavHeading
+            logo={
+              <>
+                <span {...stylex.props(styles.desktopOnly)}>Minim Astryx</span>
+                <span {...stylex.props(styles.mobileOnly)}>Minim</span>
+              </>
+            }
+            headingHref="/"
+          />
         }
         centerContent={
           renderMode === 'drawer' ? (
             // Bare items — AppShell's drawer supplies its own vertical list;
             // the desktopNav wrapper would hide them (display:none) here.
-            <>{navLinks(closeMobileNav)}</>
+            <>{navLinks(closeMobileNav, true)}</>
           ) : (
             <div {...stylex.props(styles.desktopNav)}>{navLinks()}</div>
           )
@@ -165,6 +194,7 @@ export function SharedTopNav() {
                 }}
               />
               <SegmentedControl
+                isDisabled={!isReady}
                 value={density}
                 onChange={value => {
                   if (value === 'base' || value === 'compact') {
@@ -176,12 +206,14 @@ export function SharedTopNav() {
                 <SegmentedControlItem value="base" label="Base" />
                 <SegmentedControlItem value="compact" label="Compact" />
               </SegmentedControl>
-              <Button
-                label="GitHub"
-                variant="ghost"
-                href={GITHUB_REPO}
-                onClick={() => trackClickCta({target: 'github'})}
-              />
+              <span {...stylex.props(styles.desktopOnly)}>
+                <Button
+                  label="GitHub"
+                  variant="ghost"
+                  href={GITHUB_REPO}
+                  onClick={() => trackClickCta({target: 'github'})}
+                />
+              </span>
             </HStack>
             {!isMobileNavEnabled && (
               <div {...stylex.props(styles.mobileToggle)}>
@@ -215,7 +247,7 @@ export function SharedTopNav() {
           header={<span>Minim Astryx</span>}>
           <TopNavRenderContext value="drawer">
             <div {...stylex.props(styles.drawerItems)}>
-              {navLinks(() => setIsMenuOpen(false))}
+              {navLinks(() => setIsMenuOpen(false), true)}
             </div>
           </TopNavRenderContext>
         </MobileNav>

@@ -5,6 +5,11 @@ import {defineTheme, generateThemeRules} from '@astryxdesign/core/theme';
 import {minimButtonComponents} from './button';
 
 describe('Minim Button overrides', () => {
+  it('leaves joined and standalone corner geometry to core', () => {
+    expect(minimButtonComponents.button.base).not.toHaveProperty(
+      'borderRadius',
+    );
+  });
   it('exports one additive component map with stable anatomy targets', () => {
     expect(Object.keys(minimButtonComponents)).toEqual([
       'button',

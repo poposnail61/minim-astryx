@@ -54,20 +54,20 @@ export interface TableHeaderCellProps extends BaseProps<HTMLTableCellElement> {
 
 const densityStyles = stylex.create({
   compact: {
-    paddingBlock: spacingVars['--spacing-1'],
-    paddingInline: spacingVars['--spacing-2'],
+    paddingBlock: `var(--table-cell-padding-block, ${spacingVars['--spacing-1']})`,
+    paddingInline: `var(--table-cell-padding-inline, ${spacingVars['--spacing-2']})`,
     fontSize: typeScaleVars['--text-label-size'],
     boxSizing: 'border-box',
   },
   balanced: {
-    paddingBlock: spacingVars['--spacing-2'],
-    paddingInline: spacingVars['--spacing-3'],
+    paddingBlock: `var(--table-cell-padding-block, ${spacingVars['--spacing-2']})`,
+    paddingInline: `var(--table-cell-padding-inline, ${spacingVars['--spacing-3']})`,
     fontSize: typeScaleVars['--text-label-size'],
     boxSizing: 'border-box',
   },
   spacious: {
-    paddingBlock: spacingVars['--spacing-3'],
-    paddingInline: spacingVars['--spacing-4'],
+    paddingBlock: `var(--table-cell-padding-block, ${spacingVars['--spacing-3']})`,
+    paddingInline: `var(--table-cell-padding-inline, ${spacingVars['--spacing-4']})`,
     fontSize: typeScaleVars['--text-label-size'],
     boxSizing: 'border-box',
   },
@@ -157,7 +157,10 @@ export function TableHeaderCell({
       ref={ref}
       {...props}
       {...mergeProps(
-        themeProps('table-header-cell', {density: ctx?.density}),
+        themeProps('table-header-cell', {
+          density: ctx?.density,
+          size: ctx?.size,
+        }),
         stylex.props(...mergeXStyle(cellStyles, xstyle)),
         incomingClassName,
         incomingStyle,

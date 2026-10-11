@@ -18,6 +18,7 @@ const glyphStyle: CSSProperties = {
   fontSize: 'var(--minim-icon-box-size, 1em)',
   fontVariantLigatures: 'common-ligatures',
   lineHeight: 1,
+  backgroundColor: 'transparent',
 };
 
 function marker(

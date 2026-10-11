@@ -20,6 +20,8 @@ import type {TableVerticalAlign} from './types';
 
 export interface TableContextValue {
   density: 'compact' | 'balanced' | 'spacious';
+  /** Optional for compatibility with existing custom context providers. */
+  size?: 'md' | 'lg';
   dividers: 'rows' | 'columns' | 'grid' | 'none';
   isStriped: boolean;
   hasHover: boolean;

@@ -121,8 +121,14 @@ export const minimMenuSpinnerComponents = {
     'size:md': rowSize('md', true),
     'size:lg': rowSize('lg', true),
   },
-  'date-time-input-time-popup': {base: selectionSurface},
-  'date-time-input-time-listbox': {base: selectionList},
+  'date-time-input-time-popup': {base: menuSurface},
+  'date-time-input-time-listbox': {
+    base: {
+      ...selectionList,
+      padding: '0',
+      scrollPaddingBlock: minim('spacing-100'),
+    },
+  },
   'date-time-input-time-option': {
     base: {...selectionRow, ...optionStates},
     'size:md': rowSize('md'),
