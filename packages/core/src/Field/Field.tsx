@@ -4,7 +4,7 @@
 
 /**
  * @file Field.tsx
- * @input Uses React, HTMLAttributes, ReactNode, FieldLabel, IconType
+ * @input Uses React, FieldLabel, InputStatusSurface, and label/geometry tokens
  * @output Exports Field component, FieldProps
  * @position Core implementation; consumed by index.ts, tested by Field.test.tsx
  *
@@ -21,9 +21,9 @@ import * as stylex from '@stylexjs/stylex';
 import type {BaseProps} from '../BaseProps';
 import type {SizeValue} from '../utils/types';
 import {FieldLabel} from './FieldLabel';
-import {FieldStatus} from '../FieldStatus/FieldStatus';
+import {InputStatusSurface} from './InputStatusSurface';
 import type {FieldStatusVariant} from '../FieldStatus/FieldStatus';
-import {spacingVars, borderVars, sizeVars} from '../theme/tokens.stylex';
+import {spacingVars, borderVars} from '../theme/tokens.stylex';
 import type {IconType} from '../Icon';
 import {mergeProps} from '../utils';
 import {useDevWarning} from '../hooks/useDevWarning';
@@ -53,25 +53,6 @@ const styles = stylex.create({
     // top border + top padding. Works for both single-line inputs and
     // textareas (labels stay top-aligned, not vertically centered).
     paddingTop: `calc(${borderVars['--border-width']} + ${spacingVars['--spacing-1']})`,
-  },
-  inputStatusWrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    isolation: 'isolate',
-    // Extend an attached FieldStatus behind the lower half of the control.
-    // Half-height is the maximum effective corner radius CSS can render, even
-    // when a theme uses a pill value such as --radius-full (9999px).
-    '--_field-status-overlap': {
-      default: `calc(${sizeVars['--size-element-md']} / 2)`,
-      ':has(> [data-size="sm"])': `calc(${sizeVars['--size-element-sm']} / 2)`,
-      ':has(> [data-size="lg"])': `calc(${sizeVars['--size-element-lg']} / 2)`,
-    },
-  },
-  attachedStatusLayer: {
-    // Keep the overlapping background below both Astryx inputs and custom
-    // controls. The isolated wrapper contains this negative stacking layer.
-    position: 'relative',
-    zIndex: -1,
   },
 });
 
@@ -261,21 +242,6 @@ export function Field({
     />
   );
 
-  // The 'tooltip' variant surfaces status through the input's on-field icon
-  // tooltip, so Field renders no message box for it.
-  const statusNode =
-    status?.message && statusVariant !== 'tooltip' ? (
-      <FieldStatus
-        type={status.type}
-        message={status.message}
-        id={resolvedMessageID}
-        variant={statusVariant}
-        xstyle={
-          statusVariant === 'attached' ? styles.attachedStatusLayer : undefined
-        }
-      />
-    ) : null;
-
   // ─── Horizontal-labels mode ───────────────────────────────────────────
   // Use display:contents so the parent grid's `auto 1fr` columns place
   // the label in column 1 and the input group in column 2. Description
@@ -293,23 +259,18 @@ export function Field({
         )}
         {...props}>
         <div {...stylex.props(styles.horizontalLabelAlign)}>{labelNode}</div>
-        <div
-          {...mergeProps(
-            themeProps('field-input-status', {
-              status: status?.type ?? null,
-              variant: statusVariant,
-              message: status?.message ? 'visible' : null,
-            }),
-            stylex.props(styles.inputStatusWrapper),
-          )}>
+        <InputStatusSurface
+          status={status}
+          messageID={resolvedMessageID}
+          statusVariant={statusVariant}
+          hasWrapper>
           {description && (
             <Text type="supporting" display="block" id={resolvedDescriptionID}>
               {description}
             </Text>
           )}
           {children}
-          {statusNode}
-        </div>
+        </InputStatusSurface>
       </div>
     );
   }
@@ -331,25 +292,12 @@ export function Field({
       )}
       {...props}>
       {labelNode}
-      {statusVariant === 'attached' ? (
-        <div
-          {...mergeProps(
-            themeProps('field-input-status', {
-              status: status?.type ?? null,
-              variant: statusVariant,
-              message: status?.message ? 'visible' : null,
-            }),
-            stylex.props(styles.inputStatusWrapper),
-          )}>
-          {children}
-          {statusNode}
-        </div>
-      ) : (
-        <>
-          {children}
-          {statusNode}
-        </>
-      )}
+      <InputStatusSurface
+        status={status}
+        messageID={resolvedMessageID}
+        statusVariant={statusVariant}>
+        {children}
+      </InputStatusSurface>
     </div>
   );
 }
