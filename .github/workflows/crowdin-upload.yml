@@ -32,7 +32,7 @@ jobs:
 
       # crowdin/github-action@v2.16.4 — pinned by SHA per repo policy.
       - name: Upload sources to Crowdin
-        uses: crowdin/github-action@c7af9bc98b01694653031fef2a0dc6c7888ce9bc
+        uses: crowdin/github-action@9c23991700c0ec5256fd41089b9d9d7d540e424e
         with:
           upload_sources: true
           upload_translations: false
