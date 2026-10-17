@@ -83,6 +83,14 @@ export const minimCollectionComponents = {
       gap: token('spacing-200'),
       paddingInlineEnd: token('spacing-200'),
     },
+    'disabled:disabled': {
+      opacity: '1',
+      color: token('fg-disabled'),
+      '--color-text-primary': token('fg-disabled'),
+      '--color-text-secondary': token('fg-disabled'),
+      '--color-icon-primary': token('fg-disabled'),
+      '--color-icon-secondary': token('fg-disabled'),
+    },
     'density:balanced': {
       paddingBlock: token('component-medium-padding-block'),
     },

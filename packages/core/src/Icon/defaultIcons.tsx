@@ -56,6 +56,18 @@ const solidSvgProps = {
 
 export const defaultIcons: IconRegistry &
   Partial<Record<NamespacedIconName, ReactNode>> = {
+  /** Image fallback used by empty or failed Thumbnail previews. */
+  'thumbnail:placeholder': (
+    <svg {...solidSvgProps}>
+      <path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2M8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-5.5z" />
+    </svg>
+  ),
+  /** Person fallback; themes can replace it without changing Avatar's API. */
+  'avatar:default': (
+    <svg {...solidSvgProps}>
+      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+    </svg>
+  ),
   /** ✕ — two diagonal lines */
   close: (
     <svg {...svgProps}>

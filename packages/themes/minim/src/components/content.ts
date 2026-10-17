@@ -29,7 +29,7 @@ const heading = (scale: '3xl' | '2xl' | 'xl' | 'lg') => ({
 export const minimContentComponents = {
   avatar: {
     base: {
-      backgroundColor: minim('bg-layer-base'),
+      backgroundColor: minim('bg-transparent'),
       borderRadius: minim('radius-full'),
     },
     'size:xsm': {width: '20px', height: '20px'},
@@ -39,14 +39,42 @@ export const minimContentComponents = {
     'size:xl': {width: '128px', height: '128px'},
   },
   'avatar-fallback': {
-    base: {color: minim('fg-primary'), fontFamily: baseFontFamily},
+    base: {
+      backgroundColor: minim('bg-neutral'),
+      color: minim('fg-muted'),
+      fontFamily: baseFontFamily,
+      ':has(> [data-minim-icon="person"])': {
+        color: minim('fg-neutral'),
+        fontWeight: minim('typography-font-weight-bold'),
+      },
+    },
     // Fixed source exceptions: the Avatar initials scale has no equivalent
     // semantic typography tokens and must not density-shrink.
-    'size:xsm': {fontSize: '8px', lineHeight: '8px'},
-    'size:sm': {fontSize: '10px', lineHeight: '10px'},
-    'size:md': {fontSize: '14px', lineHeight: '14px'},
-    'size:lg': {fontSize: '19px', lineHeight: '19px'},
-    'size:xl': {fontSize: '51px', lineHeight: '51px'},
+    'size:xsm': {
+      fontSize: '8px',
+      lineHeight: '8px',
+      ':has(> [data-minim-icon="person"])': {fontSize: '12px'},
+    },
+    'size:sm': {
+      fontSize: '10px',
+      lineHeight: '10px',
+      ':has(> [data-minim-icon="person"])': {fontSize: '14px'},
+    },
+    'size:md': {
+      fontSize: '14px',
+      lineHeight: '14px',
+      ':has(> [data-minim-icon="person"])': {fontSize: '22px'},
+    },
+    'size:lg': {
+      fontSize: '19px',
+      lineHeight: '19px',
+      ':has(> [data-minim-icon="person"])': {fontSize: '29px'},
+    },
+    'size:xl': {
+      fontSize: '51px',
+      lineHeight: '51px',
+      ':has(> [data-minim-icon="person"])': {fontSize: '77px'},
+    },
   },
   'avatar-status-dot': {
     base: {
@@ -223,6 +251,7 @@ export const minimContentComponents = {
   },
   thumbnail: {
     base: {
+      fontWeight: minim('typography-font-weight-medium'),
       width: '64px',
       height: '64px',
       borderRadius: minim('radius-element'),

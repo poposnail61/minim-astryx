@@ -82,7 +82,7 @@ const styles = stylex.create({
     // message wraps to multiple lines.
     display: 'inline-flex',
     alignItems: 'center',
-    height: `calc(${typeScaleVars['--text-supporting-size']} * ${typeScaleVars['--text-supporting-leading']})`,
+    height: '1lh',
     flexShrink: 0,
   },
 });

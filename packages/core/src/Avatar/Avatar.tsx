@@ -5,7 +5,7 @@
 /**
  * @file Avatar.tsx
  * @input Uses React, HTMLAttributes, ReactNode, useState, useRef; useTooltip
- *   (Tooltip hook) for the optional name-on-hover tooltip; useTranslator (i18n)
+ *   (Tooltip hook) for the optional name-on-hover tooltip; useTranslator (i18n), useIcon
  * @output Exports Avatar component, AvatarProps, AvatarSize types
  * @position Core implementation; consumed by index.ts
  *
@@ -51,6 +51,7 @@ import {useDevWarning} from '../hooks/useDevWarning';
 import {useLinkComponent} from '../Link/useLinkComponent';
 import type {LinkComponentType} from '../Link/types';
 import {useTranslator, type TranslatorFn} from '../i18n';
+import {useIcon} from '../Icon/useIcon';
 
 /**
  * The offset ratio for positioning elements on a circle's edge at 45°.
@@ -233,6 +234,9 @@ const dynamicStyles = stylex.create({
   // layer overrides it per size tier, no internal var needed.
   fontSize: (size: number) => ({
     fontSize: `${size * INITIALS_FONT_SIZE_RATIO}px`,
+  }),
+  iconSize: (size: number) => ({
+    fontSize: `${size * 0.6}px`,
   }),
   statusPositionCircle: (size: number) => ({
     bottom: size * CIRCLE_EDGE_OFFSET_RATIO,
@@ -486,22 +490,6 @@ function setAttributeOrRemove(
 }
 
 /**
- * Default person icon SVG for when no image or name is provided
- */
-function DefaultIcon({size}: {size: number}) {
-  return (
-    <svg
-      width={size * 0.6}
-      height={size * 0.6}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true">
-      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-    </svg>
-  );
-}
-
-/**
  * Avatar component for displaying user profile pictures.
  *
  * Displays an image when available, falling back to initials derived from
@@ -539,6 +527,7 @@ export function Avatar({
   ref,
   ...props
 }: AvatarProps) {
+  const defaultIcon = useIcon('avatar:default');
   // Track the exact src that failed (rather than a boolean) so a changed
   // src/fallbackSrc gets a fresh load attempt instead of the stale error.
   const [erroredSrc, setErroredSrc] = useState<string | undefined>(undefined);
@@ -760,9 +749,12 @@ export function Avatar({
           <div
             {...mergeProps(
               themeProps('avatar-fallback', {size: resolvedSize}),
-              stylex.props(styles.fallback),
+              stylex.props(
+                styles.fallback,
+                dynamicStyles.iconSize(numericSize),
+              ),
             )}>
-            <DefaultIcon size={numericSize} />
+            {defaultIcon}
           </div>
         )}
       </div>

@@ -7,6 +7,133 @@ import {expect, test, type Locator, type Page} from '@playwright/test';
 const OUTPUT_DIR = '/tmp/minim-visual-qa';
 const densities = ['base', 'compact'] as const;
 
+test('Dictation uses the approved Minim headphone glyph', async ({page}) => {
+  await page.goto('/components/ChatDictationButton', {
+    waitUntil: 'domcontentloaded',
+  });
+  const icon = page.locator('[data-minim-icon="headphone"]').first();
+  await expect(icon).toBeVisible({timeout: 60_000});
+  for (const density of densities) {
+    await setDensity(page, density);
+    await expect(icon).toHaveCSS('font-weight', '500');
+    await expect(icon.locator(':scope > span')).toHaveCSS(
+      'font-family',
+      /Minim Symbol/,
+    );
+  }
+});
+
+test('Tree disabled theme colors cover labels and chevrons in both densities', async ({
+  page,
+}) => {
+  await page.goto('/components/TreeList', {waitUntil: 'domcontentloaded'});
+  const row = page.locator('.astryx-tree-list-item').first();
+  await expect(row).toBeVisible({timeout: 60_000});
+  for (const density of densities) {
+    await setDensity(page, density);
+    // Density changes can remount the preview. Set the theme state afterward.
+    await row.evaluate(node => node.setAttribute('data-disabled', 'disabled'));
+    await expect(row).toHaveCSS('opacity', '1');
+    await expect(row.locator('.astryx-tree-list-item-label')).toHaveCSS(
+      'color',
+      'rgb(212, 212, 216)',
+    );
+    await expect(
+      row.locator('.astryx-tree-list-chevron .astryx-icon'),
+    ).toHaveCSS('color', 'rgb(212, 212, 216)');
+  }
+});
+
+test('Avatar initials and person icon match Figma without a double background', async ({
+  page,
+}) => {
+  await page.goto('/components/Avatar', {waitUntil: 'domcontentloaded'});
+  await page
+    .getByRole('heading', {name: 'Examples', exact: true})
+    .scrollIntoViewIfNeeded();
+  const example = page.getByText('Avatar — Initials', {exact: true});
+  await expect(example).toBeVisible({timeout: 60_000});
+  await example.scrollIntoViewIfNeeded();
+  const initials = page
+    .locator('.astryx-avatar-fallback')
+    .filter({hasText: /^JD$/})
+    .first();
+  await expect(initials).toBeVisible({timeout: 60_000});
+  for (const density of densities) {
+    await setDensity(page, density);
+    await expect(initials).toHaveCSS('color', 'rgb(113, 113, 122)');
+    await expect(initials).toHaveCSS('background-color', 'rgba(0, 0, 0, 0.05)');
+    await expect(
+      initials.locator(
+        'xpath=ancestor::*[contains(concat(" ", normalize-space(@class), " "), " astryx-avatar ")][1]',
+      ),
+    ).toHaveCSS('background-color', 'rgba(255, 255, 255, 0)');
+  }
+  await page
+    .getByText('Avatar — Fallback Chain', {exact: true})
+    .scrollIntoViewIfNeeded();
+  const icon = page
+    .locator('.astryx-avatar-fallback > [data-minim-icon="person"]')
+    .first();
+  await expect(icon).toBeVisible({timeout: 60_000});
+  for (const density of densities) {
+    await setDensity(page, density);
+    await expect(icon).toHaveCSS('width', '29px');
+    await expect(icon).toHaveCSS('height', '29px');
+    await expect(icon).toHaveCSS('font-weight', '700');
+    await expect(icon).toHaveCSS('color', 'rgb(24, 24, 27)');
+  }
+});
+
+test('Thumbnail placeholder matches the Minim image glyph in both densities', async ({
+  page,
+}) => {
+  await page.goto('/components/Thumbnail', {waitUntil: 'domcontentloaded'});
+  await page
+    .getByRole('heading', {name: 'Examples', exact: true})
+    .scrollIntoViewIfNeeded();
+  await page
+    .getByText('Thumbnail — States', {exact: true})
+    .scrollIntoViewIfNeeded();
+  const icon = page
+    .locator('.astryx-thumbnail [data-minim-icon="image-solid"]')
+    .first();
+  await expect(icon).toBeVisible({timeout: 60_000});
+  for (const density of densities) {
+    await setDensity(page, density);
+    await expect(icon).toHaveCSS('width', density === 'base' ? '22px' : '20px');
+    await expect(icon).toHaveCSS(
+      'height',
+      density === 'base' ? '22px' : '20px',
+    );
+    await expect(icon).toHaveCSS('font-weight', '500');
+    await expect(icon).toHaveCSS('color', 'rgb(113, 113, 122)');
+  }
+});
+
+test('ChatComposer matches Figma container and neutral send-button tokens', async ({
+  page,
+}) => {
+  await page.goto('/components/ChatComposer', {waitUntil: 'domcontentloaded'});
+  const composer = page.locator('.astryx-chat-composer').first();
+  const body = composer.locator(':scope > div').first();
+  const send = composer.locator('.astryx-chat-send-button');
+  await expect(composer).toBeVisible({timeout: 60_000});
+  for (const density of densities) {
+    await setDensity(page, density);
+    await expect(body).toHaveCSS(
+      'border-radius',
+      density === 'base' ? '20px' : '16px',
+    );
+    await expect(send).toHaveCSS(
+      'border-radius',
+      density === 'base' ? '12px' : '10px',
+    );
+    await expect(send).toHaveCSS('background-color', 'rgb(24, 24, 27)');
+    await expect(send).toHaveCSS('opacity', '0.3');
+  }
+});
+
 test('Calendar LG and MD follow Figma in both densities', async ({
   page,
 }, info) => {
@@ -106,6 +233,28 @@ async function setDensity(page: Page, density: (typeof densities)[number]) {
   await page.evaluate(() => document.fonts.ready);
 }
 
+async function loadDeferredExamples(page: Page) {
+  const heading = page.getByRole('heading', {name: 'Examples', exact: true});
+  if ((await heading.count()) === 0) {
+    return;
+  }
+  await heading.scrollIntoViewIfNeeded();
+  const cards = page.locator('.astryx-card').filter({
+    has: page.getByRole('button', {name: 'Code', exact: true}),
+  });
+  await expect(cards.first()).toBeVisible({timeout: 60_000});
+  for (const card of await cards.all()) {
+    await card.scrollIntoViewIfNeeded();
+    // LivePreview mounts this content wrapper only after its lazy import resolves.
+    await expect(
+      card.locator('div[style*="min-width: fit-content"]'),
+    ).toBeVisible({
+      timeout: 60_000,
+    });
+  }
+  await page.evaluate(() => document.fonts.ready);
+}
+
 async function assertFontsAndLigature(page: Page) {
   const fontState = await page.evaluate(() => ({
     base: document.fonts.check('15px "MinimBaseVF"'),
@@ -161,7 +310,7 @@ async function assertNoHorizontalOverflow(page: Page) {
 
 async function assertButtonPreviewsAreNotClipped(page: Page) {
   const clipped = await page
-    .locator('main .astryx-button:visible')
+    .locator('.astryx-card .astryx-button:visible')
     .evaluateAll(buttons =>
       buttons.flatMap(button => {
         let viewport = button.parentElement;
@@ -256,11 +405,16 @@ async function collectAndAssertButtonGroupEvidence(page: Page) {
 
   for (const group of evidence) {
     group.children.forEach((child, index) => {
-      if (index > 0) {expect(child.startRadius).toBe('0px');}
-      else {expect(parseFloat(child.startRadius)).toBeGreaterThan(0);}
-      if (index < group.children.length - 1)
-        {expect(child.endRadius).toBe('0px');}
-      else {expect(parseFloat(child.endRadius)).toBeGreaterThan(0);}
+      if (index > 0) {
+        expect(child.startRadius).toBe('0px');
+      } else {
+        expect(parseFloat(child.startRadius)).toBeGreaterThan(0);
+      }
+      if (index < group.children.length - 1) {
+        expect(child.endRadius).toBe('0px');
+      } else {
+        expect(parseFloat(child.endRadius)).toBeGreaterThan(0);
+      }
     });
   }
 
@@ -333,13 +487,13 @@ async function collectButtonSizeMetrics(page: Page) {
 async function assertCompactButtonInsets(page: Page) {
   const button = page
     .locator('.astryx-button[data-size="md"]:visible')
-    .filter({hasText: /^Primary$/})
+    .filter({hasText: /^Medium$/})
     .first();
   const label = button.locator('.astryx-button-label');
   await expect.soft(button).toHaveCSS('padding-block', '4px');
-  await expect.soft(button).toHaveCSS('padding-inline', '5px');
+  await expect.soft(button).toHaveCSS('padding-inline', '10px');
   await expect.soft(label).toHaveCSS('padding-block', '1px');
-  await expect.soft(label).toHaveCSS('padding-inline', '4px');
+  await expect.soft(label).toHaveCSS('padding-inline', '0px');
 }
 
 async function exerciseSizeSelector(page: Page, value: string) {
@@ -350,7 +504,15 @@ async function exerciseSizeSelector(page: Page, value: string) {
   await expect(option).toBeVisible();
   await expect(selector).toBeFocused();
   await expect(selector).toHaveAttribute('aria-activedescendant', /.+/);
-  await option.click();
+  const options = await page.getByRole('option').allTextContents();
+  const index = options.findIndex(text => text.trim() === value);
+  expect(index).toBeGreaterThanOrEqual(0);
+  await page.keyboard.press('Home');
+  for (let step = 0; step < index; step++) {
+    await page.keyboard.press('ArrowDown');
+  }
+  await page.keyboard.press('Enter');
+  await expect(selector).toHaveAttribute('aria-expanded', 'false');
 }
 
 async function assertInputGeometry(
@@ -360,6 +522,7 @@ async function assertInputGeometry(
   expected: {root: number; content: number},
 ) {
   const root = page.locator(`${selector}[data-size="${size}"]:visible`).first();
+  await expect(root).toBeVisible();
   const control = root.locator(`${selector}-control`);
   const styles = await root.evaluate(element => {
     const style = getComputedStyle(element);
@@ -464,6 +627,7 @@ test('Minim density survives navigation and lazy properties loading', async ({
 test('Minim component pages render in both densities', async ({
   page,
 }, testInfo) => {
+  test.setTimeout(600_000);
   await waitForDocsite(page);
   const project = testInfo.project.name;
   const report: Record<string, unknown> = {project, pages: {}};
@@ -474,6 +638,7 @@ test('Minim component pages render in both densities', async ({
         waitUntil: 'domcontentloaded',
       });
       await setDensity(page, density);
+      await loadDeferredExamples(page);
       await expect(
         page.locator(target.selector + ':visible').first(),
       ).toBeVisible();
@@ -489,6 +654,7 @@ test('Minim component pages render in both densities', async ({
       expect(metrics.length).toBeGreaterThan(0);
       (report.pages as Record<string, unknown>)[`${density}/${target.slug}`] =
         metrics;
+      await page.evaluate(() => window.scrollTo(0, 0));
       await page.screenshot({
         path: path.join(OUTPUT_DIR, `${project}-${density}-${target.slug}.png`),
         fullPage: true,
@@ -505,6 +671,7 @@ test('Minim component pages render in both densities', async ({
   }
 
   await page.goto('/components/Button', {waitUntil: 'domcontentloaded'});
+  await loadDeferredExamples(page);
   await setDensity(page, 'base');
   await assertMeasuredHeights(await collectButtonSizeMetrics(page), {
     md: 36,

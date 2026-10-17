@@ -5,6 +5,26 @@ import {defineTheme, generateThemeRules} from '@astryxdesign/core/theme';
 import {minimContentComponents} from './content';
 
 describe('Minim content component styles', () => {
+  it('matches Figma muted initials and neutral fallback icons', () => {
+    expect(minimContentComponents.avatar.base.backgroundColor).toBe(
+      'var(--minim-bg-transparent)',
+    );
+    expect(minimContentComponents['avatar-fallback'].base).toMatchObject({
+      backgroundColor: 'var(--minim-bg-neutral)',
+      color: 'var(--minim-fg-muted)',
+      ':has(> [data-minim-icon="person"])': {
+        color: 'var(--minim-fg-neutral)',
+        fontWeight: 'var(--minim-typography-font-weight-bold)',
+      },
+    });
+    const theme = defineTheme({
+      name: 'minim-avatar-color-test',
+      components: minimContentComponents,
+    });
+    expect(generateThemeRules(theme).join('\n')).toContain(
+      '.astryx-avatar-fallback:has(> [data-minim-icon="person"])',
+    );
+  });
   it('keeps source-fixed Avatar, status, Thumbnail, and Kbd geometry', () => {
     expect(minimContentComponents.avatar['size:xl']).toEqual({
       width: '128px',

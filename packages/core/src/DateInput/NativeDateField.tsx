@@ -14,6 +14,7 @@
  * picker the OS draws — the iOS wheel, the Android calendar dialog. The field
  * itself still looks like every other Astryx input, and DateInput paints its
  * text so `format` and `placeholder` keep applying.
+ * Uses the shared input-wrapper spacing so density and theme tokens apply.
  *
  * Everything unusual in here was measured on a real iOS device; the comments
  * say which behaviour forced which decision, because none of them are
@@ -71,9 +72,6 @@ import {
 } from '../utils';
 
 const styles = stylex.create({
-  wrapper: {
-    gap: 8,
-  },
   iconButton: {
     display: 'flex',
     alignItems: 'center',
@@ -511,7 +509,6 @@ export function NativeDateField({
         stylex.props(
           inputWrapperStyles.base,
           sizeStyles[size],
-          styles.wrapper,
           isEffectivelyDisabled && inputWrapperStyles.disabled,
           status && inputStatusBorderStyles[status.type],
           status &&
@@ -576,11 +573,14 @@ export function NativeDateField({
         {showsOverlay && (
           <span
             aria-hidden="true"
-            {...stylex.props(
-              styles.overlay,
-              nativeValue ? styles.overlayValue : styles.overlayPlaceholder,
-              isEffectivelyDisabled && styles.inputDisabled,
-              !isInputValid && !!nativeValue && styles.inputInvalid,
+            {...mergeProps(
+              stylex.props(
+                styles.overlay,
+                nativeValue ? styles.overlayValue : styles.overlayPlaceholder,
+                isEffectivelyDisabled && styles.inputDisabled,
+                !isInputValid && !!nativeValue && styles.inputInvalid,
+              ),
+              !nativeValue ? stableClassName('input-placeholder') : undefined,
             )}>
             {overlayText}
           </span>

@@ -517,11 +517,20 @@ function BreadcrumbMenuTrigger({
   const triggerId = useId();
   const buttonRef = useRef<HTMLButtonElement>(null);
   const isSupporting = variant === 'supporting';
+  const focusFrameRef = useRef<number | null>(null);
+  const cancelPendingFocus = useCallback(() => {
+    if (focusFrameRef.current !== null) {
+      cancelAnimationFrame(focusFrameRef.current);
+      focusFrameRef.current = null;
+    }
+  }, []);
+  useEffect(() => cancelPendingFocus, [cancelPendingFocus]);
 
   const popover = usePopover({
     hasLightDismiss: true,
     hasCloseButton: false,
     hasAutoFocus: false,
+    onHide: cancelPendingFocus,
     // The popup's own role="menu" is the exposed semantics; a modal dialog
     // wrapper would announce an unnamed dialog around the menu.
     role: 'none',
@@ -588,9 +597,13 @@ function BreadcrumbMenuTrigger({
   );
 
   const openAndFocus = useCallback(() => {
+    cancelPendingFocus();
     popover.show();
-    requestAnimationFrame(() => focusFirst());
-  }, [popover, focusFirst]);
+    focusFrameRef.current = requestAnimationFrame(() => {
+      focusFrameRef.current = null;
+      focusFirst();
+    });
+  }, [popover, focusFirst, cancelPendingFocus]);
 
   const handleClick = useCallback(() => {
     if (popover.isOpen) {

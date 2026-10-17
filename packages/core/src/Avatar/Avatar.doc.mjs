@@ -20,7 +20,7 @@ export const docs = {
   ],
   usage: {
     description:
-      'Avatar represents a person or team with a profile photo, initials, or a default icon. Use it in comment headers, contact lists, chat messages, user cards, and anywhere you need to identify someone visually.',
+      'Avatar represents a person or team with a profile photo, initials, or a default icon. Use it in comment headers, contact lists, chat messages, user cards, and anywhere you need to identify someone visually. Themes can replace the default person through the avatar:default icon registry key without changing initials or image fallbacks.',
     bestPractices: [
       {
         guidance: true,

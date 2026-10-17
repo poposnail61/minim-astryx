@@ -58,7 +58,7 @@ beforeEach(() => {
 });
 
 describe('CheckboxList', () => {
-  it('reflects source size and orientation on the visual list target', () => {
+  it('maps small controls to a medium List while preserving the option size', () => {
     render(
       <CheckboxList
         label="Preferences"
@@ -73,7 +73,8 @@ describe('CheckboxList', () => {
 
     const content = screen.getByRole('list');
     expect(content).toHaveClass('astryx-checkbox-list-content');
-    expect(content).toHaveAttribute('data-size', 'sm');
+    // List has md/lg sizes; CheckboxList keeps sm on its option controls.
+    expect(content).toHaveAttribute('data-size', 'md');
     expect(content).toHaveAttribute('data-orientation', 'horizontal');
     expect(getComputedStyle(content).flexDirection).toBe('row');
     expect(screen.getAllByRole('listitem')[0]).toHaveAttribute(

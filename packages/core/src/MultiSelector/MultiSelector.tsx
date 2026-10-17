@@ -1261,7 +1261,15 @@ export function MultiSelector<T extends MultiSelectorOptionType>({
 
   const renderTriggerContent = useCallback(() => {
     if (optimisticValue.length === 0) {
-      return <span {...stylex.props(styles.triggerText)}>{placeholder}</span>;
+      return (
+        <span
+          {...mergeProps(
+            stylex.props(styles.triggerText),
+            stableClassName('input-placeholder'),
+          )}>
+          {placeholder}
+        </span>
+      );
     }
 
     switch (triggerDisplay) {

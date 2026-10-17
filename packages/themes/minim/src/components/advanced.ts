@@ -20,6 +20,23 @@ const fieldSurface = {
  * rails/thumbs retain the source's explicit, density-independent primitives.
  */
 export const minimAdvancedComponents = {
+  'chat-send-button': {
+    base: {
+      borderRadius: minim('radius-element'),
+      ':is(.astryx-button)[data-variant="primary"]': {
+        backgroundColor: minim('bg-neutral-solid'),
+        color: minim('fg-on-surface'),
+        '--astryx-button-disabled-opacity': '0.3',
+      },
+      ':is(.astryx-button)[data-variant="secondary"]': {
+        backgroundColor: minim('bg-neutral'),
+        color: minim('fg-neutral'),
+      },
+      ':is(.astryx-button):focus-visible': {
+        boxShadow: `inset 0 0 0 2px ${minim('stroke-neutral-strong')}`,
+      },
+    },
+  },
   calendar: {
     base: {
       '--calendar-cell-size': 'var(--minim-component-large-height)',

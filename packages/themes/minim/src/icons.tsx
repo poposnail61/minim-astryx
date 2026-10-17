@@ -82,6 +82,7 @@ const semanticGlyphNames = {
   viewColumns: 'view-table',
   checkDouble: 'check',
   wrench: 'setting',
+  microphone: 'headphone',
 } as const satisfies Partial<Record<IconName, string>>;
 
 const namespacedIcons = Object.fromEntries(
@@ -100,13 +101,14 @@ export const minimIconRegistry: Partial<
 > = {
   ...namespacedIcons,
   ...semanticIcons,
+  'avatar:default': minimGlyph('person'),
+  'thumbnail:placeholder': minimGlyph('image-solid'),
   'token:remove': minimGlyph('close-mini'),
 };
 
-/** No safe catalog equivalent for dictation or password visibility. */
+/** No approved catalog equivalent for hidden password visibility. */
 export const minimUnmappedIconNames = [
   'eyeSlash',
-  'microphone',
 ] as const satisfies readonly IconName[];
 
 export {semanticGlyphNames as minimSemanticGlyphNames};

@@ -1,0 +1,5254 @@
+{
+  "date": "2026-10-14",
+  "scope": "11 current component categories; includes helpers and separate Data Input composition board; excludes icon drawings and legacy component v2",
+  "pages": [
+    {
+      "page": "Action",
+      "owners": [
+        {
+          "id": "10790:29417",
+          "name": "toolbar",
+          "props": [
+            {
+              "name": "start-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "end-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "center-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "has-bottom-divider",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "layout",
+              "type": "VARIANT",
+              "values": [
+                "start-end",
+                "start-center-end"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "transparent",
+                "section",
+                "muted"
+              ]
+            }
+          ],
+          "count": 12
+        },
+        {
+          "id": "8400:13980",
+          "name": "action/button-group",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "neutral",
+                "outline",
+                "subtle"
+              ]
+            },
+            {
+              "name": "orientation",
+              "type": "VARIANT",
+              "values": [
+                "horizontal",
+                "vertical"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "lg",
+                "md"
+              ]
+            }
+          ],
+          "count": 12
+        },
+        {
+          "id": "8406:27972",
+          "name": "context-menu",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "8406:27695",
+          "name": "menu-item",
+          "props": [
+            {
+              "name": "end-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "has-icon",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-label",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-end-content",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "destructive"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            },
+            {
+              "name": "is-selected",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "8464:29488",
+          "name": "menu-checkbox-item",
+          "props": [
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "value",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "8464:29496",
+          "name": "menu-radio-item",
+          "props": [
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "is-selected",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10301:18822",
+          "name": "menu-divider",
+          "props": [
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10794:30460",
+          "name": "dropdown-menu",
+          "props": [
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "neutral",
+                "outline",
+                "neutral-subtle"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "trigger",
+              "type": "VARIANT",
+              "values": [
+                "label",
+                "icon-only"
+              ]
+            },
+            {
+              "name": "is-menu-open",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "shape",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "pill"
+              ]
+            }
+          ],
+          "count": 48
+        },
+        {
+          "id": "8406:23379",
+          "name": "button/toggle-button",
+          "props": [
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "ghost"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            {
+              "name": "is-pressed",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "shape",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "pill"
+              ]
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "8464:32640",
+          "name": "segmented-control",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "shape",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "pill"
+              ]
+            }
+          ],
+          "count": 8
+        },
+        {
+          "id": "8464:32785",
+          "name": "segmented-control/segmented-control-item",
+          "props": [
+            {
+              "name": "has-icon",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "hover",
+                "rest"
+              ]
+            },
+            {
+              "name": "is-label-hidden",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false"
+              ]
+            },
+            {
+              "name": "is-selected",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "shape",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "pill"
+              ]
+            }
+          ],
+          "count": 24
+        },
+        {
+          "id": "8406:24297",
+          "name": "link",
+          "props": [
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "neutral",
+                "muted",
+                "primary"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest",
+                "focused"
+              ]
+            },
+            {
+              "name": "has-underline",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "is-external-link",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 36
+        },
+        {
+          "id": "8400:9742",
+          "name": "button",
+          "props": [
+            {
+              "name": "has-icon",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-end-content",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "end-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "neutral",
+                "neutral-subtle",
+                "primary",
+                "critical",
+                "critical-subtle",
+                "ghost",
+                "outline"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg",
+                "xl"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest",
+                "hover",
+                "pressed",
+                "focused"
+              ]
+            },
+            {
+              "name": "is-icon-only",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "is-loading",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "shape",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "pill"
+              ]
+            }
+          ],
+          "count": 504
+        },
+        {
+          "id": "10737:38548",
+          "name": "more-menu",
+          "props": [
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "ghost",
+                "secondary"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "is-open",
+              "type": "VARIANT",
+              "values": [
+                "true",
+                "false"
+              ]
+            },
+            {
+              "name": "shape",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "pill"
+              ]
+            }
+          ],
+          "count": 32
+        }
+      ]
+    },
+    {
+      "page": "Chat",
+      "owners": [
+        {
+          "id": "10794:31473",
+          "name": "chat/chat-message-bubble",
+          "props": [
+            {
+              "name": "sender",
+              "type": "VARIANT",
+              "values": [
+                "assistant",
+                "user"
+              ]
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "filled",
+                "ghost"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10794:31482",
+          "name": "chat/chat-message-metadata",
+          "props": [
+            {
+              "name": "status",
+              "type": "VARIANT",
+              "values": [
+                "none",
+                "sending",
+                "sent",
+                "delivered",
+                "read",
+                "error"
+              ]
+            }
+          ],
+          "count": 6
+        },
+        {
+          "id": "10794:31510",
+          "name": "chat/chat-composer",
+          "props": [
+            {
+              "name": "footer-actions",
+              "type": "SLOT"
+            },
+            {
+              "name": "header-context",
+              "type": "SLOT"
+            },
+            {
+              "name": "has-header",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "header-actions",
+              "type": "SLOT"
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "empty",
+                "typing",
+                "streaming"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false"
+              ]
+            }
+          ],
+          "count": 3
+        },
+        {
+          "id": "10794:31635",
+          "name": "chat/chat-system-message",
+          "props": [
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "divider"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10794:31642",
+          "name": "chat/chat-message",
+          "props": [
+            {
+              "name": "sender",
+              "type": "VARIANT",
+              "values": [
+                "assistant",
+                "user"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10794:31654",
+          "name": "chat/chat-message-list",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10794:31659",
+          "name": "chat/chat-send-button",
+          "props": [
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "send",
+                "stop",
+                "rest"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 6
+        },
+        {
+          "id": "10794:31672",
+          "name": "chat/chat-dictation-button",
+          "props": [
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "idle",
+                "listening"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10794:31702",
+          "name": "chat/chat-tool-calls",
+          "props": [
+            {
+              "name": "tool-name",
+              "type": "TEXT"
+            },
+            {
+              "name": "target",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-target",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-duration",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "details",
+              "type": "SLOT"
+            },
+            {
+              "name": "status",
+              "type": "VARIANT",
+              "values": [
+                "pending",
+                "running",
+                "success",
+                "error"
+              ]
+            },
+            {
+              "name": "is-expanded",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 8
+        },
+        {
+          "id": "10794:31883",
+          "name": "chat/chat-composer-token-element",
+          "props": [
+            {
+              "name": "type",
+              "type": "VARIANT",
+              "values": [
+                "mention",
+                "command",
+                "attachment",
+                "text"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10794:31892",
+          "name": "chat/chat-layout-scroll-button",
+          "props": [
+            {
+              "name": "is-collapsed",
+              "type": "VARIANT",
+              "values": [
+                "true",
+                "false"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10794:31897",
+          "name": "chat/chat-composer-input",
+          "props": [
+            {
+              "name": "content",
+              "type": "SLOT"
+            },
+            {
+              "name": "placeholder",
+              "type": "TEXT"
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "empty",
+                "filled",
+                "focused",
+                "rest"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10794:31913",
+          "name": "chat/chat-composer-drawer",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "label",
+              "type": "TEXT"
+            },
+            {
+              "name": "collapsible",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "is-collapsed",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10800:45902",
+          "name": "chat/chat-layout",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10800:45951",
+          "name": "chat/chat-tokenized-text",
+          "props": [],
+          "count": 1
+        }
+      ]
+    },
+    {
+      "page": "Container",
+      "owners": [
+        {
+          "id": "10653:22349",
+          "name": "selectable-card",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            },
+            {
+              "name": "elevation",
+              "type": "VARIANT",
+              "values": [
+                "none",
+                "low",
+                "med",
+                "high"
+              ]
+            },
+            {
+              "name": "is-selected",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 24
+        },
+        {
+          "id": "10653:22204",
+          "name": "clickable-card",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest",
+                "hover",
+                "pressed",
+                "focused"
+              ]
+            },
+            {
+              "name": "elevation",
+              "type": "VARIANT",
+              "values": [
+                "none",
+                "low",
+                "med",
+                "high"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 20
+        },
+        {
+          "id": "10734:37542",
+          "name": "carousel",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "has-edge-fade",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-buttons",
+              "type": "BOOLEAN"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10653:22049",
+          "name": "collapsible",
+          "props": [
+            {
+              "name": "trigger-label",
+              "type": "TEXT"
+            },
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "is-open",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10653:21889",
+          "name": "card",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "padding",
+              "type": "VARIANT",
+              "values": [
+                "0",
+                "1",
+                "3",
+                "5"
+              ]
+            },
+            {
+              "name": "elevation",
+              "type": "VARIANT",
+              "values": [
+                "none",
+                "low",
+                "med",
+                "high"
+              ]
+            }
+          ],
+          "count": 16
+        }
+      ]
+    },
+    {
+      "page": "Content",
+      "owners": [
+        {
+          "id": "10481:31028",
+          "name": "blockquote",
+          "props": [
+            {
+              "name": "has-cite",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "cite",
+              "type": "TEXT"
+            },
+            {
+              "name": "content",
+              "type": "SLOT"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10481:30669",
+          "name": "token",
+          "props": [
+            {
+              "name": "has-icon",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-remove-button",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "end-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "has-end-content",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "color",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "red",
+                "orange",
+                "yellow",
+                "green",
+                "teal",
+                "cyan",
+                "blue",
+                "purple",
+                "pink",
+                "gray",
+                "amber"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 48
+        },
+        {
+          "id": "10481:30498",
+          "name": "timestamp",
+          "props": [
+            {
+              "name": "format",
+              "type": "VARIANT",
+              "values": [
+                "relative",
+                "auto",
+                "date",
+                "date-time",
+                "time",
+                "system-date",
+                "system-date-time",
+                "system-time"
+              ]
+            },
+            {
+              "name": "color",
+              "type": "VARIANT",
+              "values": [
+                "primary",
+                "secondary",
+                "disabled",
+                "accent"
+              ]
+            }
+          ],
+          "count": 32
+        },
+        {
+          "id": "10481:30392",
+          "name": "thumbnail",
+          "props": [
+            {
+              "name": "has-remove-button",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "image",
+                "placeholder",
+                "rest",
+                "uploading"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false"
+              ]
+            },
+            {
+              "name": "is-loading",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10481:30317",
+          "name": "text",
+          "props": [
+            {
+              "name": "content",
+              "type": "TEXT"
+            },
+            {
+              "name": "truncation",
+              "type": "VARIANT",
+              "values": [
+                "none",
+                "single-line"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10481:30054",
+          "name": "markdown",
+          "props": [
+            {
+              "name": "density",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "compact"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "8397:9731",
+          "name": "kbd",
+          "props": [
+            {
+              "name": "key-label",
+              "type": "TEXT"
+            },
+            {
+              "name": "key-1-label",
+              "type": "TEXT"
+            },
+            {
+              "name": "key-2-label",
+              "type": "TEXT"
+            },
+            {
+              "name": "key-1-label2",
+              "type": "TEXT"
+            },
+            {
+              "name": "key-2-label2",
+              "type": "TEXT"
+            },
+            {
+              "name": "key-3-label",
+              "type": "TEXT"
+            },
+            {
+              "name": "key-1-label3",
+              "type": "TEXT"
+            },
+            {
+              "name": "key-2-label3",
+              "type": "TEXT"
+            },
+            {
+              "name": "key-3-label2",
+              "type": "TEXT"
+            },
+            {
+              "name": "key-4-label",
+              "type": "TEXT"
+            },
+            {
+              "name": "keys",
+              "type": "VARIANT",
+              "values": [
+                "single",
+                "double",
+                "triple",
+                "quad"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10481:29875",
+          "name": "heading",
+          "props": [
+            {
+              "name": "content",
+              "type": "TEXT"
+            },
+            {
+              "name": "level",
+              "type": "VARIANT",
+              "values": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10481:29816",
+          "name": "empty-state",
+          "props": [
+            {
+              "name": "title",
+              "type": "TEXT"
+            },
+            {
+              "name": "description",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-description",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-icon",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-actions",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "icon",
+              "type": "SLOT"
+            },
+            {
+              "name": "actions",
+              "type": "SLOT"
+            },
+            {
+              "name": "is-compact",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10481:29684",
+          "name": "code-block",
+          "props": [
+            {
+              "name": "has-header",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-line-numbers",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-copy-button",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "title",
+              "type": "TEXT"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "sm"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10481:29620",
+          "name": "code",
+          "props": [
+            {
+              "name": "code",
+              "type": "TEXT"
+            },
+            {
+              "name": "color",
+              "type": "VARIANT",
+              "values": [
+                "primary",
+                "secondary",
+                "inherit"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "inherit"
+              ]
+            }
+          ],
+          "count": 3
+        },
+        {
+          "id": "10481:29534",
+          "name": "citation",
+          "props": [
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "number",
+                "label"
+              ]
+            },
+            {
+              "name": "has-icon",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 3
+        },
+        {
+          "id": "10481:29146",
+          "name": "avatar",
+          "props": [
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "xl",
+                "xsm",
+                "sm",
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "content",
+              "type": "VARIANT",
+              "values": [
+                "image",
+                "initials",
+                "icon"
+              ]
+            },
+            {
+              "name": "status",
+              "type": "VARIANT",
+              "values": [
+                "none",
+                "positive",
+                "neutral",
+                "negative"
+              ]
+            }
+          ],
+          "count": 60
+        },
+        {
+          "id": "10481:29422",
+          "name": "avatar/avatar-status-dot",
+          "props": [
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "neutral",
+                "success",
+                "error"
+              ]
+            },
+            {
+              "name": "size-tier",
+              "type": "VARIANT",
+              "values": [
+                "small",
+                "medium",
+                "large"
+              ]
+            }
+          ],
+          "count": 9
+        },
+        {
+          "id": "10481:29438",
+          "name": "avatar-group",
+          "props": [
+            {
+              "name": "has-status",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "initials",
+              "type": "TEXT"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "lg",
+                "md",
+                "sm",
+                "xl",
+                "xsm"
+              ]
+            },
+            {
+              "name": "content",
+              "type": "VARIANT",
+              "values": [
+                "image",
+                "initials",
+                "icon"
+              ]
+            }
+          ],
+          "count": 15
+        }
+      ]
+    },
+    {
+      "page": "Feedback & Status",
+      "owners": [
+        {
+          "id": "10653:17760",
+          "name": "status-dot",
+          "props": [
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "success",
+                "warning",
+                "error",
+                "neutral"
+              ]
+            },
+            {
+              "name": "is-pulsing",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 8
+        },
+        {
+          "id": "8406:14972",
+          "name": "spinner",
+          "props": [
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg",
+                "xl"
+              ]
+            },
+            {
+              "name": "shade",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "on-media"
+              ]
+            },
+            {
+              "name": "has-label",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 12
+        },
+        {
+          "id": "10653:17592",
+          "name": "skeleton",
+          "props": [
+            {
+              "name": "radius",
+              "type": "VARIANT",
+              "values": [
+                "none",
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "rounded"
+              ]
+            }
+          ],
+          "count": 7
+        },
+        {
+          "id": "10653:17470",
+          "name": "progress-bar",
+          "props": [
+            {
+              "name": "has-label",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-value-label",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "label",
+              "type": "TEXT"
+            },
+            {
+              "name": "value-text",
+              "type": "TEXT"
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "warning",
+                "error",
+                "success",
+                "neutral"
+              ]
+            },
+            {
+              "name": "is-indeterminate",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 8
+        },
+        {
+          "id": "10653:17320",
+          "name": "banner",
+          "props": [
+            {
+              "name": "title",
+              "type": "TEXT"
+            },
+            {
+              "name": "description",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-description",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "is-dismissable",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-content-area",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "end-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "collapsible",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "status",
+              "type": "VARIANT",
+              "values": [
+                "info",
+                "success",
+                "warning",
+                "error"
+              ]
+            },
+            {
+              "name": "container",
+              "type": "VARIANT",
+              "values": [
+                "card",
+                "section"
+              ]
+            }
+          ],
+          "count": 8
+        },
+        {
+          "id": "8406:25250",
+          "name": "badge",
+          "props": [
+            {
+              "name": "has-icon",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "primary",
+                "secondary",
+                "critical",
+                "primary-subtle",
+                "secondary-subtle",
+                "critical-subtle",
+                "neutral-subtle",
+                "neutral"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "lg",
+                "md",
+                "dot"
+              ]
+            }
+          ],
+          "count": 24
+        }
+      ]
+    },
+    {
+      "page": "Layout",
+      "owners": [
+        {
+          "id": "10653:25347",
+          "name": "resize-handle",
+          "props": [
+            {
+              "name": "has-divider",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "is-always-visible",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "direction",
+              "type": "VARIANT",
+              "values": [
+                "horizontal",
+                "vertical"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest",
+                "active"
+              ]
+            },
+            {
+              "name": "pill-placement",
+              "type": "VARIANT",
+              "values": [
+                "center",
+                "start",
+                "end"
+              ]
+            }
+          ],
+          "count": 12
+        },
+        {
+          "id": "10653:25306",
+          "name": "layout/section",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "section",
+                "transparent",
+                "muted"
+              ]
+            }
+          ],
+          "count": 3
+        },
+        {
+          "id": "10653:25212",
+          "name": "layout/form-layout",
+          "props": [
+            {
+              "name": "direction",
+              "type": "VARIANT",
+              "values": [
+                "horizontal",
+                "horizontal-labels",
+                "vertical"
+              ]
+            }
+          ],
+          "count": 3
+        },
+        {
+          "id": "10653:25124",
+          "name": "divider",
+          "props": [
+            {
+              "name": "orientation",
+              "type": "VARIANT",
+              "values": [
+                "horizontal",
+                "vertical"
+              ]
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "subtle",
+                "strong"
+              ]
+            },
+            {
+              "name": "has-label",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 8
+        },
+        {
+          "id": "10653:25044",
+          "name": "aspect-ratio",
+          "props": [
+            {
+              "name": "ratio",
+              "type": "VARIANT",
+              "values": [
+                "1-1",
+                "16-9",
+                "4-3"
+              ]
+            }
+          ],
+          "count": 3
+        },
+        {
+          "id": "10653:24881",
+          "name": "app-shell",
+          "props": [
+            {
+              "name": "has-banner",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "elevated",
+                "wash",
+                "surface",
+                "section"
+              ]
+            },
+            {
+              "name": "nav-layout",
+              "type": "VARIANT",
+              "values": [
+                "top-nav-side-nav",
+                "side-nav-only",
+                "top-nav-only",
+                "content-only"
+              ]
+            }
+          ],
+          "count": 16
+        }
+      ]
+    },
+    {
+      "page": "Navigation",
+      "owners": [
+        {
+          "id": "10734:37786",
+          "name": "navigation/top-nav",
+          "props": [
+            {
+              "name": "heading",
+              "type": "SLOT"
+            },
+            {
+              "name": "start-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "center-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "end-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "has-center-content",
+              "type": "BOOLEAN"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10653:32002",
+          "name": "navigation/top-nav-mega-menu",
+          "props": [
+            {
+              "name": "items",
+              "type": "SLOT"
+            },
+            {
+              "name": "is-open",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10653:32027",
+          "name": "navigation/top-nav-menu",
+          "props": [
+            {
+              "name": "items",
+              "type": "SLOT"
+            },
+            {
+              "name": "label",
+              "type": "TEXT"
+            },
+            {
+              "name": "is-open",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10653:32074",
+          "name": "navigation/top-nav-mega-menu-featured-card",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10653:32083",
+          "name": "navigation/top-nav-heading",
+          "props": [
+            {
+              "name": "heading",
+              "type": "TEXT"
+            },
+            {
+              "name": "superheading",
+              "type": "TEXT"
+            },
+            {
+              "name": "subheading",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-superheading",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-subheading",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-menu",
+              "type": "BOOLEAN"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10653:31706",
+          "name": "tabs/tab-list",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "has-divider",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10653:31737",
+          "name": "tabs/tab",
+          "props": [
+            {
+              "name": "label",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-icon",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-end-content",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "end-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "has-label",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "sm",
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest"
+              ]
+            },
+            {
+              "name": "is-selected",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 6
+        },
+        {
+          "id": "10653:31427",
+          "name": "navigation/side-nav",
+          "props": [
+            {
+              "name": "top-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "footer",
+              "type": "SLOT"
+            },
+            {
+              "name": "is-collapsed",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10653:31584",
+          "name": "navigation/side-nav-section",
+          "props": [
+            {
+              "name": "title",
+              "type": "TEXT"
+            },
+            {
+              "name": "subtitle",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-subtitle",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-end-content",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-header",
+              "type": "BOOLEAN"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10653:31595",
+          "name": "navigation/side-nav-heading",
+          "props": [
+            {
+              "name": "heading",
+              "type": "TEXT"
+            },
+            {
+              "name": "superheading",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-superheading",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "subheading",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-subheading",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-menu",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "is-open",
+              "type": "VARIANT",
+              "values": [
+                "true",
+                "false"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10653:31620",
+          "name": "navigation/side-nav-collapse-button",
+          "props": [
+            {
+              "name": "is-collapsed",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10653:31278",
+          "name": "pagination",
+          "props": [
+            {
+              "name": "pages",
+              "type": "SLOT"
+            },
+            {
+              "name": "has-prev",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-next",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-page-size-selector",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "pages",
+                "count",
+                "compact",
+                "dots",
+                "none"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            }
+          ],
+          "count": 10
+        },
+        {
+          "id": "10734:37690",
+          "name": "outline",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10653:31120",
+          "name": "outline-item",
+          "props": [
+            {
+              "name": "label",
+              "type": "TEXT"
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest"
+              ]
+            },
+            {
+              "name": "density",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "compact"
+              ]
+            },
+            {
+              "name": "level",
+              "type": "VARIANT",
+              "values": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ]
+            },
+            {
+              "name": "is-current",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "10653:30913",
+          "name": "navigation/mobile-nav",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "header-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "header",
+              "type": "TEXT"
+            },
+            {
+              "name": "side",
+              "type": "VARIANT",
+              "values": [
+                "start",
+                "end"
+              ]
+            },
+            {
+              "name": "has-header",
+              "type": "VARIANT",
+              "values": [
+                "true",
+                "false"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10653:30964",
+          "name": "navigation/mobile-nav-toggle",
+          "props": [
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10653:30746",
+          "name": "breadcrumbs/breadcrumb-item",
+          "props": [
+            {
+              "name": "has-separator",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-icon",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-menu",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "supporting"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            },
+            {
+              "name": "separator",
+              "type": "VARIANT",
+              "values": [
+                "chevron",
+                "slash"
+              ]
+            },
+            {
+              "name": "is-current",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 12
+        },
+        {
+          "id": "10653:30813",
+          "name": "breadcrumbs",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "supporting"
+              ]
+            },
+            {
+              "name": "has-icons",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 4
+        }
+      ]
+    },
+    {
+      "page": "Overlay",
+      "owners": [
+        {
+          "id": "10653:38121",
+          "name": "overlay",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "content",
+              "type": "SLOT"
+            },
+            {
+              "name": "scrim",
+              "type": "VARIANT",
+              "values": [
+                "dark",
+                "light",
+                "false"
+              ]
+            },
+            {
+              "name": "align",
+              "type": "VARIANT",
+              "values": [
+                "end",
+                "start",
+                "center"
+              ]
+            }
+          ],
+          "count": 9
+        },
+        {
+          "id": "10653:38062",
+          "name": "lightbox",
+          "props": [
+            {
+              "name": "media",
+              "type": "SLOT"
+            },
+            {
+              "name": "has-navigation",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-caption",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-zoom",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-thumbnails",
+              "type": "BOOLEAN"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10734:37917",
+          "name": "command-palette",
+          "props": [
+            {
+              "name": "input",
+              "type": "SLOT"
+            },
+            {
+              "name": "list",
+              "type": "SLOT"
+            },
+            {
+              "name": "footer",
+              "type": "SLOT"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10653:38025",
+          "name": "command-palette-empty",
+          "props": [
+            {
+              "name": "children",
+              "type": "TEXT"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10653:37878",
+          "name": "tooltip",
+          "props": [
+            {
+              "name": "content",
+              "type": "TEXT"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10653:37821",
+          "name": "toast",
+          "props": [
+            {
+              "name": "has-action",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "type",
+              "type": "VARIANT",
+              "values": [
+                "info",
+                "error"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10653:37748",
+          "name": "popover",
+          "props": [
+            {
+              "name": "has-close-button",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "title",
+              "type": "TEXT"
+            },
+            {
+              "name": "content",
+              "type": "SLOT"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10653:37669",
+          "name": "hover-card",
+          "props": [
+            {
+              "name": "content",
+              "type": "SLOT"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10653:37570",
+          "name": "dialog",
+          "props": [
+            {
+              "name": "title",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-subtitle",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "subtitle",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-close-button",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-header-divider",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-footer",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "footer",
+              "type": "SLOT"
+            },
+            {
+              "name": "start-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "end-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "has-footer-divider",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "standard",
+                "fullscreen"
+              ]
+            }
+          ],
+          "count": 2
+        }
+      ]
+    },
+    {
+      "page": "Table & List",
+      "owners": [
+        {
+          "id": "10653:43381",
+          "name": "item",
+          "props": [
+            {
+              "name": "label",
+              "type": "TEXT"
+            },
+            {
+              "name": "description",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-description",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "marker",
+              "type": "SLOT"
+            },
+            {
+              "name": "start-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "end-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "has-marker",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-start-content",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-end-content",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "density",
+              "type": "VARIANT",
+              "values": [
+                "compact",
+                "balanced",
+                "spacious"
+              ]
+            },
+            {
+              "name": "align",
+              "type": "VARIANT",
+              "values": [
+                "center",
+                "start"
+              ]
+            }
+          ],
+          "count": 6
+        },
+        {
+          "id": "10653:43126",
+          "name": "tree-list/tree-list-item",
+          "props": [
+            {
+              "name": "start-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "end-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "label",
+              "type": "TEXT"
+            },
+            {
+              "name": "description",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-description",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-start-content",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-end-content",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "rails",
+              "type": "SLOT"
+            },
+            {
+              "name": "node",
+              "type": "VARIANT",
+              "values": [
+                "expanded",
+                "collapsed",
+                "leaf"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "is-selected",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 9
+        },
+        {
+          "id": "10653:43217",
+          "name": "tree-rail",
+          "props": [
+            {
+              "name": "has-line",
+              "type": "BOOLEAN"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10653:43219",
+          "name": "tree-list",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "header",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-header",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "line-guides",
+                "no-guides"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10653:42874",
+          "name": "table-header-cell",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "label",
+              "type": "TEXT"
+            },
+            {
+              "name": "is-sortable",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "is-right-aligned",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-checkbox",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-filter",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "is-resizable",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "sort",
+              "type": "VARIANT",
+              "values": [
+                "none",
+                "ascending",
+                "descending"
+              ]
+            }
+          ],
+          "count": 6
+        },
+        {
+          "id": "10653:42947",
+          "name": "table-cell",
+          "props": [
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "is-right-aligned",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-checkbox",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-expand-button",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-bottom-divider",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-right-divider",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            },
+            {
+              "name": "is-selected",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 6
+        },
+        {
+          "id": "10653:41599",
+          "name": "overflow-list",
+          "props": [
+            {
+              "name": "overflow-label",
+              "type": "TEXT"
+            },
+            {
+              "name": "item1-label",
+              "type": "TEXT"
+            },
+            {
+              "name": "item2-label",
+              "type": "TEXT"
+            },
+            {
+              "name": "item3-label",
+              "type": "TEXT"
+            },
+            {
+              "name": "item4-label",
+              "type": "TEXT"
+            },
+            {
+              "name": "item5-label",
+              "type": "TEXT"
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "all-visible",
+                "overflowed"
+              ]
+            },
+            {
+              "name": "collapse-from",
+              "type": "VARIANT",
+              "values": [
+                "end",
+                "start"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10653:41481",
+          "name": "metadata-list",
+          "props": [
+            {
+              "name": "has-title",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-show-more",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "orientation",
+              "type": "VARIANT",
+              "values": [
+                "vertical",
+                "horizontal"
+              ]
+            },
+            {
+              "name": "label-position",
+              "type": "VARIANT",
+              "values": [
+                "start",
+                "top"
+              ]
+            },
+            {
+              "name": "columns",
+              "type": "VARIANT",
+              "values": [
+                "single",
+                "multi"
+              ]
+            }
+          ],
+          "count": 8
+        },
+        {
+          "id": "10653:41542",
+          "name": "metadata-list/metadata-list-item",
+          "props": [
+            {
+              "name": "has-icon",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "label",
+              "type": "TEXT"
+            },
+            {
+              "name": "children",
+              "type": "SLOT"
+            },
+            {
+              "name": "layout",
+              "type": "VARIANT",
+              "values": [
+                "inline",
+                "stacked"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10653:41266",
+          "name": "list/list-item",
+          "props": [
+            {
+              "name": "has-start-content",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-end-content",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-divider",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "start-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "end-content",
+              "type": "SLOT"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest",
+                "hover"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "is-selected",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 8
+        },
+        {
+          "id": "10737:38308",
+          "name": "list",
+          "props": [
+            {
+              "name": "has-header",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "header",
+              "type": "TEXT"
+            },
+            {
+              "name": "children",
+              "type": "SLOT"
+            }
+          ],
+          "count": 1
+        }
+      ]
+    },
+    {
+      "page": "Shared / Slots & Helpers",
+      "owners": [
+        {
+          "id": "7959:17331",
+          "name": "image-content",
+          "props": [
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "lg",
+                "sm",
+                "xsm",
+                "md",
+                "xl",
+                "xxl"
+              ]
+            }
+          ],
+          "count": 6
+        },
+        {
+          "id": "7959:17383",
+          "name": "person-content",
+          "props": [
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "lg",
+                "sm",
+                "xsm",
+                "md",
+                "xl",
+                "xxl"
+              ]
+            }
+          ],
+          "count": 6
+        },
+        {
+          "id": "7959:17408",
+          "name": "multi-person-content",
+          "props": [
+            {
+              "name": "slot",
+              "type": "SLOT"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "h32"
+              ]
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "7959:17426",
+          "name": "slot-label-content",
+          "props": [
+            {
+              "name": "label",
+              "type": "TEXT"
+            },
+            {
+              "name": "addon",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-addon",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "button",
+                "badge"
+              ]
+            },
+            {
+              "name": "orientation",
+              "type": "VARIANT",
+              "values": [
+                "horizontal",
+                "vertical"
+              ]
+            }
+          ],
+          "count": 12
+        },
+        {
+          "id": "7962:28640",
+          "name": "slot-icon-content",
+          "props": [
+            {
+              "name": "icon",
+              "type": "INSTANCE_SWAP"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "body",
+                "caption"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "7959:17464",
+          "name": "slot-checkbox-content",
+          "props": [
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest"
+              ]
+            },
+            {
+              "name": "value",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true",
+                "indeterminate"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "is-loading",
+              "type": "VARIANT",
+              "values": [
+                "false"
+              ]
+            },
+            {
+              "name": "status",
+              "type": "VARIANT",
+              "values": [
+                "none"
+              ]
+            }
+          ],
+          "count": 12
+        },
+        {
+          "id": "10318:15594",
+          "name": "slot-radio-content",
+          "props": [
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest"
+              ]
+            },
+            {
+              "name": "is-selected",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 8
+        },
+        {
+          "id": "10388:60625",
+          "name": "icon-content",
+          "props": [
+            {
+              "name": "icon",
+              "type": "INSTANCE_SWAP"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "lg",
+                "md"
+              ]
+            },
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "body",
+                "caption"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "7959:17459",
+          "name": "slot-image-content",
+          "props": [
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "lg",
+                "md"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "7959:17481",
+          "name": "slot-button-group",
+          "props": [
+            {
+              "name": "orientation",
+              "type": "VARIANT",
+              "values": [
+                "vertical",
+                "horizontal"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "7959:17492",
+          "name": "description-content",
+          "props": [
+            {
+              "name": "max-count",
+              "type": "TEXT"
+            },
+            {
+              "name": "count",
+              "type": "TEXT"
+            },
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "md"
+              ]
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10737:38177",
+          "name": "navigation/top-nav-deprecated-pre-slot",
+          "props": [
+            {
+              "name": "heading",
+              "type": "TEXT"
+            },
+            {
+              "name": "has-logo",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "layout",
+              "type": "VARIANT",
+              "values": [
+                "start",
+                "center"
+              ]
+            }
+          ],
+          "count": 2
+        },
+        {
+          "id": "10737:38801",
+          "name": "xds-nav-icon",
+          "props": [
+            {
+              "name": "icon",
+              "type": "INSTANCE_SWAP"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10737:38806",
+          "name": "icon",
+          "props": [
+            {
+              "name": "size",
+              "type": "VARIANT",
+              "values": [
+                "sm",
+                "xsm",
+                "md",
+                "lg"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10737:38829",
+          "name": "xds-field-label",
+          "props": [
+            {
+              "name": "has-icon",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "has-tooltip",
+              "type": "BOOLEAN"
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest"
+              ]
+            },
+            {
+              "name": "indicator",
+              "type": "VARIANT",
+              "values": [
+                "default",
+                "optional",
+                "required"
+              ]
+            },
+            {
+              "name": "is-disabled",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10737:54690",
+          "name": "icon/circle-dashed",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10737:54692",
+          "name": "icon/folder-open",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10737:54694",
+          "name": "icon/folder",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10737:54696",
+          "name": "icon/funnel",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10737:54698",
+          "name": "icon/columns-3",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10737:54700",
+          "name": "icon/box",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10737:54702",
+          "name": "icon/chart-bar",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10737:54704",
+          "name": "icon/chart-column",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10737:54706",
+          "name": "icon/shield-check",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10737:54708",
+          "name": "icon/code",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10737:54710",
+          "name": "icon/sparkles",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10818:40103",
+          "name": "icon/mic",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10818:40105",
+          "name": "icon/wrench",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10821:25052",
+          "name": "icon/at-sign",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10821:25054",
+          "name": "icon/terminal",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10821:25056",
+          "name": "icon/paperclip",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10824:25079",
+          "name": "icon/archive",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "10918:221",
+          "name": "card-surface",
+          "props": [
+            {
+              "name": "variant",
+              "type": "VARIANT",
+              "values": [
+                "subtle",
+                "neutral"
+              ]
+            },
+            {
+              "name": "state",
+              "type": "VARIANT",
+              "values": [
+                "rest",
+                "hover",
+                "pressed"
+              ]
+            },
+            {
+              "name": "is-selected",
+              "type": "VARIANT",
+              "values": [
+                "false",
+                "true"
+              ]
+            }
+          ],
+          "count": 5
+        }
+      ]
+    },
+    {
+      "page": "Data Input",
+      "owners": [
+        {
+          "id": "10322:37482",
+          "name": "input-group",
+          "props": [
+            {
+              "name": "description"
+            },
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-description"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "has-label"
+            },
+            {
+              "name": "prefix"
+            },
+            {
+              "name": "suffix"
+            },
+            {
+              "name": "has-prefix"
+            },
+            {
+              "name": "has-suffix"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "time-end-content"
+            },
+            {
+              "name": "has-date-time-icons"
+            },
+            {
+              "name": "date-value"
+            },
+            {
+              "name": "time-value"
+            },
+            {
+              "name": "date-end-content"
+            },
+            {
+              "name": "has-date-time-end-content"
+            },
+            {
+              "name": "date-addon"
+            },
+            {
+              "name": "has-date-addon"
+            },
+            {
+              "name": "time-addon"
+            },
+            {
+              "name": "has-time-addon"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "mode"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "status"
+            },
+            {
+              "name": "is-loading"
+            }
+          ],
+          "count": 26
+        },
+        {
+          "id": "10322:24204",
+          "name": "input-group-text",
+          "props": [
+            {
+              "name": "text"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "10542:38446",
+          "name": "slider",
+          "props": [
+            {
+              "name": "has-description"
+            },
+            {
+              "name": "has-marks"
+            },
+            {
+              "name": "has-value"
+            },
+            {
+              "name": "description"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "type"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 14
+        },
+        {
+          "id": "10388:57120",
+          "name": "checkbox/checkbox-list",
+          "props": [
+            {
+              "name": "orientation"
+            },
+            {
+              "name": "size"
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10388:57149",
+          "name": "checkbox/checkbox-list-item",
+          "props": [
+            {
+              "name": "start-content"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-start-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-checked"
+            },
+            {
+              "name": "has-description"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            }
+          ],
+          "count": 24
+        },
+        {
+          "id": "10542:38235",
+          "name": "file-input",
+          "props": [
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "mode"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "10322:36567",
+          "name": "typeahead",
+          "props": [
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "status"
+            },
+            {
+              "name": "is-loading"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "10322:36219",
+          "name": "tokenizer",
+          "props": [
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "selected-label-1"
+            },
+            {
+              "name": "selected-label-2"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "status"
+            },
+            {
+              "name": "is-loading"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "10322:35877",
+          "name": "time-input",
+          "props": [
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "10322:35184",
+          "name": "text-area",
+          "props": [
+            {
+              "name": "has-counter"
+            },
+            {
+              "name": "counter-value"
+            },
+            {
+              "name": "description"
+            },
+            {
+              "name": "has-label"
+            },
+            {
+              "name": "has-description"
+            },
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "10542:38124",
+          "name": "switch",
+          "props": [
+            {
+              "name": "has-description"
+            },
+            {
+              "name": "description"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "label-position"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "is-disabled"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "10823:40057",
+          "name": "switch-control",
+          "props": [
+            {
+              "name": "size"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10322:34900",
+          "name": "selector",
+          "props": [
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "multiple-placeholder"
+            },
+            {
+              "name": "selected-label-1"
+            },
+            {
+              "name": "selected-label-2"
+            },
+            {
+              "name": "selected-labels"
+            },
+            {
+              "name": "selection"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            },
+            {
+              "name": "status"
+            },
+            {
+              "name": "trigger-display"
+            },
+            {
+              "name": "has-value"
+            },
+            {
+              "name": "is-readonly"
+            }
+          ],
+          "count": 234
+        },
+        {
+          "id": "10388:56854",
+          "name": "radio/radio-list-item",
+          "props": [
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-selected"
+            },
+            {
+              "name": "has-description"
+            },
+            {
+              "name": "is-disabled"
+            }
+          ],
+          "count": 24
+        },
+        {
+          "id": "10388:57047",
+          "name": "radio/radio-list",
+          "props": [
+            {
+              "name": "orientation"
+            },
+            {
+              "name": "size"
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10542:37993",
+          "name": "power-search/trigger",
+          "props": [
+            {
+              "name": "filters"
+            },
+            {
+              "name": "placeholder"
+            },
+            {
+              "name": "query"
+            },
+            {
+              "name": "has-clear"
+            },
+            {
+              "name": "has-result-count"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "content"
+            },
+            {
+              "name": "is-disabled"
+            }
+          ],
+          "count": 6
+        },
+        {
+          "id": "10542:38054",
+          "name": "power-search/popover",
+          "props": [
+            {
+              "name": "content"
+            },
+            {
+              "name": "mode"
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "10322:31820",
+          "name": "date-input",
+          "props": [
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "range-value"
+            },
+            {
+              "name": "mode"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 32
+        },
+        {
+          "id": "10322:32097",
+          "name": "field",
+          "props": [
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "has-label"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "content"
+            },
+            {
+              "name": "type"
+            },
+            {
+              "name": "status"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            },
+            {
+              "name": "is-readonly"
+            }
+          ],
+          "count": 56
+        },
+        {
+          "id": "10322:32134",
+          "name": "field/field-label",
+          "props": [
+            {
+              "name": "has-icon"
+            },
+            {
+              "name": "has-tooltip"
+            },
+            {
+              "name": "indicator"
+            }
+          ],
+          "count": 3
+        },
+        {
+          "id": "11604:9426",
+          "name": "input-base",
+          "props": [
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "has-status-message"
+            },
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "content"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "10542:37522",
+          "name": "calendar",
+          "props": [
+            {
+              "name": "mode"
+            },
+            {
+              "name": "number-of-months"
+            },
+            {
+              "name": "size"
+            }
+          ],
+          "count": 8
+        },
+        {
+          "id": "10542:37927",
+          "name": "calendar/calendar-day",
+          "props": [
+            {
+              "name": "state"
+            },
+            {
+              "name": "is-selected"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-today"
+            },
+            {
+              "name": "is-outside"
+            },
+            {
+              "name": "range-position"
+            },
+            {
+              "name": "size"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "10737:37768",
+          "name": "checkbox/checkbox-input",
+          "props": [
+            {
+              "name": "has-description"
+            },
+            {
+              "name": "has-label"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 24
+        },
+        {
+          "id": "11672:17639",
+          "name": "input-base",
+          "props": [
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "has-status-message"
+            },
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "content"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "11675:31240",
+          "name": "field/field-label-description",
+          "props": [
+            {
+              "name": "has-icon"
+            },
+            {
+              "name": "has-tooltip"
+            },
+            {
+              "name": "label"
+            },
+            {
+              "name": "description"
+            },
+            {
+              "name": "has-description"
+            },
+            {
+              "name": "indicator"
+            }
+          ],
+          "count": 3
+        },
+        {
+          "id": "11672:17551",
+          "name": "field",
+          "props": [
+            {
+              "name": "content"
+            },
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "has-label"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "type"
+            },
+            {
+              "name": "status"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            }
+          ],
+          "count": 48
+        },
+        {
+          "id": "11672:16442",
+          "name": "selector",
+          "props": [
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "mode"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 118
+        },
+        {
+          "id": "11822:18291",
+          "name": "selector/content-text/lg",
+          "props": [
+            {
+              "name": "text"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "11822:18295",
+          "name": "selector/content-count/lg",
+          "props": [
+            {
+              "name": "text"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "11822:18309",
+          "name": "selector/content-badges/lg",
+          "props": [
+            {
+              "name": "item-1"
+            },
+            {
+              "name": "item-2"
+            },
+            {
+              "name": "overflow"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "11822:18319",
+          "name": "selector/leading-icon/lg",
+          "props": [
+            {
+              "name": "icon"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "11822:18325",
+          "name": "selector/content-text/md",
+          "props": [
+            {
+              "name": "text"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "11822:18329",
+          "name": "selector/content-count/md",
+          "props": [
+            {
+              "name": "text"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "11822:18343",
+          "name": "selector/content-badges/md",
+          "props": [
+            {
+              "name": "item-1"
+            },
+            {
+              "name": "item-2"
+            },
+            {
+              "name": "overflow"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "11822:18353",
+          "name": "selector/leading-icon/md",
+          "props": [
+            {
+              "name": "icon"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "11672:17453",
+          "name": "date-input",
+          "props": [
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "range-value"
+            },
+            {
+              "name": "mode"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 32
+        },
+        {
+          "id": "11672:14357",
+          "name": "input-group",
+          "props": [
+            {
+              "name": "description"
+            },
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-description"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "has-label"
+            },
+            {
+              "name": "prefix"
+            },
+            {
+              "name": "suffix"
+            },
+            {
+              "name": "has-prefix"
+            },
+            {
+              "name": "has-suffix"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "time-end-content"
+            },
+            {
+              "name": "has-date-time-icons"
+            },
+            {
+              "name": "date-value"
+            },
+            {
+              "name": "time-value"
+            },
+            {
+              "name": "date-end-content"
+            },
+            {
+              "name": "has-date-time-end-content"
+            },
+            {
+              "name": "date-addon"
+            },
+            {
+              "name": "has-date-addon"
+            },
+            {
+              "name": "time-addon"
+            },
+            {
+              "name": "has-time-addon"
+            },
+            {
+              "name": "mode"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "status"
+            },
+            {
+              "name": "is-loading"
+            }
+          ],
+          "count": 32
+        },
+        {
+          "id": "11672:15647",
+          "name": "typeahead",
+          "props": [
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "status"
+            },
+            {
+              "name": "is-loading"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "11672:15798",
+          "name": "tokenizer",
+          "props": [
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "selected-label-1"
+            },
+            {
+              "name": "selected-label-2"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "status"
+            },
+            {
+              "name": "is-loading"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "11672:15908",
+          "name": "time-input",
+          "props": [
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "11672:16138",
+          "name": "text-area",
+          "props": [
+            {
+              "name": "has-counter"
+            },
+            {
+              "name": "counter-value"
+            },
+            {
+              "name": "description"
+            },
+            {
+              "name": "has-label"
+            },
+            {
+              "name": "has-description"
+            },
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "addon"
+            },
+            {
+              "name": "has-addon"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "11672:15543",
+          "name": "file-input",
+          "props": [
+            {
+              "name": "status-message"
+            },
+            {
+              "name": "has-start-icon"
+            },
+            {
+              "name": "end-content"
+            },
+            {
+              "name": "has-end-content"
+            },
+            {
+              "name": "mode"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "is-disabled"
+            },
+            {
+              "name": "is-loading"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 16
+        },
+        {
+          "id": "11628:9398",
+          "name": "field/field-label-description",
+          "props": [
+            {
+              "name": "has-icon"
+            },
+            {
+              "name": "has-tooltip"
+            },
+            {
+              "name": "label"
+            },
+            {
+              "name": "description"
+            },
+            {
+              "name": "has-description"
+            },
+            {
+              "name": "indicator"
+            }
+          ],
+          "count": 3
+        },
+        {
+          "id": "11659:18099",
+          "name": "number-input-stepper-down",
+          "props": [],
+          "count": 1
+        },
+        {
+          "id": "11659:18138",
+          "name": "input-content/number-steppers",
+          "props": [
+            {
+              "name": "size"
+            },
+            {
+              "name": "is-disabled"
+            }
+          ],
+          "count": 4
+        },
+        {
+          "id": "11730:26906",
+          "name": "input-surface",
+          "props": [
+            {
+              "name": "size"
+            },
+            {
+              "name": "state"
+            },
+            {
+              "name": "status"
+            }
+          ],
+          "count": 12
+        }
+      ]
+    }
+  ]
+}

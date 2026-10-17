@@ -8,6 +8,18 @@ import {minimBaseTokens, minimCompactTokens} from '../minimTokens.generated';
 const px = (value: string) => Number.parseFloat(value) * 16;
 
 describe('Minim advanced component styles', () => {
+  it('matches the Figma chat send and stop button surfaces', () => {
+    expect(minimAdvancedComponents['chat-send-button'].base).toMatchObject({
+      borderRadius: 'var(--minim-radius-element)',
+      ':is(.astryx-button)[data-variant="primary"]': {
+        backgroundColor: 'var(--minim-bg-neutral-solid)',
+        '--astryx-button-disabled-opacity': '0.3',
+      },
+      ':is(.astryx-button)[data-variant="secondary"]': {
+        backgroundColor: 'var(--minim-bg-neutral)',
+      },
+    });
+  });
   it('matches file status glyphs to the large spinner diameter', () => {
     expect(
       minimAdvancedComponents['file-input'].base[

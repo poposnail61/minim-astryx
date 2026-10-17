@@ -4,7 +4,7 @@
 
 /**
  * @file Thumbnail.tsx
- * @input Uses React, stylex, Button, Skeleton, Spinner
+ * @input Uses React, stylex, Button, Icon registry, Skeleton, Spinner
  * @output Exports Thumbnail component, ThumbnailProps
  * @position Core implementation; consumed by index.ts
  *
@@ -249,23 +249,6 @@ const styles = stylex.create({
 });
 
 // =============================================================================
-// Placeholder icon — a simple image silhouette
-// =============================================================================
-
-function ImagePlaceholder() {
-  return (
-    <svg
-      width={24}
-      height={24}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true">
-      <path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2M8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-5.5z" />
-    </svg>
-  );
-}
-
-// =============================================================================
 // Component
 // =============================================================================
 
@@ -366,7 +349,7 @@ export function Thumbnail({
       {showSkeleton && <Skeleton radius={2} />}
       {showPlaceholder && (
         <div {...stylex.props(styles.placeholder)}>
-          <ImagePlaceholder />
+          <Icon icon="thumbnail:placeholder" size="lg" color="inherit" />
         </div>
       )}
     </>

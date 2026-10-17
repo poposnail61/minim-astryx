@@ -18,6 +18,20 @@ import {
 } from './icons';
 
 describe('Minim icon registry', () => {
+  it('uses the existing image-solid glyph for Thumbnail placeholder', () => {
+    const markup = renderToStaticMarkup(
+      <>{minimIconRegistry['thumbnail:placeholder']}</>,
+    );
+    expect(markup).toContain('data-minim-icon="image-solid"');
+    expect(markup).not.toContain('<svg');
+  });
+  it('uses the existing person glyph for Avatar fallback', () => {
+    const markup = renderToStaticMarkup(
+      <>{minimIconRegistry['avatar:default']}</>,
+    );
+    expect(markup).toContain('data-minim-icon="person"');
+    expect(markup).not.toContain('<svg');
+  });
   it('keeps every catalog glyph structurally valid and unique', () => {
     expect(iconCatalog.icons).toHaveLength(186);
 
@@ -86,6 +100,7 @@ describe('Minim icon registry', () => {
       viewColumns: 'view-table',
       checkDouble: 'check',
       wrench: 'setting',
+      microphone: 'headphone',
     });
 
     for (const semanticName of Object.keys(minimSemanticGlyphNames) as Array<
@@ -116,7 +131,7 @@ describe('Minim icon registry', () => {
   });
 
   it('leaves unapproved or unavailable semantic icons unmapped', () => {
-    expect(minimUnmappedIconNames).toEqual(['eyeSlash', 'microphone']);
+    expect(minimUnmappedIconNames).toEqual(['eyeSlash']);
 
     for (const iconName of minimUnmappedIconNames) {
       expect(minimIconRegistry[iconName]).toBeUndefined();

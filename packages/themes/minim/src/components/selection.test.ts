@@ -21,6 +21,23 @@ function segmentedHeight(
 }
 
 describe('Minim selection component styles', () => {
+  it('removes standalone checkbox padding without changing list row padding', () => {
+    for (const size of ['md', 'lg'] as const) {
+      expect(
+        minimSelectionComponents['checkbox-input'][
+          `size:${size}+label:visible`
+        ],
+      ).toMatchObject({
+        minHeight: '0',
+        paddingBlock: '0',
+        '--checkbox-control-height': `var(--minim-typography-line-height-${size})`,
+      });
+      expect(
+        minimSelectionComponents['checkbox-list-item'][`size:${size}`]
+          .paddingBlock,
+      ).not.toBe('0');
+    }
+  });
   it('uses radius/full for both pill surfaces without spacing overrides', () => {
     for (const name of [
       'segmented-control',

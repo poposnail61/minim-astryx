@@ -693,10 +693,13 @@ export function DateRangeInput({
           aria-expanded={popover.isOpen}
           aria-haspopup="dialog"
           aria-controls={popover.isOpen ? popover.id : undefined}
-          {...stylex.props(
-            styles.trigger,
-            !displayValue && styles.triggerPlaceholder,
-            isEffectivelyDisabled && styles.triggerDisabled,
+          {...mergeProps(
+            stylex.props(
+              styles.trigger,
+              !displayValue && styles.triggerPlaceholder,
+              isEffectivelyDisabled && styles.triggerDisabled,
+            ),
+            !displayValue ? stableClassName('input-placeholder') : undefined,
           )}>
           {displayValue || placeholder}
         </button>

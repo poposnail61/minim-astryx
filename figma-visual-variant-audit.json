@@ -1,0 +1,1166 @@
+{
+  "date": "2026-10-17",
+  "complete": false,
+  "scope": "Remaining variants after property migration",
+  "method": "Screenshots of real instances in Base and Compact; not equivalent to full code visual parity verification.",
+  "exceptions": [
+    "Item compact/balanced/spacious retained as requested."
+  ],
+  "fixes": [
+    {
+      "set": "8464:32640",
+      "issue": "Disabled parent did not disable inner items",
+      "nodes": [
+        "8490:33542",
+        "8490:33543",
+        "8490:33544",
+        "8490:33546",
+        "8490:33547",
+        "8490:33548",
+        "11550:31484",
+        "11550:31485",
+        "11550:31486",
+        "11550:31566",
+        "11550:31567",
+        "11550:31568"
+      ]
+    },
+    {
+      "set": "10794:31510",
+      "issue": "Disabled variant slot frames restored to real slots",
+      "nodes": [
+        "12015:810",
+        "12015:811",
+        "12015:812"
+      ]
+    },
+    {
+      "sets": [
+        "8464:29488",
+        "8464:29496"
+      ],
+      "issue": "Checked row missing selected background",
+      "nodes": [
+        "10896:3946",
+        "11517:4070",
+        "10896:27267",
+        "11517:4122"
+      ]
+    },
+    {
+      "set": "11672:17639",
+      "issue": "MD loading spinner duplicate vertical inset caused 40/30px input height; now 36/28px",
+      "nodes": [
+        "11672:17733",
+        "11860:34650"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "10794:31473",
+      "name": "chat/chat-message-bubble",
+      "count": 4,
+      "w": 462,
+      "h": 252,
+      "page": "Chat",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10794-31473"
+    },
+    {
+      "id": "10794:31482",
+      "name": "chat/chat-message-metadata",
+      "count": 6,
+      "w": 164,
+      "h": 218,
+      "page": "Chat",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10794-31482"
+    },
+    {
+      "id": "10794:31510",
+      "name": "chat/chat-composer",
+      "count": 4,
+      "w": 512,
+      "h": 532,
+      "page": "Chat",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10794-31510"
+    },
+    {
+      "id": "10794:31635",
+      "name": "chat/chat-system-message",
+      "count": 2,
+      "w": 432,
+      "h": 88,
+      "page": "Chat",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10794-31635"
+    },
+    {
+      "id": "10794:31642",
+      "name": "chat/chat-message",
+      "count": 2,
+      "w": 472,
+      "h": 226,
+      "page": "Chat",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10794-31642"
+    },
+    {
+      "id": "10794:31659",
+      "name": "chat/chat-send-button",
+      "count": 6,
+      "w": 392,
+      "h": 76,
+      "page": "Chat",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10794-31659"
+    },
+    {
+      "id": "10794:31672",
+      "name": "chat/chat-dictation-button",
+      "count": 4,
+      "w": 264,
+      "h": 78,
+      "page": "Chat",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10794-31672"
+    },
+    {
+      "id": "10794:31702",
+      "name": "chat/chat-tool-calls",
+      "count": 8,
+      "w": 1480,
+      "h": 206,
+      "page": "Chat",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10794-31702"
+    },
+    {
+      "id": "10794:31883",
+      "name": "chat/chat-composer-token-element",
+      "count": 4,
+      "w": 152,
+      "h": 160,
+      "page": "Chat",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10794-31883"
+    },
+    {
+      "id": "10794:31892",
+      "name": "chat/chat-layout-scroll-button",
+      "count": 2,
+      "w": 255,
+      "h": 68,
+      "page": "Chat",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10794-31892"
+    },
+    {
+      "id": "10794:31897",
+      "name": "chat/chat-composer-input",
+      "count": 4,
+      "w": 352,
+      "h": 244,
+      "page": "Chat",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10794-31897"
+    },
+    {
+      "id": "10794:31913",
+      "name": "chat/chat-composer-drawer",
+      "count": 2,
+      "w": 412,
+      "h": 184,
+      "page": "Chat",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10794-31913"
+    },
+    {
+      "id": "10653:22349",
+      "name": "selectable-card",
+      "count": 24,
+      "w": 1120,
+      "h": 1272,
+      "page": "Container",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-22349"
+    },
+    {
+      "id": "10653:22204",
+      "name": "clickable-card",
+      "count": 20,
+      "w": 360,
+      "h": 2984,
+      "page": "Container",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-22204"
+    },
+    {
+      "id": "10653:22049",
+      "name": "collapsible",
+      "count": 4,
+      "w": 720,
+      "h": 304,
+      "page": "Container",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-22049"
+    },
+    {
+      "id": "10653:21889",
+      "name": "card",
+      "count": 16,
+      "w": 320,
+      "h": 2360,
+      "page": "Container",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-21889"
+    },
+    {
+      "id": "10481:30669",
+      "name": "token",
+      "count": 48,
+      "w": 418,
+      "h": 784,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10481-30669"
+    },
+    {
+      "id": "10481:30498",
+      "name": "timestamp",
+      "count": 32,
+      "w": 179,
+      "h": 928,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10481-30498"
+    },
+    {
+      "id": "10481:30392",
+      "name": "thumbnail",
+      "count": 5,
+      "w": 464,
+      "h": 112,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10481-30392"
+    },
+    {
+      "id": "10481:30317",
+      "name": "text",
+      "count": 2,
+      "w": 1320,
+      "h": 108,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10481-30317"
+    },
+    {
+      "id": "10481:30054",
+      "name": "markdown",
+      "count": 2,
+      "w": 1320,
+      "h": 1213,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10481-30054"
+    },
+    {
+      "id": "8397:9731",
+      "name": "kbd",
+      "count": 4,
+      "w": 372,
+      "h": 60,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=8397-9731"
+    },
+    {
+      "id": "10481:29875",
+      "name": "heading",
+      "count": 4,
+      "w": 421,
+      "h": 667,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10481-29875"
+    },
+    {
+      "id": "10481:29816",
+      "name": "empty-state",
+      "count": 2,
+      "w": 1000,
+      "h": 220,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10481-29816"
+    },
+    {
+      "id": "10481:29684",
+      "name": "code-block",
+      "count": 2,
+      "w": 1160,
+      "h": 472,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10481-29684"
+    },
+    {
+      "id": "10481:29620",
+      "name": "code",
+      "count": 3,
+      "w": 392,
+      "h": 20,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10481-29620"
+    },
+    {
+      "id": "10481:29534",
+      "name": "citation",
+      "count": 2,
+      "w": 148,
+      "h": 112,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10481-29534"
+    },
+    {
+      "id": "10481:29146",
+      "name": "avatar",
+      "count": 60,
+      "w": 1320,
+      "h": 552,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10481-29146"
+    },
+    {
+      "id": "10481:29422",
+      "name": "avatar/avatar-status-dot",
+      "count": 9,
+      "w": 122,
+      "h": 156,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10481-29422"
+    },
+    {
+      "id": "10481:29438",
+      "name": "avatar-group",
+      "count": 15,
+      "w": 396,
+      "h": 504,
+      "page": "Content",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10481-29438"
+    },
+    {
+      "id": "11675:31240",
+      "name": "field/field-label-description",
+      "count": 3,
+      "w": 1320,
+      "h": 200,
+      "page": "Data Input",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=11675-31240"
+    },
+    {
+      "id": "11672:17639",
+      "name": "input-base",
+      "count": 40,
+      "w": 1360,
+      "h": 2540,
+      "page": "Data Input",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=11672-17639"
+    },
+    {
+      "id": "11672:17551",
+      "name": "input",
+      "count": 12,
+      "w": 1040,
+      "h": 1320,
+      "page": "Data Input",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=11672-17551"
+    },
+    {
+      "id": "11672:14357",
+      "name": "input-group",
+      "count": 2,
+      "w": 1320,
+      "h": 248,
+      "page": "Data Input",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=11672-14357"
+    },
+    {
+      "id": "11672:15543",
+      "name": "file-input",
+      "count": 2,
+      "w": 1320,
+      "h": 302,
+      "page": "Data Input",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=11672-15543"
+    },
+    {
+      "id": "10737:37768",
+      "name": "checkbox/checkbox-input",
+      "count": 24,
+      "w": 1320,
+      "h": 1116,
+      "page": "Data Input",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10737-37768"
+    },
+    {
+      "id": "10388:57120",
+      "name": "checkbox/checkbox-list",
+      "count": 4,
+      "w": 1472,
+      "h": 532,
+      "page": "Data Input",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10388-57120"
+    },
+    {
+      "id": "10388:57149",
+      "name": "checkbox/checkbox-list-item",
+      "count": 16,
+      "w": 1472,
+      "h": 1718,
+      "page": "Data Input",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10388-57149"
+    },
+    {
+      "id": "10388:56854",
+      "name": "radio/radio-list-item",
+      "count": 16,
+      "w": 1320,
+      "h": 1718,
+      "page": "Data Input",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10388-56854"
+    },
+    {
+      "id": "10388:57047",
+      "name": "radio/radio-list",
+      "count": 4,
+      "w": 1320,
+      "h": 532,
+      "page": "Data Input",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10388-57047"
+    },
+    {
+      "id": "10542:38124",
+      "name": "switch",
+      "count": 28,
+      "w": 1472,
+      "h": 1430,
+      "page": "Data Input",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10542-38124"
+    },
+    {
+      "id": "10823:40057",
+      "name": "switch-control",
+      "count": 4,
+      "w": 1472,
+      "h": 300,
+      "page": "Data Input",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10823-40057"
+    },
+    {
+      "id": "10542:38446",
+      "name": "slider",
+      "count": 14,
+      "w": 1472,
+      "h": 924,
+      "page": "Data Input",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10542-38446"
+    },
+    {
+      "id": "10542:37993",
+      "name": "power-search/trigger",
+      "count": 17,
+      "w": 1368,
+      "h": 2768,
+      "page": "Data Input",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10542-37993"
+    },
+    {
+      "id": "10542:38054",
+      "name": "power-search/popover",
+      "count": 4,
+      "w": 1320,
+      "h": 1180,
+      "page": "Data Input",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10542-38054"
+    },
+    {
+      "id": "10542:37522",
+      "name": "calendar",
+      "count": 8,
+      "w": 1320,
+      "h": 3740,
+      "page": "Data Input",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10542-37522"
+    },
+    {
+      "id": "10542:37927",
+      "name": "calendar/calendar-day",
+      "count": 16,
+      "w": 1320,
+      "h": 844,
+      "page": "Data Input",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10542-37927"
+    },
+    {
+      "id": "10653:17760",
+      "name": "status-dot",
+      "count": 8,
+      "w": 136,
+      "h": 232,
+      "page": "Feedback",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-17760"
+    },
+    {
+      "id": "8406:14972",
+      "name": "spinner",
+      "count": 6,
+      "w": 1320,
+      "h": 336,
+      "page": "Feedback",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=8406-14972"
+    },
+    {
+      "id": "10653:17592",
+      "name": "skeleton",
+      "count": 7,
+      "w": 1320,
+      "h": 360,
+      "page": "Feedback",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-17592"
+    },
+    {
+      "id": "10653:17470",
+      "name": "progress-bar",
+      "count": 8,
+      "w": 334,
+      "h": 322,
+      "page": "Feedback",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-17470"
+    },
+    {
+      "id": "10653:17320",
+      "name": "banner",
+      "count": 8,
+      "w": 1032,
+      "h": 752,
+      "page": "Feedback",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-17320"
+    },
+    {
+      "id": "8406:25250",
+      "name": "badge",
+      "count": 24,
+      "w": 1320,
+      "h": 520,
+      "page": "Feedback",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=8406-25250"
+    },
+    {
+      "id": "10653:25347",
+      "name": "resize-handle",
+      "count": 12,
+      "w": 239,
+      "h": 1070,
+      "page": "Layout",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-25347"
+    },
+    {
+      "id": "10653:25306",
+      "name": "layout/section",
+      "count": 3,
+      "w": 432,
+      "h": 196,
+      "page": "Layout",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-25306"
+    },
+    {
+      "id": "10653:25212",
+      "name": "layout/form-layout",
+      "count": 3,
+      "w": 560,
+      "h": 624,
+      "page": "Layout",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-25212"
+    },
+    {
+      "id": "10653:25124",
+      "name": "divider",
+      "count": 8,
+      "w": 432,
+      "h": 386,
+      "page": "Layout",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-25124"
+    },
+    {
+      "id": "10653:25044",
+      "name": "aspect-ratio",
+      "count": 3,
+      "w": 376,
+      "h": 699,
+      "page": "Layout",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-25044"
+    },
+    {
+      "id": "10653:24881",
+      "name": "app-shell",
+      "count": 16,
+      "w": 4248,
+      "h": 3957,
+      "page": "Layout",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-24881"
+    },
+    {
+      "id": "10653:32002",
+      "name": "navigation/top-nav-mega-menu",
+      "count": 2,
+      "w": 960,
+      "h": 464,
+      "page": "Navigation",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-32002"
+    },
+    {
+      "id": "10653:32027",
+      "name": "navigation/top-nav-menu",
+      "count": 2,
+      "w": 348,
+      "h": 398,
+      "page": "Navigation",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-32027"
+    },
+    {
+      "id": "10653:31706",
+      "name": "tabs/tab-list",
+      "count": 4,
+      "w": 450,
+      "h": 144,
+      "page": "Navigation",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-31706"
+    },
+    {
+      "id": "10653:31737",
+      "name": "tabs/tab",
+      "count": 6,
+      "w": 500,
+      "h": 84,
+      "page": "Navigation",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-31737"
+    },
+    {
+      "id": "10653:31427",
+      "name": "navigation/side-nav",
+      "count": 2,
+      "w": 388,
+      "h": 1080,
+      "page": "Navigation",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-31427"
+    },
+    {
+      "id": "10653:31595",
+      "name": "navigation/side-nav-heading",
+      "count": 2,
+      "w": 574,
+      "h": 52,
+      "page": "Navigation",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-31595"
+    },
+    {
+      "id": "10653:31620",
+      "name": "navigation/side-nav-collapse-button",
+      "count": 2,
+      "w": 96,
+      "h": 32,
+      "page": "Navigation",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-31620"
+    },
+    {
+      "id": "10653:31278",
+      "name": "pagination",
+      "count": 10,
+      "w": 344,
+      "h": 736,
+      "page": "Navigation",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-31278"
+    },
+    {
+      "id": "10653:31120",
+      "name": "outline-item",
+      "count": 16,
+      "w": 240,
+      "h": 752,
+      "page": "Navigation",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-31120"
+    },
+    {
+      "id": "10653:30913",
+      "name": "navigation/mobile-nav",
+      "count": 2,
+      "w": 820,
+      "h": 852,
+      "page": "Navigation",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-30913"
+    },
+    {
+      "id": "10653:30964",
+      "name": "navigation/mobile-nav-toggle",
+      "count": 2,
+      "w": 32,
+      "h": 96,
+      "page": "Navigation",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-30964"
+    },
+    {
+      "id": "10653:30746",
+      "name": "breadcrumbs/breadcrumb-item",
+      "count": 12,
+      "w": 152,
+      "h": 472,
+      "page": "Navigation",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-30746"
+    },
+    {
+      "id": "10653:30813",
+      "name": "breadcrumbs",
+      "count": 2,
+      "w": 417,
+      "h": 100,
+      "page": "Navigation",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-30813"
+    },
+    {
+      "id": "10653:38121",
+      "name": "overlay",
+      "count": 9,
+      "w": 1120,
+      "h": 760,
+      "page": "Overlay",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-38121"
+    },
+    {
+      "id": "10653:37821",
+      "name": "toast",
+      "count": 2,
+      "w": 360,
+      "h": 108,
+      "page": "Overlay",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-37821"
+    },
+    {
+      "id": "10653:37570",
+      "name": "dialog",
+      "count": 2,
+      "w": 880,
+      "h": 544,
+      "page": "Overlay",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-37570"
+    },
+    {
+      "id": "10653:43381",
+      "name": "item",
+      "count": 6,
+      "w": 320,
+      "h": 817,
+      "page": "Table",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-43381"
+    },
+    {
+      "id": "10653:43126",
+      "name": "tree-list/tree-list-item",
+      "count": 9,
+      "w": 308,
+      "h": 500,
+      "page": "Table",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-43126"
+    },
+    {
+      "id": "10653:43219",
+      "name": "tree-list",
+      "count": 2,
+      "w": 320,
+      "h": 916,
+      "page": "Table",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-43219"
+    },
+    {
+      "id": "10653:42874",
+      "name": "table-header-cell",
+      "count": 6,
+      "w": 640,
+      "h": 308,
+      "page": "Table",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-42874"
+    },
+    {
+      "id": "10653:42947",
+      "name": "table-cell",
+      "count": 6,
+      "w": 640,
+      "h": 308,
+      "page": "Table",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-42947"
+    },
+    {
+      "id": "10653:41599",
+      "name": "overflow-list",
+      "count": 4,
+      "w": 372,
+      "h": 192,
+      "page": "Table",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-41599"
+    },
+    {
+      "id": "10653:41481",
+      "name": "metadata-list",
+      "count": 8,
+      "w": 1320,
+      "h": 784,
+      "page": "Table",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-41481"
+    },
+    {
+      "id": "10653:41542",
+      "name": "metadata-list/metadata-list-item",
+      "count": 2,
+      "w": 332,
+      "h": 122,
+      "page": "Table",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-41542"
+    },
+    {
+      "id": "10653:41266",
+      "name": "list/list-item",
+      "count": 8,
+      "w": 1340,
+      "h": 208,
+      "page": "Table",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10653-41266"
+    },
+    {
+      "id": "7959:17331",
+      "name": "image-content",
+      "count": 6,
+      "w": 588,
+      "h": 320,
+      "page": "Shared",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=7959-17331"
+    },
+    {
+      "id": "7959:17383",
+      "name": "person-content",
+      "count": 6,
+      "w": 588,
+      "h": 180,
+      "page": "Shared",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=7959-17383"
+    },
+    {
+      "id": "7959:17408",
+      "name": "multi-person-content",
+      "count": 1,
+      "w": 144,
+      "h": 112,
+      "page": "Shared",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=7959-17408"
+    },
+    {
+      "id": "7959:17426",
+      "name": "slot-label-content",
+      "count": 24,
+      "w": 818,
+      "h": 342,
+      "page": "Shared",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=7959-17426"
+    },
+    {
+      "id": "7962:28640",
+      "name": "slot-icon-content",
+      "count": 8,
+      "w": 282,
+      "h": 172,
+      "page": "Shared",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=7962-28640"
+    },
+    {
+      "id": "7959:17464",
+      "name": "slot-checkbox-content",
+      "count": 48,
+      "w": 1520,
+      "h": 244,
+      "page": "Shared",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=7959-17464"
+    },
+    {
+      "id": "10318:15594",
+      "name": "slot-radio-content",
+      "count": 32,
+      "w": 1028,
+      "h": 244,
+      "page": "Shared",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10318-15594"
+    },
+    {
+      "id": "7959:17459",
+      "name": "slot-image-content",
+      "count": 2,
+      "w": 109,
+      "h": 162,
+      "page": "Shared",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=7959-17459"
+    },
+    {
+      "id": "7959:17481",
+      "name": "slot-button-group",
+      "count": 2,
+      "w": 496,
+      "h": 401,
+      "page": "Shared",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=7959-17481"
+    },
+    {
+      "id": "7959:17492",
+      "name": "description-content",
+      "count": 1,
+      "w": 380,
+      "h": 96,
+      "page": "Shared",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=7959-17492"
+    },
+    {
+      "id": "10918:221",
+      "name": "card-surface",
+      "count": 5,
+      "w": 368,
+      "h": 698,
+      "page": "Shared",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10918-221"
+    },
+    {
+      "id": "10790:29417",
+      "name": "toolbar",
+      "count": 12,
+      "w": 1094,
+      "h": 1504,
+      "page": "Action",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10790-29417"
+    },
+    {
+      "id": "8400:13980",
+      "name": "action/button-group",
+      "count": 12,
+      "w": 1320,
+      "h": 562,
+      "page": "Action",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=8400-13980"
+    },
+    {
+      "id": "8406:27972",
+      "name": "context-menu",
+      "count": 2,
+      "w": 320,
+      "h": 606,
+      "page": "Action",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=8406-27972"
+    },
+    {
+      "id": "8406:27695",
+      "name": "menu-item",
+      "count": 16,
+      "w": 1080,
+      "h": 651,
+      "page": "Action",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=8406-27695"
+    },
+    {
+      "id": "8464:29488",
+      "name": "menu-checkbox-item",
+      "count": 4,
+      "w": 280,
+      "h": 400,
+      "page": "Action",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=8464-29488"
+    },
+    {
+      "id": "8464:29496",
+      "name": "menu-radio-item",
+      "count": 4,
+      "w": 280,
+      "h": 400,
+      "page": "Action",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=8464-29496"
+    },
+    {
+      "id": "10301:18822",
+      "name": "menu-divider",
+      "count": 2,
+      "w": 306,
+      "h": 150,
+      "page": "Action",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10301-18822"
+    },
+    {
+      "id": "10794:30460",
+      "name": "dropdown-menu",
+      "count": 48,
+      "w": 825,
+      "h": 3740,
+      "page": "Action",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10794-30460"
+    },
+    {
+      "id": "8406:23379",
+      "name": "button/toggle-button",
+      "count": 16,
+      "w": 1320,
+      "h": 360,
+      "page": "Action",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=8406-23379"
+    },
+    {
+      "id": "8464:32640",
+      "name": "segmented-control",
+      "count": 8,
+      "w": 706,
+      "h": 400,
+      "page": "Action",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=8464-32640"
+    },
+    {
+      "id": "8464:32785",
+      "name": "segmented-control/segmented-control-item",
+      "count": 40,
+      "w": 1115,
+      "h": 384,
+      "page": "Action",
+      "visualStatus": "base-compact-instances-reviewed",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=8464-32785"
+    },
+    {
+      "id": "8406:24297",
+      "name": "link",
+      "count": 36,
+      "w": 1320,
+      "h": 400,
+      "page": "Action",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=8406-24297"
+    },
+    {
+      "id": "8400:9742",
+      "name": "button",
+      "count": 504,
+      "w": 1320,
+      "h": 7136,
+      "page": "Action",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=8400-9742"
+    },
+    {
+      "id": "10737:38548",
+      "name": "more-menu",
+      "count": 32,
+      "w": 1024,
+      "h": 936,
+      "page": "Action",
+      "visualStatus": "pending",
+      "url": "https://www.figma.com/design/mHcauYaYWK3floQNsfolz6/Minim-Astryx?node-id=10737-38548"
+    }
+  ],
+  "browser": {
+    "status": "partial",
+    "focusedTests": "6 passed: desktop/mobile calendar geometry, joined button corners, density persistence. Full page suite not passed.",
+    "fullComponentPageSuite": "Interrupted: repeated navigation/option interaction stalls. Do not count as passed.",
+    "screenshotsViewed": [
+      "desktop-compact-CheckboxInput",
+      "desktop-compact-TextInput"
+    ],
+    "notes": "Figma screenshots reviewed separately from browser parity. Many states remain unmatched visually to code."
+  },
+  "summary": {
+    "reviewedSets": 30,
+    "reviewedVariants": 298,
+    "pendingSets": 79
+  }
+}

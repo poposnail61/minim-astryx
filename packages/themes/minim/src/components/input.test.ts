@@ -6,6 +6,34 @@ import {minimInputComponents} from './input';
 import {minimBaseTokens, minimCompactTokens} from '../minimTokens.generated';
 
 describe('Minim input component styles', () => {
+  it('shares neutral success borders across input families without losing focus', () => {
+    const success = minimInputComponents['text-input']['status:success'];
+    for (const name of [
+      'number-input',
+      'date-input',
+      'time-input',
+      'date-range-input',
+      'selector',
+      'typeahead',
+      'tokenizer',
+      'text-area',
+      'date-time-input-date-segment',
+      'date-time-input-time-segment',
+    ] as const) {
+      expect(minimInputComponents[name]['status:success']).toEqual(success);
+    }
+    expect(
+      minimInputComponents['multi-selector']['variant:input+status:success'],
+    ).toEqual(success);
+    expect(success.outlineColor).toBe('var(--minim-stroke-neutral)');
+    expect(success[':focus-within'].outlineColor).toBe(
+      'var(--minim-stroke-neutral-strong)',
+    );
+    expect(
+      minimInputComponents['input-status-icon']['status:success'].color,
+    ).toBe('var(--minim-fg-primary)');
+  });
+
   it('shares the disabled DateInput surface and keeps field labels readable', () => {
     for (const name of [
       'text-input',
@@ -140,8 +168,16 @@ describe('Minim input component styles', () => {
       boxShadow: 'inset 0 0 0 1px var(--minim-stroke-warning)',
     });
     expect(minimInputComponents['text-input']['status:success']).toMatchObject({
-      outlineColor: 'var(--minim-stroke-primary)',
-      boxShadow: 'inset 0 0 0 1px var(--minim-stroke-primary)',
+      outlineColor: 'var(--minim-stroke-neutral)',
+      boxShadow: 'inset 0 0 0 1px var(--minim-stroke-neutral)',
+      ':hover:not(:focus-within):where(:not(:disabled,[aria-disabled="true"]))':
+        {
+          boxShadow: 'inset 0 0 0 1px var(--minim-stroke-neutral)',
+        },
+      ':focus-within': {
+        outlineColor: 'var(--minim-stroke-neutral-strong)',
+        boxShadow: 'inset 0 0 0 1px var(--minim-stroke-neutral-strong)',
+      },
     });
     expect(
       minimInputComponents['text-input']['disabled:disabled'],
@@ -158,6 +194,38 @@ describe('Minim input component styles', () => {
 
   it('uses the Figma placeholder token for editable text inputs', () => {
     expect(
+      minimInputComponents['number-input-control'].base['::placeholder'],
+    ).toEqual({color: 'var(--minim-fg-placeholder)'});
+    for (const key of [
+      'text-input',
+      'number-input',
+      'date-input',
+      'time-input',
+      'date-range-input',
+      'selector',
+      'typeahead',
+      'tokenizer',
+    ] as const) {
+      expect(
+        minimInputComponents[key].base[
+          ':is(*) input::placeholder, :is(*) textarea::placeholder'
+        ],
+      ).toEqual({color: 'var(--minim-fg-placeholder)'});
+      expect(
+        minimInputComponents[key].base[':is(*) .astryx-input-placeholder'],
+      ).toEqual({color: 'var(--minim-fg-placeholder)'});
+      expect(
+        minimInputComponents[key]['disabled:disabled'][
+          ':is(*) .astryx-input-placeholder'
+        ],
+      ).toEqual({color: 'var(--minim-fg-neutral)'});
+    }
+    expect(
+      minimInputComponents['multi-selector']['variant:input'][
+        ':is(*) .astryx-input-placeholder'
+      ],
+    ).toEqual({color: 'var(--minim-fg-placeholder)'});
+    expect(
       minimInputComponents['text-input-control'].base['::placeholder'],
     ).toEqual({color: 'var(--minim-fg-placeholder)'});
     expect(
@@ -170,7 +238,7 @@ describe('Minim input component styles', () => {
     ).toEqual({color: 'var(--minim-fg-neutral)'});
   });
 
-  it('uses density-aware XS attached status geometry only', () => {
+  it('uses density-aware XS status geometry for both message layouts', () => {
     expect(
       minimInputComponents['field-status']['variant:attached'],
     ).toMatchObject({
@@ -182,9 +250,13 @@ describe('Minim input component styles', () => {
       padding: 'var(--minim-spacing-200)',
       paddingInline: 'var(--minim-spacing-300)',
     });
-    expect(minimInputComponents['field-status']).not.toHaveProperty(
-      'variant:detached',
-    );
+    expect(minimInputComponents['field-status']['variant:detached']).toEqual({
+      '--minim-icon-box-size': 'var(--minim-typography-line-height-xs)',
+      padding: 'var(--minim-spacing-200)',
+      paddingInline: 'var(--minim-spacing-300)',
+      fontSize: 'var(--minim-typography-font-size-xs)',
+      lineHeight: 'var(--minim-typography-line-height-xs)',
+    });
   });
 
   it('uses primary blue for attached and detached success messages', () => {

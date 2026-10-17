@@ -81,8 +81,18 @@ export const minimSelectionComponents = {
     },
   },
   'checkbox-input': {
-    'size:md+label:visible': selectionRow('medium', 'md'),
-    'size:lg+label:visible': selectionRow('large', 'lg'),
+    'size:md+label:visible': {
+      ...selectionRow('medium', 'md'),
+      minHeight: '0',
+      paddingBlock: '0',
+      '--checkbox-control-height': minim('typography-line-height-md'),
+    },
+    'size:lg+label:visible': {
+      ...selectionRow('large', 'lg'),
+      minHeight: '0',
+      paddingBlock: '0',
+      '--checkbox-control-height': minim('typography-line-height-lg'),
+    },
   },
   'checkbox-list-content': {
     base: {gap: minim('spacing-200')},

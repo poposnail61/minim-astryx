@@ -21,9 +21,14 @@ const disabledInput = {
     color: minim('fg-neutral'),
   },
   ':is(*) .astryx-token': {opacity: '1'},
+  ':is(*) .astryx-input-placeholder': {color: minim('fg-neutral')},
 } as const;
 
 const inputBase = {
+  ':is(*) input::placeholder, :is(*) textarea::placeholder': {
+    color: minim('fg-placeholder'),
+  },
+  ':is(*) .astryx-input-placeholder': {color: minim('fg-placeholder')},
   gap: minim('spacing-200'),
   paddingBlock: minim('component-medium-padding-block'),
   paddingInline: minim('spacing-300'),
@@ -92,14 +97,15 @@ const inputStyles = {
     },
   },
   'status:success': {
-    outlineColor: minim('stroke-primary'),
-    boxShadow: 'inset 0 0 0 1px ' + minim('stroke-primary'),
+    // Success is conveyed by the blue icon/message, not an accent border.
+    outlineColor: minim('stroke-neutral'),
+    boxShadow: 'inset 0 0 0 1px ' + minim('stroke-neutral'),
     ':hover:not(:focus-within):where(:not(:disabled,[aria-disabled="true"]))': {
-      boxShadow: 'inset 0 0 0 1px ' + minim('stroke-primary'),
+      boxShadow: 'inset 0 0 0 1px ' + minim('stroke-neutral'),
     },
     ':focus-within': {
-      outlineColor: minim('stroke-primary'),
-      boxShadow: 'inset 0 0 0 1px ' + minim('stroke-primary'),
+      outlineColor: minim('stroke-neutral-strong'),
+      boxShadow: 'inset 0 0 0 1px ' + minim('stroke-neutral-strong'),
     },
   },
   'disabled:disabled': disabledInput,
@@ -164,6 +170,7 @@ const multiSelectorStyles = {
 const controlStyles = {
   base: {
     boxSizing: 'border-box',
+    '::placeholder': {color: minim('fg-placeholder')},
     ':is([readonly]):not(:disabled,[aria-disabled="true"])': {
       color: minim('fg-readonly'),
     },
@@ -407,6 +414,13 @@ export const minimInputComponents = {
     },
   },
   'field-status': {
+    'variant:detached': {
+      '--minim-icon-box-size': minim('typography-line-height-xs'),
+      padding: minim('spacing-200'),
+      paddingInline: minim('spacing-300'),
+      fontSize: minim('typography-font-size-xs'),
+      lineHeight: minim('typography-line-height-xs'),
+    },
     'variant:attached': {
       boxSizing: 'border-box',
       minHeight:

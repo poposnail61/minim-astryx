@@ -7,8 +7,37 @@ import userEvent from '@testing-library/user-event';
 import {Avatar} from './Avatar';
 import {AvatarStatusDot} from './AvatarStatusDot';
 import {AvatarGroup} from '../AvatarGroup';
+import {Theme} from '../theme/Theme';
+import {defineTheme} from '../theme/defineTheme';
 
 describe('Avatar', () => {
+  it('uses the theme person icon without changing initials or the default fallback', () => {
+    const theme = defineTheme({
+      name: 'avatar-icon-test',
+      icons: {
+        'avatar:default': (
+          <span aria-hidden="true" data-testid="themed-person" />
+        ),
+      },
+    });
+    const {rerender} = render(
+      <Theme theme={theme}>
+        <Avatar />
+      </Theme>,
+    );
+    expect(screen.getByTestId('themed-person')).toBeInTheDocument();
+    rerender(
+      <Theme theme={theme}>
+        <Avatar name="Ada Lovelace" />
+      </Theme>,
+    );
+    expect(screen.queryByTestId('themed-person')).not.toBeInTheDocument();
+    expect(screen.getByText('AL')).toBeInTheDocument();
+    rerender(<Avatar />);
+    expect(
+      document.querySelector('.astryx-avatar-fallback svg'),
+    ).not.toBeNull();
+  });
   it('exposes role="img" with the name as accessible name', () => {
     render(<Avatar name="Ada Lovelace" data-testid="a" />);
     expect(screen.getByRole('img', {name: 'Ada Lovelace'})).toBeInTheDocument();

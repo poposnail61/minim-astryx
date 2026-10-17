@@ -4,6 +4,20 @@ import {describe, expect, it} from 'vitest';
 import {minimCollectionComponents as components} from './collections';
 
 describe('Collection density sizing', () => {
+  it('uses disabled foreground for tree labels and icons without double dimming', () => {
+    const rules = components['tree-list-item']['disabled:disabled'];
+    expect(rules.opacity).toBe('1');
+    for (const property of [
+      'color',
+      '--color-text-primary',
+      '--color-text-secondary',
+      '--color-icon-primary',
+      '--color-icon-secondary',
+    ] as const) {
+      expect(rules[property]).toBe('var(--minim-fg-disabled)');
+    }
+  });
+
   it('uses shared slot metrics for both ListItem sizes', () => {
     for (const [size, name] of [
       ['md', 'medium'],

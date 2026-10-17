@@ -626,6 +626,49 @@ describe('BreadcrumbItem menu', () => {
     });
   });
 
+  it('cancels deferred menu focus when dismissed before the next frame', async () => {
+    const frames = new Map<number, FrameRequestCallback>();
+    let nextId = 0;
+    const request = vi
+      .spyOn(globalThis, 'requestAnimationFrame')
+      .mockImplementation(callback => {
+        frames.set(++nextId, callback);
+        return nextId;
+      });
+    const cancel = vi
+      .spyOn(globalThis, 'cancelAnimationFrame')
+      .mockImplementation(id => {
+        frames.delete(id);
+      });
+    try {
+      render(
+        <>
+          <Breadcrumbs>
+            <BreadcrumbItem menu={items}>Teams</BreadcrumbItem>
+          </Breadcrumbs>
+          <button type="button">Outside action</button>
+        </>,
+      );
+      fireEvent.click(screen.getByRole('button', {name: 'Teams'}));
+      const menu = screen.getByRole('menu', {hidden: true});
+      const outside = screen.getByRole('button', {name: 'Outside action'});
+      outside.focus();
+      await act(async () => {
+        (menu.closest('[popover]') as HTMLElement).hidePopover();
+      });
+      await act(async () => {
+        const pending = [...frames.values()];
+        frames.clear();
+        pending.forEach(callback => callback(0));
+      });
+      expect(cancel).toHaveBeenCalled();
+      expect(outside).toHaveFocus();
+    } finally {
+      request.mockRestore();
+      cancel.mockRestore();
+    }
+  });
+
   it('roves focus with ArrowDown across items', async () => {
     render(
       <Breadcrumbs>

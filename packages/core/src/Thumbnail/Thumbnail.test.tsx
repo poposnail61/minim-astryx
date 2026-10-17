@@ -4,8 +4,32 @@ import {describe, it, expect, vi} from 'vitest';
 import {render, screen, fireEvent} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {Thumbnail} from './Thumbnail';
+import {Theme} from '../theme/Theme';
+import {defineTheme} from '../theme/defineTheme';
 
 describe('Thumbnail', () => {
+  it('uses the theme image icon only for the placeholder state', () => {
+    const theme = defineTheme({
+      name: 'thumbnail-icon-test',
+      icons: {
+        'thumbnail:placeholder': (
+          <span data-testid="themed-image" aria-hidden="true" />
+        ),
+      },
+    });
+    const {rerender} = render(
+      <Theme theme={theme}>
+        <Thumbnail />
+      </Theme>,
+    );
+    expect(screen.getByTestId('themed-image')).toBeInTheDocument();
+    rerender(
+      <Theme theme={theme}>
+        <Thumbnail isLoading />
+      </Theme>,
+    );
+    expect(screen.queryByTestId('themed-image')).not.toBeInTheDocument();
+  });
   it('renders an image when src is provided', () => {
     render(<Thumbnail src="/photo.jpg" alt="Test photo" />);
     const img = screen.getByRole('img');

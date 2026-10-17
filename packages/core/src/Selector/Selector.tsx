@@ -1607,7 +1607,11 @@ export function Selector<T extends SelectorOptionType>(
         {!startIcon &&
           selectedItem?.icon != null &&
           renderIconSlot(selectedItem.icon, {size: 'sm', color: 'secondary'})}
-        <span {...stylex.props(styles.triggerLabel)}>
+        <span
+          {...mergeProps(
+            stylex.props(styles.triggerLabel),
+            !selectedItem ? stableClassName('input-placeholder') : undefined,
+          )}>
           {selectedItem?.label ?? placeholder}
         </span>
       </>

@@ -93,7 +93,7 @@ export const docs = {
     ],
     anatomy: [
       {name: 'Image', required: false, description: 'The preview image, displayed as a square with cover fit.'},
-      {name: 'Placeholder', required: false, description: 'An image silhouette icon shown when no src is provided.'},
+      {name: 'Placeholder', required: false, description: 'An image silhouette icon shown when no src is provided. Themes can override it with the thumbnail:placeholder icon registry key.'},
       {name: 'Remove button', required: false, description: 'An overlaid close button in the top-right corner. Appears when onRemove is set. Sits on a fixed --color-overlay scrim with an --color-on-dark icon to stay visible on any image.'},
       {name: 'Upload overlay', required: false, description: 'A semi-transparent overlay with a spinner, shown when isLoading is true and a src preview is available.'},
       {name: 'Skeleton', required: false, description: 'A shimmer animation shown when isLoading is true and no src is set.'},

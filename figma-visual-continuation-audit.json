@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-17",
+  "complete": false,
+  "latestReview": {
+    "date": "2026-10-18",
+    "status": "Validated fixes; not an exhaustive pixel-equivalence certification",
+    "figmaReview": "Reviewed Base/Compact sheets across remaining Chat, Container, Feedback, Action, Layout, Navigation, Table/List, Data Input and Shared families. Dropdown reviewed in four 12-variant batches plus original pill/open source. AppShell and some large calendar/metadata sheets were overview checks, not detailed pixel comparisons. Overlay original nine variants inspected after temporary sheet returned no image.",
+    "fixes": [
+      "Chat composer token glyphs: three oversized heading styles replaced by icon/supporting-medium-strong and matching foreground.",
+      "Chat message sample initial: existing text/supporting-large-strong style replaces unstyled Inter.",
+      "Disabled TreeList folder and folder-open glyphs: fg/disabled bindings; Minim code and CLI mirror use disabled foreground for text/icons without opacity double-dimming.",
+      "Dictation microphone semantic glyph maps to approved existing Minim headphone; password eyeSlash fallback remains unchanged."
+    ],
+    "verification": {
+      "fullUnitTests": 9749,
+      "fullUnitFiles": 349,
+      "followupUnitTests": 12,
+      "browserRegressionTests": 18,
+      "themeBuild": "passed",
+      "cliMirror": "all changed rules match; icon catalog import path differs by package layout as expected",
+      "eslint": "zero errors; existing non-null assertion warnings in visual QA"
+    },
+    "limitations": [
+      "Figma sheet review is not a browser screenshot comparison for every variant or user-defined slot content.",
+      "AppShell and large MetadataList/Calendar boards received overview inspection; browser Calendar geometry tests passed separately.",
+      "Temporary instance screenshots can differ from nested original rendering; pill open trigger verified against original node 11550:30251.",
+      "Real microphone capture was not activated.",
+      "Earlier continuation sections and inventory JSONs are dated snapshots, not current completion totals."
+    ]
+  },
+  "fileKey": "mHcauYaYWK3floQNsfolz6",
+  "reviewed": [
+    {
+      "id": "8400:9742",
+      "name": "button",
+      "variants": 504,
+      "modes": ["base", "compact"],
+      "method": "Seven variant sheets per mode, with direct master screenshot for ambiguous outline focus rendering. Browser shapes page and core implementation compared; not a pixel comparison of all browser states.",
+      "fixes": [
+        "84 loading variants: hide spinner label, preserve normal content footprint, center spinner with absolute positioning.",
+        "Embedded spinner uses medium ring with no duplicated outer vertical padding, matching core Button's small-spinner theme mapping.",
+        "84 focused variants: align stroke inside, matching code's inset focus ring."
+      ]
+    },
+    {
+      "id": "10481:30669",
+      "name": "token",
+      "variants": 48,
+      "modes": ["base", "compact"],
+      "method": "Default sheets and all 48 variants with icon/remove-button enabled viewed in both modes.",
+      "fixes": [
+        "All leading icons now use the existing Minim radio glyph and the caption icon typography/color bindings.",
+        "Amber's four variants now connect has-icon and has-remove-button; legacy empty end-content frames replaced with the existing real slot."
+      ]
+    },
+    {
+      "id": "10481:29146",
+      "name": "avatar",
+      "variants": 60,
+      "modes": ["base", "compact"],
+      "method": "Both sheets viewed; fixed-size exception verified against code. Initially blank Compact screenshot was successfully retaken. Browser initials inspected in both modes.",
+      "fixes": ["Minim theme and CLI template: initials use fg-muted; generic fallback icon uses fg-neutral; remove doubled avatar background."],
+      "remaining": [],
+      "followupFix": "Added theme-aware avatar:default registry key. Minim uses its existing person glyph, weight token 700, with named-size boxes 12/14/22/29/77px. Other themes preserve their original filled SVG fallback. CLI theme mirror updated."
+    }
+  ],
+  "continuation": {
+    "figmaSheetsInspected": [
+      {"id":"10481:30498","name":"timestamp","variants":32},
+      {"id":"10481:30392","name":"thumbnail","variants":5},
+      {"id":"10481:30317","name":"text","variants":2},
+      {"id":"10481:29620","name":"code","variants":3},
+      {"id":"8397:9731","name":"kbd","variants":4},
+      {"id":"10481:31028","name":"blockquote","variants":1},
+      {"id":"10481:29875","name":"heading","variants":4},
+      {"id":"10481:29534","name":"citation","variants":2},
+      {"id":"10481:30054","name":"markdown","variants":2},
+      {"id":"10481:29684","name":"code-block","variants":2},
+      {"id":"10481:29816","name":"empty-state","variants":2},
+      {"id":"10481:29422","name":"avatar-status-dot","variants":9},
+      {"id":"10481:29438","name":"avatar-group","variants":15}
+    ],
+    "scope": "Base and Compact sheets requested for 83 variants. Some multi-sheet captures returned incomplete images. Heading, Markdown, AvatarStatusDot and AvatarGroup were rechecked individually; incomplete or deduplicated captures are not evidence of exhaustive per-variant browser parity. No original Figma components changed during this continuation.",
+    "thumbnailFix": "Replace hard-coded image SVG with thumbnail:placeholder registry key. Minim maps to existing image-solid glyph, medium font-weight token, 22px Base / 20px Compact. Other themes retain original SVG through the registry default. CLI mirror updated.",
+    "verification": {
+      "unitTestsPassed":170,
+      "browserTestsPassed":4,
+      "browserScope":"Avatar initials/default person and Thumbnail placeholder; desktop/mobile, Base/Compact",
+      "coreBuild":"passed; subsequent Thumbnail changes compiled with build:esm",
+      "themeBuild":"passed",
+      "eslint":"passed for changed core/theme files",
+      "diffCheck":"passed"
+    },
+    "remaining":"Remaining families and exhaustive per-variant browser comparisons are still open. Do not interpret sheet coverage as completion of the entire library."
+  },
+  "verification": {
+    "themeTests": {"passed": 12, "failed": 0},
+    "avatarBrowserRegression": {"passed": 2, "failed": 0, "viewports": ["desktop", "mobile"], "modes": ["base", "compact"]},
+    "themeBuild": "passed",
+    "lint": "zero errors; five existing non-null-assertion warnings in visual QA tests",
+    "diffCheck": "passed"
+  },
+  "chatContinuation": {
+    "date": "2026-10-17",
+    "structuralScope": "Nine Chat families, 34 variants: system-message, message, send-button, dictation-button, tool-calls, composer-token-element, layout-scroll-button, composer-input, composer-drawer. Inspected properties, dimensions and missing text style connections, including hidden descendants.",
+    "figmaFixes": [
+      {"owner":"10794:31672","change":"Idle MD/LG headphone text incorrectly used heading-3. Applied existing icon/medium-strong and icon/large-strong styles. Base button heights corrected from 40/46 to 36/44."},
+      {"owner":"10794:31672","change":"Listening waveform frames were absolute-positioned outside their clipping parents. Restored auto-layout positioning for 10794:31679 and 10794:31687; both waveforms are visible again."},
+      {"owner":"10794:31702","change":"Removed duplicate Ring vertical padding in two running-state spinners using spacing/0, centered the instances in their status slots, and bound active arc fill to fg/muted to match code's subtle shade."}
+    ],
+    "visualScope": "Dictation four variants: source Base and temporary Compact sheet. ToolCalls eight variants: Base and Compact sheets, after repair. Temporary instances removed.",
+    "browserScope": "ChatDictationButton existing examples on desktop: LG 44x44 Base and 36x36 Compact; screenshots inspected. Real microphone recording was not initiated.",
+    "remaining": [
+      "Figma dictation uses headphone while code intentionally retains a microphone fallback. Shape parity is not complete.",
+      "ChatMessage avatar A has no text style; needs comparison before changing its geometry.",
+      "Several nested scaled glyphs have no text style; distinguish deliberate scaled glyph geometry from missing styles before mass replacement.",
+      "Other Chat families have structural inspection only; exhaustive browser parity remains open."
+    ],
+    "productionCodeChanged": false
+  },
+  "temporaryReviewNodes": "Removed in each screenshot call's finally block.",
+  "remaining": "All other pending per-variant visual comparisons remain open. Existing structural audit is separate."
+}

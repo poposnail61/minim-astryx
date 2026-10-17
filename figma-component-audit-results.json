@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-17",
+  "scope": "11 active component pages; icon drawings and legacy component-v2 excluded from layout changes but checked for deletion references",
+  "summary": {
+    "owners": 127,
+    "variants": 1637,
+    "nonzeroUnboundLayout": 0,
+    "nestedGlyphInsets": 8
+  },
+  "pages": [
+    {
+      "page": "Action",
+      "summary": {
+        "owners": 14,
+        "variants": 736,
+        "nonzeroUnboundLayout": 0,
+        "nestedGlyphInsets": 0
+      },
+      "issues": []
+    },
+    {
+      "page": "Chat",
+      "summary": {
+        "owners": 15,
+        "variants": 51,
+        "nonzeroUnboundLayout": 0,
+        "nestedGlyphInsets": 0
+      },
+      "issues": []
+    },
+    {
+      "page": "Container",
+      "summary": {
+        "owners": 5,
+        "variants": 65,
+        "nonzeroUnboundLayout": 0,
+        "nestedGlyphInsets": 0
+      },
+      "issues": []
+    },
+    {
+      "page": "Content",
+      "summary": {
+        "owners": 15,
+        "variants": 191,
+        "nonzeroUnboundLayout": 0,
+        "nestedGlyphInsets": 4
+      },
+      "issues": []
+    },
+    {
+      "page": "Data Input",
+      "summary": {
+        "owners": 19,
+        "variants": 216,
+        "nonzeroUnboundLayout": 0,
+        "nestedGlyphInsets": 0
+      },
+      "issues": []
+    },
+    {
+      "page": "Feedback & Status",
+      "summary": {
+        "owners": 6,
+        "variants": 61,
+        "nonzeroUnboundLayout": 0,
+        "nestedGlyphInsets": 0
+      },
+      "issues": []
+    },
+    {
+      "page": "Layout",
+      "summary": {
+        "owners": 6,
+        "variants": 45,
+        "nonzeroUnboundLayout": 0,
+        "nestedGlyphInsets": 0
+      },
+      "issues": []
+    },
+    {
+      "page": "Navigation",
+      "summary": {
+        "owners": 18,
+        "variants": 69,
+        "nonzeroUnboundLayout": 0,
+        "nestedGlyphInsets": 4
+      },
+      "issues": []
+    },
+    {
+      "page": "Overlay",
+      "summary": {
+        "owners": 9,
+        "variants": 19,
+        "nonzeroUnboundLayout": 0,
+        "nestedGlyphInsets": 0
+      },
+      "issues": []
+    },
+    {
+      "page": "Table & List",
+      "summary": {
+        "owners": 11,
+        "variants": 53,
+        "nonzeroUnboundLayout": 0,
+        "nestedGlyphInsets": 0
+      },
+      "issues": []
+    },
+    {
+      "page": "Shared / Slots & Helpers",
+      "summary": {
+        "owners": 9,
+        "variants": 131,
+        "nonzeroUnboundLayout": 0,
+        "nestedGlyphInsets": 0
+      },
+      "issues": []
+    }
+  ],
+  "changes": {
+    "deletedUnusedHelpers": [
+      "7959:17459",
+      "7959:17481",
+      "7959:17492"
+    ],
+    "removedChatComposerProperties": [
+      "header-actions#12015:0",
+      "header-context#12015:5",
+      "footer-actions#12015:10"
+    ],
+    "replacedTokenIconSlots": [
+      "10538:29925",
+      "10538:29945",
+      "10538:29965",
+      "10538:30025",
+      "10538:30045",
+      "10538:30085"
+    ]
+  },
+  "exceptions": [
+    "Item density compact/balanced/spacious preserved as explicitly requested",
+    "Zero layout resets and inert one-child gaps are not counted as effective spacing",
+    "8 inset sides in 2 scaled vector glyphs (Citation globe, TopNav category) preserve their geometry; these are not component layout spacing"
+  ],
+  "verification": {
+    "propertyCodeEnumCheck": "passed for mapped closed code unions",
+    "visualCoverage": "Selected Figma variant sheets reviewed; browser geometry suite passed for desktop/mobile Base/Compact. Not an exhaustive per-variant pixel comparison.",
+    "coreBuild": "passed; Minim theme build also passed",
+    "eslint": "0 errors; 5 existing non-null assertion warnings in visual QA",
+    "unitSuite": "349 files / 9743 tests: 9740 passed; 3 DateTimeInput touch tests timed out in full run. Isolated 39-test file subsequently passed.",
+    "browserRegression": "8 general visual/geometry tests plus 2 ChatComposer desktop/mobile regression tests passed",
+    "componentPageSweep": "94 component documentation routes, Base and Compact: no horizontal overflow or failed images after retrying initial compilation and hidden-heading selection failures",
+    "targetedTestsAfterFinalChanges": "250 passed across 22 files",
+    "previewServer": "Original port 5181 restored after preserving and rebuilding stale webpack cache; /examples/shapes returns HTTP 200",
+    "chatVisualFix": "Mapped radius-chat to radius/container; neutral send/stop surfaces and standard button radius. Browser verified outer radius 20/16px, button radius 12/10px, neutral-solid background and disabled opacity 0.3."
+  },
+  "remaining": [
+    "Exhaustive human visual comparison of every individual variant is not completed."
+  ]
+}
